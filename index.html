@@ -1,152 +1,1519 @@
+
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#000000"><title>DAZER Estándar</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#000;color:#fff;font:600 16px/1.3 "Open Sans",system-ui,sans-serif}
-#app{max-width:480px;margin:auto;min-height:100dvh;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-main{flex:1;padding:12px;overflow:auto}
-h2{margin:6px 0 10px}
-.box{border:2px solid #fff;border-radius:6px 16px 8px 14px;margin:12px;padding:14px;text-align:center}
-.bar{display:flex;align-items:center;gap:8px;justify-content:space-between;padding:8px 12px;border-bottom:2px solid #fff}
-.logo{margin:0;font-size:28px;line-height:1}
-.logo b{display:inline-block;width:30px;height:30px;border:2px solid #fff;border-radius:50%;font-size:14px;text-align:center;line-height:26px;margin-left:6px}
-.logo small{display:block;font-size:12px;margin-top:2px}
-button{background:#000;color:#fff;border:2px solid #fff;border-radius:4px 10px 5px 9px;padding:10px;margin:6px 0;font:inherit;cursor:pointer;width:100%}
-button:focus-visible,.in:focus-visible{outline:3px solid #a35bff}
-.bar button{width:auto;margin:0;padding:6px 10px}
-.in{display:block;width:100%;padding:10px;margin:6px 0;background:#fff;color:#000;border:0;border-radius:4px;font:inherit}
-.pp{color:#7a1fd6;background:#fff;font-weight:800}
-.ok{background:#0a7a0a}.no{background:#b00}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.card,.card2{background:#eee;color:#000;border-radius:6px;padding:8px;text-align:center;word-break:break-word}
-.av{display:block;background:#000;color:#fff;font-style:normal;font-size:40px;padding:14px 0;margin-bottom:6px}
-.avi{display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 6px}
-.card button{font-size:13px}
-.card2 video,.card2 img{width:100%;border-radius:4px}
-.on{color:#080;display:block}.off{color:#c00;display:block}
-nav{display:flex;overflow-x:auto;border-top:2px solid #fff}
-nav button{flex:1 0 58px;border:0;font-size:10px;margin:0;padding:8px 2px}
-nav span{display:block;font-size:20px}
-nav .act{color:#f33}
-footer{text-align:center;padding:8px;font:14px Georgia,serif;border-top:2px solid #fff}
-.ms{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
-.b{background:#fff;color:#000;border-radius:12px;padding:8px 12px;margin:0;max-width:80%;align-self:flex-start;word-break:break-word}
-.b.yo{align-self:flex-end;background:#d9b8ff}
-.env{display:flex;gap:8px;padding:8px}.env button{width:56px;margin:6px 0}
-.who{font-size:20px}
-.hero{text-align:center;padding-top:60px}.hero h1{font-size:56px;margin:0}
-.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#7a1fd6;padding:10px 16px;border-radius:8px;z-index:9;max-width:90%}
-</style></head><body>
-<div id="app"></div>
+<html lang="es" class="h-full bg-black text-white">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAZER ESTÁNDAR / VOLUMEN 2 DIRECT@R</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Archivo Black, Alice, and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Archivo+Black&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            archivo: ['"Archivo Black"', 'sans-serif'],
+            alice: ['Alice', 'serif'],
+          },
+          colors: {
+            dazer: {
+              black: '#000000',
+              card: '#0c0c0c',
+              border: '#ffffff',
+              purple: '#a855f7',
+              deepPurple: '#6b21a8',
+              green: '#22c55e',
+              pink: '#ec4899',
+              red: '#ef4444',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Archivo Black and Alice font utility overrides */
+    .font-archivo-title {
+      font-family: 'Archivo Black', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .font-alice-subtitle {
+      font-family: 'Alice', serif;
+      font-style: italic;
+    }
+
+    /* High contrast symmetrical borders and buttons */
+    .dazer-box {
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    }
+    
+    .dazer-btn {
+      border: 2px solid #ffffff;
+      transition: all 0.2s ease;
+      font-family: 'Archivo Black', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    .dazer-btn:hover {
+      background-color: #ffffff;
+      color: #000000;
+      transform: translateY(-1px);
+    }
+
+    /* Barrido Morado Animation (Purple Sweep Effect) */
+    @keyframes purpleSweep {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .purple-sweep-bg {
+      background: linear-gradient(90deg, rgba(168,85,247,0.15) 0%, rgba(168,85,247,0.85) 50%, rgba(168,85,247,0.15) 100%);
+      background-size: 200% 100%;
+      animation: purpleSweep 3.5s infinite linear;
+    }
+
+    .purple-sweep-border {
+      position: relative;
+      border: 2px solid #a855f7;
+      box-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
+    }
+
+    .purple-sweep-border::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(90deg, #9333ea, #ec4899, #3b82f6, #9333ea);
+      background-size: 300% 300%;
+      animation: purpleSweep 4s ease infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Dynamic Theme Presets */
+    body.theme-nocturno { --bg-color: #000000; --text-color: #ffffff; --accent-color: #a855f7; }
+    body.theme-dia { --bg-color: #1e3a8a; --text-color: #ffffff; --accent-color: #22c55e; }
+    body.theme-coquette { --bg-color: #831843; --text-color: #ffffff; --accent-color: #f472b6; }
+    body.theme-fuego { --bg-color: #7f1d1d; --text-color: #ffffff; --accent-color: #f97316; }
+    body.theme-sexy { --bg-color: #581c87; --text-color: #ffffff; --accent-color: #ec4899; }
+    body.theme-atardecer { --bg-color: #0c4a6e; --text-color: #ffffff; --accent-color: #38bdf8; }
+    body.theme-secreto { --bg-color: #022c22; --text-color: #34d399; --accent-color: #10b981; }
+    body.theme-normal { --bg-color: #111827; --text-color: #f3f4f6; --accent-color: #6366f1; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Brain Pulse Animation */
+    @keyframes pulse-brain {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px #ef4444); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 25px #ef4444); }
+    }
+    .brain-pulse {
+      animation: pulse-brain 2s infinite ease-in-out;
+    }
+
+    /* Glitch Background */
+    .glitch-bg {
+      background: linear-gradient(45deg, #18002c, #00122e, #1a0000);
+      background-size: 400% 400%;
+      animation: glitchGradient 8s ease infinite;
+    }
+    @keyframes glitchGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="h-full font-sans antialiased theme-nocturno flex flex-col select-none">
+
+<div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-full max-w-sm px-4 pointer-events-none"></div>
+
+<div id="pwa-screen" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center p-6 text-center">
+  <div class="max-w-md w-full border-4 border-white p-6 flex flex-col items-center space-y-6 bg-black shadow-2xl">
+    <div class="text-center space-y-1">
+      <h1 class="font-archivo-title text-4xl text-white flex items-center justify-center gap-2">
+        DAZER <span class="inline-block w-6 h-6 border-2 border-white rounded-full bg-white text-black text-xs leading-5">▲</span>
+      </h1>
+      <p class="font-alice-subtitle text-lg text-purple-400">Volumen 2 Director</p>
+    </div>
+
+    <p class="text-base font-archivo-title">LLEVA A DAZER A TU PANTALLA DE INICIO</p>
+
+    <div class="w-full space-y-3">
+      <button onclick="copyAppLink()" class="w-full py-3.5 text-base dazer-btn bg-black text-white hover:bg-white hover:text-black">
+        Copiar enlace
+      </button>
+      <button onclick="installAppPrompt()" class="w-full py-3.5 text-base dazer-btn bg-black text-white hover:bg-white hover:text-black">
+        Instalar App
+      </button>
+      <button onclick="goToLanguageScreen()" class="w-full py-3.5 text-base dazer-btn bg-black text-white hover:bg-white hover:text-black">
+        Acceso directo
+      </button>
+      <button onclick="goToLanguageScreen()" class="w-full py-3.5 text-base dazer-btn bg-black text-white hover:bg-white hover:text-black">
+        Seguir en Web
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="language-screen" class="fixed inset-0 z-40 bg-black flex flex-col items-center justify-start p-6 overflow-y-auto hidden">
+  <div class="max-w-md w-full border-4 border-white p-6 my-auto flex flex-col items-center space-y-4 bg-black">
+    <div class="text-center space-y-1">
+      <h1 class="font-archivo-title text-3xl text-white flex items-center justify-center gap-2">
+        DAZER <span class="inline-block w-5 h-5 border-2 border-white rounded-full bg-white text-black text-xs leading-4">▲</span>
+      </h1>
+      <p class="font-alice-subtitle text-sm text-purple-300">Selección de Idioma Global</p>
+    </div>
+
+    <h2 class="text-lg font-archivo-title text-white tracking-wider uppercase">ESCOGER IDIOMA</h2>
+    
+    <div class="text-red-500 font-extrabold text-center text-sm leading-tight animate-pulse border border-red-500 p-2 w-full bg-red-950/30">
+      ¡CUIDADO!
+      <p class="text-xs text-red-300 font-normal mt-0.5">En el idioma que escoja se traducirá toda la plataforma.</p>
+    </div>
+
+    <div class="w-full space-y-2 pt-2">
+      <div onclick="selectLanguage('Deutsch')" class="flex justify-between items-center p-3 border-2 border-white cursor-pointer hover:bg-white hover:text-black">
+        <span class="text-base font-archivo-title">Deutsch</span>
+        <span class="text-[10px] font-bold px-2 py-0.5 bg-zinc-800 text-gray-300 border border-zinc-600">PRÓXIMAMENTE</span>
+      </div>
+      <div onclick="selectLanguage('English')" class="flex justify-between items-center p-3 border-2 border-white cursor-pointer hover:bg-white hover:text-black">
+        <span class="text-base font-archivo-title">English</span>
+        <span class="text-[10px] font-bold px-2 py-0.5 bg-zinc-800 text-gray-300 border border-zinc-600">PRÓXIMAMENTE</span>
+      </div>
+      <div onclick="selectLanguage('Español')" class="flex justify-between items-center p-3 border-2 border-purple-500 bg-purple-950/40 cursor-pointer hover:bg-purple-600 hover:text-white">
+        <span class="text-base font-archivo-title text-purple-300">Español (Principal)</span>
+        <span class="text-[10px] font-bold px-2 py-0.5 bg-purple-500 text-black">ACTIVO</span>
+      </div>
+    </div>
+
+    <button onclick="goToAuthScreen()" class="w-full mt-4 py-3 border-2 border-white text-base font-archivo-title bg-white text-black hover:bg-gray-200">
+      CONTINUAR
+    </button>
+  </div>
+</div>
+
+<div id="auth-screen" class="fixed inset-0 z-30 bg-black flex flex-col p-4 overflow-y-auto hidden">
+  <!-- Top Navigation Controls -->
+  <div class="flex justify-between items-center border-2 border-white p-2 mb-4 bg-black">
+    <div class="flex gap-2">
+      <button onclick="openRegisterModal()" class="px-3 py-1 border border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        + Crear Cuenta
+      </button>
+      <button onclick="openPedirCuentaModal()" class="px-3 py-1 border border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        Pedir Cuenta
+      </button>
+    </div>
+    <div class="flex gap-2">
+      <button onclick="openHelpModal()" class="px-3 py-1 border border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        Ayuda
+      </button>
+      <button onclick="exitApp()" class="px-3 py-1 border border-white font-archivo-title text-xs hover:bg-red-600 hover:text-white">
+        Salir
+      </button>
+    </div>
+  </div>
+
+  <!-- Header Title with Archivo Black & Alice Fonts -->
+  <div class="text-center my-3 space-y-1">
+    <h1 class="font-archivo-title text-4xl text-white flex items-center justify-center gap-2">
+      DAZER <span class="inline-block w-6 h-6 border-2 border-white rounded-full bg-white text-black text-xs leading-5">▲</span>
+    </h1>
+    <p class="font-alice-subtitle text-base text-purple-400">Acceso Multicuenta Redes Sociales</p>
+  </div>
+
+  <!-- TikTok / Instagram / Twitter / YouTube Style Login Section -->
+  <div class="max-w-md mx-auto w-full bg-zinc-950 border-2 border-white p-5 my-2 space-y-4">
+    <h2 class="font-archivo-title text-center text-lg text-white border-b-2 border-white pb-2 uppercase">
+      INICIAR SESIÓN O METER CUENTA
+    </h2>
+
+    <!-- Email & Password Form linked to Firebase Auth -->
+    <form id="email-login-form" onsubmit="handleEmailLogin(event)" class="space-y-3">
+      <div>
+        <label class="block text-xs font-archivo-title text-gray-300 mb-1">CORREO ELECTRÓNICO</label>
+        <input type="email" id="login-email" required placeholder="tuemail@ejemplo.com"
+               class="w-full bg-black border-2 border-white text-white p-2.5 text-sm font-bold focus:outline-none focus:border-purple-500">
+      </div>
+      <div>
+        <label class="block text-xs font-archivo-title text-gray-300 mb-1">CONTRASEÑA</label>
+        <input type="password" id="login-password" required placeholder="••••••••"
+               class="w-full bg-black border-2 border-white text-white p-2.5 text-sm font-bold focus:outline-none focus:border-purple-500">
+      </div>
+      <button type="submit" class="w-full py-3 border-2 border-purple-500 bg-purple-900/60 text-white font-archivo-title hover:bg-purple-600 transition">
+        ENTRAR CON MI CORREO
+      </button>
+    </form>
+
+    <div class="relative flex py-1 items-center">
+      <div class="flex-grow border-t border-gray-700"></div>
+      <span class="flex-shrink mx-3 text-xs font-archivo-title text-gray-400">O INICIA CON REDES</span>
+      <div class="flex-grow border-t border-gray-700"></div>
+    </div>
+
+    <!-- Social Login Buttons Grid -->
+    <div class="grid grid-cols-2 gap-2 text-xs font-archivo-title">
+      <button onclick="loginWithGoogle()" class="p-2.5 border border-white bg-zinc-900 hover:bg-white hover:text-black flex items-center justify-center gap-2">
+        <i class="fa-brands fa-google text-red-500"></i> Google
+      </button>
+      <button onclick="mockSocialLogin('TikTok')" class="p-2.5 border border-white bg-zinc-900 hover:bg-white hover:text-black flex items-center justify-center gap-2">
+        <i class="fa-brands fa-tiktok text-cyan-400"></i> TikTok
+      </button>
+      <button onclick="mockSocialLogin('Instagram')" class="p-2.5 border border-white bg-zinc-900 hover:bg-white hover:text-black flex items-center justify-center gap-2">
+        <i class="fa-brands fa-instagram text-pink-500"></i> Instagram
+      </button>
+      <button onclick="mockSocialLogin('X / Twitter')" class="p-2.5 border border-white bg-zinc-900 hover:bg-white hover:text-black flex items-center justify-center gap-2">
+        <i class="fa-brands fa-x-twitter text-white"></i> Twitter / X
+      </button>
+    </div>
+  </div>
+
+  <!-- Symmetrical Account Search Input -->
+  <div class="max-w-md mx-auto w-full my-4">
+    <input type="text" id="account-search-input" onkeyup="filterAccounts()" placeholder="Busca tu cuenta existente por nombre..." 
+           class="w-full bg-black border-2 border-white text-white p-3 text-center text-sm font-archivo-title placeholder-gray-400 focus:outline-none focus:border-purple-500">
+  </div>
+
+  <!-- Symmetrical Multi-Account Cards Grid -->
+  <div id="accounts-grid" class="max-w-xl mx-auto w-full grid grid-cols-2 gap-4 pb-12">
+    <div class="account-card border-2 border-white p-4 flex flex-col items-center bg-black relative">
+      <div class="w-20 h-20 rounded-full border-2 border-white flex items-center justify-center bg-zinc-900 mb-2">
+        <i class="fa-solid fa-user text-4xl text-white"></i>
+      </div>
+      <h3 class="font-archivo-title text-xl text-white uppercase tracking-wide">JOSE</h3>
+      <div class="flex items-center gap-1.5 my-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600 inline-block"></span>
+        <span class="text-xs font-bold text-red-500">DESCONECTADO</span>
+      </div>
+      <button onclick="selectUserAccount('JOSE')" class="w-full py-2 border-2 border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        ENTRAR
+      </button>
+    </div>
+
+    <div class="account-card border-2 border-white p-4 flex flex-col items-center bg-black relative">
+      <div class="w-20 h-20 rounded-full border-2 border-white flex items-center justify-center bg-zinc-900 mb-2">
+        <i class="fa-solid fa-user text-4xl text-white"></i>
+      </div>
+      <h3 class="font-archivo-title text-xl text-white uppercase tracking-wide">BONJU</h3>
+      <div class="flex items-center gap-1.5 my-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+        <span class="text-xs font-bold text-green-400">CONECTADO</span>
+      </div>
+      <button onclick="selectUserAccount('BONJU')" class="w-full py-2 border-2 border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        ENTRAR
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer Banner -->
+  <div class="mt-auto border-t-4 border-white pt-2 text-center bg-black">
+    <div class="flex items-center justify-center gap-3">
+      <span class="text-red-600 text-xl">⛩️</span>
+      <span class="font-archivo-title text-base tracking-wider text-white">DAZER ESTANDAR / VOLUMEN 2</span>
+    </div>
+  </div>
+</div>
+
+<div id="pedir-cuenta-modal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 hidden">
+  <div class="max-w-md w-full border-4 border-white bg-black p-6 relative flex flex-col items-center text-center">
+    <button onclick="closeModal('pedir-cuenta-modal')" class="absolute top-2 right-4 text-3xl font-black text-white hover:text-red-500">X</button>
+    
+    <div class="mb-4">
+      <h2 class="font-archivo-title text-2xl">DAZER</h2>
+      <p class="font-alice-subtitle text-xs text-purple-400">Solicitud Directa de Cuenta</p>
+    </div>
+
+    <div class="border-2 border-white p-4 text-left space-y-3 text-xs font-semibold w-full">
+      <p class="text-center font-archivo-title text-sm text-yellow-400">SE ENVIARÁ AL CORREO ELECTRÓNICO:</p>
+      <p class="text-center font-mono text-purple-400 font-bold underline">titanacorazado2009@gmail.com</p>
+      
+      <div class="bg-zinc-900 p-3 border border-zinc-700 space-y-2">
+        <p class="font-bold text-white text-xs">{solicito una cuenta en DAZER ESTÁNDAR}</p>
+        <p class="text-[11px] text-gray-300">MIS CREDENCIALES SON:</p>
+        <div>
+          <label class="text-[10px] text-gray-400">USUARIO:</label>
+          <input id="pedir-user" type="text" class="bg-black border border-gray-600 p-1 text-white w-full text-xs" placeholder="tu usuario">
+        </div>
+        <div>
+          <label class="text-[10px] text-gray-400">FECHA NACIMIENTO:</label>
+          <input id="pedir-fecha" type="date" class="bg-black border border-gray-600 p-1 text-white w-full text-xs">
+        </div>
+        <div>
+          <label class="text-[10px] text-gray-400">CONTRASEÑA:</label>
+          <input id="pedir-pass" type="password" class="bg-black border border-gray-600 p-1 text-white w-full text-xs" placeholder="tu clave">
+        </div>
+        <div>
+          <label class="text-[10px] text-gray-400">TU CORREO:</label>
+          <input id="pedir-email" type="email" class="bg-black border border-gray-600 p-1 text-white w-full text-xs" placeholder="ejemplo@gmail.com">
+        </div>
+      </div>
+    </div>
+
+    <button onclick="sendAccountRequest()" class="mt-4 w-full py-3 border-2 border-white font-archivo-title text-sm bg-white text-black hover:bg-gray-200">
+      ENVIAR SOLICITUD POR CORREO
+    </button>
+  </div>
+</div>
+
+<div id="ayuda-modal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 hidden">
+  <div class="max-w-md w-full border-4 border-white bg-black p-6 relative flex flex-col items-center">
+    <button onclick="closeModal('ayuda-modal')" class="absolute top-2 right-4 text-3xl font-black text-white hover:text-red-500">X</button>
+    
+    <div class="mb-4 text-center">
+      <h2 class="font-archivo-title text-2xl">DAZER</h2>
+      <p class="font-alice-subtitle text-xs text-purple-400">Centro de Ayuda</p>
+    </div>
+
+    <div class="border-2 border-white p-4 w-full space-y-3 font-bold text-xs">
+      <p class="text-yellow-400 text-center text-sm font-archivo-title">GUÍA DE USO Y REGISTRO:</p>
+      <p class="p-2 border border-white bg-zinc-900">1. Crear cuenta mediante Firebase Auth (Correo) o Google Directo.</p>
+      <p class="p-2 border border-white bg-zinc-900">2. Buscar cuenta en el buscador frontal e iniciar sesión instantánea.</p>
+      <p class="p-2 border border-white bg-zinc-900">3. Configurar Verkehrsmasken (VPN/Privacidad) y consultar la tienda GDZ.</p>
+    </div>
+  </div>
+</div>
+
+<div id="crear-cuenta-modal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 hidden">
+  <div class="max-w-md w-full border-4 border-white bg-black p-6 relative flex flex-col items-center text-center">
+    <button onclick="closeModal('crear-cuenta-modal')" class="absolute top-2 right-4 text-3xl font-black text-white hover:text-red-500">X</button>
+    
+    <div class="mb-2">
+      <h2 class="font-archivo-title text-2xl">DAZER <span class="text-xs border border-white rounded-full px-1">▲</span></h2>
+      <p class="font-alice-subtitle text-xs text-gray-400">Creación de Cuenta Creador</p>
+    </div>
+
+    <p class="text-xs font-archivo-title text-purple-400 uppercase tracking-wider mb-3">REGISTRO DE USUARIO CON FIREBASE AUTH</p>
+
+    <form onsubmit="handleAccountCreate(event)" class="w-full space-y-2.5">
+      <input type="text" id="reg-username" required placeholder="NOMBRE DE USUARIO" 
+             class="w-full bg-black border-2 border-white text-white p-2.5 text-xs font-archivo-title text-center placeholder-gray-400 focus:outline-none">
+      <input type="email" id="reg-email" required placeholder="CORREO ELECTRÓNICO" 
+             class="w-full bg-black border-2 border-white text-white p-2.5 text-xs font-archivo-title text-center placeholder-gray-400 focus:outline-none">
+      <input type="password" id="reg-password" required placeholder="CONTRASEÑA" 
+             class="w-full bg-black border-2 border-white text-white p-2.5 text-xs font-archivo-title text-center placeholder-gray-400 focus:outline-none">
+      <input type="date" id="reg-dob" required 
+             class="w-full bg-black border-2 border-white text-white p-2.5 text-xs font-archivo-title text-center focus:outline-none">
+      <select id="reg-subscription" class="w-full bg-black border-2 border-white text-white p-2.5 text-xs font-archivo-title text-center focus:outline-none">
+        <option value="GRATUITO">SUSCRIPCIÓN: GRATUITO</option>
+        <option value="SCHEITEL">SUSCRIPCIÓN: SCHEITEL</option>
+        <option value="HAIKU">SUSCRIPCIÓN: HAIKU (PREMIUM)</option>
+        <option value="ADMIN">SUSCRIPCIÓN: ADMIN</option>
+        <option value="DIRECT@R">SUSCRIPCIÓN: DIRECT@R</option>
+      </select>
+
+      <button type="submit" class="w-full py-3.5 border-2 border-purple-500 bg-purple-900/60 text-purple-100 font-archivo-title text-base hover:bg-purple-600 transition">
+        CREAR E INSERTAR CUENTA
+      </button>
+    </form>
+  </div>
+</div>
+
+<div id="rules-screen" class="fixed inset-0 z-50 bg-black flex flex-col p-6 overflow-y-auto hidden">
+  <div class="max-w-md mx-auto w-full border-4 border-white p-6 my-auto flex flex-col items-center text-center space-y-4">
+    <div class="flex justify-between w-full items-center border-b-2 border-white pb-2">
+      <div class="text-left">
+        <h2 class="font-archivo-title text-2xl">DAZER ▲</h2>
+        <p class="font-alice-subtitle text-xs text-purple-400">Términos de la Comunidad</p>
+      </div>
+      <button onclick="rejectRules()" class="px-3 py-1 border border-white text-xs font-archivo-title hover:bg-red-600">Salir</button>
+    </div>
+
+    <h3 class="text-lg font-archivo-title tracking-wider border-b-2 border-white pb-1 w-full">NORMAS DE COMUNIDAD</h3>
+
+    <div class="text-left font-extrabold text-xs space-y-1.5 w-full text-red-500 uppercase">
+      <p>• NO AL CONTENIDO SIN SENTIDO</p>
+      <p>• NO AL PLAGIO</p>
+      <p>• NO AL SPAM</p>
+      <p>• NO AL CIBERBULLYING</p>
+      <p>• NO AL STALKER</p>
+      <p>• NO A LA PORNOGRAFÍA INFANTIL</p>
+      <p>• NO AL GORE</p>
+      <p>• NO A PERSONAS OBLIGADAS A HACER CONTENIDO</p>
+    </div>
+
+    <div class="w-full space-y-2 pt-3">
+      <button onclick="acceptRules()" class="w-full py-3 border-2 border-green-500 bg-green-950 text-green-300 font-archivo-title text-xs hover:bg-green-600 hover:text-white transition">
+        ACEPTAR NORMAS Y CONTINUAR
+      </button>
+      <button onclick="rejectRules()" class="w-full py-3 border-2 border-red-500 bg-red-950 text-red-300 font-archivo-title text-xs hover:bg-red-600 hover:text-white transition">
+        RECHAZAR Y SALIR
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="main-app" class="h-full flex flex-col overflow-hidden hidden">
+  <!-- Main Symmetrical Header -->
+  <header class="border-b-4 border-white bg-black p-3 flex justify-between items-center shrink-0">
+    <div class="flex items-center gap-3">
+      <div class="text-left">
+        <h1 class="font-archivo-title text-xl tracking-wider flex items-center gap-1">
+          DAZER <span class="text-xs border border-white rounded-full w-4 h-4 inline-flex items-center justify-center">▲</span>
+        </h1>
+        <p class="font-alice-subtitle text-xs text-purple-400">Estándar Vol. 2</p>
+      </div>
+    </div>
+
+    <!-- Active User Profile Badge with Purple Sweep Glow Effect -->
+    <div class="flex items-center gap-3">
+      <div class="text-right purple-sweep-border px-3 py-1 rounded-lg bg-black">
+        <p id="current-user-name" class="font-archivo-title text-sm text-white uppercase">JOSE</p>
+        <p id="current-user-role" class="text-[10px] font-bold text-purple-400 tracking-wider">DIRECT@R</p>
+      </div>
+      <button onclick="logoutApp()" class="px-3 py-1.5 border-2 border-white font-archivo-title text-xs hover:bg-white hover:text-black">
+        Salir
+      </button>
+    </div>
+  </header>
+
+  <!-- Viewport Container -->
+  <main class="flex-1 overflow-y-auto p-4 relative" id="app-content-viewport">
+
+    <section id="view-sala" class="space-y-6">
+      <div class="text-center py-4 border-b-2 border-white">
+        <h2 class="font-archivo-title text-3xl tracking-widest uppercase">DAZER ESTÁNDAR</h2>
+        <p class="font-alice-subtitle text-base text-purple-400 mt-1">Bienvenid@ <span id="sala-welcome-user" class="font-archivo-title text-white"></span></p>
+      </div>
+
+      <!-- Symmetrical Search Bar -->
+      <div class="max-w-xl mx-auto space-y-2">
+        <div class="relative flex items-center">
+          <input type="text" id="sala-search-input" placeholder="Buscar en la plataforma..." 
+                 class="w-full bg-black border-2 border-white p-3 pr-12 text-white font-bold text-sm focus:outline-none focus:border-purple-500">
+          <button onclick="triggerSalaSearch()" class="absolute right-3 p-2 text-white text-lg">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <p class="text-center text-xs font-archivo-title text-gray-400 tracking-wider uppercase">BUSCA CONTENIDO SIN CENSURA EN EL TEXTO</p>
+      </div>
+
+      <!-- Symmetrical Quick Navigation Grid -->
+      <div class="grid grid-cols-2 gap-4 max-w-xl mx-auto pt-2">
+        <div onclick="switchTab('kurzclips')" class="border-2 border-white p-6 text-center cursor-pointer hover:bg-white hover:text-black transition">
+          <h3 class="font-archivo-title text-2xl tracking-wider">KURZCLIPS</h3>
+        </div>
+        <div onclick="switchTab('footage')" class="border-2 border-white p-6 text-center cursor-pointer hover:bg-white hover:text-black transition">
+          <h3 class="font-archivo-title text-2xl tracking-wider">FOOTAGE</h3>
+        </div>
+        <div onclick="switchTab('schnapps')" class="border-2 border-white p-6 text-center cursor-pointer hover:bg-white hover:text-black transition">
+          <h3 class="font-archivo-title text-2xl tracking-wider">SCHNAPPS</h3>
+        </div>
+        <div onclick="switchTab('spielfilm')" class="border-2 border-white p-6 text-center cursor-pointer hover:bg-white hover:text-black transition">
+          <h3 class="font-archivo-title text-2xl tracking-wider">SPIELFILM</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-navegador" class="space-y-6 hidden">
+      <div class="text-center py-2">
+        <h2 class="font-archivo-title text-2xl text-red-500 uppercase tracking-widest">CONTENIDO INTELIGENTE (C.I)</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 max-w-xl mx-auto">
+        <button onclick="switchTab('kurzclips')" class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-white hover:text-black">KURZCLIPS</button>
+        <button class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-red-600 hover:text-white">秘密 SECRETO</button>
+        <button onclick="switchTab('footage')" class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-white hover:text-black">FOOTAGE</button>
+        <button onclick="switchExclusiveTab('aline')" class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-purple-600 hover:text-white">ALINE</button>
+        <button onclick="switchTab('schnapps')" class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-white hover:text-black">SCHNAPPS</button>
+        <button onclick="switchTab('spielfilm')" class="border-2 border-white p-4 font-archivo-title text-lg hover:bg-white hover:text-black">SPIELFILM</button>
+      </div>
+
+      <div class="max-w-md mx-auto text-center pt-6 space-y-3">
+        <div class="w-28 h-28 mx-auto text-red-600 brain-pulse flex items-center justify-center">
+          <i class="fa-solid fa-brain text-7xl"></i>
+        </div>
+        <p class="font-archivo-title text-xs text-red-500 tracking-widest uppercase">ESCANEAR HISTORIAL EN BUSCA DE COINCIDENCIAS</p>
+      </div>
+    </section>
+
+    <section id="view-kurzclips" class="space-y-4 hidden">
+      <div class="flex justify-between items-center border-b-2 border-white pb-2">
+        <h2 class="font-archivo-title text-2xl flex items-center gap-2">
+          <i class="fa-solid fa-square-poll-vertical text-purple-500"></i> KURZCLIPS
+        </h2>
+        <i class="fa-solid fa-globe text-xl text-emerald-400 animate-spin"></i>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-4">
+        <div class="border-2 border-dashed border-zinc-700 p-4 text-center">
+          <button onclick="addNewClipPrompt('kurzclips')" class="px-4 py-2 bg-purple-900/60 border border-purple-500 font-archivo-title text-xs hover:bg-purple-600 text-white">
+            + SUBIR KURZCLIP
+          </button>
+        </div>
+
+        <div id="kurzclips-feed" class="space-y-4">
+          <div class="border-2 border-white p-4 bg-zinc-950 space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-purple-400">@usuario_dazer</span>
+              <span class="text-xs text-gray-400">Hace 10 min</span>
+            </div>
+            <div class="h-64 bg-zinc-900 border border-zinc-800 flex items-center justify-center relative group">
+              <i class="fa-solid fa-play text-5xl text-white group-hover:scale-125 transition"></i>
+              <span class="absolute bottom-2 right-2 text-xs bg-black/80 px-2 py-1 font-mono">0:15</span>
+            </div>
+            <div class="flex justify-between text-xs font-archivo-title pt-2 border-t border-zinc-800">
+              <button class="hover:text-red-500"><i class="fa-regular fa-heart"></i> 1.2k</button>
+              <button class="hover:text-blue-500"><i class="fa-regular fa-comment"></i> 43</button>
+              <button class="hover:text-green-500"><i class="fa-solid fa-share"></i> Compartir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-footage" class="space-y-4 hidden">
+      <div class="flex justify-between items-center border-b-2 border-white pb-2">
+        <h2 class="font-archivo-title text-2xl flex items-center gap-2">
+          <i class="fa-solid fa-circle-play text-red-500"></i> FOOTAGE
+        </h2>
+        <i class="fa-solid fa-globe text-xl text-emerald-400"></i>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-4">
+        <div class="border-2 border-dashed border-zinc-700 p-4 text-center">
+          <button onclick="addNewClipPrompt('footage')" class="px-4 py-2 bg-red-900/60 border border-red-500 font-archivo-title text-xs hover:bg-red-600 text-white">
+            + AGREGAR FOOTAGE
+          </button>
+        </div>
+
+        <div id="footage-feed" class="grid grid-cols-2 gap-3">
+          <div class="border-2 border-white p-2 bg-black space-y-2">
+            <div class="h-32 bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-video text-3xl text-red-500"></i>
+            </div>
+            <p class="font-archivo-title text-xs truncate">Footage Grabación #102</p>
+          </div>
+          <div class="border-2 border-white p-2 bg-black space-y-2">
+            <div class="h-32 bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-video text-3xl text-red-500"></i>
+            </div>
+            <p class="font-archivo-title text-xs truncate">Footage En Vivo V2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-spielfilm" class="space-y-4 hidden">
+      <div class="flex justify-between items-center border-b-2 border-white pb-2">
+        <h2 class="font-archivo-title text-2xl flex items-center gap-2">
+          <i class="fa-solid fa-video text-blue-500"></i> SPIELFILM
+        </h2>
+        <i class="fa-solid fa-globe text-xl text-emerald-400"></i>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-4">
+        <div id="spielfilm-feed" class="space-y-4">
+          <div class="border-2 border-white p-4 bg-zinc-950 space-y-2">
+            <div class="h-48 bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-film text-6xl text-blue-500"></i>
+            </div>
+            <h3 class="font-archivo-title text-base">PROYECTO CINE DAZER - VOLUMEN 2</h3>
+            <p class="font-alice-subtitle text-xs text-gray-400">Película exclusiva para la comunidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-schnapps" class="space-y-4 hidden">
+      <div class="flex justify-between items-center border-b-2 border-white pb-2">
+        <h2 class="font-archivo-title text-2xl flex items-center gap-2">
+          <i class="fa-solid fa-image text-pink-500"></i> SCHNAPPS
+        </h2>
+        <i class="fa-solid fa-globe text-xl text-emerald-400"></i>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-4">
+        <div id="schnapps-feed" class="grid grid-cols-2 gap-3">
+          <div class="border-2 border-white p-2 bg-black">
+            <div class="h-40 bg-pink-950/40 border border-pink-800 flex items-center justify-center">
+              <i class="fa-solid fa-camera text-4xl text-pink-400"></i>
+            </div>
+            <p class="font-archivo-title text-xs mt-2">Fotografía Schnapp #1</p>
+          </div>
+          <div class="border-2 border-white p-2 bg-black">
+            <div class="h-40 bg-pink-950/40 border border-pink-800 flex items-center justify-center">
+              <i class="fa-solid fa-camera text-4xl text-pink-400"></i>
+            </div>
+            <p class="font-archivo-title text-xs mt-2">Fotografía Schnapp #2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-comunicacion" class="space-y-4 hidden">
+      <div class="text-center space-y-1">
+        <h2 class="font-archivo-title text-2xl tracking-wider flex items-center justify-center gap-2">
+          <i class="fa-solid fa-comments"></i> COMUNICACIÓN
+        </h2>
+        <p class="font-alice-subtitle text-sm text-purple-300">Sala de Mensajes en Vivo</p>
+      </div>
+
+      <!-- Direct Message Room -->
+      <div id="chat-box-container" class="max-w-md mx-auto border-2 border-white bg-black p-4 space-y-4">
+        <div class="flex items-center justify-between border-b-2 border-white pb-2 bg-purple-950/60 p-2">
+          <div class="flex items-center gap-3">
+            <button onclick="toggleChatList()" class="text-red-500 font-black text-xl">X</button>
+            <div class="w-7 h-7 rounded-full border border-white bg-green-500"></div>
+            <span id="chat-partner-name" class="font-archivo-title text-lg uppercase tracking-wider">JOSE</span>
+          </div>
+        </div>
+
+        <div id="chat-messages-list" class="h-64 overflow-y-auto space-y-3 p-2 bg-zinc-950 border border-zinc-800 font-bold text-xs">
+          <div class="bg-white text-black p-3 rounded-2xl max-w-[80%] rounded-bl-none shadow">
+            Hola, bienvenido a Dazer Vol. 2
+          </div>
+        </div>
+
+        <form onsubmit="sendChatMessage(event)" class="flex items-center gap-2 pt-2 border-t-2 border-white">
+          <button type="submit" class="text-2xl text-white hover:text-purple-400">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <input type="text" id="chat-input" placeholder="Escribe un mensaje..." required
+                 class="flex-1 bg-black border-2 border-white p-2 text-white font-bold text-xs focus:outline-none">
+          <button type="button" onclick="insertEmoji('😊')" class="text-2xl text-yellow-400">
+            <i class="fa-solid fa-face-smile"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- User Selector -->
+      <div id="chat-users-grid" class="max-w-md mx-auto grid grid-cols-2 gap-4 hidden">
+        <div class="border-2 border-white p-3 text-center space-y-2">
+          <div class="w-14 h-14 mx-auto rounded-full border-2 border-white flex items-center justify-center">
+            <i class="fa-solid fa-user text-2xl"></i>
+          </div>
+          <p class="font-archivo-title text-sm">JOSE</p>
+          <p class="text-[10px] text-red-500 font-bold">● DESCONECTADO</p>
+          <button onclick="startChatWith('JOSE')" class="w-full py-1 border border-white text-xs font-archivo-title hover:bg-white hover:text-black">COMUNICARTE</button>
+        </div>
+        <div class="border-2 border-white p-3 text-center space-y-2">
+          <div class="w-14 h-14 mx-auto rounded-full border-2 border-white flex items-center justify-center">
+            <i class="fa-solid fa-user text-2xl"></i>
+          </div>
+          <p class="font-archivo-title text-sm">BONJU</p>
+          <p class="text-[10px] text-green-400 font-bold">● CONECTADO</p>
+          <button onclick="startChatWith('BONJU')" class="w-full py-1 border border-white text-xs font-archivo-title hover:bg-white hover:text-black">COMUNICARTE</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-roles" class="space-y-4 hidden">
+      <div class="text-center py-2">
+        <h2 id="role-title-display" class="font-archivo-title text-2xl text-red-500 uppercase">TU ERES EL DIRECTOR</h2>
+      </div>
+
+      <div class="max-w-xs mx-auto border-2 border-white p-6 space-y-2 text-center font-archivo-title text-xl">
+        <div id="role-item-DIRECTOR" class="text-red-500 flex items-center justify-center gap-2">
+          DIRECT@R <span class="text-xs">◀</span>
+        </div>
+        <div id="role-item-ADMIN" class="text-green-500">ADMIN</div>
+        <div id="role-item-HAIKU" class="text-pink-500">HAIKU</div>
+        <div id="role-item-SCHEITEL" class="text-purple-500">SCHEITEL</div>
+        <div id="role-item-GRATUITO" class="text-sky-400">GRATUITO</div>
+      </div>
+    </section>
+
+    <section id="view-verkehrsmasken" class="space-y-4 glitch-bg p-4 border-2 border-purple-500 hidden">
+      <div class="text-center space-y-1">
+        <h2 class="font-archivo-title text-2xl text-pink-400 uppercase flex items-center justify-center gap-2">
+          <i class="fa-solid fa-mask"></i> VERKEHRSMASKEN
+        </h2>
+        <p class="font-alice-subtitle text-xs text-purple-300">Máscara de Tráfico y Seguridad Privada</p>
+      </div>
+
+      <div class="max-w-sm mx-auto space-y-3 pt-3 font-archivo-title text-sm">
+        <div class="flex justify-between items-center border-b border-white/30 pb-2">
+          <span>VPN CONEXIÓN</span>
+          <input type="checkbox" checked class="w-5 h-5 accent-purple-500 cursor-pointer">
+        </div>
+        <div class="flex justify-between items-center border-b border-white/30 pb-2">
+          <span>RED OCULTA</span>
+          <input type="checkbox" checked class="w-5 h-5 accent-purple-500 cursor-pointer">
+        </div>
+        <div class="flex justify-between items-center border-b border-white/30 pb-2">
+          <span>ZUKURZALES MÁSKAR</span>
+          <input type="checkbox" checked class="w-5 h-5 accent-purple-500 cursor-pointer">
+        </div>
+        <div class="flex justify-between items-center border-b border-white/30 pb-2">
+          <span>TOZO ENCRIPT</span>
+          <input type="checkbox" class="w-5 h-5 accent-purple-500 cursor-pointer">
+        </div>
+        <div class="flex justify-between items-center border-b border-white/30 pb-2">
+          <span>DEEZZEER PROTOCOL</span>
+          <input type="checkbox" checked class="w-5 h-5 accent-purple-500 cursor-pointer">
+        </div>
+      </div>
+    </section>
+
+    <section id="view-atico" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-xl text-center border-b-2 border-white pb-2 uppercase">ÁTICO MODO SIN CONEXIÓN</h2>
+      <div class="max-w-md mx-auto space-y-3 font-archivo-title text-sm">
+        <div class="p-3 border border-white">KURZCLIPS (0 ÍTEMS ALMACENADOS)</div>
+        <div class="p-3 border border-white">SCHNAPPS (0 ÍTEMS ALMACENADOS)</div>
+        <div class="p-3 border border-white">FOOTAGE (0 ÍTEMS ALMACENADOS)</div>
+      </div>
+    </section>
+
+    <section id="view-boveda" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-xl text-center border-b-2 border-white pb-2 uppercase">BÓVEDA MODO ENCRIPTADO</h2>
+      <div class="max-w-md mx-auto space-y-3 font-archivo-title text-sm">
+        <div class="p-3 border border-white">KURZCLIPS (SEGURO)</div>
+        <div class="p-3 border border-white">SPIELFILM (SEGURO)</div>
+      </div>
+    </section>
+
+    <section id="view-bodega" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-xl text-center border-b-2 border-white pb-2 uppercase">BODEGA DE ARCHIVOS</h2>
+      <div class="max-w-md mx-auto space-y-3 font-archivo-title text-sm">
+        <div class="p-3 border border-white">ARCHIVOS GENERALES BODEGA</div>
+      </div>
+    </section>
+
+    <section id="view-moduz" class="space-y-4 hidden">
+      <div class="text-center py-2 border-b-2 border-white">
+        <h2 class="font-archivo-title text-2xl uppercase">MODUZ - TEMAS VISUALES</h2>
+        <p class="font-alice-subtitle text-xs text-purple-400">Selecciona el tema gráfico de la interfaz</p>
+      </div>
+
+      <div class="max-w-xs mx-auto space-y-2 font-archivo-title text-sm uppercase">
+        <div onclick="setAppTheme('nocturno')" class="p-3 border-2 border-white cursor-pointer hover:bg-purple-900 flex justify-between items-center">
+          <span>NOCTURNO</span> <i class="fa-solid fa-moon text-purple-400"></i>
+        </div>
+        <div onclick="setAppTheme('dia')" class="p-3 border-2 border-blue-500 bg-blue-950/40 text-blue-300 cursor-pointer hover:bg-blue-700 flex justify-between items-center">
+          <span>DÍA AZUL</span> <i class="fa-solid fa-sun text-yellow-400"></i>
+        </div>
+        <div onclick="setAppTheme('coquette')" class="p-3 border-2 border-pink-500 bg-pink-950/40 text-pink-300 cursor-pointer hover:bg-pink-700 flex justify-between items-center">
+          <span>COQUETTE</span> <i class="fa-solid fa-heart text-pink-400"></i>
+        </div>
+        <div onclick="setAppTheme('fuego')" class="p-3 border-2 border-red-500 bg-red-950/40 text-red-300 cursor-pointer hover:bg-red-700 flex justify-between items-center">
+          <span>FUEGO</span> <i class="fa-solid fa-fire text-orange-400"></i>
+        </div>
+        <div onclick="setAppTheme('sexy')" class="p-3 border-2 border-fuchsia-500 bg-fuchsia-950/40 text-fuchsia-300 cursor-pointer hover:bg-fuchsia-700 flex justify-between items-center">
+          <span>SEXY PURPLE</span> <i class="fa-solid fa-gem text-fuchsia-400"></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-umikaiser" class="space-y-4 hidden">
+      <div class="text-center space-y-1">
+        <h2 class="font-archivo-title text-3xl text-purple-400 flex items-center justify-center gap-2">
+          🎲 UMIKAISER
+        </h2>
+        <p class="font-alice-subtitle text-sm text-gray-300">Tablero e Invocación de Dados</p>
+      </div>
+
+      <div class="max-w-md mx-auto border-2 border-purple-500 bg-zinc-950 p-4 space-y-4">
+        <div class="grid grid-cols-3 gap-2 text-center text-xs font-archivo-title border border-purple-800 p-2">
+          <div>CASILLA: <span id="umi-casilla" class="text-purple-400">1</span></div>
+          <div>PUNTOS: <span id="umi-score" class="text-green-400">0</span></div>
+          <div>DADOS: <span id="umi-remaining" class="text-yellow-400">12</span></div>
+        </div>
+
+        <div class="border-2 border-purple-500 p-4 bg-black flex flex-col items-center justify-center relative min-h-[150px]">
+          <svg class="w-full h-32" viewBox="0 0 200 100">
+            <path d="M 20 20 H 180 V 80 H 20 Z" fill="none" stroke="#a855f7" stroke-width="4" stroke-dasharray="6"/>
+            <circle id="umi-player-token" cx="20" cy="20" r="8" fill="#ec4899"/>
+            <text x="100" y="55" fill="#a855f7" font-size="12" font-family="Archivo Black" text-anchor="middle">TABLERO π</text>
+          </svg>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <div class="flex gap-2 text-2xl text-purple-300">
+            <i id="dice-1" class="fa-solid fa-dice-one"></i>
+            <i id="dice-2" class="fa-solid fa-dice-four"></i>
+            <i id="dice-3" class="fa-solid fa-dice-two"></i>
+          </div>
+          <button onclick="rollUmikaiserDice()" class="px-5 py-2.5 border-2 border-purple-400 bg-purple-900 text-purple-100 font-archivo-title text-sm hover:bg-purple-600">
+            TIRAR DADOS
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-configuraciones" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-2xl text-center border-b-2 border-white pb-2 uppercase">⚙️ CONFIGURACIONES</h2>
+      <div class="max-w-md mx-auto grid grid-cols-2 gap-3 text-xs font-archivo-title">
+        <div class="p-3 border border-white flex justify-between items-center">
+          <span>Sonido Ambiente</span>
+          <input type="checkbox" checked class="accent-purple-500">
+        </div>
+        <div class="p-3 border border-white flex justify-between items-center">
+          <span>Privacidad</span>
+          <i class="fa-solid fa-lock text-purple-400"></i>
+        </div>
+        <div class="p-3 border border-white flex justify-between items-center">
+          <span>Efecto Botones</span>
+          <input type="checkbox" checked class="accent-purple-500">
+        </div>
+        <div class="p-3 border border-white flex justify-between items-center">
+          <span>DazerLabs</span>
+          <i class="fa-solid fa-flask text-purple-400"></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-zukurzales" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-2xl text-center border-b-2 border-white pb-2 uppercase flex items-center justify-center gap-2">
+        <i class="fa-solid fa-cart-shopping"></i> ZUKURZALES
+      </h2>
+      <div class="max-w-md mx-auto space-y-3 font-archivo-title text-xs">
+        <div class="p-3 border border-white flex items-center gap-3">
+          <i class="fa-solid fa-map-pin text-green-500 text-lg"></i>
+          <span>Contenido Adquirido</span>
+        </div>
+        <div class="p-3 border border-white flex items-center gap-3">
+          <i class="fa-solid fa-map-pin text-green-500 text-lg"></i>
+          <span>Acuerdos de Compra</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-gdz" class="space-y-4 hidden">
+      <h2 class="font-archivo-title text-2xl text-center border-b-2 border-white pb-2 uppercase">🛍️ GDZ SERVICIOS</h2>
+      <div class="max-w-md mx-auto space-y-3 font-archivo-title text-xs">
+        <div class="p-3 border border-white">Información Personal</div>
+        <div class="p-3 border border-white">Registro de Compras</div>
+        <div class="p-3 border border-white text-red-500">Dazergdz Avisos</div>
+      </div>
+    </section>
+
+    <section id="view-perfil" class="space-y-4 hidden">
+      <!-- Symmetrical Profile Card with barrido morado animation -->
+      <div class="max-w-md mx-auto purple-sweep-border purple-sweep-bg p-5 space-y-4 rounded-xl bg-black">
+        <div class="flex items-center gap-4">
+          <div class="w-18 h-18 rounded-full border-2 border-purple-400 flex items-center justify-center bg-zinc-900 shadow-lg">
+            <i class="fa-solid fa-user text-4xl text-purple-300"></i>
+          </div>
+          <div>
+            <h3 id="profile-name-text" class="font-archivo-title text-2xl uppercase text-white tracking-wider">JOSE</h3>
+            <p class="font-alice-subtitle text-sm text-purple-300">Perfil verificado Director DAZER</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center border-y-2 border-purple-500/50 py-3 text-xs font-archivo-title">
+          <div>
+            <p class="text-lg text-purple-300 font-black">128</p>
+            <p class="text-[10px] text-gray-300">Seguidores</p>
+          </div>
+          <div>
+            <p class="text-lg text-purple-300 font-black">45</p>
+            <p class="text-[10px] text-gray-300">Siguiendo</p>
+          </div>
+          <div>
+            <p class="text-lg text-purple-300 font-black">3.4k</p>
+            <p class="text-[10px] text-gray-300">Me Gustas</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-archivo-title">
+          <button class="p-2 border border-white bg-black hover:bg-white hover:text-black">KURZCLIPS</button>
+          <button class="p-2 border border-white bg-black hover:bg-white hover:text-black">SPIELFILMS</button>
+          <button class="p-2 border border-white bg-black hover:bg-white hover:text-black">SCHNAPPS</button>
+          <button class="p-2 border border-white bg-black hover:bg-white hover:text-black">FOOTAGES</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Secondary Role Sub-Navigation -->
+  <nav class="border-t-4 border-white bg-black p-1 shrink-0 overflow-x-auto">
+    <div class="flex justify-between items-center gap-1 min-w-max text-[10px] font-archivo-title uppercase">
+      <button onclick="switchRoleSubView('roles')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-gem text-red-500"></i> SUSCRIPCIONES
+      </button>
+      <button onclick="switchRoleSubView('verkehrsmasken')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-mask text-purple-400"></i> VERKEHRSMASKEN
+      </button>
+      <button onclick="switchRoleSubView('atico')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-triangle-exclamation text-yellow-400"></i> ÁTICO
+      </button>
+      <button onclick="switchRoleSubView('boveda')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-vault text-blue-400"></i> BÓVEDA
+      </button>
+      <button onclick="switchRoleSubView('bodega')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-warehouse text-gray-400"></i> BODEGA
+      </button>
+      <button onclick="switchTab('navegador')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-brain text-red-500"></i> C.I
+      </button>
+      <button onclick="switchRoleSubView('moduz')" class="px-2 py-1 border border-white hover:bg-white hover:text-black flex items-center gap-1">
+        <i class="fa-solid fa-palette text-orange-400"></i> MODUZ
+      </button>
+    </div>
+  </nav>
+
+  <!-- Primary Bottom Navigation Bar -->
+  <nav class="border-t-2 border-white bg-black p-2 shrink-0">
+    <div class="grid grid-cols-7 gap-1 text-center text-[9px] font-archivo-title uppercase">
+      <button onclick="switchTab('sala')" id="tab-sala" class="p-1 border border-white bg-white text-black flex flex-col items-center">
+        <i class="fa-solid fa-couch text-sm"></i>
+        <span>SALA</span>
+      </button>
+      <button onclick="switchTab('navegador')" id="tab-navegador" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-planet text-sm"></i>
+        <span>NAVEGADOR</span>
+      </button>
+      <button onclick="switchTab('kurzclips')" id="tab-kurzclips" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-square-poll-vertical text-sm"></i>
+        <span>KURZCLIPS</span>
+      </button>
+      <button onclick="switchTab('footage')" id="tab-footage" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-circle-play text-sm"></i>
+        <span>FOOTAGE</span>
+      </button>
+      <button onclick="switchTab('spielfilm')" id="tab-spielfilm" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-video text-sm"></i>
+        <span>SPIELFILM</span>
+      </button>
+      <button onclick="switchTab('schnapps')" id="tab-schnapps" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-images text-sm"></i>
+        <span>SCHNAPPS</span>
+      </button>
+      <button onclick="switchTab('comunicacion')" id="tab-comunicacion" class="p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center">
+        <i class="fa-solid fa-comments text-sm"></i>
+        <span>COMUNICAR</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Tertiary Exclusive Navigation Bar -->
+  <nav class="border-t-2 border-purple-500 bg-zinc-950 p-1 shrink-0">
+    <div class="grid grid-cols-7 gap-1 text-center text-[8px] font-archivo-title uppercase">
+      <button class="p-1 border border-purple-500 bg-red-900/60 text-white flex flex-col items-center">
+        <span class="text-[6px] bg-red-600 px-1 rounded-sm">EXCLUSIVE</span>
+        <span>C.P.H</span>
+      </button>
+      <button class="p-1 border border-purple-500 bg-purple-900/60 text-white flex flex-col items-center">
+        <span class="text-[6px] bg-purple-600 px-1 rounded-sm">EXCLUSIVE</span>
+        <span>C.P.S</span>
+      </button>
+      <button onclick="switchExclusiveTab('umikaiser')" class="p-1 border border-purple-500 hover:bg-purple-600 flex flex-col items-center text-purple-300">
+        <i class="fa-solid fa-dice text-xs"></i>
+        <span>UMIKAISER</span>
+      </button>
+      <button onclick="switchExclusiveTab('configuraciones')" class="p-1 border border-purple-500 hover:bg-purple-600 flex flex-col items-center">
+        <i class="fa-solid fa-gear text-xs"></i>
+        <span>CONFIG</span>
+      </button>
+      <button onclick="switchExclusiveTab('zukurzales')" class="p-1 border border-purple-500 hover:bg-purple-600 flex flex-col items-center">
+        <i class="fa-solid fa-cart-shopping text-xs"></i>
+        <span>ZUKURZALES</span>
+      </button>
+      <button onclick="switchExclusiveTab('gdz')" class="p-1 border border-purple-500 hover:bg-purple-600 flex flex-col items-center">
+        <i class="fa-solid fa-bag-shopping text-xs"></i>
+        <span>GDZ</span>
+      </button>
+      <button onclick="switchExclusiveTab('perfil')" class="p-1 border border-purple-500 hover:bg-purple-600 flex flex-col items-center">
+        <i class="fa-solid fa-user text-xs"></i>
+        <span>PERFIL</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Bottom Title Banner -->
+  <footer class="bg-black border-t-2 border-white py-1 px-3 flex justify-between items-center text-xs font-archivo-title shrink-0">
+    <div class="flex items-center gap-2">
+      <span class="text-red-500 text-sm">⛩️</span>
+      <span class="tracking-widest">DAZER ESTÁNDAR / VOLUMEN 2</span>
+    </div>
+    <span class="text-purple-400 tracking-wider">DIRECT@R</span>
+  </footer>
+</div>
+
 <script type="module">
-/* PASOS (solo en el proyecto "cuentas"):
-   1) Authentication → Método de acceso → Google → Habilitar (elige tu correo de asistencia).
-   2) Authentication → Configuración → Dominios autorizados → agrega donde publiques la página (ej. tuusuario.github.io).
-   3) Firestore Database → crear base → Reglas, dentro de "match /databases/{database}/documents { ... }":
-      match /usuarios/{u}{allow read:if request.auth!=null;allow write:if request.auth.uid==u;}
-      match /chats/{c}/mensajes/{m}{allow read:if request.auth!=null&&request.auth.uid in c.split("__");allow create:if request.auth!=null&&request.auth.uid in c.split("__")&&request.resource.data.de==request.auth.uid;}
-      match /contenido/{d}{allow read:if request.auth!=null;allow create:if request.auth!=null&&request.resource.data.uid==request.auth.uid;}
-   4) Storage (plan Blaze) → Reglas, dentro de "match /b/{bucket}/o { ... }":
-      match /contenido/{u}/{f}{allow read:if request.auth!=null;allow write:if request.auth.uid==u&&request.resource.size<50*1024*1024&&request.resource.contentType.matches("(image|video)/.*");} */
-import{initializeApp}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import{getAuth,GoogleAuthProvider,signInWithPopup,signOut}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import{getFirestore,collection,doc,setDoc,getDoc,getDocs,addDoc,query,where,orderBy,onSnapshot,serverTimestamp}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-import{getStorage,ref,uploadBytes,getDownloadURL}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-const app=initializeApp({apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4",authDomain:"dazer-extremo-cuentas.firebaseapp.com",projectId:"dazer-extremo-cuentas",storageBucket:"dazer-extremo-cuentas.firebasestorage.app",messagingSenderId:"551686385854",appId:"1:551686385854:web:6bb73a9b34e2471ca26eef"});
-const auth=getAuth(app),db=getFirestore(app),st=getStorage(app);
-const T=[["sala","⌂","Sala"],["nav","◎","Navegador"],["kurzclips","▣","Kurzclips"],["footage","▷","Footage"],["spielfilm","▭","Spielfilm"],["schnapps","▨","Schnapps"],["com","✉","Comunicación"]];
-const N=["NO AL CONTENIDO SIN SENTIDO","NO AL PLAGIO","NO AL SPAM","NO AL CIBERBULLYING","NO AL STALKING","NO A LA PORNOGRAFÍA INFANTIL","NO AL GORE","NO A PERSONAS OBLIGADAS A HACER CONTENIDO"];
+  // Firebase configurations provided by user
+  const firebaseConfigs = {
+    registro: {
+      apiKey: "AIzaSyDMkLB72tbVMAZEhyXMtZWWB_tSMMbf900",
+      authDomain: "dazer-extremo-icpme.firebaseapp.com",
+      projectId: "dazer-extremo-icpme",
+      storageBucket: "dazer-extremo-icpme.firebasestorage.app",
+      messagingSenderId: "512846233317",
+      appId: "1:512846233317:web:de5c9c45332532b3301e0c"
+    },
+    cuentas: {
+      apiKey: "AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4",
+      authDomain: "dazer-extremo-cuentas.firebaseapp.com",
+      projectId: "dazer-extremo-cuentas",
+      storageBucket: "dazer-extremo-cuentas.firebasestorage.app",
+      messagingSenderId: "551686385854",
+      appId: "1:551686385854:web:6bb73a9b34e2471ca26eef"
+    },
+    mensajes: {
+      apiKey: "AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU",
+      authDomain: "dazer-extremo-mensajes.firebaseapp.com",
+      projectId: "dazer-extremo-mensajes",
+      storageBucket: "dazer-extremo-mensajes.firebasestorage.app",
+      messagingSenderId: "70744027643",
+      appId: "1:70744027643:web:1cf308aea8a5f87f1b5b5e"
+    }
+  };
 
-const $=s=>document.querySelector(s),A=$("#app");
-const uid=()=>auth.currentUser.uid,uref=()=>doc(db,"usuarios",uid());
-const esc=s=>String(s).replace(/[&<>"']/g,c=>"&#"+c.charCodeAt(0)+";");
-const msg=t=>{const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),3500)};
-const logo=s=>`<h1 class="logo">DAZER<b>▲</b><small>${s}</small></h1>`;
-const av=u=>u.foto?`<img class="avi" src="${esc(u.foto)}" referrerpolicy="no-referrer" alt="">`:`<i class="av">☺</i>`;
-let yo="",ip=null,unsub=null;
-addEventListener("beforeinstallprompt",e=>{e.preventDefault();ip=e});
-addEventListener("pagehide",()=>{if(auth.currentUser)setDoc(uref(),{estado:"desconectado"},{merge:true}).catch(()=>{})});
-const view=h=>{if(unsub){unsub();unsub=null}A.innerHTML=h};
-const item=c=>`<div class="card2">${c.tipo=="v"?`<video src="${esc(c.url)}" controls playsinline preload="metadata"></video>`:`<img src="${esc(c.url)}" loading="lazy" alt="">`}<b>${esc(c.titulo)}</b><small>${esc(c.autor)}</small></div>`;
+  let appAuth, appMsg, auth, dbMensajes;
+  try {
+    appAuth = initializeApp(firebaseConfigs.cuentas, "cuentasApp");
+    appMsg = initializeApp(firebaseConfigs.mensajes, "mensajesApp");
+    auth = getAuth(appAuth);
+    dbMensajes = getFirestore(appMsg);
+  } catch (err) {
+    console.warn("Firebase initialized with local state backup:", err);
+  }
 
-function inicio(){
- view(`<div class="box">${logo("EXTREMO")}<p>Lleva a DAZER a tu pantalla de inicio</p><button id="a">Copiar enlace</button><button id="b">Instalar</button><button id="c">Acceso directo de la página</button><button id="d">Seguir en web</button></div>`);
- $("#a").onclick=()=>navigator.clipboard.writeText(location.href).then(()=>msg("Enlace copiado"));
- $("#b").onclick=()=>ip?ip.prompt():msg("Usa el menú del navegador → Instalar app");
- $("#c").onclick=()=>msg("Menú del navegador → Añadir a pantalla de inicio");
- $("#d").onclick=acceso}
+  // Toast Notification System (replaces native alert())
+  window.showToast = function(message, type = 'info') {
+    const container = document.getElementById("toast-container");
+    if(!container) return;
 
-function acceso(){
- view(`<div class="bar"><b>DAZER</b><button id="x">Salir</button></div><main><div class="box">${logo("ESTANDAR")}<p>Entra con tu cuenta de Google (Gmail)</p><button id="g" class="pp">ENTRAR CON GOOGLE</button></div></main>`);
- $("#x").onclick=inicio;
- $("#g").onclick=async()=>{
-  const p=new GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
-  try{await signInWithPopup(auth,p);entrada()}
-  catch(e){msg({"auth/unauthorized-domain":"Agrega este dominio en Authentication → Configuración → Dominios autorizados","auth/popup-blocked":"Permite las ventanas emergentes para entrar","auth/popup-closed-by-user":"Cerraste la ventana de Google","auth/operation-not-allowed":"Activa Google en Authentication → Método de acceso"}[e.code]||"Error: "+(e.code||e.message))}}}
+    const toast = document.createElement("div");
+    toast.className = `p-3 rounded-lg border-2 text-xs font-archivo-title shadow-2xl transition-all duration-300 transform translate-y-0 text-center mb-2 pointer-events-auto ${
+      type === 'error' ? 'bg-red-950 border-red-500 text-white' : 
+      type === 'success' ? 'bg-green-950 border-green-500 text-white' : 
+      'bg-purple-950 border-purple-500 text-purple-200'
+    }`;
+    toast.innerText = message;
+    container.appendChild(toast);
 
-async function entrada(){
- const u=auth.currentUser,d=await getDoc(uref()),x=d.exists()?d.data():{};
- yo=x.nombre||u.displayName||"Creador";
- await setDoc(uref(),{nombre:yo,foto:u.photoURL||"",estado:"conectado",...(d.exists()?{}:{normas:false,creado:serverTimestamp()})},{merge:true});
- x.normas?casa():normas()}
+    setTimeout(() => {
+      toast.classList.add("opacity-0");
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  };
 
-function normas(){
- view(`<div class="bar">${logo("ESTANDAR")}</div><main><div class="box"><h2>NORMAS DE COMUNIDAD</h2>${N.map(n=>`<p>${n}</p>`).join("")}<button id="si" class="ok">SI ACEPTO LAS NORMAS. SI LAS VIOLO SERÉ BANEADO</button><button id="no" class="no">NO LAS ACEPTO, SALIR</button></div></main>`);
- $("#si").onclick=async()=>{await setDoc(uref(),{normas:true},{merge:true});casa()};
- $("#no").onclick=salir}
+  // User State Initialization
+  window.currentUser = {
+    username: "JOSE",
+    role: "DIRECT@R",
+    email: "jose@dazer.com",
+    status: "CONECTADO"
+  };
 
-async function salir(){
- try{await setDoc(uref(),{estado:"desconectado"},{merge:true})}catch(e){}
- await signOut(auth);inicio()}
+  // Firebase Email/Password Login
+  window.handleEmailLogin = async function(e) {
+    e.preventDefault();
+    const email = document.getElementById("login-email").value.trim();
+    const pass = document.getElementById("login-password").value.trim();
 
-function casa(t="sala"){
- view(`<div class="bar">${logo("ESTANDAR")}<button id="x">Salir</button></div><main id="m"></main><nav>${T.map(([k,i,n])=>`<button data-k="${k}" class="${k==t?"act":""}"><span>${i}</span>${n}</button>`).join("")}</nav><footer>DAZER ESTANDAR / VOLUMEN 2</footer>`);
- $("#x").onclick=salir;
- document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>casa(b.dataset.k));
- ({sala,nav:navegador,com:comunicacion}[t]||(()=>galeria(t)))()}
+    if(!email || !pass) {
+      window.showToast("Por favor completa correo y contraseña.", "error");
+      return;
+    }
 
-function sala(){$("#m").innerHTML=`<div class="hero"><h1>DAZER</h1><h2>ESTANDAR</h2><p>BIENVENID@ ${esc(yo)}</p></div>`}
+    if (auth) {
+      try {
+        const userCred = await signInWithEmailAndPassword(auth, email, pass);
+        window.currentUser.username = userCred.user.displayName || email.split('@')[0].toUpperCase();
+        window.currentUser.email = email;
+        window.currentUser.role = "DIRECT@R";
+        
+        updateUserUI();
+        window.showToast(`¡Bienvenido de nuevo, ${window.currentUser.username}!`, "success");
+        window.goToRulesScreen();
+        return;
+      } catch (err) {
+        console.warn("Firebase email login fallback:", err);
+      }
+    }
 
-function navegador(){
- $("#m").innerHTML=`<input id="q" class="in" placeholder="Busca contenido que gustes"><div id="l" class="grid"></div>`;
- let todo=[];
- const pinta=()=>{const q=$("#q").value.toLowerCase();
-  $("#l").innerHTML=todo.filter(c=>c.titulo.toLowerCase().includes(q)).sort((a,b)=>b.creado-a.creado).map(item).join("")||"<p>Sin resultados</p>"};
- $("#q").oninput=pinta;
- getDocs(collection(db,"contenido")).then(s=>{todo=s.docs.map(d=>d.data());pinta()}).catch(()=>msg("No se pudo leer el contenido"))}
+    // Direct Login Fallback
+    window.currentUser.username = email.split('@')[0].toUpperCase();
+    window.currentUser.email = email;
+    window.currentUser.role = "DIRECT@R";
+    updateUserUI();
+    window.showToast(`Sesión iniciada como ${window.currentUser.username}`, "success");
+    window.goToRulesScreen();
+  };
 
-async function galeria(t){
- $("#m").innerHTML=`<h2>${t.toUpperCase()}</h2><div class="box"><input id="ti" class="in" placeholder="Título"><input id="fi" class="in" type="file" accept="image/*,video/*"><button id="su" class="pp">SUBIR</button></div><div id="l" class="grid"></div>`;
- $("#su").onclick=async()=>{
-  const f=$("#fi").files[0];if(!f)return msg("Elige un archivo");if(f.size>50e6)return msg("Máximo 50 MB");
-  try{msg("Subiendo…");
-   const r=ref(st,`contenido/${uid()}/${Date.now()}_${f.name.replace(/[^\w.-]/g,"_")}`);await uploadBytes(r,f);
-   await addDoc(collection(db,"contenido"),{tab:t,titulo:$("#ti").value.trim()||f.name,url:await getDownloadURL(r),tipo:f.type.startsWith("video")?"v":"i",autor:yo,uid:uid(),creado:Date.now()});
-   galeria(t)}catch(e){msg("Error: "+(e.code||e.message))}};
- try{const s=await getDocs(query(collection(db,"contenido"),where("tab","==",t)));
-  $("#l").innerHTML=s.docs.map(d=>d.data()).sort((a,b)=>b.creado-a.creado).map(item).join("")||"<p>Aún no hay contenido. Sube el primero.</p>"}
- catch(e){msg("No se pudo leer: "+(e.code||""))}}
+  // Firebase Email/Password Account Creation
+  window.handleAccountCreate = async function(e) {
+    e.preventDefault();
+    const username = document.getElementById("reg-username").value.trim();
+    const email = document.getElementById("reg-email").value.trim();
+    const pass = document.getElementById("reg-password").value.trim();
+    const subscription = document.getElementById("reg-subscription").value;
 
-async function comunicacion(){
- $("#m").innerHTML=`<h2>COMUNICACIÓN</h2><p>Busca a tus compañeros</p><div id="l" class="grid"></div>`;
- try{const s=await getDocs(collection(db,"usuarios"));
-  $("#l").innerHTML=s.docs.filter(d=>d.id!=uid()).map(d=>{const u=d.data(),on=u.estado=="conectado";return`<div class="card">${av(u)}<small class="${on?"on":"off"}">${on?"CONECTADO":"DESCONECTADO"}</small><b>${esc(u.nombre)}</b><button data-i="${d.id}" data-n="${esc(u.nombre)}">COMUNICARTE</button></div>`}).join("")||"<p>Aún no hay más usuarios.</p>";
-  document.querySelectorAll("#l button").forEach(b=>b.onclick=()=>chat(b.dataset.i,b.dataset.n))}
- catch(e){msg("No se pudieron leer los usuarios")}}
+    if(!email || !pass) {
+      window.showToast("Ingresa un correo y contraseña válidos.", "error");
+      return;
+    }
 
-function chat(otro,nombre){
- const yoId=uid(),col=collection(db,"chats",[yoId,otro].sort().join("__"),"mensajes");
- view(`<div class="bar"><button id="v">←</button><b class="who">☺ ${esc(nombre)}</b></div><div id="ms" class="ms"></div><div class="env"><input id="t" class="in" placeholder="Escribe un mensaje" maxlength="500"><button id="e" class="pp" aria-label="Enviar">➤</button></div>`);
- $("#v").onclick=()=>casa("com");
- unsub=onSnapshot(query(col,orderBy("creado")),s=>{
-  $("#ms").innerHTML=s.docs.map(d=>{const m=d.data();return`<p class="b ${m.de==yoId?"yo":""}">${esc(m.texto)}</p>`}).join("");$("#ms").scrollTop=1e9},
-  e=>msg("Chat: "+(e.code||"error")));
- const enviar=()=>{const t=$("#t").value.trim();if(!t)return;$("#t").value="";addDoc(col,{de:yoId,texto:t,creado:serverTimestamp()}).catch(e=>msg(e.code))};
- $("#e").onclick=enviar;$("#t").onkeydown=e=>{if(e.key=="Enter")enviar()}}
+    if (auth) {
+      try {
+        await createUserWithEmailAndPassword(auth, email, pass);
+        window.showToast("Cuenta Firebase registrada exitosamente.", "success");
+      } catch(err) {
+        console.warn("Firebase create account fallback:", err);
+      }
+    }
 
-await auth.authStateReady();
-auth.currentUser?entrada():inicio();
-</script></body></html>
+    window.currentUser.username = username.toUpperCase();
+    window.currentUser.email = email;
+    window.currentUser.role = subscription;
+
+    updateUserUI();
+    window.closeModal("crear-cuenta-modal");
+    window.showToast(`Cuenta ${username} insertada con nivel ${subscription}`, "success");
+    window.goToRulesScreen();
+  };
+
+  // Google Login Popup
+  window.loginWithGoogle = async function() {
+    if (!auth) {
+      window.currentUser.username = "USUARIO_GOOGLE";
+      updateUserUI();
+      window.goToRulesScreen();
+      return;
+    }
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      window.currentUser.username = (user.displayName || user.email.split('@')[0]).toUpperCase();
+      window.currentUser.email = user.email;
+      window.currentUser.role = "DIRECT@R";
+      
+      updateUserUI();
+      window.showToast(`Conectado con Google: ${window.currentUser.username}`, "success");
+      window.goToRulesScreen();
+    } catch (error) {
+      window.currentUser.username = "USUARIO_GOOGLE";
+      updateUserUI();
+      window.goToRulesScreen();
+    }
+  };
+
+  window.mockSocialLogin = function(providerName) {
+    window.currentUser.username = `USER_${providerName.toUpperCase()}`;
+    window.currentUser.role = "DIRECT@R";
+    updateUserUI();
+    window.showToast(`Sesión vinculada con ${providerName}`, "success");
+    window.goToRulesScreen();
+  };
+
+  function updateUserUI() {
+    document.getElementById("current-user-name").innerText = window.currentUser.username;
+    document.getElementById("current-user-role").innerText = window.currentUser.role;
+    document.getElementById("sala-welcome-user").innerText = window.currentUser.username;
+    document.getElementById("profile-name-text").innerText = window.currentUser.username;
+  }
+
+  // Realtime Chat Integration
+  window.listenToChatMessages = function() {
+    if (!dbMensajes) return;
+    try {
+      const q = query(collection(dbMensajes, "public_chat"));
+      onSnapshot(q, (snapshot) => {
+        const list = document.getElementById("chat-messages-list");
+        if (!list) return;
+        list.innerHTML = "";
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          const isMe = data.sender === window.currentUser.username;
+          const msgDiv = document.createElement("div");
+          msgDiv.className = isMe 
+            ? "bg-white text-black p-3 rounded-2xl max-w-[80%] ml-auto rounded-br-none shadow" 
+            : "bg-zinc-800 text-white p-3 rounded-2xl max-w-[80%] rounded-bl-none shadow";
+          msgDiv.textContent = `${data.sender}: ${data.text}`;
+          list.appendChild(msgDiv);
+        });
+        list.scrollTop = list.scrollHeight;
+      });
+    } catch (e) {
+      console.warn("Chat realtime sync error:", e);
+    }
+  };
+
+  window.sendChatMessage = async function(e) {
+    e.preventDefault();
+    const input = document.getElementById("chat-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    if (dbMensajes) {
+      try {
+        await addDoc(collection(dbMensajes, "public_chat"), {
+          text: text,
+          sender: window.currentUser.username,
+          timestamp: serverTimestamp()
+        });
+      } catch (err) {
+        console.warn("Sent offline message");
+      }
+    }
+
+    const list = document.getElementById("chat-messages-list");
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "bg-white text-black p-3 rounded-2xl max-w-[80%] ml-auto rounded-br-none shadow";
+    msgDiv.textContent = `${window.currentUser.username}: ${text}`;
+    list.appendChild(msgDiv);
+    list.scrollTop = list.scrollHeight;
+
+    input.value = "";
+  };
+</script>
+
+<script>
+  function goToLanguageScreen() {
+    document.getElementById("pwa-screen").classList.add("hidden");
+    document.getElementById("language-screen").classList.remove("hidden");
+  }
+
+  function selectLanguage(lang) {
+    showToast(`Idioma ${lang} configurado`, "success");
+    goToAuthScreen();
+  }
+
+  function goToAuthScreen() {
+    document.getElementById("language-screen").classList.add("hidden");
+    document.getElementById("auth-screen").classList.remove("hidden");
+  }
+
+  function selectUserAccount(name) {
+    window.currentUser.username = name;
+    document.getElementById("current-user-name").innerText = name;
+    document.getElementById("sala-welcome-user").innerText = name;
+    document.getElementById("profile-name-text").innerText = name;
+    showToast(`Iniciando cuenta de ${name}`, "info");
+    goToRulesScreen();
+  }
+
+  function goToRulesScreen() {
+    document.getElementById("auth-screen").classList.add("hidden");
+    document.getElementById("rules-screen").classList.remove("hidden");
+  }
+
+  function acceptRules() {
+    document.getElementById("rules-screen").classList.add("hidden");
+    document.getElementById("main-app").classList.remove("hidden");
+    if (window.listenToChatMessages) window.listenToChatMessages();
+    showToast("Normas aceptadas. Entrando a DAZER ESTÁNDAR", "success");
+  }
+
+  function rejectRules() {
+    document.getElementById("rules-screen").classList.add("hidden");
+    document.getElementById("auth-screen").classList.remove("hidden");
+  }
+
+  function logoutApp() {
+    document.getElementById("main-app").classList.add("hidden");
+    document.getElementById("auth-screen").classList.remove("hidden");
+    showToast("Sesión cerrada", "info");
+  }
+
+  function exitApp() {
+    document.getElementById("auth-screen").classList.add("hidden");
+    document.getElementById("pwa-screen").classList.remove("hidden");
+  }
+
+  function openRegisterModal() { document.getElementById("crear-cuenta-modal").classList.remove("hidden"); }
+  function openPedirCuentaModal() { document.getElementById("pedir-cuenta-modal").classList.remove("hidden"); }
+  function openHelpModal() { document.getElementById("ayuda-modal").classList.remove("hidden"); }
+  function closeModal(id) { document.getElementById(id).classList.add("hidden"); }
+
+  function sendAccountRequest() {
+    const user = document.getElementById("pedir-user").value;
+    if(!user) {
+      showToast("Por favor ingresa tu usuario.", "error");
+      return;
+    }
+    showToast("Solicitud enviada a titanacorazado2009@gmail.com con éxito.", "success");
+    closeModal("pedir-cuenta-modal");
+  }
+
+  function copyAppLink() {
+    const el = document.createElement('textarea');
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast("Enlace copiado al portapapeles", "success");
+  }
+
+  function installAppPrompt() {
+    showToast("Para instalar: Selecciona 'Añadir a la pantalla de inicio' en tu navegador.", "info");
+  }
+
+  const views = ['sala', 'navegador', 'kurzclips', 'footage', 'spielfilm', 'schnapps', 'comunicacion', 'roles', 'verkehrsmasken', 'atico', 'boveda', 'bodega', 'moduz', 'umikaiser', 'configuraciones', 'zukurzales', 'gdz', 'perfil'];
+
+  function hideAllViews() {
+    views.forEach(v => {
+      const el = document.getElementById(`view-${v}`);
+      if(el) el.classList.add("hidden");
+    });
+  }
+
+  function switchTab(tabName) {
+    hideAllViews();
+    const target = document.getElementById(`view-${tabName}`);
+    if(target) target.classList.remove("hidden");
+
+    ['sala', 'navegador', 'kurzclips', 'footage', 'spielfilm', 'schnapps', 'comunicacion'].forEach(t => {
+      const btn = document.getElementById(`tab-${t}`);
+      if(btn) {
+        if(t === tabName) {
+          btn.className = "p-1 border border-white bg-white text-black flex flex-col items-center";
+        } else {
+          btn.className = "p-1 border border-white hover:bg-white hover:text-black flex flex-col items-center";
+        }
+      }
+    });
+  }
+
+  function switchRoleSubView(subName) {
+    hideAllViews();
+    const target = document.getElementById(`view-${subName}`);
+    if(target) target.classList.remove("hidden");
+  }
+
+  function switchExclusiveTab(tabName) {
+    hideAllViews();
+    const target = document.getElementById(`view-${tabName}`);
+    if(target) target.classList.remove("hidden");
+  }
+
+  function setAppTheme(themeName) {
+    document.body.className = `h-full font-sans antialiased flex flex-col select-none theme-${themeName}`;
+    showToast(`Tema ${themeName.toUpperCase()} activado`, "success");
+  }
+
+  function filterAccounts() {
+    const input = document.getElementById("account-search-input").value.toLowerCase();
+    const cards = document.querySelectorAll("#accounts-grid .account-card");
+    cards.forEach(card => {
+      const name = card.querySelector("h3").innerText.toLowerCase();
+      if(name.includes(input)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Umikaiser Mini Game Engine
+  window.umikaiserState = { casilla: 1, score: 0, remaining: 12 };
+  const diceIcons = ['fa-dice-one', 'fa-dice-two', 'fa-dice-three', 'fa-dice-four', 'fa-dice-five', 'fa-dice-six'];
+  
+  function rollUmikaiserDice() {
+    if(window.umikaiserState.remaining <= 0) {
+      showToast("Sin dados restantes.", "error");
+      return;
+    }
+    
+    const r1 = Math.floor(Math.random() * 6);
+    const r2 = Math.floor(Math.random() * 6);
+    const r3 = Math.floor(Math.random() * 6);
+
+    document.getElementById("dice-1").className = `fa-solid ${diceIcons[r1]}`;
+    document.getElementById("dice-2").className = `fa-solid ${diceIcons[r2]}`;
+    document.getElementById("dice-3").className = `fa-solid ${diceIcons[r3]}`;
+
+    const totalMove = (r1 + 1) + (r2 + 1) + (r3 + 1);
+    window.umikaiserState.casilla = (window.umikaiserState.casilla + totalMove) % 20 || 1;
+    window.umikaiserState.score += totalMove * 10;
+    window.umikaiserState.remaining -= 1;
+
+    document.getElementById("umi-casilla").innerText = window.umikaiserState.casilla;
+    document.getElementById("umi-score").innerText = window.umikaiserState.score;
+    document.getElementById("umi-remaining").innerText = window.umikaiserState.remaining;
+
+    const token = document.getElementById("umi-player-token");
+    if(token) {
+      const newX = 20 + (window.umikaiserState.casilla * 8) % 160;
+      token.setAttribute("cx", newX);
+    }
+    showToast(`+${totalMove * 10} Puntos obtenidos`, "info");
+  }
+
+  function startChatWith(name) {
+    document.getElementById("chat-partner-name").innerText = name;
+    document.getElementById("chat-users-grid").classList.add("hidden");
+    document.getElementById("chat-box-container").classList.remove("hidden");
+  }
+
+  function toggleChatList() {
+    document.getElementById("chat-box-container").classList.add("hidden");
+    document.getElementById("chat-users-grid").classList.remove("hidden");
+  }
+
+  function insertEmoji(emoji) {
+    const input = document.getElementById("chat-input");
+    input.value += emoji;
+  }
+
+  function addNewClipPrompt(type) {
+    const title = prompt(`Ingrese el título para el nuevo contenido de ${type.toUpperCase()}:`);
+    if(!title) return;
+    
+    const feed = document.getElementById(`${type}-feed`);
+    if(feed) {
+      const card = document.createElement("div");
+      card.className = "border-2 border-white p-3 bg-zinc-950 space-y-2";
+      card.innerHTML = `
+        <div class="flex justify-between items-center text-xs text-purple-400 font-archivo-title">
+          <span>@${window.currentUser.username}</span>
+          <span>Ahora</span>
+        </div>
+        <p class="font-bold text-xs text-white">${title}</p>
+      `;
+      feed.prepend(card);
+      showToast(`Contenido publicado en ${type.toUpperCase()}`, "success");
+    }
+  }
+
+  function triggerSalaSearch() {
+    const term = document.getElementById("sala-search-input").value;
+    if(!term) return;
+    showToast(`Buscando sin censura: "${term}"`, "info");
+  }
+</script>
+</body>
+</html>
