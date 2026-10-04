@@ -1,195 +1,195 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-black text-white">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>DAZER ESTANDAR / VOLUMEN 2</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>DAZER ESTÁNDAR / VOLUMEN 2</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-<script>
-tailwind.config = { theme: { extend: { fontFamily: { archivo: ['"Archivo Black"','sans-serif'], sans: ['Inter','sans-serif'] } } } }
-</script>
 <style>
-  * { -webkit-tap-highlight-color: transparent; }
-  html, body { overscroll-behavior: none; margin: 0; padding: 0; }
-  body { font-family: Inter, sans-serif; background: var(--bg, #000); color: var(--fg, #fff); transition: background .4s ease, color .4s ease; }
-  .archivo { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: .04em; }
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
-  ::-webkit-scrollbar-track { background: #000; }
-  ::-webkit-scrollbar-thumb { background: #444; }
-  .glow-white { box-shadow: 0 0 15px rgba(255,255,255,.15); }
-  .glow-purple { box-shadow: 0 0 20px rgba(168,85,247,.6); }
-  .btn { border: 2px solid currentColor; transition: all .15s ease; font-family: 'Archivo Black',sans-serif; text-transform: uppercase; letter-spacing: .05em; background: transparent; color: inherit; cursor: pointer; }
-  .btn:active { transform: scale(.97); }
-  .polaroid { background: #f5f5f5; color: #000; border-radius: 4px; padding: 6px; box-shadow: 0 4px 20px rgba(0,0,0,.5); }
-  .polaroid-inner { background: #000; padding: 8px; }
-  .toggle { width: 56px; height: 28px; border-radius: 14px; position: relative; transition: background .3s; cursor: pointer; border: 2px solid #000; flex-shrink: 0; }
-  .toggle::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; top: 3px; transition: left .3s; }
-  .toggle.on { background: #22c55e; }
-  .toggle.on::after { left: 31px; }
-  .toggle.off { background: #ef4444; }
-  .toggle.off::after { left: 3px; }
-  .pill { background: #fce7f3; color: #000; padding: 10px 14px; border-radius: 12px; font-weight: 900; font-family: 'Archivo Black',sans-serif; letter-spacing: .04em; display: inline-block; }
-  .theme-nocturno { --bg:#000; --fg:#fff; --accent:#a855f7; }
-  .theme-dia { --bg:#4b5563; --fg:#22c55e; --accent:#22c55e; }
-  .theme-coquette { --bg:#ff0080; --fg:#fff; --accent:#ff0080; }
-  .theme-fuego { --bg:#ff0000; --fg:#fff; --accent:#ff6600; }
-  .theme-sexy { --bg:#ff0066; --fg:#fff; --accent:#ff00cc; }
-  .theme-atodecedor { --bg:#00c9ff; --fg:#fff; --accent:#8b5cf6; }
-  .theme-secreto { --bg:#00e5ff; --fg:#fff; --accent:#06b6d4; }
-  .theme-normal { --bg:#ffffff; --fg:#000; --accent:#6366f1; }
-  #sweep { position:fixed; inset:0; z-index:9000; pointer-events:none; background: linear-gradient(105deg, transparent 0%, rgba(168,85,247,0) 30%, #a855f7 50%, rgba(168,85,247,0) 70%, transparent 100%); background-size: 300% 100%; background-position: -200% 0; opacity: 0; }
-  #sweep.active { opacity: 1; animation: sweepAnim .55s ease forwards; }
-  @keyframes sweepAnim { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-  @keyframes brainPulse { 0%,100%{filter:drop-shadow(0 0 8px #ef4444)} 50%{filter:drop-shadow(0 0 22px #ef4444)} }
-  .brain-pulse { animation: brainPulse 2s ease-in-out infinite; }
-  .glitch-bg { background-image: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,0,102,.15) 3px, rgba(255,0,102,.15) 4px), repeating-linear-gradient(90deg, transparent 0, transparent 8px, rgba(59,130,246,.2) 8px, rgba(59,130,246,.2) 10px); background-color:#0a0a1f; animation: glitchShift 4s linear infinite; }
-  @keyframes glitchShift { 0%{background-position:0 0, 0 0} 100%{background-position:0 40px, 40px 0} }
-  .dice-face { width:48px; height:48px; background:#fff; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; }
-  .dice-pips { display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); width:36px; height:36px; gap:2px; }
-  .pip { width:8px; height:8px; background:#000; border-radius:50%; margin:auto; }
-  .chip { display:inline-block; padding:2px 6px; background:#a855f7; color:#000; font-size:9px; font-weight:900; border-radius:2px; }
-  .exclusive-flag { display:inline-block; background:#dc2626; color:#fff; font-size:9px; font-weight:900; padding:1px 4px; transform:skewX(-15deg); }
-  .exclusive-flag.purple { background:#a855f7; }
+  *{-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+  html,body{overscroll-behavior:none;margin:0;padding:0;background:#000;color:#fff;font-family:Inter,system-ui,sans-serif}
+  .arc{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em}
+  .serif{font-family:Georgia,'Times New Roman',serif}
+  .box{border:3px solid #fff}
+  .box2{border:2px solid #fff}
+  .btn{border:2px solid currentColor;background:transparent;color:inherit;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .15s}
+  .btn:active{transform:scale(.97)}
+  .btn-w{background:#fff;color:#000;border-color:#fff}
+  .btn-w:hover{background:#d1d5db}
+  .inp{background:#000;color:#fff;border:2px solid #fff;padding:10px;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:12px;width:100%}
+  .inp::placeholder{color:#6b7280;text-transform:none;font-family:Inter;font-weight:600;letter-spacing:0}
+  .inp:focus{outline:none;border-color:#a855f7}
+  .polaroid{background:#f5f5f5;padding:8px 8px 14px}
+  .polaroid-in{background:#000;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .toggle{width:52px;height:26px;border-radius:14px;position:relative;border:2px solid #000;cursor:pointer;flex-shrink:0;transition:background .3s}
+  .toggle::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;transition:left .3s}
+  .toggle.on{background:#22c55e}.toggle.on::after{left:28px}
+  .toggle.off{background:#ef4444}.toggle.off::after{left:3px}
+  #sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;background:linear-gradient(105deg,transparent 0%,rgba(168,85,247,0) 30%,#a855f7 50%,rgba(168,85,247,0) 70%,transparent 100%);background-size:300% 100%;background-position:-200% 0;opacity:0}
+  #sweep.active{opacity:1;animation:sweepAnim .5s ease forwards}
+  @keyframes sweepAnim{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  .glow-p{box-shadow:0 0 20px rgba(168,85,247,.6)}
+  .brain-pulse{animation:bp 2s ease-in-out infinite}
+  @keyframes bp{0%,100%{filter:drop-shadow(0 0 8px #ef4444)}50%{filter:drop-shadow(0 0 22px #ef4444)}}
+  .glitch{background-color:#0a0a1f;background-image:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,0,102,.15) 3px,rgba(255,0,102,.15) 4px),repeating-linear-gradient(90deg,transparent 0,transparent 8px,rgba(59,130,246,.2) 8px,rgba(59,130,246,.2) 10px);animation:gs 4s linear infinite}
+  @keyframes gs{0%{background-position:0 0,0 0}100%{background-position:0 40px,40px 0}}
+  .flag{display:inline-block;background:#dc2626;color:#fff;font-size:8px;font-weight:900;padding:1px 4px;transform:skewX(-15deg);letter-spacing:.05em}
+  .flag-p{background:#a855f7}
+  ::-webkit-scrollbar{width:4px;height:4px}
+  ::-webkit-scrollbar-track{background:#000}
+  ::-webkit-scrollbar-thumb{background:#444}
+  /* Moduz themes */
+  body.theme-nocturno{--bg:#000;--fg:#fff;--ac:#a855f7}
+  body.theme-dia{--bg:#0c1e3d;--fg:#fff;--ac:#22c55e}
+  body.theme-coquette{--bg:#4a0d2a;--fg:#fff;--ac:#ec4899}
+  body.theme-fuego{--bg:#3d0a0a;--fg:#fff;--ac:#f97316}
+  body.theme-sexy{--bg:#2a0a3d;--fg:#fff;--ac:#ff00cc}
+  body.theme-normal{--bg:#111;--fg:#fff;--ac:#6366f1}
+  body{background:var(--bg,#000);color:var(--fg,#fff)}
+  .hidden-flex{display:none!important}
 </style>
 </head>
-<body class="h-full theme-nocturno select-none">
+<body class="theme-nocturno select-none">
 
 <div id="sweep"></div>
 <div id="toast-wrap" class="fixed top-3 left-1/2 -translate-x-1/2 z-[10000] w-full max-w-sm px-3 pointer-events-none space-y-2"></div>
 
-<!-- ============ PWA SCREEN ============ -->
-<div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center p-4">
-  <div class="w-full max-w-sm border-4 border-white bg-black p-6 flex flex-col items-center space-y-5">
+<!-- ========== SCR-PWA ========== -->
+<div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
+  <div class="w-full max-w-sm box bg-black p-6 flex flex-col items-center gap-6">
     <div class="text-center">
-      <h1 class="archivo text-5xl leading-none">DAZER <span class="inline-flex items-center justify-center w-8 h-8 border-2 border-white rounded-full text-base align-middle">▲</span></h1>
-      <p class="archivo text-xl mt-1 tracking-widest">EXTREMO</p>
+      <h1 class="arc text-4xl flex items-center justify-center gap-2">DAZER
+        <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">▲</span>
+      </h1>
+      <p class="arc text-xl mt-1 tracking-widest">EXTREMO</p>
     </div>
-    <p class="archivo text-sm text-center">LLEVA A DAZER A TU PANTALLA DE INICIO</p>
+    <p class="arc text-sm text-center">LLEVAR A DAZER A TU PANTALLA DE INICIO</p>
     <div class="w-full space-y-3">
-      <button class="btn w-full py-3 text-sm" onclick="copyLink()">Copiar enlace</button>
-      <button class="btn w-full py-3 text-sm" onclick="installApp()">Instalar</button>
-      <button class="btn w-full py-3 text-sm" onclick="goToLang()">Acceso directo de la página</button>
-      <button class="btn w-full py-3 text-sm" onclick="goToLang()">Seguir en web</button>
+      <button onclick="copyLink()" class="btn w-full py-3 text-base text-white">Copiar enlace</button>
+      <button onclick="installApp()" class="btn w-full py-3 text-base text-white">Instalar</button>
+      <button onclick="goLang()" class="btn w-full py-3 text-base text-white">Acceso directo de la página</button>
+      <button onclick="goLang()" class="btn w-full py-3 text-base text-white">Seguir en web</button>
     </div>
   </div>
 </div>
 
-<!-- ============ LANG SCREEN ============ -->
-<div id="scr-lang" class="fixed inset-0 z-50 bg-black overflow-y-auto p-4 hidden flex-col items-center">
-  <div class="w-full max-w-md border-4 border-white bg-black p-5 space-y-4 my-auto">
-    <div class="text-center">
-      <h1 class="archivo text-3xl">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-xs align-middle">▲</span></h1>
-      <p class="archivo text-lg tracking-widest">EXTREMO</p>
-      <h2 class="archivo text-xl mt-3">ESCOGER IDIOMA</h2>
-      <p class="archivo text-3xl text-red-600 mt-2">¡CUIDADO!</p>
-      <p class="text-xs text-red-400 leading-tight">en el idioma que escoja va a estar toda la página traducida</p>
+<!-- ========== SCR-LANG ========== -->
+<div id="scr-lang" class="fixed inset-0 z-50 bg-black hidden items-center justify-center p-4 overflow-y-auto">
+  <div class="w-full max-w-md box bg-black p-5 my-auto">
+    <div class="text-center mb-4">
+      <h1 class="arc text-3xl flex items-center justify-center gap-2">DAZER
+        <span class="inline-flex items-center justify-center w-7 h-7 border-2 border-white rounded-full text-xs">▲</span>
+      </h1>
+      <p class="arc text-lg tracking-widest">EXTREMO</p>
+      <h2 class="arc text-xl mt-3">ESCOGER IDIOMA</h2>
+      <p class="arc text-2xl text-red-600 mt-1">¡CUIDADO!</p>
+      <p class="text-[11px] text-red-400 leading-tight">en el idioma que escoja va a estar toda la página traducida</p>
     </div>
-    <div id="lang-list" class="space-y-2"></div>
-    <button class="btn w-full py-3 text-sm bg-white text-black" onclick="goToAuth()">CONTINUAR</button>
+    <div id="lang-list" class="space-y-2 mb-4"></div>
+    <button onclick="goAuth()" class="btn btn-w w-full py-3 text-sm">CONTINUAR</button>
   </div>
 </div>
 
-<!-- ============ AUTH SCREEN ============ -->
-<div id="scr-auth" class="fixed inset-0 z-50 bg-black overflow-y-auto hidden flex-col">
+<!-- ========== SCR-AUTH ========== -->
+<div id="scr-auth" class="fixed inset-0 z-50 bg-black hidden flex-col">
   <div class="flex justify-between items-center border-b-2 border-white p-2 gap-1 shrink-0">
     <div class="flex gap-1 flex-wrap">
-      <button class="btn text-[10px] px-2 py-1 text-white" onclick="show('scr-register')">Crear cuenta</button>
-      <button class="btn text-[10px] px-2 py-1 text-white" onclick="show('scr-pedir')">Pedir cuenta</button>
-      <button class="btn text-[10px] px-2 py-1 text-white" onclick="show('scr-ayuda')">Ayuda</button>
+      <button onclick="openModal('mod-register')" class="btn px-3 py-1 text-[11px] text-white">Crear cuenta</button>
+      <button onclick="openModal('mod-pedir')" class="btn px-3 py-1 text-[11px] text-white">Pedir cuenta</button>
+      <button onclick="openModal('mod-ayuda')" class="btn px-3 py-1 text-[11px] text-white">Ayuda</button>
     </div>
-    <button class="btn text-[10px] px-3 py-1 text-white" onclick="exitApp()">Salir</button>
+    <button onclick="exitApp()" class="btn px-3 py-1 text-[11px] text-white">Salir</button>
   </div>
 
-  <div class="flex-1 p-4 flex flex-col items-center justify-start space-y-5 overflow-y-auto">
-    <div class="text-center w-full max-w-sm">
-      <h1 class="archivo text-5xl leading-none">DAZER</h1>
-      <div class="flex justify-center my-2">
-        <span class="inline-flex items-center justify-center w-10 h-10 border-2 border-white rounded-full text-xl">▲</span>
-      </div>
-      <p class="archivo text-2xl tracking-widest">EXTREMO</p>
-      <p class="text-sm mt-3 text-white">Entra con tu cuenta de Google (Gmail)</p>
-    </div>
-
-    <div class="border-4 border-white p-5 space-y-3 w-full max-w-sm bg-black text-center">
-      <h2 class="archivo text-4xl leading-none">DAZER</h2>
-      <div class="flex justify-center my-1">
+  <div class="flex-1 overflow-y-auto p-4">
+    <div class="text-center mb-4">
+      <h1 class="arc text-4xl flex items-center justify-center gap-2">DAZER
         <span class="inline-flex items-center justify-center w-8 h-8 border-2 border-white rounded-full text-base">▲</span>
-      </div>
-      <p class="archivo text-lg tracking-widest">ESTANDAR</p>
-      <button onclick="loginGoogle()" class="w-full py-5 bg-white text-purple-700 archivo text-lg rounded mt-2">ENTRAR CON GOOGLE</button>
+      </h1>
+      <p class="arc text-lg tracking-widest">EXTREMO</p>
+      <p class="text-xs mt-2 text-gray-400">Entra con tu cuenta de Google (Gmail)</p>
     </div>
 
-    <div class="w-full max-w-sm space-y-3">
-      <div class="border-2 border-white p-3">
-        <input id="acc-search" oninput="filterAccounts()" placeholder="busca tu cuenta por su nombre" class="w-full bg-black text-white text-sm font-bold text-center outline-none border-0">
-      </div>
-      <div id="acc-list" class="grid grid-cols-2 gap-3"></div>
+    <div class="max-w-md mx-auto mb-4">
+      <button onclick="loginGoogle()" class="btn btn-w w-full py-4 text-base flex items-center justify-center gap-3">
+        <i class="fa-brands fa-google text-red-500 text-xl"></i>
+        ENTRAR CON GOOGLE
+      </button>
     </div>
+
+    <div class="max-w-md mx-auto mb-4">
+      <input id="acc-search" oninput="filterAccounts()" placeholder="busca tu cuenta por su nombre" class="inp">
+    </div>
+
+    <div id="acc-list" class="max-w-xl mx-auto grid grid-cols-2 gap-3 pb-12"></div>
   </div>
 
-  <div class="border-t-4 border-white bg-black py-2 px-3 flex items-center gap-2 shrink-0">
-    <span class="text-2xl">⛩️</span>
-    <span class="archivo text-sm tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
+  <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center gap-3 shrink-0">
+    <span class="text-2xl" style="color:#dc2626">⛩️</span>
+    <span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
   </div>
 </div>
 
-<!-- ============ MODALES ============ -->
-<div id="scr-register" class="fixed inset-0 z-[60] bg-black overflow-y-auto p-4 hidden flex-col items-center">
-  <div class="max-w-sm w-full border-4 border-white bg-black p-5 space-y-3 my-8">
-    <div class="flex justify-between items-start">
-      <div>
-        <h1 class="archivo text-3xl">DAZER ▲</h1>
-        <p class="archivo text-sm">ESTANDAR</p>
-      </div>
-      <button onclick="hide('scr-register')" class="text-3xl font-black text-white leading-none">×</button>
+<!-- ========== MODALES AUTH ========== -->
+<div id="mod-register" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
+  <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
+    <button onclick="closeModal('mod-register')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
+    <div class="mb-3">
+      <h2 class="arc text-2xl flex items-center gap-2">DAZER
+        <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span>
+      </h2>
+      <p class="arc text-sm">ESTANDAR</p>
     </div>
-    <p class="archivo text-base text-center">HOLA CREADOR QUE CUENTA VAS A CREAR HOY</p>
+    <p class="arc text-sm text-center mb-3">HOLA CREADOR QUE CUENTA VAS A CREAR HOY</p>
     <div class="space-y-2">
-      <input id="r-user" placeholder="NOMBRE DE USUARIO" class="w-full bg-white text-black p-3 archivo text-sm">
-      <input id="r-pass" type="password" placeholder="CONTRASEÑA" class="w-full bg-white text-black p-3 archivo text-sm">
-      <input id="r-dob" type="date" class="w-full bg-white text-black p-3 archivo text-sm">
-      <select id="r-sub" class="w-full bg-white text-black p-3 archivo text-sm">
-        <option>GRATUITO</option><option>SCHEITEL</option><option>HAIKU</option><option>ADMIN</option><option>DIRECT@R</option>
+      <input id="r-user" placeholder="NOMBRE DE USUARIO" class="inp">
+      <input id="r-email" type="email" placeholder="CORREO ELECTRÓNICO" class="inp">
+      <input id="r-pass" type="password" placeholder="CONTRASEÑA" class="inp">
+      <input id="r-dob" type="date" class="inp">
+      <select id="r-sub" class="inp">
+        <option value="GRATUITO">SUSCRIPCIÓN: GRATUITO</option>
+        <option value="SCHEITEL">SUSCRIPCIÓN: SCHEITEL</option>
+        <option value="HAIKU">SUSCRIPCIÓN: HAIKU (PREMIUM)</option>
+        <option value="ADMIN">SUSCRIPCIÓN: ADMIN</option>
+        <option value="DIRECT@R">SUSCRIPCIÓN: DIRECT@R</option>
       </select>
-      <button onclick="createAccount()" class="w-full py-4 bg-white text-purple-600 archivo text-xl mt-3">INSERTAR</button>
+      <button onclick="createAccount()" class="btn btn-w w-full py-4 text-xl" style="color:#a855f7">INSERTAR</button>
     </div>
   </div>
 </div>
 
-<div id="scr-pedir" class="fixed inset-0 z-[60] bg-black overflow-y-auto p-4 hidden flex-col items-center">
-  <div class="max-w-sm w-full border-4 border-white bg-black p-5 space-y-3 my-8">
-    <div class="flex justify-between items-start">
-      <h1 class="archivo text-3xl">DAZER ▲</h1>
-      <button onclick="hide('scr-pedir')" class="text-3xl font-black text-white leading-none">×</button>
-    </div>
-    <p class="text-center text-xs">Se enviará al correo:</p>
-    <p class="text-center text-purple-400 font-mono font-bold break-all text-xs">titanacorazado2009@gmail.com</p>
-    <div class="border-2 border-white p-3 text-xs space-y-2">
-      <p class="font-bold">&#123;solicito una cuenta en DAZER ESTANDAR&#125;</p>
-      <p>MIS CREDENCIALES SON</p>
+<div id="mod-pedir" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
+  <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
+    <button onclick="closeModal('mod-pedir')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
+    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span></h2>
+    <p class="text-xs text-center mb-2">Se enviará al correo:</p>
+    <p class="text-purple-400 font-mono font-bold break-all text-xs text-center mb-3">titanacorazado2009@gmail.com</p>
+    <div class="box2 p-3 text-xs space-y-2">
+      <p class="font-black text-center">{solicito una cuenta en DAZER ESTANDAR}</p>
+      <p class="text-center text-[11px]">MIS CREDENCIALES SON</p>
       <label class="block text-[10px]">NOMBRE DE USUARIO:</label>
-      <input id="p-user" class="w-full bg-black border border-white p-2 text-xs text-white">
+      <input id="p-user" class="inp text-[11px] py-1.5">
       <label class="block text-[10px]">FECHA DE NACIMIENTO:</label>
-      <input id="p-dob" type="date" class="w-full bg-black border border-white p-2 text-xs text-white">
+      <input id="p-dob" type="date" class="inp text-[11px] py-1.5">
       <label class="block text-[10px]">CONTRASEÑA:</label>
-      <input id="p-pass" type="password" class="w-full bg-black border border-white p-2 text-xs text-white">
+      <input id="p-pass" type="password" class="inp text-[11px] py-1.5">
       <label class="block text-[10px]">MI CORREO (OPCIONAL):</label>
-      <input id="p-mail" type="email" class="w-full bg-black border border-white p-2 text-xs text-white">
+      <input id="p-mail" type="email" class="inp text-[11px] py-1.5">
+      <p class="text-[10px] text-gray-400 text-center pt-2 border-t border-gray-700">Esto se pide para poder contactarte si hay un problema</p>
     </div>
-    <button onclick="sendPedir()" class="w-full py-3 btn text-sm bg-white text-black">ENVIAR SOLICITUD</button>
+    <button onclick="sendPedir()" class="btn btn-w w-full py-3 text-sm mt-4">ENVIAR SOLICITUD</button>
   </div>
 </div>
 
-<div id="scr-ayuda" class="fixed inset-0 z-[60] bg-black overflow-y-auto p-4 hidden flex-col items-center">
-  <div class="max-w-sm w-full border-4 border-white bg-black p-5 space-y-3 my-8">
-    <div class="flex justify-between items-start">
-      <h1 class="archivo text-3xl">DAZER ▲</h1>
-      <button onclick="hide('scr-ayuda')" class="text-3xl font-black text-white leading-none">×</button>
-    </div>
-    <p class="archivo text-sm text-center">TE BRINDE INFORMACIÓN QUE LES ESEÑA</p>
-    <div class="border-2 border-white p-3 space-y-2 text-sm font-bold">
+<div id="mod-ayuda" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
+  <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
+    <button onclick="closeModal('mod-ayuda')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
+    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span></h2>
+    <p class="arc text-sm text-center mb-3">TE BRINDE INFORMACIÓN QUE LES ESEÑA</p>
+    <div class="box2 p-3 space-y-2 text-xs font-bold">
       <p>1 COMO CREAR CUENTA EN PEDIR CUENTA</p>
       <p>2 COMO BUSCAR MI CUENTA</p>
       <p>3 COMO FUNCIONA EL REPORTE</p>
@@ -197,475 +197,717 @@ tailwind.config = { theme: { extend: { fontFamily: { archivo: ['"Archivo Black"'
   </div>
 </div>
 
-<div id="modal-pass" class="fixed inset-0 z-[80] bg-black/95 hidden flex-col items-center justify-center p-4">
-  <div class="max-w-xs w-full border-4 border-white bg-black p-6 space-y-3">
-    <h3 class="archivo text-lg text-center">CLAVE MAESTRA</h3>
-    <input id="master-pass" type="password" placeholder="••••••••" class="w-full bg-black border-2 border-white p-3 text-center text-white archivo">
+<div id="mod-cuenta-creada" class="fixed inset-0 z-[70] bg-black hidden items-center justify-center p-4">
+  <div class="max-w-sm w-full box bg-black p-6 text-center space-y-6">
+    <div>
+      <h2 class="arc text-2xl">DAZER ESTANDAR</h2>
+    </div>
+    <p class="arc text-3xl">CUENTA CREADA</p>
+    <div class="space-y-3">
+      <button onclick="enterCreatedAccount()" class="btn btn-w w-full py-3 text-base">ENTAR A CUENTA</button>
+      <button onclick="exitCreated()" class="btn btn-w w-full py-3 text-lg">SALIR</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== RULES ========== -->
+<div id="scr-rules" class="fixed inset-0 z-50 bg-black hidden flex-col">
+  <div class="flex justify-between items-center border-b-2 border-white p-3 shrink-0">
+    <div>
+      <h1 class="arc text-xl flex items-center gap-2">DAZER
+        <span class="inline-flex items-center justify-center w-5 h-5 border-2 border-white rounded-full text-[9px]">▲</span>
+      </h1>
+      <p class="arc text-xs">ESTANDAR</p>
+    </div>
+    <button onclick="rejectRules()" class="btn px-4 py-2 text-sm text-white">Salir</button>
+  </div>
+
+  <div class="flex-1 overflow-y-auto p-4">
+    <div class="max-w-sm mx-auto box p-5">
+      <h2 class="arc text-2xl text-center mb-4">NORMAS DE COMUNIDAD</h2>
+      <div class="font-black text-sm space-y-1.5 leading-tight">
+        <p>NO AL CONTENIDO SIN SENTIDO</p>
+        <p>NO AL PLAGIO</p>
+        <p>NO AL SPAM</p>
+        <p>NO AL CIBERBULLYNG</p>
+        <p>NO AL STALKERT</p>
+        <p>NO AL PORNOGRAFIA INFANTIL</p>
+        <p>NO AL GORE</p>
+        <p>NO AL A PERSONAS OBLIGADAS HACER CONTENIDO</p>
+      </div>
+      <p class="text-green-400 text-center arc text-xs mt-5">SI ACEPTO LAS NORMAS Y SI LAS VIOLO SERE BANIADO</p>
+      <button onclick="acceptRules()" class="btn btn-w w-full py-3 text-xs mt-3">ACEPTO Y CONTINÚO</button>
+      <button onclick="rejectRules()" class="btn w-full py-3 text-xs mt-2" style="color:#ef4444">NO LAS ACEPTO SALIR</button>
+    </div>
+  </div>
+
+  <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center justify-between shrink-0">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl" style="color:#dc2626">⛩️</span>
+      <span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
+    </div>
+    <span class="arc text-xs text-purple-400">DIRECT@R</span>
+  </div>
+</div>
+
+<!-- ========== MASTER PASS ========== -->
+<div id="mod-master" class="fixed inset-0 z-[80] bg-black/95 hidden items-center justify-center p-4">
+  <div class="max-w-xs w-full box bg-black p-6 space-y-4">
+    <h3 class="arc text-lg text-center flex items-center justify-center gap-2">
+      <i class="fa-solid fa-lock text-purple-500"></i> CLAVE MAESTRA
+    </h3>
+    <input id="master-pass" type="password" placeholder="••••••••" class="inp text-center">
     <div class="flex gap-2">
-      <button onclick="hide('modal-pass')" class="flex-1 btn py-2 text-xs text-white">Cancelar</button>
-      <button onclick="checkMaster()" class="flex-1 btn py-2 text-xs bg-white text-black">Entrar</button>
+      <button onclick="closeModal('mod-master')" class="btn flex-1 py-2 text-xs text-white">Cancelar</button>
+      <button onclick="checkMaster()" class="btn btn-w flex-1 py-2 text-xs">Entrar</button>
     </div>
   </div>
 </div>
 
-<!-- ============ RULES ============ -->
-<div id="scr-rules" class="fixed inset-0 z-50 bg-black overflow-y-auto p-4 hidden flex-col items-center">
-  <div class="max-w-sm w-full border-4 border-white p-5 my-auto space-y-3">
-    <div class="flex justify-between items-start">
-      <div><h1 class="archivo text-2xl">DAZER ▲</h1><p class="text-xs">Términos</p></div>
-      <button onclick="rejectRules()" class="btn text-xs px-3 py-1 text-white">Salir</button>
-    </div>
-    <h2 class="archivo text-xl text-center">NORMAS DE COMUNIDAD</h2>
-    <div class="text-white font-black text-sm space-y-1">
-      <p>NO AL CONTENIDO SIN SENTIDO</p>
-      <p>NO AL PLAGIO</p>
-      <p>NO AL SPAM</p>
-      <p>NO AL CIBERBULLYNG</p>
-      <p>NO AL STALKERT</p>
-      <p>NO AL PORNOGRAFIA INFANTIL</p>
-      <p>NO AL GORE</p>
-      <p>NO AL A PERSONAS OBLIGADAS HACER CONTENIDO</p>
-    </div>
-    <p class="text-green-400 text-center archivo text-sm">SI ACEPTO LAS NORMAS Y SI LAS VIOLO SERE BANIADO</p>
-    <button onclick="acceptRules()" class="w-full py-3 bg-green-600 archivo text-sm text-white">ACEPTO Y CONTINÚO</button>
-    <button onclick="rejectRules()" class="w-full py-3 text-red-500 archivo text-sm">NO LAS ACEPTO SALIR</button>
-  </div>
-</div>
-
-<!-- ============ MAIN APP ============ -->
-<div id="app" class="hidden h-full flex flex-col overflow-hidden">
-  <header class="border-b-2 border-white flex items-center bg-black shrink-0">
+<!-- ========== MAIN APP ========== -->
+<div id="app" class="hidden h-full flex-col overflow-hidden">
+  <header class="border-b-2 border-white bg-black flex items-center shrink-0">
     <div class="px-3 py-2 border-r-2 border-white">
-      <h1 class="archivo text-xl leading-none">DAZER ▲</h1>
-      <p class="archivo text-[10px] leading-none">ESTANDAR</p>
+      <h1 class="arc text-lg leading-none flex items-center gap-1">DAZER
+        <span class="inline-flex items-center justify-center w-4 h-4 border border-white rounded-full text-[8px]">▲</span>
+      </h1>
+      <p class="arc text-[10px] leading-none">ESTANDAR</p>
     </div>
     <div class="flex-1 text-center">
-      <span id="hdr-role" class="archivo text-xs text-purple-400">DIRECT@R</span>
+      <span id="hdr-user" class="arc text-xs text-white">JOSE</span>
+      <span class="mx-2 text-gray-600">|</span>
+      <span id="hdr-role" class="arc text-xs text-purple-400">DIRECT@R</span>
     </div>
-    <button onclick="logoutApp()" class="px-4 py-3 archivo text-lg border-l-2 border-white">Salir</button>
+    <button onclick="logoutApp()" class="px-3 py-3 arc text-sm border-l-2 border-white">Salir</button>
   </header>
 
-  <main id="viewport" class="flex-1 overflow-y-auto p-4"></main>
+  <main id="viewport" class="flex-1 overflow-y-auto"></main>
 
   <nav class="border-t-2 border-white bg-black overflow-x-auto shrink-0">
-    <div class="flex min-w-max items-center justify-around text-[9px] archivo">
-      <button onclick="go('sub-sus')" id="nav-sub-sus" class="px-2 py-1 flex flex-col items-center gap-0.5">💎<span>SUSCRIPCIONES</span></button>
-      <button onclick="go('sub-vk')" id="nav-sub-vk" class="px-2 py-1 flex flex-col items-center gap-0.5">🎭<span>VERKEHRSMASKEN</span></button>
-      <button onclick="go('sub-atico')" id="nav-sub-atico" class="px-2 py-1 flex flex-col items-center gap-0.5">△<span>ATICO</span></button>
-      <button onclick="go('sub-boveda')" id="nav-sub-boveda" class="px-2 py-1 flex flex-col items-center gap-0.5">🔒<span>BOVEDA</span></button>
-      <button onclick="go('sub-bodega')" id="nav-sub-bodega" class="px-2 py-1 flex flex-col items-center gap-0.5">🏠<span>BODEGA</span></button>
-      <button onclick="go('sub-ci')" id="nav-sub-ci" class="px-2 py-1 flex flex-col items-center gap-0.5">🧠<span>C.I</span></button>
-      <button onclick="go('sub-moduz')" id="nav-sub-moduz" class="px-2 py-1 flex flex-col items-center gap-0.5">☀️<span>MODUZ</span></button>
-    </div>
-  </nav>
-
-  <nav class="border-t-2 border-white bg-black shrink-0">
-    <div class="grid grid-cols-7 text-[9px] archivo">
-      <button onclick="go('sala')" id="tab-sala" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">🛋️<span>SALA</span></button>
-      <button onclick="go('navegador')" id="tab-navegador" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">🪐<span>NAVEGADOR</span></button>
-      <button onclick="go('kurzclips')" id="tab-kurzclips" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">📱<span>KURZCLIPS</span></button>
-      <button onclick="go('footage')" id="tab-footage" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">▶️<span>FOOTAGE</span></button>
-      <button onclick="go('spielfilm')" id="tab-spielfilm" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">🎥<span>SPIELFILM</span></button>
-      <button onclick="go('schnapps')" id="tab-schnapps" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">🖼️<span>SCHNAPPS</span></button>
-      <button onclick="go('comunicacion')" id="tab-comunicacion" class="py-1.5 flex flex-col items-center gap-0.5">💬<span>COMUNICACIÓN</span></button>
+    <div class="flex min-w-max items-stretch justify-around">
+      <button onclick="go('sala')" id="tab-sala" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-couch text-base"></i><span>SALA</span>
+      </button>
+      <button onclick="go('navegador')" id="tab-navegador" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-earth-americas text-base"></i><span>NAVEGADOR</span>
+      </button>
+      <button onclick="go('kurzclips')" id="tab-kurzclips" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-mobile-screen text-base" style="color:#a855f7"></i><span>KURZCLIPS</span>
+      </button>
+      <button onclick="go('footage')" id="tab-footage" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-circle-play text-base" style="color:#ef4444"></i><span>FOOTAGE</span>
+      </button>
+      <button onclick="go('spielfilm')" id="tab-spielfilm" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-video text-base" style="color:#3b82f6"></i><span>SPIELFILM</span>
+      </button>
+      <button onclick="go('schnapps')" id="tab-schnapps" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-images text-base" style="color:#ec4899"></i><span>SCHNAPPS</span>
+      </button>
+      <button onclick="go('comunicacion')" id="tab-comunicacion" class="px-3 py-2 flex flex-col items-center gap-0.5 text-[10px] arc min-w-[70px]">
+        <i class="fa-solid fa-comments text-base"></i><span>COMUNICACIÓN</span>
+      </button>
     </div>
   </nav>
 
   <nav class="border-t-2 border-purple-500 bg-black shrink-0">
-    <div class="grid grid-cols-7 text-[8px] archivo">
-      <button onclick="toast('C.P.H próximamente','info')" class="py-1 flex flex-col items-center"><span class="exclusive-flag">EXCLUSIVE</span><span>C.P.H</span></button>
-      <button onclick="toast('C.P.S próximamente','info')" class="py-1 flex flex-col items-center"><span class="exclusive-flag purple">EXCLUSIVE</span><span>C.P.S</span></button>
-      <button onclick="go('umikaiser')" class="py-1 flex flex-col items-center text-purple-300">🎲<span>UMIKAISER</span></button>
-      <button onclick="go('config')" class="py-1 flex flex-col items-center">⚙️<span>CONFIG</span></button>
-      <button onclick="go('zukurzalez')" class="py-1 flex flex-col items-center">🛒<span>ZUKURZALEZ</span></button>
-      <button onclick="go('gdz')" class="py-1 flex flex-col items-center">👜<span>GDZ</span></button>
-      <button onclick="go('perfil')" class="py-1 flex flex-col items-center">👤<span>PERFIL</span></button>
+    <div class="grid grid-cols-4 text-[9px] arc">
+      <button onclick="go('config')" class="py-1.5 flex flex-col items-center border-r border-purple-500/40">
+        <i class="fa-solid fa-gear text-xs"></i><span>CONFIG</span>
+      </button>
+      <button onclick="go('umikaiser')" class="py-1.5 flex flex-col items-center border-r border-purple-500/40 text-purple-300">
+        <i class="fa-solid fa-dice text-xs"></i><span>UMIKAISER</span>
+      </button>
+      <button onclick="go('gdz')" class="py-1.5 flex flex-col items-center border-r border-purple-500/40">
+        <i class="fa-solid fa-bag-shopping text-xs"></i><span>GDZ</span>
+      </button>
+      <button onclick="go('perfil')" class="py-1.5 flex flex-col items-center">
+        <i class="fa-solid fa-user text-xs"></i><span>PERFIL</span>
+      </button>
     </div>
   </nav>
 
   <footer class="border-t-2 border-white bg-black px-3 py-1 flex items-center justify-between shrink-0">
-    <div class="flex items-center gap-1.5">
-      <span class="text-xl">⛩️</span>
-      <span class="archivo text-[10px] tracking-widest">DAZER ESTANDAR / VOLUMEN 2</span>
+    <div class="flex items-center gap-2">
+      <span class="text-lg" style="color:#dc2626">⛩️</span>
+      <span class="serif text-sm tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
     </div>
-    <span id="ftr-role" class="archivo text-xs text-purple-500">DIRECT@R</span>
+    <span id="ftr-role" class="arc text-xs text-purple-500">DIRECT@R</span>
   </footer>
 </div>
 
+<!-- ========== SCRIPT ========== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import {
+  getFirestore, collection, doc, setDoc, getDoc, getDocs,
+  addDoc, query, where, orderBy, onSnapshot, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
-const fbCfg = { apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4", authDomain:"dazer-extremo-cuentas.firebaseapp.com", projectId:"dazer-extremo-cuentas", storageBucket:"dazer-extremo-cuentas.firebasestorage.app", messagingSenderId:"551686385854", appId:"1:551686385854:web:6bb73a9b34e2471ca26eef" };
-let auth = null;
-try { const a = initializeApp(fbCfg); auth = getAuth(a); } catch(e){ console.warn("fb init",e); }
-window.__fbAuth = auth;
-
-window.state = {
-  user: { name:'JOSE', role:'DIRECT@R', email:'' },
-  settings: { sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true, speedZoom:5, transitions:true, theme:'nocturno', volBg:0.3, volBtn:0.5 },
-  vk: { vpn:false, red:false, zuk:false, tozo:false, deez:false, cand:false, verkehr:false },
-  umi: { casilla:1, puntos:0, dados:12, lastCombo:'' }
+// ====== FIREBASE CONFIGS (cada uno con NOMBRE ÚNICO) ======
+const CFG = {
+  cuentas: { apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4", authDomain:"dazer-extremo-cuentas.firebaseapp.com", projectId:"dazer-extremo-cuentas", storageBucket:"dazer-extremo-cuentas.firebasestorage.app", messagingSenderId:"551686385854", appId:"1:551686385854:web:6bb73a9b34e2471ca26eef" },
+  kurzclips: { apiKey:"AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0", authDomain:"dazer-extremo-kurzclips.firebaseapp.com", projectId:"dazer-extremo-kurzclips", storageBucket:"dazer-extremo-kurzclips.firebasestorage.app", messagingSenderId:"790098661692", appId:"1:790098661692:web:becd1e7a3b04bc9e0b8e39" },
+  footages: { apiKey:"AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY", authDomain:"dazer-extremo-footages.firebaseapp.com", projectId:"dazer-extremo-footages", storageBucket:"dazer-extremo-footages.firebasestorage.app", messagingSenderId:"254207247947", appId:"1:254207247947:web:82a5c5ff2a5a3297a12fce" },
+  schnapps: { apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q", authDomain:"dazer-extremo-schannps.firebaseapp.com", projectId:"dazer-extremo-schannps", storageBucket:"dazer-extremo-schannps.firebasestorage.app", messagingSenderId:"18311813658", appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3" },
+  mensajes: { apiKey:"AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU", authDomain:"dazer-extremo-mensajes.firebaseapp.com", projectId:"dazer-extremo-mensajes", storageBucket:"dazer-extremo-mensajes.firebasestorage.app", messagingSenderId:"70744027643", appId:"1:70744027643:web:1cf308aea8a5f87f1b5b5e" }
 };
-try {
-  const saved = JSON.parse(localStorage.getItem('dazer') || '{}');
-  if (saved.settings) Object.assign(state.settings, saved.settings);
-  if (saved.vk) Object.assign(state.vk, saved.vk);
-  if (saved.user) state.user = saved.user;
-} catch(e){}
-window.save = () => localStorage.setItem('dazer', JSON.stringify({ settings: state.settings, vk: state.vk, user: state.user }));
 
-// SOUND
-let audioCtx = null;
-function beep(freq=880, dur=0.08, type='square', vol=0.3) {
-  if (!state.settings.sndBtn) return;
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
-    o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(vol * state.settings.volBtn, audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-    o.connect(g); g.connect(audioCtx.destination);
-    o.start(); o.stop(audioCtx.currentTime + dur);
-  } catch(e){}
-}
-window.beep = beep;
-document.addEventListener('click', (e) => { const el = e.target.closest('button, .btn, [onclick], .toggle'); if (el) beep(720, 0.06, 'square', 0.25); }, true);
+// Inicialización con NOMBRE único para que no choquen
+const appCuentas = initializeApp(CFG.cuentas, 'appCuentas');
+const appKurz    = initializeApp(CFG.kurzclips, 'appKurz');
+const appFoot    = initializeApp(CFG.footages, 'appFoot');
+const appSchn    = initializeApp(CFG.schnapps, 'appSchn');
+const appMsg     = initializeApp(CFG.mensajes, 'appMsg');
 
+const auth = getAuth(appCuentas);
+const dbCuentas = getFirestore(appCuentas);
+const dbKurz    = getFirestore(appKurz);
+const dbFoot    = getFirestore(appFoot);
+const dbSchn    = getFirestore(appSchn);
+const dbMsg     = getFirestore(appMsg);
+const stKurz    = getStorage(appKurz);
+const stFoot    = getStorage(appFoot);
+const stSchn    = getStorage(appSchn);
+
+// ====== ESTADO LOCAL ======
+window.state = {
+  user: { uid:'', name:'', role:'GRATUITO', email:'', photo:'' },
+  settings: { transitions:true, theme:'nocturno' },
+  umi: { casilla:1, puntos:0, dados:12 }
+};
+try { const s = JSON.parse(localStorage.getItem('dazer')||'{}'); if (s.user) Object.assign(state.user, s.user); if (s.settings) Object.assign(state.settings, s.settings); } catch(e){}
+window.save = () => localStorage.setItem('dazer', JSON.stringify({ user: state.user, settings: state.settings }));
+
+// ====== TOASTS ======
 window.toast = (msg, type='info') => {
   const t = document.createElement('div');
-  const bg = type==='error' ? 'bg-red-950 border-red-500' : type==='success' ? 'bg-green-950 border-green-500' : 'bg-purple-950 border-purple-500';
-  t.className = `p-3 border-2 ${bg} archivo text-xs text-white text-center pointer-events-auto shadow-2xl transition-all`;
+  const bg = type==='error'?'bg-red-950 border-red-500':type==='success'?'bg-green-950 border-green-500':'bg-purple-950 border-purple-500';
+  t.className = `p-3 border-2 ${bg} arc text-xs text-center pointer-events-auto shadow-2xl`;
   t.textContent = msg;
   document.getElementById('toast-wrap').appendChild(t);
   setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),300); }, 2800);
 };
 
-// NAV
-const ALL_VIEWS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion','sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz','umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
-function setActiveNav(name){ ALL_VIEWS.forEach(v => { const b = document.getElementById('tab-'+v) || document.getElementById('nav-'+v); if (b){ b.classList.remove('bg-white','text-black'); } }); const b = document.getElementById('tab-'+name) || document.getElementById('nav-'+name); if (b) b.classList.add('bg-white','text-black'); }
-function renderView(name){ const fn = views[name]; document.getElementById('viewport').innerHTML = fn ? fn() : '<p>Vista no encontrada</p>'; }
-window.go = (name) => {
-  if (!state.settings.transitions) { renderView(name); setActiveNav(name); return; }
-  const sw = document.getElementById('sweep');
-  sw.classList.remove('active'); void sw.offsetWidth;
-  sw.classList.add('active');
-  setTimeout(() => { renderView(name); setActiveNav(name); }, 380);
-  setTimeout(() => sw.classList.remove('active'), 700);
-};
+// ====== NAV / SCREENS ======
+const show = id => { const e = document.getElementById(id); e.classList.remove('hidden'); e.classList.add('flex'); };
+const hide = id => { const e = document.getElementById(id); e.classList.add('hidden'); e.classList.remove('flex'); };
+window.openModal = show; window.closeModal = hide;
 
-window.show = id => { const e = document.getElementById(id); e.classList.remove('hidden'); e.classList.add('flex'); beep(900); };
-window.hide = id => { const e = document.getElementById(id); e.classList.add('hidden'); e.classList.remove('flex'); };
-window.goToLang = () => { hide('scr-pwa'); show('scr-lang'); };
-window.goToAuth = () => { hide('scr-lang'); show('scr-auth'); renderAccounts(); };
+window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('No se pudo copiar','error')); };
+window.installApp = () => toast('Menú del navegador → Añadir a pantalla de inicio','info');
+window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
+window.goAuth = () => { hide('scr-lang'); show('scr-auth'); loadAccounts(); };
 window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
-window.acceptRules = () => { hide('scr-rules'); document.getElementById('app').classList.remove('hidden'); document.getElementById('app').classList.add('flex'); go('sala'); toast('¡Bienvenido a DAZER!','success'); };
-window.rejectRules = () => { hide('scr-rules'); show('scr-auth'); };
-window.logoutApp = async () => { try { if (window.__fbAuth) await signOut(window.__fbAuth); } catch(e){} document.getElementById('app').classList.add('hidden'); document.getElementById('app').classList.remove('flex'); show('scr-auth'); toast('Sesión cerrada','info'); };
 
+// Idiomas
 const langs = ['Deutsch','عربي','國語','čeština','Português','Français','English','Nnrzıßnniko'];
 document.getElementById('lang-list').innerHTML = langs.map(l => `
-  <div onclick="pickLang('${l}')" class="flex justify-between items-center border-2 border-white p-3 cursor-pointer hover:bg-white hover:text-black">
-    <span class="text-lg">${l}</span>
-    <span class="text-[10px] font-bold px-2 py-0.5 bg-black text-white border border-white">PROXIMAMENTE</span>
+  <div class="grid grid-cols-2 gap-2">
+    <div class="box2 p-2.5 text-center text-base">${l}</div>
+    <div class="box2 p-2.5 text-center text-base">PROXIMAMENTE</div>
   </div>`).join('');
-window.pickLang = l => { toast(`Idioma ${l} — Próximamente`,'info'); setTimeout(goToAuth, 400); };
 
-function renderAccounts(){
-  const list = [{name:'JOSE',connected:false},{name:'BONJU',connected:true}];
-  document.getElementById('acc-list').innerHTML = list.map(a => `
-    <div class="acc-card polaroid">
-      <div class="polaroid-inner flex flex-col items-center gap-2 py-4">
-        <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center"><i class="fa-solid fa-user text-2xl text-black"></i></div>
-        <p class="archivo text-base text-white m-0">${a.name}</p>
-        <p class="text-[9px] font-bold m-0 ${a.connected?'text-green-500':'text-red-500'}">
-          <span class="inline-block w-2 h-2 rounded-full ${a.connected?'bg-green-500':'bg-red-500'} align-middle"></span>
-          ${a.connected?'CONECTADO':'DESCONECTANDO'}
-        </p>
-        <button onclick="enterAs('${a.name}')" class="mt-1 px-3 py-1 text-black archivo text-xs border-2 border-black bg-white" style="border-radius:16px;">ENTRAR</button>
-      </div>
-    </div>`).join('');
-}
-window.filterAccounts = () => { const q = document.getElementById('acc-search').value.toLowerCase(); document.querySelectorAll('.acc-card').forEach(c => c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'); };
-window.enterAs = name => { state.user.name = name.toUpperCase(); state.user.role = 'DIRECT@R'; save(); show('scr-rules'); };
+// ====== CUENTAS (Firestore) ======
+let pendingCreated = null;
 
-window.loginGoogle = async () => {
-  if (!window.__fbAuth) { toast('Firebase no disponible','error'); return; }
+async function loadAccounts() {
+  const list = document.getElementById('acc-list');
+  list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500 py-8">Cargando cuentas...</p>`;
   try {
-    const provider = new GoogleAuthProvider();
-    const res = await signInWithPopup(window.__fbAuth, provider);
-    state.user.name = (res.user.displayName || res.user.email.split('@')[0]).toUpperCase();
-    state.user.email = res.user.email;
-    state.user.role = 'DIRECT@R';
-    save(); toast('Conectado con Google ✓','success');
-    setTimeout(()=>show('scr-rules'), 400);
-  } catch(e) {
+    const snap = await getDocs(collection(dbCuentas, 'usuarios'));
+    const users = snap.docs.map(d => ({ uid:d.id, ...d.data() }));
+    if (!users.length) {
+      list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500 py-8">Aún no hay cuentas. Crea la primera con "Crear cuenta" o "Entrar con Google".</p>`;
+      return;
+    }
+    list.innerHTML = users.map(u => {
+      const on = u.estado === 'conectado';
+      return `<div class="polaroid acc-card">
+        <div class="polaroid-in">
+          <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden">
+            ${u.foto ? `<img src="${u.foto}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-3xl text-black"></i>`}
+          </div>
+          <p class="arc text-sm text-white m-0 truncate w-full text-center">${escapeHtml(u.nombre||'USER')}</p>
+          <p class="text-[10px] font-black m-0 ${on?'text-green-500':'text-red-500'}">
+            <span class="inline-block w-2 h-2 rounded-full ${on?'bg-green-500':'bg-red-500'} align-middle"></span>
+            ${on?'CONECTADO':'DESCONECTADO'}
+          </p>
+          <button onclick="enterAs('${u.uid}')" class="mt-1 px-4 py-1 text-black arc text-xs border-2 border-black bg-white rounded-full">ENTRAR</button>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (e) {
     console.error(e);
-    let msg = 'Error: ' + (e.code || e.message);
-    if (e.code === 'auth/popup-closed-by-user') msg = 'Cerraste el popup';
-    if (e.code === 'auth/unauthorized-domain') msg = 'Dominio no autorizado en Firebase';
-    toast(msg, 'error');
+    list.innerHTML = `<p class="col-span-2 text-center text-xs text-red-400 py-8">Error cargando cuentas: ${e.code||e.message}</p>`;
+  }
+}
+window.filterAccounts = () => {
+  const q = document.getElementById('acc-search').value.toLowerCase();
+  document.querySelectorAll('.acc-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+};
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+window.enterAs = async (uid) => {
+  try {
+    const d = await getDoc(doc(dbCuentas, 'usuarios', uid));
+    if (!d.exists()) return toast('Cuenta no existe','error');
+    const u = d.data();
+    // Si tiene pass, pedir master o clave
+    if (u.pass && u.pass.length > 0) {
+      const given = prompt('Contraseña de ' + u.nombre + ' (o clave maestra 29112009):');
+      if (given !== u.pass && given !== '29112009') return toast('Contraseña incorrecta','error');
+    }
+    state.user = { uid, name:(u.nombre||'USER').toUpperCase(), role:u.rol||'GRATUITO', email:u.email||'', photo:u.foto||'' };
+    save();
+    await setDoc(doc(dbCuentas,'usuarios',uid), { estado:'conectado' }, { merge:true });
+    show('scr-rules');
+  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
+};
+
+// ====== GOOGLE LOGIN ======
+window.loginGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt:'select_account' });
+  try {
+    const res = await signInWithPopup(auth, provider);
+    const u = res.user;
+    const uid = u.uid;
+    const uref = doc(dbCuentas, 'usuarios', uid);
+    const exist = await getDoc(uref);
+    const nombre = (u.displayName || u.email.split('@')[0]).toUpperCase();
+    const data = {
+      nombre, email: u.email, foto: u.photoURL||'', estado:'conectado',
+      rol: exist.exists() ? (exist.data().rol || 'GRATUITO') : 'GRATUITO',
+      normas: exist.exists() ? (exist.data().normas || false) : false,
+      ...(exist.exists() ? {} : { creado: serverTimestamp() })
+    };
+    await setDoc(uref, data, { merge:true });
+    state.user = { uid, name:nombre, role:data.rol, email:u.email, photo:u.photoURL||'' };
+    save();
+    toast('Conectado con Google ✓','success');
+    if (data.normas) { hide('scr-auth'); enterApp(); }
+    else { hide('scr-auth'); show('scr-rules'); }
+  } catch(e) {
+    const map = {
+      'auth/popup-closed-by-user':'Cerraste la ventana de Google',
+      'auth/unauthorized-domain':'Dominio no autorizado en Firebase Auth',
+      'auth/popup-blocked':'Permite las ventanas emergentes',
+      'auth/operation-not-allowed':'Activa Google en Authentication → Método de acceso'
+    };
+    toast(map[e.code] || 'Error: '+(e.code||e.message),'error');
   }
 };
 
-window.createAccount = () => {
-  const n = document.getElementById('r-user').value.trim();
-  if (!n) { toast('Ingresa usuario','error'); return; }
-  state.user.name = n.toUpperCase();
-  state.user.role = document.getElementById('r-sub').value;
-  save(); hide('scr-register');
-  document.getElementById('app').classList.remove('hidden');
-  document.getElementById('app').classList.add('flex');
-  go('sala');
-  toast('CUENTA CREADA','success');
+// ====== CREAR CUENTA ======
+window.createAccount = async () => {
+  const nombre = document.getElementById('r-user').value.trim();
+  const email  = document.getElementById('r-email').value.trim();
+  const pass   = document.getElementById('r-pass').value.trim();
+  const sub    = document.getElementById('r-sub').value;
+  if (!nombre) return toast('Ingresa un nombre de usuario','error');
+  if (!email || !email.includes('@')) return toast('Ingresa un correo válido','error');
+  if (pass.length < 4) return toast('Contraseña mínimo 4 caracteres','error');
+  try {
+    const uid = 'u_' + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+    await setDoc(doc(dbCuentas,'usuarios',uid), {
+      nombre, email, pass, rol:sub, estado:'conectado',
+      foto:'', normas:false, creado: serverTimestamp()
+    });
+    pendingCreated = { uid, nombre, email, sub };
+    closeModal('mod-register');
+    show('mod-cuenta-creada');
+    toast('Cuenta creada','success');
+  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
+};
+window.enterCreatedAccount = () => {
+  if (!pendingCreated) return;
+  state.user = { uid:pendingCreated.uid, name:pendingCreated.nombre.toUpperCase(), role:pendingCreated.sub, email:pendingCreated.email, photo:'' };
+  save();
+  hide('mod-cuenta-creada'); show('scr-rules');
+  pendingCreated = null;
+};
+window.exitCreated = () => { hide('mod-cuenta-creada'); show('scr-auth'); loadAccounts(); pendingCreated = null; };
+
+window.sendPedir = () => {
+  const u = document.getElementById('p-user').value.trim();
+  if (!u) return toast('Ingresa tu usuario','error');
+  toast('Solicitud enviada a titanacorazado2009@gmail.com','success');
+  closeModal('mod-pedir');
 };
 
-window.sendPedir = () => { const u = document.getElementById('p-user').value.trim(); if (!u) { toast('Ingresa usuario','error'); return; } toast('Solicitud enviada','success'); hide('scr-pedir'); };
-window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('No se pudo copiar','error')); };
-window.installApp = () => toast('Selecciona "Añadir a pantalla de inicio"','info');
-window.checkMaster = () => { const p = document.getElementById('master-pass').value; if (p === '29112009') { state.user.role = 'DIRECT@R'; state.user.name = 'DIRECT@R'; save(); document.getElementById('hdr-role').textContent = 'DIRECT@R'; hide('modal-pass'); toast('Acceso Director','success'); } else toast('Clave incorrecta','error'); };
-window.openMaster = () => show('modal-pass');
+// ====== NORMAS ======
+window.acceptRules = async () => {
+  try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { normas:true }, { merge:true }); } catch(e){}
+  hide('scr-rules');
+  enterApp();
+};
+window.rejectRules = async () => {
+  try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); } catch(e){}
+  hide('scr-rules'); show('scr-auth'); loadAccounts();
+};
 
-// VIEWS
+// ====== ENTER APP ======
+function enterApp() {
+  const app = document.getElementById('app');
+  app.classList.remove('hidden'); app.classList.add('flex');
+  document.getElementById('hdr-user').textContent = state.user.name;
+  document.getElementById('hdr-role').textContent = state.user.role;
+  document.getElementById('ftr-role').textContent = state.user.role;
+  document.body.className = 'select-none theme-' + (state.settings.theme||'nocturno');
+  go('sala');
+}
+window.logoutApp = async () => {
+  try {
+    if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true });
+    await signOut(auth);
+  } catch(e){}
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('app').classList.remove('flex');
+  show('scr-auth'); loadAccounts();
+  toast('Sesión cerrada','info');
+};
+
+// ====== NAVEGACIÓN INTERNA ======
+const TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion','config','umikaiser','gdz','perfil'];
 const views = {};
-const brainIcon = `<svg viewBox="0 0 100 100" class="brain-pulse" style="width:80px;height:80px;display:block;margin:0 auto;"><path fill="#ef4444" d="M50 15c-8 0-14 5-16 12-7 1-12 7-12 14 0 3 1 6 3 8-2 3-3 6-3 9 0 8 7 15 15 15h1c2 5 7 9 12 9s10-4 12-9h1c8 0 15-7 15-15 0-3-1-6-3-9 2-2 3-5 3-8 0-7-5-13-12-14-2-7-8-12-16-12z"/></svg>`;
-const holeIcon = `<svg viewBox="0 0 100 100" style="width:80px;height:80px;display:block;margin:0 auto;"><ellipse cx="50" cy="50" rx="35" ry="22" fill="none" stroke="#10b981" stroke-width="6" opacity="0.6"/><circle cx="50" cy="50" r="22" fill="#000" stroke="#10b981" stroke-width="4"/></svg>`;
 
+function setActive(name){
+  TABS.forEach(t => { const b = document.getElementById('tab-'+t); if (b) { b.classList.remove('bg-white','text-black'); } });
+  const b = document.getElementById('tab-'+name);
+  if (b) b.classList.add('bg-white','text-black');
+}
+window.go = (name) => {
+  const render = () => {
+    const v = views[name];
+    document.getElementById('viewport').innerHTML = v ? v() : '<p class="p-4">Vista no encontrada</p>';
+    setActive(name);
+    // hooks
+    if (name==='kurzclips' || name==='footage' || name==='spielfilm' || name==='schnapps') loadContent(name);
+    if (name==='comunicacion') loadUsers();
+  };
+  if (!state.settings.transitions) return render();
+  const sw = document.getElementById('sweep');
+  sw.classList.remove('active'); void sw.offsetWidth;
+  sw.classList.add('active');
+  setTimeout(render, 300);
+  setTimeout(()=>sw.classList.remove('active'), 600);
+};
+
+// ====== VISTAS ======
 views.sala = () => `
-  <div class="text-center py-6">
-    <h1 class="archivo text-4xl">DAZER ▲</h1>
-    <p class="archivo text-2xl">ESTANDAR</p>
-    <p class="text-sm mt-2">BIENVENID@ <span class="archivo text-purple-400">${state.user.name}</span></p>
+  <div class="text-center py-4 border-b-2 border-white">
+    <h1 class="arc text-3xl">DAZER ESTANDAR</h1>
+    <p class="text-sm mt-1">BIENVENID@ <span class="arc text-purple-400">${escapeHtml(state.user.name)}</span></p>
   </div>
-  <div class="max-w-xl mx-auto space-y-3 mt-4">
+  <div class="max-w-xl mx-auto mt-4 space-y-4 px-4">
     <div class="relative">
-      <input placeholder="" class="w-full bg-white text-black p-4 pr-14 rounded-full archivo">
-      <button onclick="toast('Buscando...','info')" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border-2 border-black rounded-full flex items-center justify-center">🔍</button>
+      <input id="sala-search" placeholder="" class="w-full bg-white text-black p-4 pr-14 rounded-full arc text-sm">
+      <button onclick="toast('Buscando...','info')" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border-2 border-black rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-magnifying-glass text-black"></i>
+      </button>
     </div>
-    <p class="text-center text-[10px] archivo">BUSCA CONTENIDO QUE GUSTES SIN CENSURA EN EL TEXTO</p>
-    <div class="grid grid-cols-2 border-t-2 border-white mt-6">
-      <button onclick="go('kurzclips')" class="archivo text-xl py-8 border-r-2 border-b-2 border-white text-left pl-4">KURZCLIPS</button>
-      <button onclick="go('footage')" class="archivo text-xl py-8 border-b-2 border-white text-left pl-4">FOOTAGE</button>
-      <button onclick="go('schnapps')" class="archivo text-xl py-8 border-r-2 border-white text-left pl-4">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="archivo text-xl py-8 text-left pl-4">SPIELFILM</button>
+    <p class="text-center text-[10px] arc text-gray-400">BUSCA CONTENIDO QUE GUSTES SIN CENSURA EN EL TEXTO</p>
+    <div class="grid grid-cols-2 border-t-2 border-white mt-2">
+      <button onclick="go('kurzclips')" class="arc text-xl py-10 border-r-2 border-b-2 border-white text-center">KURZCLIPS</button>
+      <button onclick="go('footage')" class="arc text-xl py-10 border-b-2 border-white text-center">FOOTAGE</button>
+      <button onclick="go('schnapps')" class="arc text-xl py-10 border-r-2 border-white text-center">SCHNAPPS</button>
+      <button onclick="go('spielfilm')" class="arc text-xl py-10 text-center">SPIELFILM</button>
     </div>
   </div>`;
 
 views.navegador = () => `
-  <h1 class="archivo text-2xl text-center mb-4">CONTENIDO INTELIGENTE</h1>
-  <div class="max-w-md mx-auto border-4 border-white p-4 space-y-3">
+  <h1 class="arc text-2xl text-center py-3 border-b-2 border-white mb-4">CONTENIDO INTELIGENTE</h1>
+  <div class="max-w-md mx-auto px-4 space-y-3">
     <div class="grid grid-cols-2 gap-2">
-      <button onclick="go('kurzclips')" class="bg-white text-black archivo py-4">KURZCLIPS</button>
-      <button onclick="go('sub-ci')" class="bg-red-600 text-white archivo py-4">秘密</button>
-      <button onclick="go('footage')" class="bg-white text-black archivo py-4">FOOTAGE</button>
-      <button onclick="go('aline')" class="bg-white text-black archivo py-4">ALINE</button>
-      <button onclick="go('schnapps')" class="bg-white text-black archivo py-4">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="bg-white text-black archivo py-4">SPIELFILM</button>
+      <button onclick="go('kurzclips')" class="btn py-4 text-sm text-white">KURZCLIPS</button>
+      <button onclick="go('kurzclips')" class="btn py-4 text-sm text-white bg-red-700 border-red-700">秘密</button>
+      <button onclick="go('footage')" class="btn py-4 text-sm text-white">FOOTAGE</button>
+      <button onclick="go('spielfilm')" class="btn py-4 text-sm text-white">ALINE</button>
+      <button onclick="go('schnapps')" class="btn py-4 text-sm text-white">SCHNAPPS</button>
+      <button onclick="go('spielfilm')" class="btn py-4 text-sm text-white">SPIELFILM</button>
     </div>
-  </div>
-  <div class="text-center mt-8">${brainIcon}<p class="text-xs mt-3 tracking-widest">VIENDO TU HISTORIAL PARA ENCONTRAR CONSIDENCIAS</p></div>`;
+    <div class="text-center pt-8">
+      <i class="fa-solid fa-brain text-7xl text-red-600 brain-pulse"></i>
+      <p class="text-[10px] mt-3 arc text-red-400">VIENDO TU HISTORIAL PARA ENCONTRAR CONSIDENCIAS</p>
+    </div>
+  </div>`;
 
-const simpleView = (title, icon) => () => `
-  <div class="flex items-center justify-between mb-4">
-    <div class="flex items-center gap-3"><span class="text-purple-500 text-2xl">${icon}</span><h1 class="archivo text-3xl">${title}</h1></div>
+const contentView = (title, icon, color, db, bucket, coll) => () => `
+  <div class="flex items-center justify-between border-b-2 border-white pb-2 px-4 pt-3">
+    <h2 class="arc text-xl flex items-center gap-2"><i class="${icon}" style="color:${color}"></i> ${title}</h2>
+    <i class="fa-solid fa-globe text-emerald-400"></i>
   </div>
-  <div class="min-h-[60vh]"></div>`;
-views.kurzclips = simpleView('KURZCLIPS','📱');
-views.footage = simpleView('FOOTAGE','▶️');
-views.spielfilm = simpleView('SPIELFILM','🎥');
-views.schnapps = simpleView('SCHNAPPS','🖼️');
-views.aline = () => `<div class="relative mb-4"><div class="absolute -top-2 -left-2 bg-red-600 text-white text-xs font-black px-3 py-1 -skew-x-12">EXCLUSIVE</div><h1 class="archivo text-3xl pl-24">ALINE</h1></div><div class="min-h-[60vh]"></div>`;
+  <div class="p-4 max-w-md mx-auto space-y-4">
+    <div class="box2 border-dashed p-4 flex flex-col items-center gap-2">
+      <input id="up-title-${coll}" placeholder="Título" class="inp text-center">
+      <input id="up-file-${coll}" type="file" accept="image/*,video/*" class="text-[10px] w-full">
+      <button onclick="uploadContent('${coll}','${title}')" class="btn btn-w w-full py-2 text-xs">SUBIR ${title}</button>
+    </div>
+    <div id="feed-${coll}" class="space-y-3">
+      <p class="text-center text-xs text-gray-500">Cargando...</p>
+    </div>
+  </div>`;
+
+views.kurzclips    = contentView('KURZCLIPS', 'fa-solid fa-mobile-screen', '#a855f7', dbKurz, stKurz, 'kurzclips');
+views.footage      = contentView('FOOTAGE', 'fa-solid fa-circle-play', '#ef4444', dbFoot, stFoot, 'footage');
+views.spielfilm    = contentView('SPIELFILM', 'fa-solid fa-video', '#3b82f6', dbKurz, stKurz, 'spielfilm');
+views.schnapps     = contentView('SCHNAPPS', 'fa-solid fa-images', '#ec4899', dbSchn, stSchn, 'schnapps');
+
+const DBS = { kurzclips: dbKurz, footage: dbFoot, spielfilm: dbKurz, schnapps: dbSchn };
+const STS = { kurzclips: stKurz, footage: stFoot, spielfilm: stKurz, schnapps: stSchn };
+
+async function loadContent(coll) {
+  const feed = document.getElementById('feed-'+coll);
+  if (!feed) return;
+  try {
+    const snap = await getDocs(collection(DBS[coll], 'contenido'));
+    const items = snap.docs.map(d => d.data()).sort((a,b)=>(b.creado||0)-(a.creado||0));
+    if (!items.length) { feed.innerHTML = `<p class="text-center text-xs text-gray-500">Aún no hay contenido. Sube el primero.</p>`; return; }
+    feed.innerHTML = items.map(c => {
+      const media = c.tipo === 'v'
+        ? `<video src="${c.url}" controls playsinline preload="metadata" class="w-full bg-black border border-gray-800"></video>`
+        : `<img src="${c.url}" class="w-full bg-black border border-gray-800" loading="lazy">`;
+      return `<div class="box2 p-2 space-y-2 bg-zinc-950">
+        ${media}
+        <p class="arc text-xs">${escapeHtml(c.titulo||'')}</p>
+        <p class="text-[10px] text-purple-400">@${escapeHtml(c.autor||'')}</p>
+      </div>`;
+    }).join('');
+  } catch(e){
+    feed.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`;
+  }
+}
+
+window.uploadContent = async (coll, title) => {
+  const titleEl = document.getElementById('up-title-'+coll);
+  const fileEl  = document.getElementById('up-file-'+coll);
+  const file = fileEl.files[0];
+  if (!file) return toast('Elige un archivo','error');
+  if (file.size > 50*1024*1024) return toast('Máximo 50 MB','error');
+  const titulo = titleEl.value.trim() || file.name;
+  try {
+    toast('Subiendo...','info');
+    const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g,'_')}`);
+    await uploadBytes(r, file);
+    const url = await getDownloadURL(r);
+    await addDoc(collection(DBS[coll], 'contenido'), {
+      tab: coll, titulo, url, tipo: file.type.startsWith('video')?'v':'i',
+      autor: state.user.name, uid: state.user.uid, creado: Date.now()
+    });
+    titleEl.value=''; fileEl.value='';
+    toast('Subido ✓','success');
+    loadContent(coll);
+  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
+};
 
 views.comunicacion = () => `
-  <h1 class="archivo text-3xl text-center mb-6">💬 COMUNICACIÓN</h1>
-  <div class="text-center mb-6">${holeIcon.replace('width:80px;height:80px','width:120px;height:120px')}<p class="archivo text-xl mt-4">BUSCA A TUS COMPAÑEROS</p></div>
-  <div class="grid grid-cols-2 gap-3 max-w-md mx-auto">
-    ${['JOSE','BONJU','USER1','USER2'].map((u,i)=>`
-      <div class="polaroid">
-        <div class="polaroid-inner flex flex-col items-center gap-2 py-3">
-          <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center"><i class="fa-solid fa-user text-2xl text-black"></i></div>
-          <p class="text-white archivo text-sm">${u}</p>
-          <p class="text-[10px] font-black ${i<2?'text-red-500':'text-green-500'}"><span class="inline-block w-2 h-2 rounded-full ${i<2?'bg-red-500':'bg-green-500'} align-middle"></span> ${i<2?'DESCONECTADO':'CONECTADO'}</p>
-          <button onclick="toast('Abriendo chat con ${u}...','info')" class="px-3 py-1 border-2 border-black text-black archivo text-[10px] bg-white" style="border-radius:16px;">COMUNICARTE</button>
+  <h1 class="arc text-2xl text-center py-3 border-b-2 border-white mb-4">COMUNICACIÓN</h1>
+  <div class="p-4 max-w-md mx-auto">
+    <p class="text-center text-xs text-gray-400 mb-4">Busca a tus compañeros</p>
+    <div id="users-list" class="grid grid-cols-2 gap-3">
+      <p class="col-span-2 text-center text-xs text-gray-500">Cargando...</p>
+    </div>
+  </div>`;
+
+async function loadUsers() {
+  const list = document.getElementById('users-list');
+  if (!list) return;
+  try {
+    const snap = await getDocs(collection(dbCuentas, 'usuarios'));
+    const users = snap.docs.map(d => ({ uid:d.id, ...d.data() })).filter(u => u.uid !== state.user.uid);
+    if (!users.length) { list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500">No hay otros usuarios.</p>`; return; }
+    list.innerHTML = users.map(u => {
+      const on = u.estado === 'conectado';
+      return `<div class="polaroid">
+        <div class="polaroid-in">
+          <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center overflow-hidden">
+            ${u.foto ? `<img src="${u.foto}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-2xl text-black"></i>`}
+          </div>
+          <p class="arc text-xs text-white truncate w-full text-center">${escapeHtml(u.nombre||'')}</p>
+          <p class="text-[10px] font-black ${on?'text-green-500':'text-red-500'}">
+            <span class="inline-block w-2 h-2 rounded-full ${on?'bg-green-500':'bg-red-500'} align-middle"></span>
+            ${on?'CONECTADO':'DESCONECTADO'}
+          </p>
+          <button onclick="openChat('${u.uid}','${escapeHtml(u.nombre||'')}')" class="px-3 py-1 border-2 border-black text-black arc text-[10px] bg-white rounded-full">COMUNICARTE</button>
         </div>
-      </div>`).join('')}
-  </div>`;
+      </div>`;
+    }).join('');
+  } catch(e){ list.innerHTML = `<p class="col-span-2 text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; }
+}
 
-views['sub-sus'] = () => {
-  const roles = [
-    {n:'DIRECT@R',c:'text-purple-500',desc:'TU ERES EL DIRECTOR'},
-    {n:'ADMIN',c:'text-green-500',desc:'TU ERES UN ADMIN'},
-    {n:'HAIKU',c:'text-pink-500',desc:'ERES UN USUARIO DE HAIKU — DISFRUTA DE TUS FUNCIONES PREMIUM'},
-    {n:'SCHEITEL',c:'text-indigo-400',desc:'ERES UN USUARIO DE SCHEITEL — DISFRUTA DE ALGUNAS FUNCIONES PREMIUM'},
-    {n:'GRATUITO',c:'text-white',desc:'ERES USUARIO GRATUITO — TE RECOMIENDO PASARTE A UNA SUSCRIPCIÓN PARA DISFRUTAR LAS FUNCIONES PREMIUM'}
-  ];
-  const cur = state.user.role;
-  const info = roles.find(r=>r.n===cur) || roles[4];
-  return `<p class="text-center text-sm mb-4">${info.desc}</p>
-  <div class="max-w-xs mx-auto space-y-2">
-    ${roles.map(r=>`<div onclick="pickRole('${r.n}')" class="archivo text-2xl ${r.c} flex items-center gap-3 cursor-pointer">${r.n} ${cur===r.n?'<span class="text-red-600 text-xl">◀</span>':''}</div>`).join('')}
+window.openChat = (otroUid, otroNombre) => {
+  const cid = [state.user.uid, otroUid].sort().join('__');
+  document.getElementById('viewport').innerHTML = `
+    <div class="flex items-center justify-between border-b-2 border-white p-2 shrink-0">
+      <button onclick="go('comunicacion')" class="btn px-3 py-1 text-xs text-white">←</button>
+      <span class="arc text-sm">☺ ${escapeHtml(otroNombre)}</span>
+      <span></span>
+    </div>
+    <div id="chat-msgs" class="flex-1 overflow-y-auto p-3 space-y-2 bg-zinc-950" style="min-height:50vh"></div>
+    <div class="flex gap-2 p-2 border-t-2 border-white">
+      <input id="chat-in" placeholder="Escribe un mensaje" maxlength="500" class="inp flex-1">
+      <button onclick="sendMsg('${cid}')" class="btn btn-w px-4 text-xs">➤</button>
+    </div>`;
+  const col = collection(dbMsg, 'chats', cid, 'mensajes');
+  const q = query(col, orderBy('creado'));
+  onSnapshot(q, snap => {
+    const c = document.getElementById('chat-msgs');
+    if (!c) return;
+    c.innerHTML = snap.docs.map(d => {
+      const m = d.data();
+      const mine = m.de === state.user.uid;
+      return `<div class="flex ${mine?'justify-end':'justify-start'}">
+        <div class="px-3 py-2 rounded-2xl max-w-[75%] text-xs font-bold ${mine?'bg-purple-600 text-white':'bg-white text-black'}">
+          ${escapeHtml(m.texto||'')}
+        </div>
+      </div>`;
+    }).join('');
+    c.scrollTop = c.scrollHeight;
+  }, e => toast('Chat: '+(e.code||e.message),'error'));
+};
+window.sendMsg = async (cid) => {
+  const inp = document.getElementById('chat-in');
+  const t = inp.value.trim();
+  if (!t) return;
+  inp.value = '';
+  try {
+    await addDoc(collection(dbMsg, 'chats', cid, 'mensajes'), {
+      de: state.user.uid, texto: t, creado: Date.now()
+    });
+  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
+};
+
+// ====== CONFIG ======
+views.config = () => {
+  const s = state.settings;
+  return `<h1 class="arc text-2xl text-center py-3 border-b-2 border-white mb-4">CONFIGURACIONES</h1>
+  <div class="p-4 max-w-md mx-auto grid grid-cols-2 gap-3 text-xs arc">
+    <div class="box2 p-3 flex items-center justify-between">
+      <span class="text-[10px]">TRANSICIONES</span>
+      <div class="toggle ${s.transitions?'on':'off'}" onclick="toggleSetting('transitions')"></div>
+    </div>
+    <div class="box2 p-3 flex items-center justify-between">
+      <span class="text-[10px]">TEMA</span>
+      <button onclick="go('moduz')" class="text-[10px] text-purple-400">CAMBIAR</button>
+    </div>
+    <div class="box2 p-3 col-span-2">
+      <p class="text-[10px] mb-2">TEMA ACTUAL: ${s.theme.toUpperCase()}</p>
+      <div class="grid grid-cols-4 gap-1">
+        ${['nocturno','dia','coquette','fuego','sexy','normal'].map(t=>`<button onclick="setTheme('${t}')" class="box2 py-1 text-[9px]">${t.slice(0,4).toUpperCase()}</button>`).join('')}
+      </div>
+    </div>
+    <div class="box2 p-3"><button onclick="openModal('mod-master')" class="w-full text-[10px]">CLAVE MAESTRA</button></div>
+    <div class="box2 p-3 flex items-center justify-between text-red-500">
+      <button onclick="deleteAcc()" class="text-[10px]">ELIMINAR CUENTA</button>
+    </div>
   </div>`;
 };
-window.pickRole = r => { state.user.role = r; save(); document.getElementById('hdr-role').textContent = r; document.getElementById('ftr-role').textContent = r; toast('Rol: '+r,'success'); go('sub-sus'); };
+window.toggleSetting = k => { state.settings[k] = !state.settings[k]; save(); go('config'); };
+window.setTheme = t => { state.settings.theme = t; save(); document.body.className = 'select-none theme-'+t; toast('Tema: '+t.toUpperCase(),'success'); go('config'); };
+window.deleteAcc = () => { if (confirm('¿Eliminar tus datos locales?')) { localStorage.clear(); location.reload(); } };
 
-views['sub-vk'] = () => {
-  const labels = {vpn:'VPN',red:'REDOCULTA',zuk:'ZUKURZALES',tozo:'TOZO',deez:'DEEZZEER',cand:'AL CANDADO',verkehr:'VERKEHR'};
-  return `
-  <h1 class="archivo text-2xl text-center mb-3">🎭 VERKEHRSMASKEN</h1>
-  <p class="text-center archivo text-base mb-6">BIENVENIDO A LA MASCARA DE TRAFICO</p>
-  <div class="max-w-md mx-auto space-y-3 glitch-bg p-6 rounded-xl">
-    ${Object.keys(state.vk).map(k=>`
-      <div class="flex items-center justify-between gap-3">
-        <span class="pill flex-1 text-center">${labels[k]}</span>
-        <div class="toggle ${state.vk[k]?'on':'off'}" onclick="toggleVK('${k}')"></div>
-      </div>`).join('')}
-  </div>
-  <div class="max-w-xs mx-auto mt-8">
-    <button onclick="toast('Máscara activada','success')" class="w-full py-6 border-4 border-white archivo text-2xl" style="transform: rotate(-1deg);">ENTRAR</button>
-  </div>`;
+// ====== MASTER ======
+window.checkMaster = () => {
+  const p = document.getElementById('master-pass').value;
+  if (p === '29112009') {
+    state.user.role = 'DIRECT@R'; save();
+    document.getElementById('hdr-role').textContent = 'DIRECT@R';
+    document.getElementById('ftr-role').textContent = 'DIRECT@R';
+    closeModal('mod-master');
+    toast('Acceso Director ✓','success');
+  } else toast('Clave incorrecta','error');
 };
-window.toggleVK = k => { state.vk[k] = !state.vk[k]; save(); go('sub-vk'); };
 
-const storageView = (tipo) => () => `
-  <h1 class="archivo text-lg text-center mb-6">ALMACENAMIENTO ${tipo} MODO SIN CONEXIÓN</h1>
-  <div class="space-y-4 max-w-md mx-auto">
-    ${['KURZCLIPS','SCHNAPPS','FOOTAGE','SPIELFILM'].map(x=>`<div class="border-b border-white/30 pb-3"><p class="archivo text-base">${x}</p></div>`).join('')}
-  </div>`;
-views['sub-atico'] = storageView('ÁTICO');
-views['sub-boveda'] = storageView('BOVEDA');
-views['sub-bodega'] = storageView('BODEGA');
-views['sub-ci'] = () => `<h1 class="archivo text-3xl text-center mb-6">CONTENIDO INTELIGENTE</h1><div class="text-center">${brainIcon.replace('width:80px;height:80px','width:140px;height:140px')}</div><p class="text-center text-xs mt-6 tracking-widest">VIENDO TU HISTORIAL PARA ENCONTRAR CONSIDENCIAS</p>`;
-
-views['sub-moduz'] = () => {
-  const temas = [{id:'nocturno',n:'NOCTURNO'},{id:'dia',n:'DIA'},{id:'coquette',n:'COQUETTE'},{id:'fuego',n:'FUEGO'},{id:'sexy',n:'SEXY'},{id:'atodecedor',n:'ATODECEDOR'},{id:'secreto',n:'SECRETO'},{id:'normal',n:'NORMAL'}];
-  return `<h1 class="archivo text-2xl text-center mb-6">MODUZ — TEMAS</h1>
-  <div class="space-y-3 max-w-xs mx-auto">
-    ${temas.map(t=>`<div onclick="setTheme('${t.id}')" class="archivo text-xl flex items-center justify-between cursor-pointer p-2"><span>${t.n}</span>${state.settings.theme===t.id?'<span class="text-red-600">◀</span>':''}</div>`).join('')}
-  </div>`;
-};
-window.setTheme = t => { state.settings.theme = t; save(); document.body.className = document.body.className.replace(/theme-\S+/g,'') + ' theme-' + t; toast('Tema: '+t.toUpperCase(),'success'); go('sub-moduz'); };
-
+// ====== UMIKAISER ======
 views.umikaiser = () => {
   const u = state.umi;
+  const pips = [1,3,5,7,9];
+  const dice = n => `<div class="w-11 h-11 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">${
+    Array(9).fill(0).map((_,i)=>`<div class="w-2 h-2 rounded-full ${ (n===1&&i===4)||(n===2&&[0,8].includes(i))||(n===3&&[0,4,8].includes(i))||(n===4&&[0,2,6,8].includes(i))||(n===5&&[0,2,4,6,8].includes(i))||(n===6&&[0,2,3,5,6,8].includes(i)) ?'bg-black':'bg-transparent'}"></div>`).join('')
+  }</div>`;
   return `
-    <h1 class="archivo text-3xl text-center text-purple-400 mb-4">🎲 UMIKAISER</h1>
-    <div class="max-w-md mx-auto space-y-4">
-      <div class="border-2 border-purple-500 bg-gray-300 text-black p-4 archivo text-sm space-y-2">
-        <p>CASILLA: <span class="text-purple-600">${u.casilla}</span></p>
-        <p>PUNTAJE: <span class="text-green-600">${u.puntos}</span></p>
-        <p>faltante dados: <span class="text-yellow-600">${u.dados}</span></p>
-      </div>
-      <div class="border-4 border-purple-500 p-4 flex items-center justify-center">
-        <svg viewBox="0 0 200 100" class="w-full h-40">
-          <path d="M20 20 H180 V50 H40 V80 H180" fill="none" stroke="#a855f7" stroke-width="4" stroke-dasharray="6"/>
-          <text x="100" y="65" fill="#a855f7" font-size="20" font-family="Archivo Black" text-anchor="middle">π</text>
-          <circle cx="${20 + ((u.casilla-1)%10)*18}" cy="${u.casilla>10?65:20}" r="8" fill="#ec4899"/>
-        </svg>
-      </div>
-      <p class="text-center text-5xl archivo">${u.dados}</p>
-      <div class="flex justify-between items-center gap-2">
-        <div class="dice-face"><div class="dice-pips">${Array(9).fill(0).map((_,i)=>`<div class="${[0,2,4,6,8].includes(i)?'pip':''}"></div>`).join('')}</div></div>
-        <div class="dice-face"><div class="dice-pips">${Array(9).fill(0).map((_,i)=>`<div class="${[0,2,4,6,8].includes(i)?'pip':''}"></div>`).join('')}</div></div>
-        <div class="dice-face"><div class="dice-pips">${Array(9).fill(0).map((_,i)=>`<div class="${[0,2,4,6,8].includes(i)?'pip':''}"></div>`).join('')}</div></div>
-        <button onclick="useHeart()" class="dice-face flex-col text-[8px] archivo"><span>🖤</span><span>USAR</span></button>
-      </div>
-      <button onclick="rollDice()" class="w-full py-4 border-2 border-purple-400 bg-purple-900 archivo text-xl text-white">TIRAR DADOS</button>
-      <button onclick="showUmiHelp()" class="w-full py-2 border border-purple-400 archivo text-xs text-white">ℹ️ CÓMO FUNCIONA</button>
-      ${u.lastCombo?`<p class="text-center archivo text-2xl text-purple-400">${u.lastCombo}</p>`:''}
-    </div>`;
+  <h1 class="arc text-2xl text-center py-3 text-purple-400">🎲 UMIKAISER</h1>
+  <div class="p-4 max-w-md mx-auto space-y-3">
+    <div class="box2 p-3 grid grid-cols-3 text-center text-xs arc">
+      <div>CASILLA: <span class="text-purple-400">${u.casilla}</span></div>
+      <div>PUNTOS: <span class="text-green-400">${u.puntos}</span></div>
+      <div>DADOS: <span class="text-yellow-400">${u.dados}</span></div>
+    </div>
+    <div class="box2 border-purple-500 p-4 bg-black">
+      <svg viewBox="0 0 200 100" class="w-full h-32">
+        <path d="M20 20 H180 V50 H40 V80 H180" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="5"/>
+        <text x="100" y="65" fill="#a855f7" font-size="18" font-family="Archivo Black" text-anchor="middle">π</text>
+        <circle cx="${20 + ((u.casilla-1)%10)*16}" cy="${u.casilla>10?65:20}" r="6" fill="#ec4899"/>
+      </svg>
+    </div>
+    <div class="flex justify-between items-center">
+      ${dice(1)}${dice(3)}${dice(5)}
+      <button onclick="useHeart()" class="w-11 h-11 box2 border-purple-500 flex flex-col items-center justify-center text-[8px] arc text-purple-300">🖤<span>+3</span></button>
+    </div>
+    <button onclick="rollDice()" class="btn w-full py-3 text-base text-white border-purple-400 bg-purple-900/60">TIRAR DADOS</button>
+  </div>`;
 };
 window.rollDice = () => {
   const u = state.umi;
-  if (u.dados <= 0) { toast('Sin dados restantes','error'); return; }
-  const d1 = Math.floor(Math.random()*6)+1; const d2 = Math.floor(Math.random()*6)+1;
-  let combo = ''; const s = [d1,d2].sort().join('+');
-  if (s==='5+6') combo = 'MASTER'; else if (s==='3+4') combo = 'JACKPON'; else if (s==='1+2') combo = 'CAMBIO';
-  else if (d1===d2) combo = 'DuDoZo'; else if (d1+d2===7) combo = 'DEEZZEER';
+  if (u.dados <= 0) return toast('Sin dados restantes','error');
+  const d1 = Math.floor(Math.random()*6)+1, d2 = Math.floor(Math.random()*6)+1;
   u.casilla = ((u.casilla-1 + d1 + d2) % 20) + 1;
-  u.puntos += (d1+d2)*10; u.dados -= 1; u.lastCombo = combo; save();
-  beep(1200,0.15,'sawtooth'); go('umikaiser');
-  if (combo) toast('¡'+combo+'!','success');
+  u.puntos += (d1+d2)*10;
+  u.dados -= 1;
+  save(); go('umikaiser');
+  let combo = '';
+  const s = [d1,d2].sort().join('+');
+  if (s==='5+6') combo = 'MASTER';
+  else if (s==='3+4') combo = 'JACKPON';
+  else if (s==='1+2') combo = 'CAMBIO';
+  else if (d1===d2) combo = 'DuDoZo';
+  else if (d1+d2===7) combo = 'DEEZZEER';
+  if (combo) toast('¡'+combo+'! +'+(d1+d2)*10,'success');
 };
-window.useHeart = () => { if (state.umi.dados <= 0) { toast('Sin dados','error'); return; } state.umi.dados += 3; save(); toast('+3 dados','success'); go('umikaiser'); };
-window.showUmiHelp = () => {
-  document.getElementById('viewport').innerHTML = `
-    <h1 class="archivo text-2xl text-center mb-4">🎲 UMIKAISER — REGLAS</h1>
-    <div class="max-w-md mx-auto space-y-4 text-sm text-white">
-      <p>Se juega tirando 5 dados: pueden tocar hechizos o dados de número del 1 al 6 como los dados normales, pero hay unos que son dados especiales que te salen cartas.</p>
-      <div class="space-y-2">
-        <p>• 6 + 5 = <b class="text-purple-400">MASTER</b></p>
-        <p>• 4 + 3 = <b class="text-yellow-400">JACKPON</b></p>
-        <p>• 2 + 1 = <b class="text-blue-400">CAMBIO</b></p>
-        <p>• Iguales = <b class="text-pink-400">DuDoZo</b></p>
-        <p>• Suma 7 = <b class="text-fuchsia-400">DEEZZEER</b> 🖤</p>
-      </div>
-      <p class="text-center text-lg archivo">JUEGA Y CONSIGUE RECOMPENSAS</p>
-      <button onclick="go('umikaiser')" class="w-full py-4 border-4 border-white archivo text-2xl text-white">ENTRAR</button>
-    </div>`;
-};
+window.useHeart = () => { state.umi.dados += 3; save(); toast('+3 dados','success'); go('umikaiser'); };
 
-views.config = () => {
-  const s = state.settings;
-  const toggles = [['sndBg','sonido de fondo'],['sndBtn','sonido de botones'],['sndKz','sonido de audio de kurzclips'],['sndFt','sonido de audio de footage'],['sndSf','sonido de audio de de Spielfilm']];
-  const links = [['privacidad','🔒'],['dazerlabs','🧪'],['créditos','©️'],['permisos','🔐'],['modelos','📐'],['información de la web básica','ℹ️'],['datos personales','📊'],['potencia','⚡'],['notificaciones','🔔'],['gdz','👜'],['demandas o avisos','⚠️']];
-  return `<h1 class="archivo text-2xl mb-4">⚙️ CONFIGURACIONES</h1>
-  <div class="grid grid-cols-2 gap-3 text-xs archivo">
-    ${toggles.map(([k,l])=>`<div class="border border-white p-2 flex items-center justify-between"><span class="text-[10px] flex-1 text-white">${l}</span><div class="toggle ${s[k]?'on':'off'} scale-75" onclick="tog('${k}')"></div></div>`).join('')}
-    <div class="border border-white p-2"><p class="text-[10px] mb-1 text-white">cambiar contraseña</p><button onclick="openMaster()" class="w-full border border-white py-1 text-[10px] text-white">ABRIR</button></div>
-    <div class="border border-white p-2"><p class="text-[10px] mb-1 text-white">velocidad de zoom</p><input type="range" min="1" max="9" value="${s.speedZoom}" onchange="setSpeed(this.value)" class="w-full"></div>
-    <div class="border border-white p-2"><p class="text-[10px] mb-1 text-white">volumen botones</p><input type="range" min="0" max="100" value="${s.volBtn*100}" onchange="setVol('volBtn',this.value)" class="w-full"></div>
-    <div class="border border-white p-2"><p class="text-[10px] mb-1 text-white">transiciones</p><div class="toggle ${s.transitions?'on':'off'} scale-75" onclick="tog('transitions')"></div></div>
-    <div class="border border-red-500 text-red-500 p-2"><button onclick="deleteAccount()" class="w-full text-[10px]">eliminar cuenta</button></div>
-    ${links.map(([l,i])=>`<div onclick="toast('${l}','info')" class="border border-white p-2 cursor-pointer flex items-center justify-between text-white"><span class="text-[10px]">${l}</span><span>${i}</span></div>`).join('')}
-  </div>`;
-};
-window.tog = k => { state.settings[k] = !state.settings[k]; save(); go('config'); };
-window.setSpeed = v => { state.settings.speedZoom = +v; save(); toast('Velocidad: '+v,'info'); };
-window.setVol = (k,v) => { state.settings[k] = +v/100; save(); toast('Volumen ajustado','info'); };
-window.deleteAccount = () => { if(confirm('¿Eliminar tu cuenta?')) { localStorage.clear(); location.reload(); } };
-
-views.zukurzalez = () => `
-  <div class="flex justify-between items-center mb-4">
-    <h1 class="archivo text-2xl">🛒 ZUKURZALEZ</h1>
-    <button onclick="go('reportar')" class="archivo text-red-500 text-lg">📣 REPORTAR</button>
-  </div>
-  <div class="space-y-4 max-w-md mx-auto">
-    ${['contenido comprado','acuerdos de comprar contenido','Destinos y información de compra'].map(t=>`<div class="flex items-center gap-3 p-3 border border-white rounded"><span class="text-3xl">🗺️</span><span class="archivo text-base">${t}</span></div>`).join('')}
+// ====== GDZ ======
+views.gdz = () => `
+  <h1 class="arc text-2xl text-center py-3 border-b-2 border-white mb-4">GDZ</h1>
+  <div class="p-4 max-w-md mx-auto space-y-3 text-sm arc">
+    ${['INFORMACIÓN PERSONAL','COMPRAS','REGISTROS','MENSAJERÍA','DAZER GDZ AVISOS'].map(t=>`
+      <div class="box2 p-3 cursor-pointer" onclick="toast('${t}','info')">${t}</div>`).join('')}
   </div>`;
 
-views.reportar = () => `
-  <h1 class="archivo text-2xl text-center mb-4">📣 REPORTAR</h1>
-  <div class="max-w-md mx-auto space-y-3">
-    <input id="rep-target" placeholder="Usuario a reportar" class="w-full bg-black border-2 border-white p-3 text-white">
-    <textarea id="rep-msg" rows="4" placeholder="Motivo del reporte" class="w-full bg-black border-2 border-white p-3 text-white"></textarea>
-    <button onclick="sendReport()" class="w-full py-3 bg-red-600 archivo text-lg text-white">ENVIAR REPORTE</button>
-    <button onclick="go('zukurzalez')" class="w-full py-2 border border-white archivo text-white">Cancelar</button>
-  </div>`;
-window.sendReport = () => { const t = document.getElementById('rep-target').value; if (!t) { toast('Ingresa usuario','error'); return; } toast('Reporte enviado','success'); go('zukurzalez'); };
-
-views.gdz = () => `<h1 class="archivo text-2xl text-center mb-4">👜 GDZ</h1><div class="space-y-3 max-w-md mx-auto archivo text-lg">${['información personal','compras','Registros','mesajería','Dazergdzavisos'].map(t=>`<div onclick="toast('${t}','info')" class="p-3 border border-white cursor-pointer text-white">${t}</div>`).join('')}</div>`;
-
+// ====== PERFIL ======
 views.perfil = () => `
-  <div class="max-w-md mx-auto">
-    <div class="flex items-center gap-3 mb-6">
-      <div class="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-user text-3xl"></i></div>
-      <div class="flex-1"><h2 class="archivo text-2xl">${state.user.name}</h2><p class="text-xs text-purple-400">${state.user.role}</p></div>
-      <button onclick="go('config')" class="text-2xl">⚙️</button>
+  <div class="p-4 max-w-md mx-auto">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-20 h-20 rounded-full border-2 border-purple-500 flex items-center justify-center bg-zinc-900 overflow-hidden">
+        ${state.user.photo ? `<img src="${state.user.photo}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-4xl text-white"></i>`}
+      </div>
+      <div class="flex-1">
+        <h2 class="arc text-2xl">${escapeHtml(state.user.name)}</h2>
+        <p class="text-xs text-purple-400 arc">${escapeHtml(state.user.role)}</p>
+      </div>
+      <button onclick="go('config')" class="text-2xl"><i class="fa-solid fa-gear"></i></button>
     </div>
     <div class="grid grid-cols-3 gap-2 text-center border-y-2 border-white py-3 mb-3">
-      <div><p class="archivo text-2xl">128</p><p class="text-[10px]">seguidores</p></div>
-      <div><p class="archivo text-2xl">45</p><p class="text-[10px]">siguiendo</p></div>
-      <div><p class="archivo text-2xl">3.4k</p><p class="text-[10px]">Me gustas</p></div>
+      <div><p class="arc text-xl">0</p><p class="text-[10px]">SEGUIDORES</p></div>
+      <div><p class="arc text-xl">0</p><p class="text-[10px]">SIGUIENDO</p></div>
+      <div><p class="arc text-xl">0</p><p class="text-[10px]">ME GUSTAS</p></div>
     </div>
-    <div class="grid grid-cols-2 gap-2 text-center archivo text-sm">
-      ${['cotenido total','kurzclips','Spielfilms','schnapps','footages','me gustas'].map(t=>`<div class="p-2 border border-white">${t}</div>`).join('')}
+    <div class="grid grid-cols-2 gap-2 text-center arc text-xs">
+      ${['CONTENIDO TOTAL','KURZCLIPS','SPIELFILMS','SCHNAPPS','FOOTAGES','ME GUSTAS'].map(t=>`
+        <div class="box2 p-2">${t}</div>`).join('')}
     </div>
+    <button onclick="logoutApp()" class="btn w-full py-3 text-sm mt-6 text-red-400">CERRAR SESIÓN</button>
   </div>`;
 
-document.body.className = document.body.className.replace(/theme-\S+/g,'') + ' theme-' + state.settings.theme;
-document.getElementById('hdr-role').textContent = state.user.role;
-document.getElementById('ftr-role').textContent = state.user.role;
+// ====== INICIO ======
+// Si ya hay sesión guardada en memoria, no autologin (queremos pasar por auth siempre).
+// Mostramos PWA
+window.addEventListener('load', () => {
+  document.body.className = 'select-none theme-' + (state.settings.theme||'nocturno');
+});
 </script>
 </body>
 </html>
