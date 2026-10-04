@@ -26,9 +26,60 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .toggle::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;transition:left .3s}
 .toggle.on{background:#22c55e}.toggle.on::after{left:28px}
 .toggle.off{background:#ef4444}.toggle.off::after{left:3px}
-#sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;background:linear-gradient(105deg,transparent 0%,rgba(168,85,247,0) 30%,#a855f7 50%,rgba(168,85,247,0) 70%,transparent 100%);background-size:300% 100%;background-position:-200% 0;opacity:0}
-#sweep.active{opacity:1;animation:sweepAnim .45s ease forwards}
-@keyframes sweepAnim{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+/* ============ BARRIDO: MÁS ESPESO + MÁS DURACIÓN ============ */
+#sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0;
+  background:linear-gradient(105deg,
+    transparent 0%,
+    rgba(168,85,247,0) 8%,
+    rgba(168,85,247,0.35) 20%,
+    rgba(168,85,247,0.85) 38%,
+    #c084fc 50%,
+    rgba(168,85,247,0.85) 62%,
+    rgba(168,85,247,0.35) 80%,
+    rgba(168,85,247,0) 92%,
+    transparent 100%);
+  background-size:250% 100%;background-position:-250% 0;
+}
+#sweep.active{opacity:1;animation:sweepAnim 1.1s cubic-bezier(.5,0,.5,1) forwards}
+@keyframes sweepAnim{
+  0%{background-position:-250% 0;opacity:1}
+  100%{background-position:250% 0;opacity:1}
+}
+
+/* ============ FUEGUITO QUE SIGUE EL TOQUE ============ */
+.fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;
+  background:radial-gradient(circle,#fff 0%,#ffe066 25%,#ff9500 55%,#ff3300 85%,transparent 100%);
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 10px #ff9500,0 0 22px #ff3300,0 0 34px rgba(255,60,0,.5);
+  animation:fireRise .85s cubic-bezier(.2,.7,.4,1) forwards}
+@keyframes fireRise{
+  0%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+  60%{opacity:.9}
+  100%{transform:translate(calc(-50% + var(--dx,0px)), calc(-50% - 70px)) scale(.15) rotate(180deg);opacity:0}
+}
+
+/* ============ CARRUSEL DE NAVS ============ */
+.nav-carousel-wrap{position:relative;overflow:hidden;border-top:2px solid #fff;background:#000;flex-shrink:0}
+.nav-carousel-wrap.purple-top{border-top:2px solid #a855f7}
+.nav-carousel-wrap::before,.nav-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:22px;pointer-events:none;z-index:2}
+.nav-carousel-wrap::before{left:0;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,0) 100%)}
+.nav-carousel-wrap::after{right:0;background:linear-gradient(-90deg,#000 0%,rgba(0,0,0,0) 100%)}
+.nav-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:0 12px}
+.nav-carousel::-webkit-scrollbar{display:none}
+.nav-carousel>button{flex:0 0 auto;min-width:76px;scroll-snap-align:center;
+  padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  border-right:1px solid rgba(255,255,255,0.12);
+  font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;
+  color:inherit;background:transparent;cursor:pointer;transition:background .2s,color .2s;
+  font-size:8px;line-height:1.05;text-align:center}
+.nav-carousel>button:first-child{padding-left:6px}
+.nav-carousel>button:last-child{border-right:none;padding-right:6px}
+.nav-carousel>button i{font-size:13px;margin-bottom:1px}
+.nav-carousel>button.active,.nav-carousel>button.bg-white{background:#fff;color:#000}
+.nav-carousel>button .flag-ex{font-size:7px;padding:1px 5px;margin-bottom:1px}
+
 .brain-pulse{animation:bp 2s ease-in-out infinite}
 @keyframes bp{0%,100%{filter:drop-shadow(0 0 8px #dc2626)}50%{filter:drop-shadow(0 0 22px #dc2626)}}
 .glitch{background-color:#0a0a1f;background-image:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,0,102,.25) 3px,rgba(255,0,102,.25) 4px),repeating-linear-gradient(90deg,transparent 0,transparent 8px,rgba(59,130,246,.3) 8px,rgba(59,130,246,.3) 10px);background-size:100% 20px,20px 100%;animation:gs 3s linear infinite}
@@ -37,7 +88,24 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .hand{border:2px solid #fff;border-radius:8px 12px 10px 14px/12px 8px 14px 10px;transform:rotate(-1deg)}
 .flag-ex{display:inline-block;background:#dc2626;color:#fff;font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:.08em;padding:2px 8px;transform:skewX(-15deg)}
 .flag-ex.purple{background:#a855f7}
-/* THEMES — cambian bg y text de toda la app */
+
+/* ============ TOASTS MINIMALISTAS ============ */
+#toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;
+  width:auto;max-width:min(72vw,260px);pointer-events:none;align-items:flex-end}
+.toast-msg{background:rgba(18,10,32,0.82);border-left:3px solid #a855f7;
+  padding:6px 10px;border-radius:3px;color:#fff;font-family:'Archivo Black',sans-serif;
+  font-size:10px;letter-spacing:.03em;line-height:1.25;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 2px 10px rgba(0,0,0,.35);
+  animation:toastIn .22s ease forwards;opacity:0}
+.toast-msg.error{border-left-color:#ef4444}
+.toast-msg.success{border-left-color:#22c55e}
+.toast-msg.info{border-left-color:#a855f7}
+.toast-msg.out{animation:toastOut .25s ease forwards}
+@keyframes toastIn{from{transform:translateX(24px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes toastOut{to{transform:translateX(24px);opacity:0}}
+
+/* THEMES */
 body.theme-nocturno{--bg:#000000;--fg:#fff;--ac:#a855f7;--accent-text:#a855f7}
 body.theme-dia{--bg:#3a3a3a;--fg:#22c55e;--ac:#22c55e;--accent-text:#22c55e;color:#22c55e}
 body.theme-coquette{--bg:#ff0080;--fg:#fff;--ac:#fff;--accent-text:#fff}
@@ -56,7 +124,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <body class="theme-nocturno select-none">
 
 <div id="sweep"></div>
-<div id="toast-wrap" class="fixed top-3 left-1/2 -translate-x-1/2 z-[10000] w-full max-w-sm px-3 pointer-events-none space-y-2"></div>
+<div id="toast-wrap"></div>
 
 <!-- ====== SCR-PWA ====== -->
 <div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
@@ -265,86 +333,44 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 
   <main id="viewport" class="flex-1 overflow-y-auto bg-black text-white"></main>
 
-  <!-- SUB-NAV: 7 iconos -->
-  <nav class="border-t-2 border-white bg-black shrink-0 grain">
-    <div class="grid grid-cols-7 text-[8px] arc">
-      <button onclick="go('sub-sus')" id="subnav-sub-sus" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-gem text-sm" style="color:#dc2626"></i><span>SUSCRIPCIONES</span>
-      </button>
-      <button onclick="go('sub-vk')" id="subnav-sub-vk" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-mask text-sm"></i><span>VERKEHRSMASKEN</span>
-      </button>
-      <button onclick="go('sub-atico')" id="subnav-sub-atico" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-play text-sm" style="transform:rotate(90deg)"></i><span>ATICO</span>
-      </button>
-      <button onclick="go('sub-boveda')" id="subnav-sub-boveda" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-vault text-sm"></i><span>BOVEDA</span>
-      </button>
-      <button onclick="go('sub-bodega')" id="subnav-sub-bodega" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-warehouse text-sm"></i><span>BODEGA</span>
-      </button>
-      <button onclick="go('sub-ci')" id="subnav-sub-ci" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-brain text-sm" style="color:#dc2626"></i><span>C.I</span>
-      </button>
-      <button onclick="go('sub-moduz')" id="subnav-sub-moduz" class="py-1.5 flex flex-col items-center gap-0.5">
-        <i class="fa-solid fa-sun text-sm" style="color:#dc2626"></i><span>MODUZ</span>
-      </button>
+  <!-- SUB-NAV en carrusel -->
+  <div class="nav-carousel-wrap">
+    <div class="nav-carousel" id="nc-sub">
+      <button onclick="go('sub-sus')" id="subnav-sub-sus"><i class="fa-solid fa-gem" style="color:#dc2626"></i><span>SUSCRIPCIONES</span></button>
+      <button onclick="go('sub-vk')" id="subnav-sub-vk"><i class="fa-solid fa-mask"></i><span>VERKEHRSMASKEN</span></button>
+      <button onclick="go('sub-atico')" id="subnav-sub-atico"><i class="fa-solid fa-play" style="transform:rotate(90deg)"></i><span>ATICO</span></button>
+      <button onclick="go('sub-boveda')" id="subnav-sub-boveda"><i class="fa-solid fa-vault"></i><span>BOVEDA</span></button>
+      <button onclick="go('sub-bodega')" id="subnav-sub-bodega"><i class="fa-solid fa-warehouse"></i><span>BODEGA</span></button>
+      <button onclick="go('sub-ci')" id="subnav-sub-ci"><i class="fa-solid fa-brain" style="color:#dc2626"></i><span>C.I</span></button>
+      <button onclick="go('sub-moduz')" id="subnav-sub-moduz"><i class="fa-solid fa-sun" style="color:#dc2626"></i><span>MODUZ</span></button>
     </div>
-  </nav>
+  </div>
 
-  <!-- MAIN NAV: 7 tabs -->
-  <nav class="border-t-2 border-white bg-black shrink-0 grain">
-    <div class="grid grid-cols-7 text-[9px] arc">
-      <button onclick="go('sala')" id="tab-sala" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-couch text-sm"></i><span>SALA</span>
-      </button>
-      <button onclick="go('navegador')" id="tab-navegador" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-earth-americas text-sm"></i><span>NAVEGADOR</span>
-      </button>
-      <button onclick="go('kurzclips')" id="tab-kurzclips" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-mobile-screen text-sm"></i><span>KURZCLIPS</span>
-      </button>
-      <button onclick="go('footage')" id="tab-footage" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-circle-play text-sm"></i><span>FOOTAGE</span>
-      </button>
-      <button onclick="go('spielfilm')" id="tab-spielfilm" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-video text-sm"></i><span>SPIELFILM</span>
-      </button>
-      <button onclick="go('schnapps')" id="tab-schnapps" class="py-2 flex flex-col items-center gap-0.5 border-r border-white/20">
-        <i class="fa-solid fa-images text-sm"></i><span>SCHNAPPS</span>
-      </button>
-      <button onclick="go('comunicacion')" id="tab-comunicacion" class="py-2 flex flex-col items-center gap-0.5">
-        <i class="fa-solid fa-comments text-sm"></i><span>COMUNICACIÓN</span>
-      </button>
+  <!-- MAIN NAV en carrusel -->
+  <div class="nav-carousel-wrap">
+    <div class="nav-carousel" id="nc-main">
+      <button onclick="go('sala')" id="tab-sala"><i class="fa-solid fa-couch"></i><span>SALA</span></button>
+      <button onclick="go('navegador')" id="tab-navegador"><i class="fa-solid fa-earth-americas"></i><span>NAVEGADOR</span></button>
+      <button onclick="go('kurzclips')" id="tab-kurzclips"><i class="fa-solid fa-mobile-screen"></i><span>KURZCLIPS</span></button>
+      <button onclick="go('footage')" id="tab-footage"><i class="fa-solid fa-circle-play"></i><span>FOOTAGE</span></button>
+      <button onclick="go('spielfilm')" id="tab-spielfilm"><i class="fa-solid fa-video"></i><span>SPIELFILM</span></button>
+      <button onclick="go('schnapps')" id="tab-schnapps"><i class="fa-solid fa-images"></i><span>SCHNAPPS</span></button>
+      <button onclick="go('comunicacion')" id="tab-comunicacion"><i class="fa-solid fa-comments"></i><span>COMUNICACIÓN</span></button>
     </div>
-  </nav>
+  </div>
 
-  <!-- EXTRA NAV: 7 items -->
-  <nav class="border-t-2 border-purple-500 bg-black shrink-0 grain">
-    <div class="grid grid-cols-7 text-[7px] arc items-end">
-      <button onclick="toast('C.P.H — próximamente','info')" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <span class="flag-ex">EXCLUSIVE</span><span class="text-[9px]">C.P.H</span>
-      </button>
-      <button onclick="toast('C.P.S — próximamente','info')" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <span class="flag-ex purple">EXCLUSIVE</span><span class="text-[9px]">C.P.S</span>
-      </button>
-      <button onclick="go('umikaiser')" id="exnav-umikaiser" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <i class="fa-solid fa-dice text-sm" style="color:#dc2626"></i><span class="text-[8px]">UMIKAISER</span>
-      </button>
-      <button onclick="go('config')" id="exnav-config" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <i class="fa-solid fa-gears text-sm"></i><span class="text-[8px]">CONFIGURACIÓNES</span>
-      </button>
-      <button onclick="go('zukurzalez')" id="exnav-zukurzalez" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <i class="fa-solid fa-cart-shopping text-sm"></i><span class="text-[8px]">ZUKURZALEZ</span>
-      </button>
-      <button onclick="go('gdz')" id="exnav-gdz" class="py-1.5 flex flex-col items-center gap-0.5 border-r border-purple-500/40">
-        <i class="fa-solid fa-bag-shopping text-sm"></i><span class="text-[8px]">GDZ</span>
-      </button>
-      <button onclick="go('perfil')" id="exnav-perfil" class="py-1.5 flex flex-col items-center gap-0.5">
-        <i class="fa-solid fa-user text-sm"></i><span class="text-[8px]">PERFIL</span>
-      </button>
+  <!-- EXTRA NAV en carrusel -->
+  <div class="nav-carousel-wrap purple-top">
+    <div class="nav-carousel" id="nc-extra">
+      <button onclick="toast('C.P.H — próximamente','info')"><span class="flag-ex">EXCLUSIVE</span><span>C.P.H</span></button>
+      <button onclick="toast('C.P.S — próximamente','info')"><span class="flag-ex purple">EXCLUSIVE</span><span>C.P.S</span></button>
+      <button onclick="go('umikaiser')" id="exnav-umikaiser"><i class="fa-solid fa-dice" style="color:#dc2626"></i><span>UMIKAISER</span></button>
+      <button onclick="go('config')" id="exnav-config"><i class="fa-solid fa-gears"></i><span>CONFIGURACIÓNES</span></button>
+      <button onclick="go('zukurzalez')" id="exnav-zukurzalez"><i class="fa-solid fa-cart-shopping"></i><span>ZUKURZALEZ</span></button>
+      <button onclick="go('gdz')" id="exnav-gdz"><i class="fa-solid fa-bag-shopping"></i><span>GDZ</span></button>
+      <button onclick="go('perfil')" id="exnav-perfil"><i class="fa-solid fa-user"></i><span>PERFIL</span></button>
     </div>
-  </nav>
+  </div>
 
   <footer class="border-t-2 border-white bg-black px-3 py-1.5 flex items-center justify-between shrink-0 grain">
     <div class="flex items-center gap-2">
@@ -386,8 +412,7 @@ const stSchn = getStorage(appSchn);
 
 window.state = {
   user: { uid:'', name:'', role:'GRATUITO', email:'', photo:'' },
-  settings: { transitions:true, theme:'nocturno',
-    sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true },
+  settings: { transitions:true, theme:'nocturno', sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true },
   vk: { VPN:false, REDOCULTA:false, ZUKURZALES:false, TOZO:false, DEEZZEER:false, 'AL CANDADO':false, VERKEHR:false },
   umi: { casilla:1, puntos:0, dados:12 }
 };
@@ -398,19 +423,50 @@ try { const s=JSON.parse(localStorage.getItem('dazer')||'{}');
 } catch(e){}
 window.save = () => localStorage.setItem('dazer', JSON.stringify({ user:state.user, settings:state.settings, vk:state.vk }));
 
+/* ============ TOAST MINIMALISTA ============ */
 window.toast = (msg, type='info') => {
   const t = document.createElement('div');
-  const bg = type==='error'?'bg-red-950 border-red-500':type==='success'?'bg-green-950 border-green-500':'bg-purple-950 border-purple-500';
-  t.className = `p-3 border-2 ${bg} arc text-xs text-center pointer-events-auto shadow-2xl`;
+  t.className = `toast-msg ${type}`;
   t.textContent = msg;
-  document.getElementById('toast-wrap').appendChild(t);
-  setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),300); }, 2800);
+  const wrap = document.getElementById('toast-wrap');
+  wrap.appendChild(t);
+  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(), 250); }, 1800);
 };
 
 const show = id => { const e=document.getElementById(id); e.classList.remove('hidden'); e.classList.add('flex'); };
 const hide = id => { const e=document.getElementById(id); e.classList.add('hidden'); e.classList.remove('flex'); };
 window.openModal = show; window.closeModal = hide;
 const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ============ FUEGUITO QUE SIGUE EL TOQUE ============ */
+function spawnFire(x, y, big=false) {
+  const n = big ? 10 : 5;
+  for (let i = 0; i < n; i++) {
+    const f = document.createElement('div');
+    f.className = 'fuego';
+    f.style.left = x + 'px';
+    f.style.top  = y + 'px';
+    f.style.setProperty('--dx', (Math.random()-0.5)*46 + 'px');
+    const s = big ? (0.9 + Math.random()*0.9) : (0.65 + Math.random()*0.6);
+    f.style.width = (14*s) + 'px';
+    f.style.height = (14*s) + 'px';
+    f.style.animationDelay = (i*22) + 'ms';
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(), 900 + i*22);
+  }
+}
+let lastX=0, lastY=0, trailOn=false;
+document.addEventListener('pointerdown', e => {
+  lastX = e.clientX; lastY = e.clientY; trailOn = true;
+  spawnFire(e.clientX, e.clientY, true);
+}, { passive: true });
+document.addEventListener('pointermove', e => {
+  if (!trailOn) return;
+  const dx = e.clientX - lastX, dy = e.clientY - lastY;
+  if (dx*dx + dy*dy > 280) { spawnFire(e.clientX, e.clientY, false); lastX = e.clientX; lastY = e.clientY; }
+}, { passive: true });
+document.addEventListener('pointerup', ()=>{ trailOn = false; });
+document.addEventListener('pointercancel', ()=>{ trailOn = false; });
 
 const brainIcon = (size=28, color='#dc2626') => `<i class="fa-solid fa-brain" style="font-size:${size}px;color:${color}"></i>`;
 const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px;display:inline-block;vertical-align:middle">
@@ -423,7 +479,7 @@ const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}p
 
 // PWA / LANG / AUTH
 window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error')); };
-window.installApp = () => toast('Menú navegador → Añadir a pantalla de inicio','info');
+window.installApp = () => toast('Menú navegador → Añadir a inicio','info');
 window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
 window.goAuth = () => { hide('scr-lang'); show('scr-auth'); loadAccounts(); };
 window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
@@ -534,7 +590,7 @@ window.exitCreated = () => { hide('mod-cuenta-creada'); show('scr-auth'); loadAc
 window.sendPedir = () => {
   const u = document.getElementById('p-user').value.trim();
   if (!u) return toast('Ingresa tu usuario','error');
-  toast('Solicitud enviada a titanacorazado2009@gmail.com','success');
+  toast('Solicitud enviada','success');
   closeModal('mod-pedir');
 };
 
@@ -556,9 +612,8 @@ function enterApp() {
   applyTheme(state.settings.theme);
   go('sala');
 }
-function applyTheme(t) {
-  document.body.className = 'select-none theme-' + t;
-}
+function applyTheme(t) { document.body.className = 'select-none theme-' + t; }
+
 window.logoutApp = async () => {
   try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); await signOut(auth); } catch(e){}
   document.getElementById('app').classList.add('hidden');
@@ -568,15 +623,17 @@ window.logoutApp = async () => {
 };
 
 // NAV
-const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion','sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz','umikaiser','config','zukurzalez','gdz','perfil','aline'];
+const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
+  'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
+  'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
 const views = {};
 function setActive(name){
   ALL_TABS.forEach(t => {
     const a = document.getElementById('tab-'+t) || document.getElementById('subnav-'+t) || document.getElementById('exnav-'+t);
-    if (a) { a.classList.remove('bg-white','text-black'); }
+    if (a) a.classList.remove('active','bg-white','text-black');
   });
   const b = document.getElementById('tab-'+name) || document.getElementById('subnav-'+name) || document.getElementById('exnav-'+name);
-  if (b) b.classList.add('bg-white','text-black');
+  if (b) { b.classList.add('active','bg-white','text-black'); b.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
 }
 window.go = (name) => {
   const render = () => {
@@ -590,11 +647,10 @@ window.go = (name) => {
   const sw = document.getElementById('sweep');
   sw.classList.remove('active'); void sw.offsetWidth;
   sw.classList.add('active');
-  setTimeout(render, 280);
-  setTimeout(()=>sw.classList.remove('active'), 580);
+  setTimeout(render, 500);
+  setTimeout(()=>sw.classList.remove('active'), 1150);
 };
 
-// Header de contenido (cerebro rojo + agujero negro)
 const contentHeader = (title) => `
   <div class="flex items-center justify-between px-4 py-3 border-b border-white/20">
     <div class="flex items-center gap-3">
@@ -706,7 +762,6 @@ window.uploadContent = async (coll) => {
   } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
 };
 
-// COMUNICACIÓN
 views.comunicacion = () => `
   ${contentHeader('COMUNICACIÓN')}
   <div class="text-center py-6">
@@ -790,7 +845,6 @@ window.sendMsg = async (cid) => {
   catch(e){ toast('Error: '+(e.code||e.message),'error'); }
 };
 
-// SUSCRIPCIONES
 views['sub-sus'] = () => {
   const roles = [
     { n:'DIRECT@R', color:'#a855f7', font:'arc', title:'TU ERES EL DIRECTOR' },
@@ -818,7 +872,6 @@ window.pickRole = r => { state.user.role = r; save();
   toast('Rol: '+r,'success'); go('sub-sus');
 };
 
-// VERKEHRSMASKEN
 views['sub-vk'] = () => {
   const intro = sessionStorage.getItem('vk-intro') === '0' ? '' : `
     <div class="glitch" style="position:absolute;inset:0;z-index:-1"></div>
@@ -847,7 +900,6 @@ views['sub-vk'] = () => {
 };
 window.toggleVK = k => { state.vk[k] = !state.vk[k]; save(); go('sub-vk'); };
 
-// ÁTICO / BÓVEDA / BODEGA
 const storageView = (title) => () => `
   <div class="p-4 max-w-md mx-auto">
     <h1 class="arc text-2xl text-center mb-2">ALMACENAMIENTO ${title}</h1>
@@ -864,7 +916,6 @@ views['sub-atico']  = storageView('ÁTICO');
 views['sub-boveda'] = storageView('BOVEDA');
 views['sub-bodega'] = storageView('BODEGA');
 
-// C.I
 views['sub-ci'] = () => `
   <div class="p-4 max-w-md mx-auto">
     <h1 class="arc text-3xl text-center mb-8">CONTENIDO INTELIGENTE</h1>
@@ -878,17 +929,11 @@ views['sub-ci'] = () => `
     </div>
   </div>`;
 
-// MODUZ
 views['sub-moduz'] = () => {
   const temas = [
-    {id:'nocturno',n:'NOCTURNO'},
-    {id:'dia',n:'DIA'},
-    {id:'coquette',n:'COQUETTE'},
-    {id:'fuego',n:'FUEGO'},
-    {id:'sexy',n:'SEXY'},
-    {id:'atodecedor',n:'ATODECEDOR'},
-    {id:'secreto',n:'SECRETO'},
-    {id:'normal',n:'NORMAL'}
+    {id:'nocturno',n:'NOCTURNO'},{id:'dia',n:'DIA'},{id:'coquette',n:'COQUETTE'},
+    {id:'fuego',n:'FUEGO'},{id:'sexy',n:'SEXY'},{id:'atodecedor',n:'ATODECEDOR'},
+    {id:'secreto',n:'SECRETO'},{id:'normal',n:'NORMAL'}
   ];
   return `
     <div class="p-4 max-w-md mx-auto">
@@ -903,10 +948,7 @@ views['sub-moduz'] = () => {
 };
 window.setTheme = t => { state.settings.theme = t; save(); applyTheme(t); toast('Tema: '+t.toUpperCase(),'success'); go('sub-moduz'); };
 
-// UMIKAISER
-views.umikaiser = () => {
-  const u = state.umi;
-  return `
+views.umikaiser = () => `
     <div class="p-4 max-w-md mx-auto space-y-3">
       <div class="flex items-center gap-3">
         <i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i>
@@ -918,9 +960,8 @@ views.umikaiser = () => {
       </div>
       <button onclick="showUmiHelp()" class="w-full btn py-2 text-xs text-white">ℹ️ CÓMO FUNCIONA LOS UMIKAISER</button>
     </div>`;
-};
+
 window.showUmiRules = () => {
-  const u = state.umi;
   document.getElementById('viewport').innerHTML = `
     <div class="p-4 max-w-md mx-auto space-y-4">
       <div class="flex items-center gap-3">
@@ -930,8 +971,8 @@ window.showUmiRules = () => {
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-gray-300 text-black p-3 space-y-3">
           <div class="flex gap-1">${Array(5).fill(0).map(()=>`<i class="fa-solid fa-dice text-purple-700"></i>`).join('')}</div>
-          <p class="font-black text-sm">CASILLA:</p><div class="h-px bg-black"></div>
-          <p class="font-black text-sm">PUNTAJE:</p><div class="h-px bg-black"></div>
+          <p class="font-black text-sm">CASILLA: ${state.umi.casilla}</p><div class="h-px bg-black"></div>
+          <p class="font-black text-sm">PUNTAJE: ${state.umi.puntos}</p><div class="h-px bg-black"></div>
           <p class="text-xs">faltante</p>
           <p class="arc text-3xl">dados</p>
           <div class="h-px bg-black"></div>
@@ -944,17 +985,11 @@ window.showUmiRules = () => {
           </svg>
         </div>
       </div>
-      <p class="text-center arc text-5xl">12</p>
+      <p class="text-center arc text-5xl">${state.umi.dados}</p>
       <div class="flex justify-between items-center gap-2">
-        <div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">
-          ${Array(9).fill(0).map((_,i)=>`<div class="w-3 h-3 rounded-full ${[0,2,3,5,6,8].includes(i)?'bg-black':'bg-transparent'}"></div>`).join('')}
-        </div>
-        <div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">
-          ${Array(9).fill(0).map((_,i)=>`<div class="w-3 h-3 rounded-full ${[0,2,6,8].includes(i)?'bg-black':'bg-transparent'}"></div>`).join('')}
-        </div>
-        <div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">
+        ${[0,1,2].map(()=>`<div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">
           ${Array(9).fill(0).map((_,i)=>`<div class="w-3 h-3 rounded-full ${[0,8].includes(i)?'bg-black':'bg-transparent'}"></div>`).join('')}
-        </div>
+        </div>`).join('')}
         <div class="flex flex-col items-center">
           <span class="text-[9px] arc mb-1">USAR</span>
           <button onclick="useHeart()" class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-3xl">🖤</button>
@@ -975,30 +1010,18 @@ window.showUmiHelp = () => {
       <div class="space-y-2">
         <div class="flex items-center gap-3">
           <div class="flex gap-1"><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">6</span><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">5</span></div>
-          <span class="text-3xl">→</span>
-          <span class="text-3xl arc">&lt;/&gt;</span>
-          <span class="arc text-lg">MASTER</span>
+          <span class="text-3xl">→</span><span class="text-3xl arc">&lt;/&gt;</span><span class="arc text-lg">MASTER</span>
         </div>
         <div class="flex items-center gap-3">
           <div class="flex gap-1"><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">4</span><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">3</span></div>
-          <span class="text-3xl">→</span>
-          <span class="text-3xl">℘</span>
-          <span class="arc text-lg">JACKPON</span>
+          <span class="text-3xl">→</span><span class="text-3xl">℘</span><span class="arc text-lg">JACKPON</span>
         </div>
         <div class="flex items-center gap-3">
           <div class="flex gap-1"><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">2</span><span class="w-8 h-8 bg-white rounded text-black flex items-center justify-center font-black">1</span></div>
-          <span class="text-3xl">→</span>
-          <span class="text-3xl">←→</span>
-          <span class="arc text-lg">CAMBIO</span>
+          <span class="text-3xl">→</span><span class="text-3xl">←→</span><span class="arc text-lg">CAMBIO</span>
         </div>
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">¿?</span>
-          <span class="arc text-lg">DuDoZo</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-3xl">🖤</span>
-          <span class="arc text-lg">DEEZZEER</span>
-        </div>
+        <div class="flex items-center gap-3"><span class="text-2xl">¿?</span><span class="arc text-lg">DuDoZo</span></div>
+        <div class="flex items-center gap-3"><span class="text-3xl">🖤</span><span class="arc text-lg">DEEZZEER</span></div>
       </div>
       <p class="text-xs text-gray-400 leading-relaxed">el unicáisero también el de los dados: se juega a va sacando los cinco dados y te pueden tocar hechizos o dados de números. Se lo estaba tocando un dado de hechizo y un cuatro dados de número llama que sea de uno cuatro seis a cinco cualquiera de ese del 1 al 6 como los dados normales, pero hay unos que son dados especiales que te salen cartas, así cartas dado, la cosa nada más especiales.</p>
       <button onclick="go('umikaiser')" class="btn btn-w w-full py-4 text-2xl">ENTRAR</button>
@@ -1023,14 +1046,13 @@ window.rollDice = () => {
 };
 window.useHeart = () => { state.umi.dados += 3; save(); toast('+3 dados','success'); showUmiRules(); };
 
-// CONFIGURACIONES
 views.config = () => {
   const s = state.settings;
   const left = [
     ['sndBg','sonido de fondo'],['sndBtn','sonido de botones'],
     ['sndKz','sonido de audio de kurzclips'],
     ['sndFt','sonido de audio de footage'],
-    ['sndSf','sonido de audio de de Spielfilm']
+    ['sndSf','sonido de audio de Spielfilm']
   ];
   const right = [
     ['privacidad','🔒'],['dazerlabs','🧪'],['créditos','©️'],['permisos','🔐'],
@@ -1043,7 +1065,7 @@ views.config = () => {
         <i class="fa-solid fa-gears text-3xl" style="color:#dc2626"></i>
         <h1 class="arc text-2xl">CONFIGURACIÓNES</h1>
       </div>
-      <div class="grid grid-cols-2 gap-2 text-xs archivo">
+      <div class="grid grid-cols-2 gap-2 text-xs">
         ${left.map(([k,l])=>`<div class="flex items-center justify-between py-2 border-b border-white/20"><span class="text-[11px] flex-1">${l}</span><div class="toggle ${s[k]?'on':'off'} scale-75" onclick="tog('${k}')"></div></div>`).join('')}
         ${right.map(([l,i])=>`<div onclick="toast('${l}','info')" class="flex items-center justify-between py-2 border-b border-white/20 cursor-pointer"><span class="text-[11px]">${l}</span><span>${i}</span></div>`).join('')}
       </div>
@@ -1063,7 +1085,6 @@ views.config = () => {
 };
 window.tog = k => { state.settings[k] = !state.settings[k]; save(); go('config'); };
 
-// ZUKURZALEZ
 views.zukurzalez = () => `
   <div class="p-4 max-w-md mx-auto">
     <div class="flex items-center justify-between mb-6">
@@ -1096,7 +1117,6 @@ views.reportar = () => `
   </div>`;
 window.sendReport = () => { const t=document.getElementById('rep-target').value; if(!t) return toast('Ingresa usuario','error'); toast('Reporte enviado','success'); go('zukurzalez'); };
 
-// GDZ
 views.gdz = () => `
   <div class="p-4 max-w-md mx-auto">
     <div class="flex items-center gap-3 mb-6">
@@ -1109,7 +1129,6 @@ views.gdz = () => `
     </div>
   </div>`;
 
-// PERFIL
 views.perfil = () => `
   <div class="p-4 max-w-md mx-auto">
     <div class="flex items-center gap-4 mb-6">
@@ -1133,7 +1152,6 @@ views.perfil = () => `
     <button onclick="logoutApp()" class="btn w-full py-3 text-sm mt-6" style="color:#ef4444">CERRAR SESIÓN</button>
   </div>`;
 
-// INIT
 applyTheme(state.settings.theme||'nocturno');
 window.checkMaster = () => {
   const p = document.getElementById('master-pass').value;
