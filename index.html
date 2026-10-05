@@ -27,7 +27,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .toggle.on{background:#22c55e}.toggle.on::after{left:28px}
 .toggle.off{background:#ef4444}.toggle.off::after{left:3px}
 
-/* ============ BARRIDO: MÁS ESPESO + MÁS DURACIÓN ============ */
 #sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0;
   background:linear-gradient(105deg,
     transparent 0%,
@@ -47,7 +46,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
   100%{background-position:250% 0;opacity:1}
 }
 
-/* ============ FUEGUITO QUE SIGUE EL TOQUE ============ */
 .fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;
   background:radial-gradient(circle,#fff 0%,#ffe066 25%,#ff9500 55%,#ff3300 85%,transparent 100%);
   transform:translate(-50%,-50%);
@@ -59,26 +57,28 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
   100%{transform:translate(calc(-50% + var(--dx,0px)), calc(-50% - 70px)) scale(.15) rotate(180deg);opacity:0}
 }
 
-/* ============ CARRUSEL DE NAVS ============ */
+/* ============ CARRUSEL ÚNICO INFERIOR ============ */
 .nav-carousel-wrap{position:relative;overflow:hidden;border-top:2px solid #fff;background:#000;flex-shrink:0}
-.nav-carousel-wrap.purple-top{border-top:2px solid #a855f7}
 .nav-carousel-wrap::before,.nav-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:22px;pointer-events:none;z-index:2}
 .nav-carousel-wrap::before{left:0;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,0) 100%)}
 .nav-carousel-wrap::after{right:0;background:linear-gradient(-90deg,#000 0%,rgba(0,0,0,0) 100%)}
-.nav-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:0 12px}
+.nav-carousel{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:0 14px}
 .nav-carousel::-webkit-scrollbar{display:none}
-.nav-carousel>button{flex:0 0 auto;min-width:76px;scroll-snap-align:center;
+.nav-carousel>button{flex:0 0 auto;min-width:72px;scroll-snap-align:center;
   padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  border-right:1px solid rgba(255,255,255,0.12);
+  border-right:1px solid rgba(255,255,255,0.10);
   font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;
   color:inherit;background:transparent;cursor:pointer;transition:background .2s,color .2s;
   font-size:8px;line-height:1.05;text-align:center}
-.nav-carousel>button:first-child{padding-left:6px}
-.nav-carousel>button:last-child{border-right:none;padding-right:6px}
 .nav-carousel>button i{font-size:13px;margin-bottom:1px}
 .nav-carousel>button.active,.nav-carousel>button.bg-white{background:#fff;color:#000}
 .nav-carousel>button .flag-ex{font-size:7px;padding:1px 5px;margin-bottom:1px}
+/* Separador de grupo dentro del carrusel */
+.nav-sep{flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  padding:0 8px;color:#a855f7;font-family:'Archivo Black',sans-serif;font-size:14px;
+  letter-spacing:0;user-select:none}
+.nav-sep.red{color:#dc2626}
 
 .brain-pulse{animation:bp 2s ease-in-out infinite}
 @keyframes bp{0%,100%{filter:drop-shadow(0 0 8px #dc2626)}50%{filter:drop-shadow(0 0 22px #dc2626)}}
@@ -89,7 +89,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .flag-ex{display:inline-block;background:#dc2626;color:#fff;font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:.08em;padding:2px 8px;transform:skewX(-15deg)}
 .flag-ex.purple{background:#a855f7}
 
-/* ============ TOASTS MINIMALISTAS ============ */
 #toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;
   width:auto;max-width:min(72vw,260px);pointer-events:none;align-items:flex-end}
 .toast-msg{background:rgba(18,10,32,0.82);border-left:3px solid #a855f7;
@@ -105,7 +104,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 @keyframes toastIn{from{transform:translateX(24px);opacity:0}to{transform:translateX(0);opacity:1}}
 @keyframes toastOut{to{transform:translateX(24px);opacity:0}}
 
-/* THEMES */
 body.theme-nocturno{--bg:#000000;--fg:#fff;--ac:#a855f7;--accent-text:#a855f7}
 body.theme-dia{--bg:#3a3a3a;--fg:#22c55e;--ac:#22c55e;--accent-text:#22c55e;color:#22c55e}
 body.theme-coquette{--bg:#ff0080;--fg:#fff;--ac:#fff;--accent-text:#fff}
@@ -333,9 +331,10 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 
   <main id="viewport" class="flex-1 overflow-y-auto bg-black text-white"></main>
 
-  <!-- SUB-NAV en carrusel -->
+  <!-- ============ CARRUSEL ÚNICO INFERIOR (TODO EN UNO) ============ -->
   <div class="nav-carousel-wrap">
-    <div class="nav-carousel" id="nc-sub">
+    <div class="nav-carousel" id="nc-all">
+      <!-- GRUPO: SUSCRIPCIONES / SISTEMA -->
       <button onclick="go('sub-sus')" id="subnav-sub-sus"><i class="fa-solid fa-gem" style="color:#dc2626"></i><span>SUSCRIPCIONES</span></button>
       <button onclick="go('sub-vk')" id="subnav-sub-vk"><i class="fa-solid fa-mask"></i><span>VERKEHRSMASKEN</span></button>
       <button onclick="go('sub-atico')" id="subnav-sub-atico"><i class="fa-solid fa-play" style="transform:rotate(90deg)"></i><span>ATICO</span></button>
@@ -343,12 +342,10 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
       <button onclick="go('sub-bodega')" id="subnav-sub-bodega"><i class="fa-solid fa-warehouse"></i><span>BODEGA</span></button>
       <button onclick="go('sub-ci')" id="subnav-sub-ci"><i class="fa-solid fa-brain" style="color:#dc2626"></i><span>C.I</span></button>
       <button onclick="go('sub-moduz')" id="subnav-sub-moduz"><i class="fa-solid fa-sun" style="color:#dc2626"></i><span>MODUZ</span></button>
-    </div>
-  </div>
 
-  <!-- MAIN NAV en carrusel -->
-  <div class="nav-carousel-wrap">
-    <div class="nav-carousel" id="nc-main">
+      <span class="nav-sep">◆</span>
+
+      <!-- GRUPO: NAV PRINCIPAL -->
       <button onclick="go('sala')" id="tab-sala"><i class="fa-solid fa-couch"></i><span>SALA</span></button>
       <button onclick="go('navegador')" id="tab-navegador"><i class="fa-solid fa-earth-americas"></i><span>NAVEGADOR</span></button>
       <button onclick="go('kurzclips')" id="tab-kurzclips"><i class="fa-solid fa-mobile-screen"></i><span>KURZCLIPS</span></button>
@@ -356,12 +353,10 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
       <button onclick="go('spielfilm')" id="tab-spielfilm"><i class="fa-solid fa-video"></i><span>SPIELFILM</span></button>
       <button onclick="go('schnapps')" id="tab-schnapps"><i class="fa-solid fa-images"></i><span>SCHNAPPS</span></button>
       <button onclick="go('comunicacion')" id="tab-comunicacion"><i class="fa-solid fa-comments"></i><span>COMUNICACIÓN</span></button>
-    </div>
-  </div>
 
-  <!-- EXTRA NAV en carrusel -->
-  <div class="nav-carousel-wrap purple-top">
-    <div class="nav-carousel" id="nc-extra">
+      <span class="nav-sep red">◆</span>
+
+      <!-- GRUPO: EXTRA / EXCLUSIVE -->
       <button onclick="toast('C.P.H — próximamente','info')"><span class="flag-ex">EXCLUSIVE</span><span>C.P.H</span></button>
       <button onclick="toast('C.P.S — próximamente','info')"><span class="flag-ex purple">EXCLUSIVE</span><span>C.P.S</span></button>
       <button onclick="go('umikaiser')" id="exnav-umikaiser"><i class="fa-solid fa-dice" style="color:#dc2626"></i><span>UMIKAISER</span></button>
@@ -423,13 +418,11 @@ try { const s=JSON.parse(localStorage.getItem('dazer')||'{}');
 } catch(e){}
 window.save = () => localStorage.setItem('dazer', JSON.stringify({ user:state.user, settings:state.settings, vk:state.vk }));
 
-/* ============ TOAST MINIMALISTA ============ */
 window.toast = (msg, type='info') => {
   const t = document.createElement('div');
   t.className = `toast-msg ${type}`;
   t.textContent = msg;
-  const wrap = document.getElementById('toast-wrap');
-  wrap.appendChild(t);
+  document.getElementById('toast-wrap').appendChild(t);
   setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(), 250); }, 1800);
 };
 
@@ -438,7 +431,6 @@ const hide = id => { const e=document.getElementById(id); e.classList.add('hidde
 window.openModal = show; window.closeModal = hide;
 const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-/* ============ FUEGUITO QUE SIGUE EL TOQUE ============ */
 function spawnFire(x, y, big=false) {
   const n = big ? 10 : 5;
   for (let i = 0; i < n; i++) {
@@ -477,7 +469,6 @@ const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}p
   <ellipse cx="50" cy="50" rx="46" ry="34" fill="url(#bhg)" opacity=".9"/>
   <circle cx="50" cy="50" r="20" fill="#000"/></svg>`;
 
-// PWA / LANG / AUTH
 window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error')); };
 window.installApp = () => toast('Menú navegador → Añadir a inicio','info');
 window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
@@ -622,18 +613,24 @@ window.logoutApp = async () => {
   toast('Sesión cerrada','info');
 };
 
-// NAV
+// NAV (todo en un único carrusel — buscamos el id en los 3 prefijos posibles)
 const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
   'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
   'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
 const views = {};
+function findNavBtn(name){
+  return document.getElementById('tab-'+name) || document.getElementById('subnav-'+name) || document.getElementById('exnav-'+name);
+}
 function setActive(name){
   ALL_TABS.forEach(t => {
-    const a = document.getElementById('tab-'+t) || document.getElementById('subnav-'+t) || document.getElementById('exnav-'+t);
+    const a = findNavBtn(t);
     if (a) a.classList.remove('active','bg-white','text-black');
   });
-  const b = document.getElementById('tab-'+name) || document.getElementById('subnav-'+name) || document.getElementById('exnav-'+name);
-  if (b) { b.classList.add('active','bg-white','text-black'); b.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
+  const b = findNavBtn(name);
+  if (b) {
+    b.classList.add('active','bg-white','text-black');
+    b.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }
 }
 window.go = (name) => {
   const render = () => {
@@ -660,7 +657,6 @@ const contentHeader = (title) => `
     ${blackhole(38)}
   </div>`;
 
-// VISTAS
 views.sala = () => `
   <div class="text-center pt-8 pb-4">
     <h1 class="arc text-5xl">DAZER</h1>
