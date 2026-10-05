@@ -20,8 +20,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .inp{background:#000;color:#fff;border:2px solid #fff;padding:10px;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:12px;width:100%}
 .inp::placeholder{color:#6b7280;text-transform:none;font-family:Inter;font-weight:600}
 .inp:focus{outline:none;border-color:#a855f7}
-.polaroid{background:#f5f5f5;padding:8px 8px 14px}
-.polaroid-in{background:#000;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
 .toggle{width:52px;height:26px;border-radius:14px;position:relative;border:2px solid #000;cursor:pointer;flex-shrink:0;transition:background .3s}
 .toggle::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;transition:left .3s}
 .toggle.on{background:#22c55e}.toggle.on::after{left:28px}
@@ -46,10 +44,11 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
   100%{background-position:250% 0;opacity:1}
 }
 
+/* ============ FUEGUITO MORADO ============ */
 .fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;
-  background:radial-gradient(circle,#fff 0%,#ffe066 25%,#ff9500 55%,#ff3300 85%,transparent 100%);
+  background:radial-gradient(circle,#fff 0%,#f3e8ff 22%,#c084fc 50%,#a855f7 75%,#7c3aed 92%,transparent 100%);
   transform:translate(-50%,-50%);
-  box-shadow:0 0 10px #ff9500,0 0 22px #ff3300,0 0 34px rgba(255,60,0,.5);
+  box-shadow:0 0 10px #a855f7,0 0 22px #7c3aed,0 0 34px rgba(168,85,247,.65);
   animation:fireRise .85s cubic-bezier(.2,.7,.4,1) forwards}
 @keyframes fireRise{
   0%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
@@ -74,7 +73,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .nav-carousel>button i{font-size:13px;margin-bottom:1px}
 .nav-carousel>button.active,.nav-carousel>button.bg-white{background:#fff;color:#000}
 .nav-carousel>button .flag-ex{font-size:7px;padding:1px 5px;margin-bottom:1px}
-/* Separador de grupo dentro del carrusel */
 .nav-sep{flex:0 0 auto;display:flex;align-items:center;justify-content:center;
   padding:0 8px;color:#a855f7;font-family:'Archivo Black',sans-serif;font-size:14px;
   letter-spacing:0;user-select:none}
@@ -160,33 +158,29 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 </div>
 
-<!-- ====== SCR-AUTH ====== -->
+<!-- ====== SCR-AUTH (solo Google) ====== -->
 <div id="scr-auth" class="fixed inset-0 z-50 bg-black hidden flex-col">
-  <div class="flex justify-between items-center border-b-2 border-white p-2 gap-1 shrink-0">
-    <div class="flex gap-1 flex-wrap">
-      <button onclick="openModal('mod-register')" class="btn px-3 py-1 text-[11px] text-white">Crear cuenta</button>
-      <button onclick="openModal('mod-pedir')" class="btn px-3 py-1 text-[11px] text-white">Pedir cuenta</button>
-      <button onclick="openModal('mod-ayuda')" class="btn px-3 py-1 text-[11px] text-white">Ayuda</button>
-    </div>
+  <div class="flex justify-end items-center border-b-2 border-white p-2 gap-1 shrink-0">
+    <button onclick="openModal('mod-ayuda')" class="btn px-3 py-1 text-[11px] text-white">Ayuda</button>
     <button onclick="exitApp()" class="btn px-3 py-1 text-[11px] text-white">Salir</button>
   </div>
-  <div class="flex-1 overflow-y-auto p-4">
-    <div class="text-center mb-4">
-      <h1 class="arc text-4xl flex items-center justify-center gap-2">DAZER
-        <span class="inline-flex items-center justify-center w-8 h-8 border-2 border-white rounded-full text-base">▲</span>
+  <div class="flex-1 overflow-y-auto p-4 flex flex-col justify-center">
+    <div class="text-center mb-8">
+      <h1 class="arc text-5xl flex items-center justify-center gap-2">DAZER
+        <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">▲</span>
       </h1>
-      <p class="arc text-lg tracking-widest">EXTREMO</p>
-      <p class="text-xs mt-2 text-gray-400">Entra con tu cuenta de Google (Gmail)</p>
+      <p class="arc text-xl tracking-widest mt-1">EXTREMO</p>
+      <p class="arc text-sm mt-6 tracking-widest text-purple-400">INICIA SESIÓN PARA CONTINUAR</p>
+      <p class="text-xs mt-2 text-gray-400">Usa tu cuenta de Google (Gmail)</p>
     </div>
-    <div class="max-w-md mx-auto mb-4">
-      <button onclick="loginGoogle()" class="btn btn-w w-full py-4 text-base flex items-center justify-center gap-3">
-        <i class="fa-brands fa-google text-red-500 text-xl"></i> ENTRAR CON GOOGLE
+    <div class="max-w-md w-full mx-auto">
+      <button onclick="loginGoogle()" class="btn btn-w w-full py-5 text-lg flex items-center justify-center gap-3">
+        <i class="fa-brands fa-google text-red-500 text-2xl"></i> ENTRAR CON GOOGLE
       </button>
+      <p class="text-[10px] text-center text-gray-500 mt-4 leading-relaxed">
+        Al entrar aceptas nuestras normas de comunidad.<br>Si no tienes Gmail puedes crear una gratis.
+      </p>
     </div>
-    <div class="max-w-md mx-auto mb-4">
-      <input id="acc-search" oninput="filterAccounts()" placeholder="busca tu cuenta por su nombre" class="inp">
-    </div>
-    <div id="acc-list" class="max-w-xl mx-auto grid grid-cols-2 gap-3 pb-12"></div>
   </div>
   <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center gap-3 shrink-0 grain">
     <span class="text-2xl" style="color:#dc2626">⛩️</span>
@@ -194,73 +188,16 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 </div>
 
-<!-- ====== MODALES AUTH ====== -->
-<div id="mod-register" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
-  <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
-    <button onclick="closeModal('mod-register')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
-    <div class="mb-3">
-      <h2 class="arc text-2xl flex items-center gap-2">DAZER
-        <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span>
-      </h2>
-      <p class="arc text-sm">ESTANDAR</p>
-    </div>
-    <p class="arc text-sm text-center mb-3">HOLA CREADOR QUE CUENTA VAS A CREAR HOY</p>
-    <div class="space-y-2">
-      <input id="r-user" placeholder="NOMBRE DE USUARIO" class="inp">
-      <input id="r-email" type="email" placeholder="CORREO ELECTRÓNICO" class="inp">
-      <input id="r-pass" type="password" placeholder="CONTRASEÑA" class="inp">
-      <input id="r-dob" type="date" class="inp">
-      <select id="r-sub" class="inp">
-        <option value="GRATUITO">SUSCRIPCIÓN: GRATUITO</option>
-        <option value="SCHEITEL">SUSCRIPCIÓN: SCHEITEL</option>
-        <option value="HAIKU">SUSCRIPCIÓN: HAIKU (PREMIUM)</option>
-        <option value="ADMIN">SUSCRIPCIÓN: ADMIN</option>
-        <option value="DIRECT@R">SUSCRIPCIÓN: DIRECT@R</option>
-      </select>
-      <button onclick="createAccount()" class="btn btn-w w-full py-4 text-xl" style="color:#a855f7">INSERTAR</button>
-    </div>
-  </div>
-</div>
-
-<div id="mod-pedir" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
-  <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
-    <button onclick="closeModal('mod-pedir')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
-    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span></h2>
-    <p class="text-xs text-center mb-2">Se enviará al correo:</p>
-    <p class="text-purple-400 font-mono font-bold break-all text-xs text-center mb-3">titanacorazado2009@gmail.com</p>
-    <div class="box2 p-3 text-xs space-y-2">
-      <p class="font-black text-center">{solicito una cuenta en DAZER ESTANDAR}</p>
-      <p class="text-center text-[11px]">MIS CREDENCIALES SON</p>
-      <label class="block text-[10px]">NOMBRE DE USUARIO:</label><input id="p-user" class="inp text-[11px] py-1.5">
-      <label class="block text-[10px]">FECHA DE NACIMIENTO:</label><input id="p-dob" type="date" class="inp text-[11px] py-1.5">
-      <label class="block text-[10px]">CONTRASEÑA:</label><input id="p-pass" type="password" class="inp text-[11px] py-1.5">
-      <label class="block text-[10px]">MI CORREO (OPCIONAL):</label><input id="p-mail" type="email" class="inp text-[11px] py-1.5">
-      <p class="text-[10px] text-gray-400 text-center pt-2 border-t border-gray-700">Esto se pide para poder contactarte si hay un problema</p>
-    </div>
-    <button onclick="sendPedir()" class="btn btn-w w-full py-3 text-sm mt-4">ENVIAR SOLICITUD</button>
-  </div>
-</div>
-
+<!-- ====== MODAL AYUDA ====== -->
 <div id="mod-ayuda" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
   <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
     <button onclick="closeModal('mod-ayuda')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
     <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span></h2>
     <p class="arc text-sm text-center mb-3">TE BRINDE INFORMACIÓN QUE LES ESEÑA</p>
     <div class="box2 p-3 space-y-2 text-xs font-bold">
-      <p>1 COMO CREAR CUENTA EN PEDIR CUENTA</p>
-      <p>2 COMO BUSCAR MI CUENTA</p>
+      <p>1 COMO INICIAR SESIÓN CON GOOGLE</p>
+      <p>2 COMO BUSCAR CONTENIDO EN LA APP</p>
       <p>3 COMO FUNCIONA EL REPORTE</p>
-    </div>
-  </div>
-</div>
-
-<div id="mod-cuenta-creada" class="fixed inset-0 z-[70] bg-black hidden items-center justify-center p-4">
-  <div class="max-w-sm w-full box bg-black p-6 text-center space-y-6">
-    <h2 class="arc text-2xl">DAZER ESTANDAR</h2>
-    <p class="arc text-3xl">CUENTA CREADA</p>
-    <div class="space-y-3">
-      <button onclick="enterCreatedAccount()" class="btn btn-w w-full py-3 text-base">ENTAR A CUENTA</button>
-      <button onclick="exitCreated()" class="btn btn-w w-full py-3 text-lg">SALIR</button>
     </div>
   </div>
 </div>
@@ -331,10 +268,8 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 
   <main id="viewport" class="flex-1 overflow-y-auto bg-black text-white"></main>
 
-  <!-- ============ CARRUSEL ÚNICO INFERIOR (TODO EN UNO) ============ -->
   <div class="nav-carousel-wrap">
     <div class="nav-carousel" id="nc-all">
-      <!-- GRUPO: SUSCRIPCIONES / SISTEMA -->
       <button onclick="go('sub-sus')" id="subnav-sub-sus"><i class="fa-solid fa-gem" style="color:#dc2626"></i><span>SUSCRIPCIONES</span></button>
       <button onclick="go('sub-vk')" id="subnav-sub-vk"><i class="fa-solid fa-mask"></i><span>VERKEHRSMASKEN</span></button>
       <button onclick="go('sub-atico')" id="subnav-sub-atico"><i class="fa-solid fa-play" style="transform:rotate(90deg)"></i><span>ATICO</span></button>
@@ -345,7 +280,6 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 
       <span class="nav-sep">◆</span>
 
-      <!-- GRUPO: NAV PRINCIPAL -->
       <button onclick="go('sala')" id="tab-sala"><i class="fa-solid fa-couch"></i><span>SALA</span></button>
       <button onclick="go('navegador')" id="tab-navegador"><i class="fa-solid fa-earth-americas"></i><span>NAVEGADOR</span></button>
       <button onclick="go('kurzclips')" id="tab-kurzclips"><i class="fa-solid fa-mobile-screen"></i><span>KURZCLIPS</span></button>
@@ -356,7 +290,6 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 
       <span class="nav-sep red">◆</span>
 
-      <!-- GRUPO: EXTRA / EXCLUSIVE -->
       <button onclick="toast('C.P.H — próximamente','info')"><span class="flag-ex">EXCLUSIVE</span><span>C.P.H</span></button>
       <button onclick="toast('C.P.S — próximamente','info')"><span class="flag-ex purple">EXCLUSIVE</span><span>C.P.S</span></button>
       <button onclick="go('umikaiser')" id="exnav-umikaiser"><i class="fa-solid fa-dice" style="color:#dc2626"></i><span>UMIKAISER</span></button>
@@ -431,6 +364,7 @@ const hide = id => { const e=document.getElementById(id); e.classList.add('hidde
 window.openModal = show; window.closeModal = hide;
 const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
+/* ============ FUEGUITO MORADO QUE SIGUE EL DEDO/MOUSE ============ */
 function spawnFire(x, y, big=false) {
   const n = big ? 10 : 5;
   for (let i = 0; i < n; i++) {
@@ -448,17 +382,39 @@ function spawnFire(x, y, big=false) {
   }
 }
 let lastX=0, lastY=0, trailOn=false;
+function stepTrail(x, y){
+  const dx = x - lastX, dy = y - lastY;
+  if (dx*dx + dy*dy > 260) { spawnFire(x, y, false); lastX = x; lastY = y; }
+}
+// MOUSE / LAPIZ
 document.addEventListener('pointerdown', e => {
+  if (e.pointerType === 'touch') return;
   lastX = e.clientX; lastY = e.clientY; trailOn = true;
   spawnFire(e.clientX, e.clientY, true);
 }, { passive: true });
 document.addEventListener('pointermove', e => {
+  if (e.pointerType === 'touch') return;
   if (!trailOn) return;
-  const dx = e.clientX - lastX, dy = e.clientY - lastY;
-  if (dx*dx + dy*dy > 280) { spawnFire(e.clientX, e.clientY, false); lastX = e.clientX; lastY = e.clientY; }
+  stepTrail(e.clientX, e.clientY);
 }, { passive: true });
-document.addEventListener('pointerup', ()=>{ trailOn = false; });
-document.addEventListener('pointercancel', ()=>{ trailOn = false; });
+document.addEventListener('pointerup', e => {
+  if (e.pointerType === 'touch') return;
+  trailOn = false;
+}, { passive: true });
+// TOUCH (dedo) — separado para que el arrastre no se corte con pointercancel
+document.addEventListener('touchstart', e => {
+  if (!e.touches.length) return;
+  const t = e.touches[0];
+  lastX = t.clientX; lastY = t.clientY; trailOn = true;
+  spawnFire(t.clientX, t.clientY, true);
+}, { passive: true });
+document.addEventListener('touchmove', e => {
+  if (!trailOn || !e.touches.length) return;
+  const t = e.touches[0];
+  stepTrail(t.clientX, t.clientY);
+}, { passive: true });
+document.addEventListener('touchend', () => { trailOn = false; }, { passive: true });
+document.addEventListener('touchcancel', () => { trailOn = false; }, { passive: true });
 
 const brainIcon = (size=28, color='#dc2626') => `<i class="fa-solid fa-brain" style="font-size:${size}px;color:${color}"></i>`;
 const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px;display:inline-block;vertical-align:middle">
@@ -472,7 +428,7 @@ const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}p
 window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error')); };
 window.installApp = () => toast('Menú navegador → Añadir a inicio','info');
 window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
-window.goAuth = () => { hide('scr-lang'); show('scr-auth'); loadAccounts(); };
+window.goAuth = () => { hide('scr-lang'); show('scr-auth'); };
 window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
 
 const langs = ['Deutsch','عربي','國語','čeština','Português','Français','English','Nnrzıßnniko'];
@@ -481,53 +437,6 @@ document.getElementById('lang-list').innerHTML = langs.map(l => `
     <div class="box2 p-2.5 text-center text-base">${l}</div>
     <div class="box2 p-2.5 text-center text-[11px] arc">PROXIMAMENTE</div>
   </div>`).join('');
-
-let pendingCreated = null;
-async function loadAccounts() {
-  const list = document.getElementById('acc-list');
-  list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500 py-8">Cargando...</p>`;
-  try {
-    const snap = await getDocs(collection(dbCuentas, 'usuarios'));
-    const users = snap.docs.map(d => ({ uid:d.id, ...d.data() }));
-    if (!users.length) { list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500 py-8">Aún no hay cuentas.</p>`; return; }
-    list.innerHTML = users.map(u => {
-      const on = u.estado === 'conectado';
-      return `<div class="polaroid acc-card">
-        <div class="polaroid-in">
-          <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden">
-            ${u.foto ? `<img src="${u.foto}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-3xl text-black"></i>`}
-          </div>
-          <p class="arc text-sm text-white m-0 truncate w-full text-center">${esc(u.nombre||'USER')}</p>
-          <p class="text-[10px] font-black m-0 ${on?'text-green-500':'text-red-500'}">
-            <span class="inline-block w-2 h-2 rounded-full ${on?'bg-green-500':'bg-red-500'} align-middle"></span>
-            ${on?'CONECTADO':'DESCONECTADO'}
-          </p>
-          <button onclick="enterAs('${u.uid}')" class="mt-1 px-4 py-1 text-black arc text-xs border-2 border-black bg-white rounded-full">ENTRAR</button>
-        </div>
-      </div>`;
-    }).join('');
-  } catch (e) { list.innerHTML = `<p class="col-span-2 text-center text-xs text-red-400 py-8">Error: ${e.code||e.message}</p>`; }
-}
-window.filterAccounts = () => {
-  const q = document.getElementById('acc-search').value.toLowerCase();
-  document.querySelectorAll('.acc-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-};
-
-window.enterAs = async (uid) => {
-  try {
-    const d = await getDoc(doc(dbCuentas, 'usuarios', uid));
-    if (!d.exists()) return toast('Cuenta no existe','error');
-    const u = d.data();
-    if (u.pass && u.pass.length > 0) {
-      const given = prompt('Contraseña de ' + u.nombre + ' (o clave maestra):');
-      if (given !== u.pass && given !== '29112009') return toast('Contraseña incorrecta','error');
-    }
-    state.user = { uid, name:(u.nombre||'USER').toUpperCase(), role:u.rol||'GRATUITO', email:u.email||'', photo:u.foto||'' };
-    save();
-    await setDoc(doc(dbCuentas,'usuarios',uid), { estado:'conectado' }, { merge:true });
-    show('scr-rules');
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
-};
 
 window.loginGoogle = async () => {
   const provider = new GoogleAuthProvider();
@@ -556,42 +465,13 @@ window.loginGoogle = async () => {
   }
 };
 
-window.createAccount = async () => {
-  const nombre = document.getElementById('r-user').value.trim();
-  const email  = document.getElementById('r-email').value.trim();
-  const pass   = document.getElementById('r-pass').value.trim();
-  const sub    = document.getElementById('r-sub').value;
-  if (!nombre) return toast('Ingresa un nombre','error');
-  if (!email || !email.includes('@')) return toast('Correo inválido','error');
-  if (pass.length < 4) return toast('Contraseña mín 4','error');
-  try {
-    const uid = 'u_' + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
-    await setDoc(doc(dbCuentas,'usuarios',uid), { nombre, email, pass, rol:sub, estado:'conectado', foto:'', normas:false });
-    pendingCreated = { uid, nombre, email, sub };
-    closeModal('mod-register'); show('mod-cuenta-creada');
-    toast('Cuenta creada','success');
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
-};
-window.enterCreatedAccount = () => {
-  if (!pendingCreated) return;
-  state.user = { uid:pendingCreated.uid, name:pendingCreated.nombre.toUpperCase(), role:pendingCreated.sub, email:pendingCreated.email, photo:'' };
-  save(); hide('mod-cuenta-creada'); show('scr-rules'); pendingCreated = null;
-};
-window.exitCreated = () => { hide('mod-cuenta-creada'); show('scr-auth'); loadAccounts(); pendingCreated = null; };
-window.sendPedir = () => {
-  const u = document.getElementById('p-user').value.trim();
-  if (!u) return toast('Ingresa tu usuario','error');
-  toast('Solicitud enviada','success');
-  closeModal('mod-pedir');
-};
-
 window.acceptRules = async () => {
   try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { normas:true }, { merge:true }); } catch(e){}
   hide('scr-rules'); enterApp();
 };
 window.rejectRules = async () => {
   try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); } catch(e){}
-  hide('scr-rules'); show('scr-auth'); loadAccounts();
+  hide('scr-rules'); show('scr-auth');
 };
 
 function enterApp() {
@@ -609,11 +489,11 @@ window.logoutApp = async () => {
   try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); await signOut(auth); } catch(e){}
   document.getElementById('app').classList.add('hidden');
   document.getElementById('app').classList.remove('flex');
-  show('scr-auth'); loadAccounts();
+  show('scr-auth');
   toast('Sesión cerrada','info');
 };
 
-// NAV (todo en un único carrusel — buscamos el id en los 3 prefijos posibles)
+// NAV
 const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
   'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
   'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
