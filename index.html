@@ -72,8 +72,8 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .flag-ex{display:inline-block;background:#dc2626;color:#fff;font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:.08em;padding:2px 8px;transform:skewX(-15deg)}
 .flag-ex.purple{background:#a855f7}
 
-#toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;width:auto;max-width:min(72vw,260px);pointer-events:none;align-items:flex-end}
-.toast-msg{background:rgba(18,10,32,0.82);border-left:3px solid #a855f7;padding:6px 10px;border-radius:3px;color:#fff;font-family:'Archivo Black',sans-serif;font-size:10px;letter-spacing:.03em;line-height:1.25;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.35);animation:toastIn .22s ease forwards;opacity:0}
+#toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;width:auto;max-width:min(80vw,300px);pointer-events:none;align-items:flex-end}
+.toast-msg{background:rgba(18,10,32,0.9);border-left:3px solid #a855f7;padding:8px 12px;border-radius:3px;color:#fff;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.03em;line-height:1.3;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.5);animation:toastIn .22s ease forwards;opacity:0}
 .toast-msg.error{border-left-color:#ef4444}
 .toast-msg.success{border-left-color:#22c55e}
 .toast-msg.info{border-left-color:#a855f7}
@@ -107,7 +107,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
     <div class="flex flex-col items-center mb-5">
       <div id="pwa-icon-preview" class="w-28 h-28 mb-3"></div>
       <h1 class="arc text-4xl flex items-center justify-center gap-2 text-white">DAZER
-        <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">▲</span>
+        <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span>
       </h1>
       <p class="arc text-lg tracking-widest text-white mt-1">EXTREMO</p>
       <p class="arc text-[10px] tracking-widest text-purple-400 mt-1">ESTANDAR / VOLUMEN 2</p>
@@ -126,7 +126,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
         <div class="border border-white/15 p-2 text-white"><i class="fa-solid fa-mobile-screen text-purple-400 block mb-1 text-sm"></i>PANTALLA</div>
       </div>
     </div>
-    <p class="text-[9px] text-center text-gray-500 mt-3 arc tracking-widest">DAZER · VOLUMEN 2 · v2.2</p>
+    <p class="text-[9px] text-center text-gray-500 mt-3 arc tracking-widest">DAZER · VOLUMEN 2 · v2.3</p>
   </div>
 </div>
 
@@ -134,10 +134,10 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <div id="scr-lang" class="fixed inset-0 z-50 bg-black hidden items-center justify-center p-4 overflow-y-auto">
   <div class="w-full max-w-md box bg-black p-5 my-auto">
     <div class="text-center mb-4">
-      <h1 class="arc text-3xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-7 h-7 border-2 border-white rounded-full text-xs">▲</span></h1>
+      <h1 class="arc text-3xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-7 h-7 border-2 border-white rounded-full text-xs">&#9650;</span></h1>
       <p class="arc text-lg tracking-widest">EXTREMO</p>
       <h2 class="arc text-xl mt-3">ESCOGER IDIOMA</h2>
-      <p class="arc text-2xl text-red-600 mt-1">¡CUIDADO!</p>
+      <p class="arc text-2xl text-red-600 mt-1">CUIDADO</p>
       <p class="text-[11px] text-red-400 leading-tight">en el idioma que escoja va a estar toda la página traducida</p>
     </div>
     <div id="lang-list" class="space-y-2 mb-4"></div>
@@ -153,7 +153,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
   <div class="flex-1 overflow-y-auto p-4 flex flex-col justify-center">
     <div class="text-center mb-8">
-      <h1 class="arc text-5xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">▲</span></h1>
+      <h1 class="arc text-5xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span></h1>
       <p class="arc text-xl tracking-widest mt-1">EXTREMO</p>
       <p class="arc text-sm mt-6 tracking-widest text-purple-400">INICIA SESIÓN PARA CONTINUAR</p>
     </div>
@@ -166,7 +166,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
     </div>
   </div>
   <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center gap-3 shrink-0 grain">
-    <span class="text-2xl" style="color:#dc2626">⛩️</span>
+    <i class="fa-solid fa-torii-gate text-2xl" style="color:#dc2626"></i>
     <span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
   </div>
 </div>
@@ -189,7 +189,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <div id="mod-ayuda" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
   <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
     <button onclick="closeModal('mod-ayuda')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
-    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">▲</span></h2>
+    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">&#9650;</span></h2>
     <p class="arc text-sm text-center mb-3">TE BRINDE INFORMACIÓN QUE LES ESEÑA</p>
     <div class="box2 p-3 space-y-2 text-xs font-bold">
       <p>1 COMO INICIAR SESIÓN CON GOOGLE</p>
@@ -200,7 +200,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 </div>
 
-<!-- ====== MODAL COMPARTIR (Share Target) ====== -->
+<!-- ====== MODAL COMPARTIR ====== -->
 <div id="mod-share" class="fixed inset-0 z-[70] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
   <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
     <button onclick="closeModal('mod-share')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
@@ -211,10 +211,10 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
     <input id="share-title" class="inp mb-3">
     <label class="text-[10px] arc block mb-1">GUARDAR COMO</label>
     <div class="grid grid-cols-2 gap-2 mb-3">
-      <button onclick="saveShared('kurzclips')" class="btn btn-w py-3 text-xs">📱 KURZCLIP</button>
-      <button onclick="saveShared('footage')" class="btn btn-w py-3 text-xs">🎬 FOOTAGE</button>
-      <button onclick="saveShared('spielfilm')" class="btn btn-w py-3 text-xs">🎥 SPIELFILM</button>
-      <button onclick="saveShared('schnapps')" class="btn btn-w py-3 text-xs">📷 SCHNAPPS</button>
+      <button onclick="saveShared('kurzclips')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-mobile-screen"></i> KURZCLIP</button>
+      <button onclick="saveShared('footage')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-film"></i> FOOTAGE</button>
+      <button onclick="saveShared('spielfilm')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-video"></i> SPIELFILM</button>
+      <button onclick="saveShared('schnapps')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-camera"></i> SCHNAPPS</button>
     </div>
     <button onclick="closeModal('mod-share')" class="btn w-full py-2 text-xs text-white">CANCELAR</button>
   </div>
@@ -235,7 +235,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <!-- ====== RULES ====== -->
 <div id="scr-rules" class="fixed inset-0 z-50 bg-black hidden flex-col">
   <div class="flex justify-between items-center border-b-2 border-white p-3 shrink-0">
-    <div><h1 class="arc text-xl flex items-center gap-2">DAZER <span class="inline-flex items-center justify-center w-5 h-5 border-2 border-white rounded-full text-[9px]">▲</span></h1><p class="arc text-xs">ESTANDAR</p></div>
+    <div><h1 class="arc text-xl flex items-center gap-2">DAZER <span class="inline-flex items-center justify-center w-5 h-5 border-2 border-white rounded-full text-[9px]">&#9650;</span></h1><p class="arc text-xs">ESTANDAR</p></div>
     <button onclick="rejectRules()" class="btn px-4 py-2 text-sm text-white">Salir</button>
   </div>
   <div class="flex-1 overflow-y-auto p-4">
@@ -252,7 +252,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
     </div>
   </div>
   <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center justify-between shrink-0 grain">
-    <div class="flex items-center gap-3"><span class="text-2xl" style="color:#dc2626">⛩️</span><span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
+    <div class="flex items-center gap-3"><i class="fa-solid fa-torii-gate text-2xl" style="color:#dc2626"></i><span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
     <span class="arc text-xs text-purple-400">DIRECT@R</span>
   </div>
 </div>
@@ -273,7 +273,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <div id="app" class="hidden h-full flex-col overflow-hidden">
   <header class="border-b-2 border-white bg-black flex items-center shrink-0">
     <div class="px-3 py-2 border-r-2 border-white">
-      <h1 class="arc text-lg leading-none flex items-center gap-1">DAZER <span class="inline-flex items-center justify-center w-4 h-4 border border-white rounded-full text-[8px]">▲</span></h1>
+      <h1 class="arc text-lg leading-none flex items-center gap-1">DAZER <span class="inline-flex items-center justify-center w-4 h-4 border border-white rounded-full text-[8px]">&#9650;</span></h1>
       <p class="arc text-[10px] leading-none">ESTANDAR</p>
     </div>
     <div class="flex-1 text-center">
@@ -295,15 +295,15 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
       <button onclick="go('sub-bodega')" id="subnav-sub-bodega"><i class="fa-solid fa-warehouse"></i><span>BODEGA</span></button>
       <button onclick="go('sub-ci')" id="subnav-sub-ci"><i class="fa-solid fa-brain" style="color:#dc2626"></i><span>C.I</span></button>
       <button onclick="go('sub-moduz')" id="subnav-sub-moduz"><i class="fa-solid fa-sun" style="color:#dc2626"></i><span>MODUZ</span></button>
-      <span class="nav-sep">◆</span>
+      <span class="nav-sep">&#9670;</span>
       <button onclick="go('sala')" id="tab-sala"><i class="fa-solid fa-couch"></i><span>SALA</span></button>
       <button onclick="go('navegador')" id="tab-navegador"><i class="fa-solid fa-earth-americas"></i><span>NAVEGADOR</span></button>
       <button onclick="go('kurzclips')" id="tab-kurzclips"><i class="fa-solid fa-mobile-screen"></i><span>KURZCLIPS</span></button>
-      <button onclick="go('footage')" id="tab-footage"><i class="fa-solid fa-circle-play"></i><span>FOOTAGE</span></button>
+      <button onclick="go('footage')" id="tab-footage"><i class="fa-solid fa-film"></i><span>FOOTAGE</span></button>
       <button onclick="go('spielfilm')" id="tab-spielfilm"><i class="fa-solid fa-video"></i><span>SPIELFILM</span></button>
-      <button onclick="go('schnapps')" id="tab-schnapps"><i class="fa-solid fa-images"></i><span>SCHNAPPS</span></button>
+      <button onclick="go('schnapps')" id="tab-schnapps"><i class="fa-solid fa-camera"></i><span>SCHNAPPS</span></button>
       <button onclick="go('comunicacion')" id="tab-comunicacion"><i class="fa-solid fa-comments"></i><span>COMUNICACIÓN</span></button>
-      <span class="nav-sep red">◆</span>
+      <span class="nav-sep red">&#9670;</span>
       <button onclick="toast('C.P.H — próximamente','info')"><span class="flag-ex">EXCLUSIVE</span><span>C.P.H</span></button>
       <button onclick="toast('C.P.S — próximamente','info')"><span class="flag-ex purple">EXCLUSIVE</span><span>C.P.S</span></button>
       <button onclick="go('umikaiser')" id="exnav-umikaiser"><i class="fa-solid fa-dice" style="color:#dc2626"></i><span>UMIKAISER</span></button>
@@ -315,19 +315,16 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 
   <footer class="border-t-2 border-white bg-black px-3 py-1.5 flex items-center justify-between shrink-0 grain">
-    <div class="flex items-center gap-2"><span class="text-xl" style="color:#dc2626">⛩️</span><span class="serif text-sm tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
+    <div class="flex items-center gap-2"><i class="fa-solid fa-torii-gate text-xl" style="color:#dc2626"></i><span class="serif text-sm tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
     <span id="ftr-role" class="arc text-xs" style="color:#a855f7">GRATUITO</span>
   </footer>
 </div>
 
-<!-- Inputs ocultos -->
 <input id="hidden-photo-input" type="file" accept="image/*" style="display:none">
 <input id="hidden-content-input" type="file" accept="image/*,video/*" style="display:none">
 
 <script type="module">
-/* ==================================================================
-   ICONO PWA
-   ================================================================== */
+/* ================= ICONO PWA ================= */
 const ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
   '<defs>' +
     '<radialGradient id="bg" cx="50%" cy="50%" r="75%">' +
@@ -370,10 +367,6 @@ const PWA_MANIFEST = {
     { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' },
     { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' }
   ],
-  shortcuts: [
-    { name: 'SALA', short_name: 'SALA', url: location.href.split('?')[0].split('#')[0] + '#sala' },
-    { name: 'KURZCLIPS', short_name: 'KURZ', url: location.href.split('?')[0].split('#')[0] + '#kurzclips' }
-  ],
   share_target: {
     action: location.pathname || '/',
     method: 'GET',
@@ -395,7 +388,7 @@ const IS_STANDALONE = () => window.matchMedia('(display-mode: standalone)').matc
 let deferredPrompt = null;
 let justInstalled = false;
 window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; updateInstallUI(); });
-window.addEventListener('appinstalled', () => { justInstalled = true; deferredPrompt = null; updateInstallUI(); setTimeout(() => { try { toast('DAZER instalado ✓', 'success'); } catch(_){} }, 100); });
+window.addEventListener('appinstalled', () => { justInstalled = true; deferredPrompt = null; updateInstallUI(); });
 
 function updateInstallUI() {
   const btn = document.getElementById('btn-install');
@@ -404,38 +397,36 @@ function updateInstallUI() {
   if (IS_STANDALONE() || justInstalled) {
     btn.disabled = true;
     btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> YA INSTALADO';
-    status.innerHTML = '<span style="color:#22c55e">✓ App instalada.</span><br>Ábrela desde tu pantalla de inicio.';
+    status.innerHTML = '<span style="color:#22c55e">App instalada.</span><br>Ábrela desde tu pantalla de inicio.';
   } else if (deferredPrompt) {
     btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = '<span style="color:#a855f7">◆</span> Toca INSTALAR y añade DAZER<br>a tu pantalla de inicio';
+    status.innerHTML = 'Toca INSTALAR y añade DAZER<br>a tu pantalla de inicio';
   } else if (IS_IOS) {
     btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'En iPhone: toca <i class="fa-solid fa-arrow-up-from-bracket"></i> Compartir →<br>Añadir a pantalla de inicio';
+    status.innerHTML = 'En iPhone: toca Compartir <i class="fa-solid fa-arrow-up-from-bracket"></i> →<br>Añadir a pantalla de inicio';
   } else {
     btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
     status.innerHTML = 'Menú del navegador →<br>Añadir a pantalla de inicio';
   }
 }
 window.installApp = async () => {
-  if (IS_STANDALONE() || justInstalled) { try { toast('Ya estás usando la app instalada','info'); } catch(_){} return; }
+  if (IS_STANDALONE() || justInstalled) { toast('Ya estás usando la app instalada','info'); return; }
   if (deferredPrompt) {
     try {
       deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') { justInstalled = true; try { toast('Instalando DAZER...','success'); } catch(_){} }
-      else { try { toast('Instalación cancelada','info'); } catch(_){} }
+      if (outcome === 'accepted') { justInstalled = true; toast('Instalando DAZER...','success'); }
+      else { toast('Instalación cancelada','info'); }
     } catch(err){ console.warn(err); }
     deferredPrompt = null; updateInstallUI(); return;
   }
-  if (IS_IOS) try { toast('Compartir → Añadir a pantalla de inicio','info'); } catch(_){}
-  else try { toast('Menú del navegador → Añadir a inicio','info'); } catch(_){}
+  if (IS_IOS) toast('Compartir → Añadir a pantalla de inicio','info');
+  else toast('Menú del navegador → Añadir a inicio','info');
 };
 setTimeout(updateInstallUI, 300);
 setTimeout(updateInstallUI, 1500);
 
-/* ==================================================================
-   FIREBASE
-   ================================================================== */
+/* ================= FIREBASE ================= */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -465,6 +456,10 @@ const stFoot = getStorage(appFoot);
 const stSchn = getStorage(appSchn);
 const stCuentas = getStorage(appCuentas);
 
+/* ============ LÍMITES DE TAMAÑO ============ */
+const LIMITE_VIDEO_MB = 200;   // videos hasta 200 MB
+const LIMITE_FOTO_MB  = 10;    // fotos hasta 10 MB
+
 window.state = {
   user: { uid:'', name:'', role:'GRATUITO', email:'', photo:'', photo2:'', photo3:'' },
   settings: { transitions:true, theme:'nocturno', sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true },
@@ -483,7 +478,7 @@ window.toast = (msg, type='info') => {
   t.className = `toast-msg ${type}`;
   t.textContent = msg;
   document.getElementById('toast-wrap').appendChild(t);
-  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(), 250); }, 1800);
+  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(), 250); }, 3000);
 };
 
 const show = id => { const e=document.getElementById(id); e.classList.remove('hidden'); e.classList.add('flex'); };
@@ -560,7 +555,7 @@ window.loginGoogle = async () => {
       state.user.photo = data.foto;
     }
     save();
-    toast('Conectado con Google ✓','success');
+    toast('Conectado con Google','success');
     if (data.normas) { hide('scr-auth'); enterApp(); }
     else { hide('scr-auth'); show('scr-rules'); }
   } catch(e) {
@@ -569,7 +564,7 @@ window.loginGoogle = async () => {
   }
 };
 
-/* ============ LOGIN CON CORREO (para cuentas sin Gmail) ============ */
+/* ============ LOGIN CORREO ============ */
 window.loginEmail = async () => {
   const email = document.getElementById('log-email').value.trim();
   const pass = document.getElementById('log-pass').value;
@@ -591,7 +586,7 @@ window.loginEmail = async () => {
     save();
     await setDoc(doc(dbCuentas,'usuarios',u.uid), { estado:'conectado' }, { merge:true });
     closeModal('mod-email');
-    toast('Conectado ✓','success');
+    toast('Conectado','success');
     if (data.normas) { hide('scr-auth'); enterApp(); }
     else { hide('scr-auth'); show('scr-rules'); }
   } catch(e) {
@@ -639,9 +634,7 @@ window.logoutApp = async () => {
   toast('Sesión cerrada','info');
 };
 
-/* ==================================================================
-   SHARE TARGET
-   ================================================================== */
+/* ============ SHARE TARGET ============ */
 let shareData = null;
 function checkShareParams() {
   const p = new URLSearchParams(location.search);
@@ -679,7 +672,7 @@ window.saveShared = async (coll) => {
       compartido: true,
       creado: Date.now()
     });
-    toast('Compartido a '+coll.toUpperCase()+' ✓','success');
+    toast('Compartido a '+coll.toUpperCase(),'success');
     closeModal('mod-share');
     shareData = null;
     history.replaceState({}, '', location.pathname);
@@ -694,9 +687,7 @@ window.saveShared = async (coll) => {
   if (url || text || title) sessionStorage.setItem('pendingShare', JSON.stringify({url, text, title}));
 })();
 
-/* ==================================================================
-   NAV
-   ================================================================== */
+/* ============ NAV ============ */
 const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
   'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
   'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
@@ -730,7 +721,7 @@ const contentHeader = (title) => `
     ${blackhole(38)}
   </div>`;
 
-/* ================= SALA (sin widget) ================= */
+/* ================= SALA ================= */
 views.sala = () => `
   <div class="text-center pt-8 pb-4">
     <h1 class="arc text-5xl">DAZER</h1>
@@ -777,6 +768,7 @@ const contentView = (title, coll, exclusive=false) => () => `
       <input id="up-title-${coll}" placeholder="Título" class="inp text-center">
       <input id="up-file-${coll}" type="file" accept="image/*,video/*" class="text-[10px] w-full">
       <button onclick="uploadContent('${coll}')" class="btn btn-w w-full py-2 text-xs">SUBIR</button>
+      <p class="text-[9px] text-gray-500">Máx ${LIMITE_VIDEO_MB} MB</p>
     </div>
     <div id="feed-${coll}" class="space-y-3"><p class="text-center text-xs text-gray-500">Cargando...</p></div>
   </div>`;
@@ -801,13 +793,13 @@ async function loadContent(coll) {
       let media;
       if (c.tipo === 'v') media = `<video src="${c.url}" controls playsinline preload="metadata" class="w-full bg-black border border-gray-800"></video>`;
       else if (c.tipo === 'i') media = `<img src="${c.url}" class="w-full bg-black border border-gray-800" loading="lazy">`;
-      else if (c.tipo === 'link') media = `<a href="${esc(c.url)}" target="_blank" rel="noopener" class="block p-4 bg-zinc-900 text-center border border-purple-500"><i class="fa-solid fa-link text-2xl text-purple-400 mb-1"></i><p class="text-[10px] break-all">${esc(c.url)}</p><p class="text-[9px] text-purple-400 mt-1">ABRIR ENLACE →</p></a>`;
+      else if (c.tipo === 'link') media = `<a href="${esc(c.url)}" target="_blank" rel="noopener" class="block p-4 bg-zinc-900 text-center border border-purple-500"><i class="fa-solid fa-link text-2xl text-purple-400 mb-1"></i><p class="text-[10px] break-all">${esc(c.url)}</p><p class="text-[9px] text-purple-400 mt-1">ABRIR ENLACE</p></a>`;
       else if (c.tipo === 'text') media = `<div class="p-4 bg-zinc-900 border border-purple-500 text-sm">${esc(c.texto||'')}</div>`;
       else media = '';
       return `<div class="box2 p-2 space-y-2 bg-black">
         ${media}
         <p class="arc text-xs">${esc(c.titulo||'')}</p>
-        <p class="text-[10px]" style="color:#a855f7">@${esc(c.autor||'')}${c.compartido ? ' · 🔗 compartido' : ''}</p>
+        <p class="text-[10px]" style="color:#a855f7">@${esc(c.autor||'')}${c.compartido ? ' · compartido' : ''}</p>
       </div>`;
     }).join('');
   } catch(e){ feed.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; }
@@ -818,17 +810,21 @@ window.uploadContent = async (coll) => {
   const fileEl = document.getElementById('up-file-'+coll);
   const file = fileEl.files[0];
   if (!file) return toast('Elige un archivo','error');
-  if (file.size > 50*1024*1024) return toast('Máx 50 MB','error');
+  const sizeMB = file.size / (1024*1024);
+  if (sizeMB > LIMITE_VIDEO_MB) return toast(`Máx ${LIMITE_VIDEO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error');
   const titulo = titleEl.value.trim() || file.name;
   try {
-    toast('Subiendo...','info');
+    toast('Subiendo '+sizeMB.toFixed(1)+' MB...','info');
     const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g,'_')}`);
     await uploadBytes(r, file);
     const url = await getDownloadURL(r);
     await addDoc(collection(DBS[coll], 'contenido'), { tab:coll, titulo, url, tipo:file.type.startsWith('video')?'v':'i', autor:state.user.name, uid:state.user.uid, creado:Date.now() });
     titleEl.value=''; fileEl.value='';
-    toast('Subido ✓','success'); loadContent(coll);
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
+    toast('Subido','success'); loadContent(coll);
+  } catch(e){
+    console.error('[DAZER] Error subida:', e);
+    toast('Error: '+(e.code||e.message),'error');
+  }
 };
 
 /* ============ SUBIR DESDE PERFIL ============ */
@@ -843,9 +839,10 @@ hiddenContentInput.addEventListener('change', async () => {
   const file = hiddenContentInput.files[0];
   if (!file || !pendingUploadType) return;
   const coll = pendingUploadType;
-  if (file.size > 50*1024*1024) { toast('Máx 50 MB','error'); pendingUploadType=null; return; }
+  const sizeMB = file.size / (1024*1024);
+  if (sizeMB > LIMITE_VIDEO_MB) { toast(`Máx ${LIMITE_VIDEO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error'); pendingUploadType=null; return; }
   try {
-    toast('Subiendo a '+coll.toUpperCase()+'...','info');
+    toast('Subiendo a '+coll.toUpperCase()+' ('+sizeMB.toFixed(1)+' MB)...','info');
     const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g,'_')}`);
     await uploadBytes(r, file);
     const url = await getDownloadURL(r);
@@ -854,9 +851,13 @@ hiddenContentInput.addEventListener('change', async () => {
       tipo: file.type.startsWith('video')?'v':'i',
       autor: state.user.name, uid: state.user.uid, creado: Date.now()
     });
-    toast('Subido a '+coll.toUpperCase()+' ✓','success');
+    toast('Subido a '+coll.toUpperCase(),'success');
     pendingUploadType = null;
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); pendingUploadType=null; }
+  } catch(e){
+    console.error('[DAZER] Error subida perfil:', e);
+    toast('Error: '+(e.code||e.message),'error');
+    pendingUploadType=null;
+  }
 });
 
 /* ============ COMUNICACIÓN ============ */
@@ -874,7 +875,7 @@ async function loadUsers() {
     if (!users.length) { list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500">No hay otros usuarios.</p>`; return; }
     list.innerHTML = users.map(u => {
       const on = u.estado === 'conectado';
-      return `<div class="polaroid" style="background:#f5f5f5;padding:8px 8px 14px"><div style="background:#000;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px">
+      return `<div style="background:#f5f5f5;padding:8px 8px 14px"><div style="background:#000;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px">
         <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden">
           ${u.foto ? `<img src="${u.foto}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-3xl text-black"></i>`}
         </div>
@@ -900,7 +901,7 @@ window.openChat = (otroUid, otroNombre, otroFoto) => {
     </div>
     <div id="chat-msgs" class="px-3 space-y-3 overflow-y-auto" style="min-height:50vh;max-height:58vh"></div>
     <div class="px-3 pb-4"><input id="chat-in" placeholder="Escribe un mensaje" maxlength="500" class="inp">
-      <button onclick="sendMsg('${cid}')" class="btn btn-w w-full py-2 text-xs mt-2">ENVIAR ➤</button>
+      <button onclick="sendMsg('${cid}')" class="btn btn-w w-full py-2 text-xs mt-2">ENVIAR</button>
     </div>`;
   const col = collection(dbMsg, 'chats', cid, 'mensajes');
   const q = query(col, orderBy('creado'));
@@ -923,10 +924,9 @@ window.sendMsg = async (cid) => {
   catch(e){ toast('Error: '+(e.code||e.message),'error'); }
 };
 
-/* ================= PERFIL estilo Facebook/Instagram ================= */
+/* ================= PERFIL ================= */
 views.perfil = () => `
   <div class="max-w-md mx-auto pb-6">
-    <!-- PORTADA: 2 fotos split -->
     <div class="relative grid grid-cols-2 h-48 overflow-hidden border-b-2 border-purple-500">
       <div class="frame bg-zinc-900 border-r border-purple-500/50" onclick="changePhoto(2)">
         <div id="frame-2" class="w-full h-full flex items-center justify-center">
@@ -941,8 +941,6 @@ views.perfil = () => `
         <span class="edit-badge"><i class="fa-solid fa-plus"></i></span>
       </div>
     </div>
-
-    <!-- AVATAR circular + nombre -->
     <div class="px-4 -mt-16 relative z-10 flex items-end gap-3 mb-4">
       <div class="frame w-28 h-28 rounded-full border-4 border-black bg-zinc-900 shrink-0" onclick="changePhoto(1)">
         <div id="frame-1" class="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
@@ -959,30 +957,26 @@ views.perfil = () => `
         <p class="text-[9px] text-gray-500 truncate">${esc(state.user.email || '@dazer')}</p>
       </div>
     </div>
-
-    <!-- Estadísticas -->
     <div class="mx-4 grid grid-cols-3 gap-2 text-center border-y-2 border-white py-3 mb-4">
       <div><p class="arc text-xl">0</p><p class="text-[10px]">SEGUIDORES</p></div>
       <div><p class="arc text-xl">0</p><p class="text-[10px]">SIGUIENDO</p></div>
       <div><p class="arc text-xl">0</p><p class="text-[10px]">ME GUSTAS</p></div>
     </div>
-
-    <!-- Subir contenido -->
     <div class="px-4 mb-4">
-      <p class="arc text-xs text-purple-400 mb-2 tracking-widest">⬆ SUBIR CONTENIDO</p>
+      <p class="arc text-xs text-purple-400 mb-2 tracking-widest"><i class="fa-solid fa-arrow-up"></i> SUBIR CONTENIDO</p>
       <div class="grid grid-cols-2 gap-2">
-        <button onclick="uploadFromProfile('kurzclips')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition">📱 KURZCLIP<br><span class="text-[7px] opacity-70">CORTO · TIKTOK/REELS</span></button>
-        <button onclick="uploadFromProfile('footage')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition">🎬 FOOTAGE<br><span class="text-[7px] opacity-70">MEDIANO · YOUTUBE</span></button>
-        <button onclick="uploadFromProfile('spielfilm')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition">🎥 SPIELFILM<br><span class="text-[7px] opacity-70">LARGO · NETFLIX</span></button>
-        <button onclick="uploadFromProfile('schnapps')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition">📷 SCHNAPPS<br><span class="text-[7px] opacity-70">FOTO</span></button>
+        <button onclick="uploadFromProfile('kurzclips')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-mobile-screen text-base block mb-1"></i>KURZCLIP<br><span class="text-[7px] opacity-70">CORTO · TIKTOK/REELS</span></button>
+        <button onclick="uploadFromProfile('footage')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-film text-base block mb-1"></i>FOOTAGE<br><span class="text-[7px] opacity-70">MEDIANO · YOUTUBE</span></button>
+        <button onclick="uploadFromProfile('spielfilm')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-video text-base block mb-1"></i>SPIELFILM<br><span class="text-[7px] opacity-70">LARGO · NETFLIX</span></button>
+        <button onclick="uploadFromProfile('schnapps')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-camera text-base block mb-1"></i>SCHNAPPS<br><span class="text-[7px] opacity-70">FOTO</span></button>
       </div>
+      <p class="text-[9px] text-gray-500 text-center mt-2">Máx ${LIMITE_VIDEO_MB} MB por video</p>
     </div>
-
     <div class="px-4 grid grid-cols-2 gap-2 text-center arc text-xs mb-4">
       ${['CONTENIDO TOTAL','KURZCLIPS','SPIELFILMS','SCHNAPPS','FOOTAGES','ME GUSTAS'].map(t=>`<div class="box2 p-2">${t}</div>`).join('')}
     </div>
-
-    <div class="px-4">
+    <div class="px-4 space-y-2">
+      <button onclick="diagnosticarStorage()" class="w-full box2 border-yellow-500 text-yellow-500 py-2 text-[10px]">DIAGNOSTICAR STORAGE</button>
       <button onclick="logoutApp()" class="btn w-full py-3 text-sm" style="color:#ef4444">CERRAR SESIÓN</button>
     </div>
   </div>`;
@@ -1011,12 +1005,12 @@ window.saveNewName = async () => {
     state.user.name = nuevo; save();
     document.getElementById('hdr-user').textContent = nuevo;
     closeModal('mod-name');
-    toast('Nombre actualizado ✓','success');
+    toast('Nombre actualizado','success');
     go('perfil');
   } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
 };
 
-/* ============ FOTOS (con logs y errores claros) ============ */
+/* ============ FOTOS DE PERFIL ============ */
 let editingFrame = 1;
 const hiddenPhotoInput = document.getElementById('hidden-photo-input');
 window.changePhoto = (frameNum) => {
@@ -1027,33 +1021,55 @@ window.changePhoto = (frameNum) => {
 hiddenPhotoInput.addEventListener('change', async () => {
   const file = hiddenPhotoInput.files[0];
   if (!file) return;
-  if (file.size > 5*1024*1024) return toast('Foto máx 5 MB','error');
+  const sizeMB = file.size / (1024*1024);
+  if (sizeMB > LIMITE_FOTO_MB) return toast(`Foto máx ${LIMITE_FOTO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error');
   toast('Subiendo foto...','info');
   try {
     const safeName = file.name.replace(/[^\w.-]/g,'_');
     const path = `perfiles/${state.user.uid}/foto${editingFrame}_${Date.now()}_${safeName}`;
-    console.log('[DAZER] Subiendo a:', path, 'Bucket:', CFG.cuentas.storageBucket);
+    console.log('[DAZER] Subiendo foto a:', path);
+    console.log('[DAZER] Bucket:', CFG.cuentas.storageBucket);
     const r = ref(stCuentas, path);
     await uploadBytes(r, file);
     const url = await getDownloadURL(r);
-    console.log('[DAZER] URL:', url);
+    console.log('[DAZER] URL obtenida:', url);
     const key = editingFrame === 1 ? 'foto' : ('foto' + editingFrame);
     const stateKey = editingFrame === 1 ? 'photo' : ('photo' + editingFrame);
     if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { [key]: url }, { merge:true });
     state.user[stateKey] = url; save();
-    toast('Foto actualizada ✓','success');
+    toast('Foto actualizada','success');
     refreshProfileUI();
   } catch(e) {
     console.error('[DAZER] Error subiendo foto:', e);
     const map = {
-      'storage/unauthorized': 'Storage sin permisos — revisa las Rules',
+      'storage/unauthorized': 'Storage sin permisos. Revisa las Rules',
       'storage/canceled': 'Subida cancelada',
-      'storage/unknown': 'Storage no activado en Firebase',
-      'storage/retry-limit-exceeded': 'Timeout, intenta de nuevo'
+      'storage/unknown': 'Storage NO activado en Firebase. Actívalo',
+      'storage/retry-limit-exceeded': 'Timeout. Intenta con una foto más pequeña',
+      'storage/invalid-format': 'Formato no soportado',
+      'storage/quota-exceeded': 'Cuota de Storage llena'
     };
     toast(map[e.code] || ('Error: ' + (e.code || e.message)), 'error');
   }
 });
+
+/* ============ DIAGNÓSTICO DE STORAGE ============ */
+window.diagnosticarStorage = async () => {
+  const pruebas = [];
+  pruebas.push('Bucket: ' + CFG.cuentas.storageBucket);
+  pruebas.push('UID: ' + (state.user.uid || 'NO LOGUEADO'));
+  try {
+    const testData = new Blob(['test'], { type: 'text/plain' });
+    const testRef = ref(stCuentas, `perfiles/${state.user.uid}/test_${Date.now()}.txt`);
+    await uploadBytes(testRef, testData);
+    const testUrl = await getDownloadURL(testRef);
+    console.log('[DAZER] Test URL:', testUrl);
+    toast('Storage FUNCIONA correctamente','success');
+  } catch(e) {
+    console.error('[DAZER] Test falló:', e);
+    toast('Storage FALLA: ' + (e.code || e.message), 'error');
+  }
+};
 
 /* ================= SUSCRIPCIONES ================= */
 views['sub-sus'] = () => {
@@ -1070,7 +1086,7 @@ views['sub-sus'] = () => {
     <div class="max-w-sm mx-auto space-y-2">
       ${roles.map(r=>`<div onclick="pickRole('${r.n}')" class="flex items-center gap-3 cursor-pointer py-1">
         <span class="${r.font==='serif'?'serif':'arc'} text-4xl leading-none" style="color:${r.color}">${r.n}</span>
-        ${cur.n===r.n?'<span style="color:#dc2626;font-size:22px">◀</span>':''}
+        ${cur.n===r.n?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}
       </div>`).join('')}
     </div></div>`;
 };
@@ -1125,7 +1141,7 @@ views['sub-moduz'] = () => {
   return `<div class="p-4 max-w-md mx-auto"><div class="space-y-2">
     ${temas.map(t=>`<div onclick="setTheme('${t.id}')" class="flex items-center gap-3 cursor-pointer py-1">
       <span class="arc text-4xl leading-none">${t.n}</span>
-      ${state.settings.theme===t.id?'<span style="color:#dc2626;font-size:22px">◀</span>':''}
+      ${state.settings.theme===t.id?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}
     </div>`).join('')}</div></div>`;
 };
 window.setTheme = t => { state.settings.theme = t; save(); applyTheme(t); toast('Tema: '+t.toUpperCase(),'success'); go('sub-moduz'); };
@@ -1135,7 +1151,7 @@ views.umikaiser = () => `<div class="p-4 max-w-md mx-auto space-y-3">
   <div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div>
   <p class="arc text-2xl text-center leading-tight">JUEGA Y CONSIGUE RECOMPENSAS</p>
   <div class="flex justify-center py-4"><button onclick="showUmiRules()" class="hand px-10 py-6 arc text-3xl">ENTRAR</button></div>
-  <button onclick="showUmiHelp()" class="w-full btn py-2 text-xs text-white">ℹ️ CÓMO FUNCIONA LOS UMIKAISER</button>
+  <button onclick="showUmiHelp()" class="w-full btn py-2 text-xs text-white"><i class="fa-solid fa-circle-info"></i> CÓMO FUNCIONA LOS UMIKAISER</button>
 </div>`;
 
 window.showUmiRules = () => {
@@ -1154,17 +1170,17 @@ window.showUmiRules = () => {
     <div class="flex justify-between items-center gap-2">
       ${[0,1,2].map(()=>`<div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">${Array(9).fill(0).map((_,i)=>`<div class="w-3 h-3 rounded-full ${[0,8].includes(i)?'bg-black':'bg-transparent'}"></div>`).join('')}</div>`).join('')}
       <div class="flex flex-col items-center"><span class="text-[9px] arc mb-1">USAR</span>
-        <button onclick="useHeart()" class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-3xl">🖤</button></div>
+        <button onclick="useHeart()" class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-3xl"><i class="fa-solid fa-heart text-black"></i></button></div>
     </div>
     <button onclick="rollDice()" class="btn btn-w w-full py-4 text-xl">TIRAR DADOS</button>
-    <button onclick="go('umikaiser')" class="btn w-full py-2 text-xs text-white">← VOLVER</button>
+    <button onclick="go('umikaiser')" class="btn w-full py-2 text-xs text-white">VOLVER</button>
   </div>`;
 };
 window.showUmiHelp = () => {
   document.getElementById('viewport').innerHTML = `<div class="p-4 max-w-md mx-auto space-y-4">
     <div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div>
     <h2 class="arc text-xl text-center">COMO FUNCIONA LOS UMIKAISER</h2>
-    <p class="text-xs text-gray-400 leading-relaxed">el unicáisero también el de los dados: se juega a va sacando los cinco dados y te pueden tocar hechizos o dados de números.</p>
+    <p class="text-xs text-gray-400 leading-relaxed">El umikaiser es también el de los dados: se juega sacando los cinco dados y te pueden tocar hechizos o dados de números.</p>
     <button onclick="go('umikaiser')" class="btn btn-w w-full py-4 text-2xl">ENTRAR</button>
   </div>`;
 };
@@ -1176,7 +1192,7 @@ window.rollDice = () => {
   let combo = ''; const s = [d1,d2].sort().join('+');
   if (s==='5+6') combo='MASTER'; else if (s==='3+4') combo='JACKPON'; else if (s==='1+2') combo='CAMBIO';
   else if (d1===d2) combo='DuDoZo'; else if (d1+d2===7) combo='DEEZZEER';
-  if (combo) toast('¡'+combo+'! +'+(d1+d2)*10,'success');
+  if (combo) toast(combo+' +'+(d1+d2)*10,'success');
 };
 window.useHeart = () => { state.umi.dados += 3; save(); toast('+3 dados','success'); showUmiRules(); };
 
@@ -1184,15 +1200,16 @@ window.useHeart = () => { state.umi.dados += 3; save(); toast('+3 dados','succes
 views.config = () => {
   const s = state.settings;
   const left = [['sndBg','sonido de fondo'],['sndBtn','sonido de botones'],['sndKz','sonido de audio de kurzclips'],['sndFt','sonido de audio de footage'],['sndSf','sonido de audio de Spielfilm']];
-  const right = [['privacidad','🔒'],['dazerlabs','🧪'],['créditos','©️'],['permisos','🔐'],['modelos','📐'],['información de la web básica','ℹ️'],['datos personales','📊'],['potencia','⚡'],['notifications','🔔'],['gdz','👜'],['demandas o avisos','⚠️']];
+  const right = [['privacidad','fa-lock'],['dazerlabs','fa-flask'],['créditos','fa-copyright'],['permisos','fa-key'],['modelos','fa-ruler-combined'],['información de la web básica','fa-circle-info'],['datos personales','fa-chart-simple'],['potencia','fa-bolt'],['notifications','fa-bell'],['gdz','fa-bag-shopping'],['demandas o avisos','fa-triangle-exclamation']];
   return `<div class="p-4 max-w-md mx-auto">
     <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-gears text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">CONFIGURACIÓNES</h1></div>
     <div class="grid grid-cols-2 gap-2 text-xs">
       ${left.map(([k,l])=>`<div class="flex items-center justify-between py-2 border-b border-white/20"><span class="text-[11px] flex-1">${l}</span><div class="toggle ${s[k]?'on':'off'} scale-75" onclick="tog('${k}')"></div></div>`).join('')}
-      ${right.map(([l,i])=>`<div onclick="toast('${l}','info')" class="flex items-center justify-between py-2 border-b border-white/20 cursor-pointer"><span class="text-[11px]">${l}</span><span>${i}</span></div>`).join('')}
+      ${right.map(([l,i])=>`<div onclick="toast('${l}','info')" class="flex items-center justify-between py-2 border-b border-white/20 cursor-pointer"><span class="text-[11px]">${l}</span><i class="fa-solid ${i} text-purple-400"></i></div>`).join('')}
     </div>
     <div class="mt-4 space-y-2">
       <button onclick="openModal('mod-master')" class="w-full box2 py-2 text-xs">CAMBIAR CONTRASEÑA</button>
+      <button onclick="diagnosticarStorage()" class="w-full box2 border-yellow-500 text-yellow-500 py-2 text-xs">DIAGNOSTICAR STORAGE</button>
       <button onclick="if(confirm('¿Eliminar cuenta?')){localStorage.clear();location.reload()}" class="w-full box2 border-red-500 text-red-500 py-2 text-xs">ELIMINAR CUENTA</button>
       <div class="box2 p-2 flex items-center justify-between"><span class="text-[11px]">transiciones</span><div class="toggle ${s.transitions?'on':'off'} scale-75" onclick="tog('transitions')"></div></div>
     </div></div>`;
@@ -1228,13 +1245,10 @@ window.checkMaster = () => {
     state.user.role = 'DIRECT@R'; save();
     document.getElementById('hdr-role').textContent = 'DIRECT@R';
     document.getElementById('ftr-role').textContent = 'DIRECT@R';
-    closeModal('mod-master'); toast('Acceso Director ✓','success');
+    closeModal('mod-master'); toast('Acceso Director','success');
   } else toast('Clave incorrecta','error');
 };
 
-/* ==================================================================
-   AUTO-SKIP PWA SCREEN
-   ================================================================== */
 if (IS_STANDALONE()) {
   setTimeout(() => { hide('scr-pwa'); show('scr-lang'); }, 150);
 }
