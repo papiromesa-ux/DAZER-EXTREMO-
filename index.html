@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
+<meta name="description" content="DAZER ESTÁNDAR / VOLUMEN 2 — Contenido sin censura">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DAZER">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="DAZER">
 <title>DAZER ESTÁNDAR / VOLUMEN 2</title>
+<link id="apple-icon" rel="apple-touch-icon">
+<link id="pwa-manifest" rel="manifest">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -16,6 +24,7 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .box{border:3px solid #fff}.box2{border:2px solid #fff}
 .btn{border:2px solid currentColor;background:transparent;color:inherit;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .15s}
 .btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.6;cursor:default}
 .btn-w{background:#fff;color:#000;border-color:#fff}
 .inp{background:#000;color:#fff;border:2px solid #fff;padding:10px;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:12px;width:100%}
 .inp::placeholder{color:#6b7280;text-transform:none;font-family:Inter;font-weight:600}
@@ -44,7 +53,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
   100%{background-position:250% 0;opacity:1}
 }
 
-/* ============ FUEGUITO MORADO ============ */
 .fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;
   background:radial-gradient(circle,#fff 0%,#f3e8ff 22%,#c084fc 50%,#a855f7 75%,#7c3aed 92%,transparent 100%);
   transform:translate(-50%,-50%);
@@ -56,7 +64,6 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
   100%{transform:translate(calc(-50% + var(--dx,0px)), calc(-50% - 70px)) scale(.15) rotate(180deg);opacity:0}
 }
 
-/* ============ CARRUSEL ÚNICO INFERIOR ============ */
 .nav-carousel-wrap{position:relative;overflow:hidden;border-top:2px solid #fff;background:#000;flex-shrink:0}
 .nav-carousel-wrap::before,.nav-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:22px;pointer-events:none;z-index:2}
 .nav-carousel-wrap::before{left:0;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,0) 100%)}
@@ -122,22 +129,49 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 <div id="sweep"></div>
 <div id="toast-wrap"></div>
 
-<!-- ====== SCR-PWA ====== -->
-<div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
-  <div class="w-full max-w-sm box bg-black p-6 flex flex-col items-center gap-6">
-    <div class="text-center">
-      <h1 class="arc text-4xl flex items-center justify-center gap-2">DAZER
+<!-- ====== SCR-PWA (rediseñado) ====== -->
+<div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4 overflow-y-auto">
+  <div class="w-full max-w-sm my-auto">
+    <div class="flex flex-col items-center mb-5">
+      <div id="pwa-icon-preview" class="w-28 h-28 mb-3"></div>
+      <h1 class="arc text-4xl flex items-center justify-center gap-2 text-white">DAZER
         <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">▲</span>
       </h1>
-      <p class="arc text-xl mt-1 tracking-widest">EXTREMO</p>
+      <p class="arc text-lg tracking-widest text-white mt-1">EXTREMO</p>
+      <p class="arc text-[10px] tracking-widest text-purple-400 mt-1">ESTANDAR / VOLUMEN 2</p>
     </div>
-    <p class="arc text-sm text-center">LLEVAR A DAZER A TU PANTALLA DE INICIO</p>
-    <div class="w-full space-y-3">
-      <button onclick="copyLink()" class="btn w-full py-3 text-base text-white">Copiar enlace</button>
-      <button onclick="installApp()" class="btn w-full py-3 text-base text-white">Instalar</button>
-      <button onclick="goLang()" class="btn w-full py-3 text-base text-white">Acceso directo de la página</button>
-      <button onclick="goLang()" class="btn w-full py-3 text-base text-white">Seguir en web</button>
+
+    <div class="box bg-black p-5 flex flex-col gap-4">
+      <p class="arc text-xs text-center text-white leading-relaxed">LLEVAR A DAZER A TU<br>PANTALLA DE INICIO</p>
+
+      <div id="pwa-status" class="text-center text-[10px] text-purple-300 py-2 px-2 border-y border-white/15 min-h-[38px] flex items-center justify-center leading-tight"></div>
+
+      <div class="space-y-2">
+        <button id="btn-install" onclick="installApp()" class="btn btn-w w-full py-3 text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-download"></i> INSTALAR DAZER
+        </button>
+        <button onclick="copyLink()" class="btn w-full py-3 text-xs text-white flex items-center justify-center gap-2">
+          <i class="fa-solid fa-link"></i> COPIAR ENLACE
+        </button>
+        <button onclick="goLang()" class="btn w-full py-3 text-xs text-white flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-right"></i> ENTRAR A DAZER
+        </button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-1.5 text-center arc text-[7px]">
+        <div class="border border-white/15 p-2 text-white">
+          <i class="fa-solid fa-bolt text-purple-400 block mb-1 text-sm"></i>RÁPIDO
+        </div>
+        <div class="border border-white/15 p-2 text-white">
+          <i class="fa-solid fa-wifi text-purple-400 block mb-1 text-sm"></i>SIN CONEXIÓN
+        </div>
+        <div class="border border-white/15 p-2 text-white">
+          <i class="fa-solid fa-mobile-screen text-purple-400 block mb-1 text-sm"></i>PANTALLA
+        </div>
+      </div>
     </div>
+
+    <p class="text-[9px] text-center text-gray-500 mt-3 arc tracking-widest">DAZER · VOLUMEN 2 · v2.0</p>
   </div>
 </div>
 
@@ -158,7 +192,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 </div>
 
-<!-- ====== SCR-AUTH (solo Google) ====== -->
+<!-- ====== SCR-AUTH ====== -->
 <div id="scr-auth" class="fixed inset-0 z-50 bg-black hidden flex-col">
   <div class="flex justify-end items-center border-b-2 border-white p-2 gap-1 shrink-0">
     <button onclick="openModal('mod-ayuda')" class="btn px-3 py-1 text-[11px] text-white">Ayuda</button>
@@ -310,6 +344,151 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 </div>
 
 <script type="module">
+/* ==================================================================
+   PWA SETUP — manifest dinámico + icono SVG + install prompt
+   ================================================================== */
+const ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
+  '<defs>' +
+    '<radialGradient id="bg" cx="50%" cy="40%" r="70%">' +
+      '<stop offset="0%" stop-color="#1a0b2e"/>' +
+      '<stop offset="100%" stop-color="#000000"/>' +
+    '</radialGradient>' +
+    '<linearGradient id="tri" x1="0%" y1="0%" x2="0%" y2="100%">' +
+      '<stop offset="0%" stop-color="#c084fc"/>' +
+      '<stop offset="100%" stop-color="#7c3aed"/>' +
+    '</linearGradient>' +
+  '</defs>' +
+  '<rect width="512" height="512" fill="url(#bg)"/>' +
+  '<circle cx="256" cy="200" r="145" fill="none" stroke="#a855f7" stroke-width="6"/>' +
+  '<polygon points="256,110 365,290 147,290" fill="url(#tri)"/>' +
+  '<text x="256" y="410" text-anchor="middle" font-family="Archivo Black, Arial Black, sans-serif" font-size="72" fill="#ffffff" font-weight="900" letter-spacing="2">DAZER</text>' +
+  '<text x="256" y="458" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#a855f7" letter-spacing="8">EXTREMO</text>' +
+'</svg>';
+
+const ICON_URI = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(ICON_SVG)));
+
+// Inyectar icono en la preview de la pantalla PWA
+document.getElementById('pwa-icon-preview').innerHTML = ICON_SVG;
+// Apple touch icon
+document.getElementById('apple-icon').href = ICON_URI;
+
+// Manifest dinámico
+const PWA_MANIFEST = {
+  name: 'DAZER ESTANDAR / VOLUMEN 2',
+  short_name: 'DAZER',
+  description: 'DAZER ESTÁNDAR / VOLUMEN 2 — Contenido sin censura',
+  start_url: location.href.split('?')[0].split('#')[0],
+  scope: './',
+  id: 'dazer-estandar-vol2',
+  display: 'standalone',
+  display_override: ['standalone', 'minimal-ui'],
+  orientation: 'portrait',
+  background_color: '#000000',
+  theme_color: '#000000',
+  lang: 'es',
+  dir: 'ltr',
+  categories: ['entertainment', 'social'],
+  icons: [
+    { src: ICON_URI, sizes: '192x192', type: 'image/svg+xml', purpose: 'any' },
+    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' },
+    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' }
+  ],
+  shortcuts: [
+    { name: 'SALA', short_name: 'SALA', url: location.href.split('?')[0].split('#')[0] + '#sala' },
+    { name: 'KURZCLIPS', short_name: 'KURZ', url: location.href.split('?')[0].split('#')[0] + '#kurzclips' }
+  ]
+};
+try {
+  const mBlob = new Blob([JSON.stringify(PWA_MANIFEST)], { type: 'application/manifest+json' });
+  document.getElementById('pwa-manifest').href = URL.createObjectURL(mBlob);
+} catch (e) {
+  // Fallback: data URI
+  document.getElementById('pwa-manifest').href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(PWA_MANIFEST));
+}
+
+// Detección de plataforma
+const IS_IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const IS_STANDALONE = () => window.matchMedia('(display-mode: standalone)').matches
+  || window.navigator.standalone === true
+  || document.referrer.startsWith('android-app://');
+
+// Estado del install prompt
+let deferredPrompt = null;
+let justInstalled = false;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  updateInstallUI();
+});
+
+window.addEventListener('appinstalled', () => {
+  justInstalled = true;
+  deferredPrompt = null;
+  updateInstallUI();
+  // toast se define más abajo; usar setTimeout hasta que esté listo
+  setTimeout(() => { try { toast('DAZER instalado ✓', 'success'); } catch(_){} }, 100);
+});
+
+function updateInstallUI() {
+  const btn = document.getElementById('btn-install');
+  const status = document.getElementById('pwa-status');
+  if (!btn || !status) return;
+  if (IS_STANDALONE() || justInstalled) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> YA INSTALADO';
+    status.innerHTML = '<span style="color:#22c55e">✓ App instalada.</span><br>Ábrela desde tu pantalla de inicio.';
+  } else if (deferredPrompt) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+    status.innerHTML = '<span style="color:#a855f7">◆</span> Toca INSTALAR y añade DAZER<br>a tu pantalla de inicio';
+  } else if (IS_IOS) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+    status.innerHTML = 'En iPhone: toca <i class="fa-solid fa-arrow-up-from-bracket"></i> Compartir →<br>Añadir a pantalla de inicio';
+  } else {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+    status.innerHTML = 'Menú del navegador →<br>Añadir a pantalla de inicio';
+  }
+}
+
+window.installApp = async () => {
+  if (IS_STANDALONE() || justInstalled) {
+    try { toast('Ya estás usando la app instalada', 'info'); } catch(_){}
+    return;
+  }
+  if (deferredPrompt) {
+    try {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        justInstalled = true;
+        try { toast('Instalando DAZER...', 'success'); } catch(_){}
+      } else {
+        try { toast('Instalación cancelada', 'info'); } catch(_){}
+      }
+    } catch (err) {
+      console.warn('Install prompt error', err);
+    }
+    deferredPrompt = null;
+    updateInstallUI();
+    return;
+  }
+  if (IS_IOS) {
+    try { toast('Compartir → Añadir a pantalla de inicio', 'info'); } catch(_){}
+  } else {
+    try { toast('Menú del navegador → Añadir a inicio', 'info'); } catch(_){}
+  }
+};
+
+// Actualizar la UI en cuanto el DOM esté listo
+setTimeout(updateInstallUI, 300);
+setTimeout(updateInstallUI, 1500);
+
+/* ==================================================================
+   FIREBASE + RESTO DE LA APP
+   ================================================================== */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -319,7 +498,7 @@ const CFG = {
   cuentas:   { apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4", authDomain:"dazer-extremo-cuentas.firebaseapp.com", projectId:"dazer-extremo-cuentas", storageBucket:"dazer-extremo-cuentas.firebasestorage.app", messagingSenderId:"551686385854", appId:"1:551686385854:web:6bb73a9b34e2471ca26eef" },
   kurzclips: { apiKey:"AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0", authDomain:"dazer-extremo-kurzclips.firebaseapp.com", projectId:"dazer-extremo-kurzclips", storageBucket:"dazer-extremo-kurzclips.firebasestorage.app", messagingSenderId:"790098661692", appId:"1:790098661692:web:becd1e7a3b04bc9e0b8e39" },
   footages:  { apiKey:"AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY", authDomain:"dazer-extremo-footages.firebaseapp.com", projectId:"dazer-extremo-footages", storageBucket:"dazer-extremo-footages.firebasestorage.app", messagingSenderId:"254207247947", appId:"1:254207247947:web:82a5c5ff2a5a3297a12fce" },
-  schnapps:  { apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q", authDomain:"dazer-extremo-schannps.firebaseapp.com", projectId:"dazer-extremo-schannps", storageBucket:"dazer-extremo-schannps.firebasestorage.app", messagingSenderId:"18311813658", appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3" },
+  schnapps:  { apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q", authDomain:"dazer-extremo-schannps.firebaseapp.com", projectId:"dazer-extremo-schnannps", storageBucket:"dazer-extremo-schannps.firebasestorage.app", messagingSenderId:"18311813658", appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3" },
   mensajes:  { apiKey:"AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU", authDomain:"dazer-extremo-mensajes.firebaseapp.com", projectId:"dazer-extremo-mensajes", storageBucket:"dazer-extremo-mensajes.firebasestorage.app", messagingSenderId:"70744027643", appId:"1:70744027643:web:1cf308aea8a5f87f1b5b5e" }
 };
 
@@ -364,7 +543,7 @@ const hide = id => { const e=document.getElementById(id); e.classList.add('hidde
 window.openModal = show; window.closeModal = hide;
 const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-/* ============ FUEGUITO MORADO QUE SIGUE EL DEDO/MOUSE ============ */
+/* ============ FUEGUITO MORADO ============ */
 function spawnFire(x, y, big=false) {
   const n = big ? 10 : 5;
   for (let i = 0; i < n; i++) {
@@ -386,7 +565,6 @@ function stepTrail(x, y){
   const dx = x - lastX, dy = y - lastY;
   if (dx*dx + dy*dy > 260) { spawnFire(x, y, false); lastX = x; lastY = y; }
 }
-// MOUSE / LAPIZ
 document.addEventListener('pointerdown', e => {
   if (e.pointerType === 'touch') return;
   lastX = e.clientX; lastY = e.clientY; trailOn = true;
@@ -401,7 +579,6 @@ document.addEventListener('pointerup', e => {
   if (e.pointerType === 'touch') return;
   trailOn = false;
 }, { passive: true });
-// TOUCH (dedo) — separado para que el arrastre no se corte con pointercancel
 document.addEventListener('touchstart', e => {
   if (!e.touches.length) return;
   const t = e.touches[0];
@@ -426,7 +603,6 @@ const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}p
   <circle cx="50" cy="50" r="20" fill="#000"/></svg>`;
 
 window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error')); };
-window.installApp = () => toast('Menú navegador → Añadir a inicio','info');
 window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
 window.goAuth = () => { hide('scr-lang'); show('scr-auth'); };
 window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
@@ -1038,6 +1214,18 @@ window.checkMaster = () => {
     closeModal('mod-master'); toast('Acceso Director ✓','success');
   } else toast('Clave incorrecta','error');
 };
+
+/* ==================================================================
+   AUTO-SKIP PWA SCREEN si la app ya está instalada
+   ================================================================== */
+if (IS_STANDALONE()) {
+  setTimeout(() => {
+    hide('scr-pwa');
+    show('scr-lang');
+    // opcional: toast de bienvenida
+    setTimeout(() => { try { toast('Modo app instalada', 'info'); } catch(_){} }, 400);
+  }, 150);
+}
 </script>
 </body>
 </html>
