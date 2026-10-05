@@ -4,50 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="DAZER ESTÁNDAR / VOLUMEN 2 — Contenido sin censura">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="DAZER">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="DAZER">
 <title>DAZER ESTÁNDAR / VOLUMEN 2</title>
 <link id="apple-icon" rel="apple-touch-icon">
 <link id="pwa-manifest" rel="manifest">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{-webkit-tap-highlight-color:transparent;box-sizing:border-box}
 html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-ui,sans-serif;height:100%;background:#000;color:#fff}
 .arc{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em}
-.serif{font-family:'Playfair Display',Georgia,serif;font-weight:700}
+.serif{font-family:'Playfair Display',serif;font-weight:700}
 .box{border:3px solid #fff}.box2{border:2px solid #fff}
-.btn{border:2px solid currentColor;background:transparent;color:inherit;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .15s}
+.btn{border:2px solid currentColor;background:transparent;color:inherit;font-family:'Archivo Black',sans-serif;text-transform:uppercase;cursor:pointer;transition:all .15s}
 .btn:active{transform:scale(.97)}
-.btn:disabled{opacity:.6;cursor:default}
 .btn-w{background:#fff;color:#000;border-color:#fff}
-.inp{background:#000;color:#fff;border:2px solid #fff;padding:10px;font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:12px;width:100%}
-.inp::placeholder{color:#6b7280;text-transform:none;font-family:Inter;font-weight:600}
+.inp{background:#000;color:#fff;border:2px solid #fff;padding:10px;font-size:12px;width:100%;font-family:Inter}
 .inp:focus{outline:none;border-color:#a855f7}
-.toggle{width:52px;height:26px;border-radius:14px;position:relative;border:2px solid #000;cursor:pointer;flex-shrink:0;transition:background .3s}
+.inp::placeholder{color:#666}
+.toggle{width:52px;height:26px;border-radius:14px;position:relative;border:2px solid #000;cursor:pointer;transition:background .3s}
 .toggle::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;transition:left .3s}
 .toggle.on{background:#22c55e}.toggle.on::after{left:28px}
 .toggle.off{background:#ef4444}.toggle.off::after{left:3px}
-.frame{position:relative;overflow:hidden;cursor:pointer;transition:transform .15s}
-.frame:active{transform:scale(.97)}
+.frame{position:relative;overflow:hidden;cursor:pointer}
 .frame img{width:100%;height:100%;object-fit:cover;display:block}
 .frame .edit-badge{position:absolute;bottom:6px;right:6px;width:24px;height:24px;background:#a855f7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid #000;z-index:2;color:#fff}
 
-#sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0;
-  background:linear-gradient(105deg,transparent 0%,rgba(168,85,247,0) 8%,rgba(168,85,247,0.35) 20%,rgba(168,85,247,0.85) 38%,#c084fc 50%,rgba(168,85,247,0.85) 62%,rgba(168,85,247,0.35) 80%,rgba(168,85,247,0) 92%,transparent 100%);
-  background-size:250% 100%;background-position:-250% 0;}
+#sweep{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 0%,rgba(168,85,247,0) 8%,rgba(168,85,247,0.35) 20%,rgba(168,85,247,0.85) 38%,#c084fc 50%,rgba(168,85,247,0.85) 62%,rgba(168,85,247,0.35) 80%,rgba(168,85,247,0) 92%,transparent 100%);background-size:250% 100%;background-position:-250% 0}
 #sweep.active{opacity:1;animation:sweepAnim 1.1s cubic-bezier(.5,0,.5,1) forwards}
 @keyframes sweepAnim{0%{background-position:-250% 0;opacity:1}100%{background-position:250% 0;opacity:1}}
 
-.fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;
-  background:radial-gradient(circle,#fff 0%,#f3e8ff 22%,#c084fc 50%,#a855f7 75%,#7c3aed 92%,transparent 100%);
-  transform:translate(-50%,-50%);box-shadow:0 0 10px #a855f7,0 0 22px #7c3aed,0 0 34px rgba(168,85,247,.65);
-  animation:fireRise .85s cubic-bezier(.2,.7,.4,1) forwards}
+.fuego{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,#fff 0%,#f3e8ff 22%,#c084fc 50%,#a855f7 75%,#7c3aed 92%,transparent 100%);transform:translate(-50%,-50%);box-shadow:0 0 10px #a855f7,0 0 22px #7c3aed,0 0 34px rgba(168,85,247,.65);animation:fireRise .85s cubic-bezier(.2,.7,.4,1) forwards}
 @keyframes fireRise{0%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}60%{opacity:.9}100%{transform:translate(calc(-50% + var(--dx,0px)), calc(-50% - 70px)) scale(.15) rotate(180deg);opacity:0}}
 
 .nav-carousel-wrap{position:relative;overflow:hidden;border-top:2px solid #fff;background:#000;flex-shrink:0}
@@ -56,11 +43,10 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 .nav-carousel-wrap::after{right:0;background:linear-gradient(-90deg,#000 0%,rgba(0,0,0,0) 100%)}
 .nav-carousel{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:0 14px}
 .nav-carousel::-webkit-scrollbar{display:none}
-.nav-carousel>button{flex:0 0 auto;min-width:72px;scroll-snap-align:center;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-right:1px solid rgba(255,255,255,0.10);font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:.04em;color:inherit;background:transparent;cursor:pointer;transition:background .2s,color .2s;font-size:8px;line-height:1.05;text-align:center}
+.nav-carousel>button{flex:0 0 auto;min-width:72px;scroll-snap-align:center;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-right:1px solid rgba(255,255,255,0.10);font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:inherit;background:transparent;cursor:pointer;font-size:8px;line-height:1.05;text-align:center}
 .nav-carousel>button i{font-size:13px;margin-bottom:1px}
 .nav-carousel>button.active,.nav-carousel>button.bg-white{background:#fff;color:#000}
-.nav-carousel>button .flag-ex{font-size:7px;padding:1px 5px;margin-bottom:1px}
-.nav-sep{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 8px;color:#a855f7;font-family:'Archivo Black',sans-serif;font-size:14px;user-select:none}
+.nav-sep{flex:0 0 auto;padding:0 8px;color:#a855f7;font-size:14px}
 .nav-sep.red{color:#dc2626}
 
 .brain-pulse{animation:bp 2s ease-in-out infinite}
@@ -69,83 +55,142 @@ html,body{overscroll-behavior:none;margin:0;padding:0;font-family:Inter,system-u
 @keyframes gs{0%{background-position:0 0,0 0}100%{background-position:0 20px,20px 0}}
 .grain{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0,rgba(255,255,255,.06) 1px,transparent 1px,transparent 2px)}
 .hand{border:2px solid #fff;border-radius:8px 12px 10px 14px/12px 8px 14px 10px;transform:rotate(-1deg)}
-.flag-ex{display:inline-block;background:#dc2626;color:#fff;font-family:'Archivo Black',sans-serif;font-size:8px;letter-spacing:.08em;padding:2px 8px;transform:skewX(-15deg)}
-.flag-ex.purple{background:#a855f7}
+.flag-ex{display:inline-block;background:#dc2626;color:#fff;font-family:'Archivo Black',sans-serif;font-size:8px;padding:2px 8px;transform:skewX(-15deg)}
 
-#toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;width:auto;max-width:min(80vw,300px);pointer-events:none;align-items:flex-end}
-.toast-msg{background:rgba(18,10,32,0.9);border-left:3px solid #a855f7;padding:8px 12px;border-radius:3px;color:#fff;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.03em;line-height:1.3;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.5);animation:toastIn .22s ease forwards;opacity:0}
-.toast-msg.error{border-left-color:#ef4444}
-.toast-msg.success{border-left-color:#22c55e}
-.toast-msg.info{border-left-color:#a855f7}
+#toast-wrap{position:fixed;top:10px;right:10px;z-index:10000;display:flex;flex-direction:column;gap:6px;max-width:min(80vw,300px);pointer-events:none;align-items:flex-end}
+.toast-msg{background:rgba(18,10,32,0.95);border-left:3px solid #a855f7;padding:8px 12px;border-radius:3px;color:#fff;font-family:'Archivo Black',sans-serif;font-size:11px;line-height:1.3;animation:toastIn .22s ease forwards;opacity:0}
+.toast-msg.error{border-left-color:#ef4444}.toast-msg.success{border-left-color:#22c55e}
 .toast-msg.out{animation:toastOut .25s ease forwards}
 @keyframes toastIn{from{transform:translateX(24px);opacity:0}to{transform:translateX(0);opacity:1}}
 @keyframes toastOut{to{transform:translateX(24px);opacity:0}}
 
-body.theme-nocturno{--bg:#000000;--fg:#fff;--ac:#a855f7}
-body.theme-dia{--bg:#3a3a3a;--fg:#22c55e;--ac:#22c55e;color:#22c55e}
-body.theme-coquette{--bg:#ff0080;--fg:#fff;--ac:#fff}
-body.theme-fuego{--bg:#ff0000;--fg:#fff;--ac:#ffcc00}
-body.theme-sexy{--bg:#ff0066;--fg:#fff;--ac:#ff00cc}
-body.theme-atodecedor{--bg:linear-gradient(160deg,#7c3aed,#06b6d4 60%,#10b981);--fg:#fff;--ac:#fff}
-body.theme-secreto{--bg:linear-gradient(160deg,#ff0080,#00e5ff 50%,#10b981);--fg:#fff;--ac:#fff}
-body.theme-normal{--bg:#1e3a8a;--fg:#fff;--ac:#a855f7}
-body{background:var(--bg,#000);color:var(--fg,#fff);background-attachment:fixed}
-body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:#000}
-::-webkit-scrollbar-thumb{background:#444}
+/* KURZCLIPS TikTok */
+.kz-container{position:absolute;inset:0;overflow:hidden}
+.kz-scroll{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.kz-scroll::-webkit-scrollbar{display:none}
+.kz-item{position:relative;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;background:#000;display:flex;align-items:center;justify-content:center}
+.kz-inner{position:relative;width:100%;height:100%;max-width:460px;background:#000;overflow:hidden}
+.kz-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.kz-inner video,.kz-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kz-overlay{position:absolute;left:0;right:0;bottom:0;padding:70px 16px 24px;background:linear-gradient(transparent,rgba(0,0,0,.9));z-index:3;pointer-events:none}
+.kz-overlay h3{color:#fff;font-family:'Archivo Black',sans-serif;font-size:15px;margin:0}
+.kz-overlay p{color:#c084fc;font-size:11px;margin:4px 0 0}
+.kz-actions{position:absolute;right:10px;bottom:80px;display:flex;flex-direction:column;gap:16px;z-index:4;align-items:center}
+.kz-actions button{background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+.kz-actions span{font-size:10px;color:#fff;display:block;text-align:center;margin-top:2px;font-family:'Archivo Black',sans-serif}
+.kz-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#666;padding:20px;text-align:center}
+
+/* FOOTAGE YouTube */
+.yt-wrap{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.yt-grid{display:grid;grid-template-columns:1fr;gap:14px;padding:12px;max-width:520px;margin:0 auto}
+.yt-card{background:#0a0a0a;border-radius:10px;overflow:hidden;border:1px solid #1f1f1f}
+.yt-thumb{position:relative;aspect-ratio:16/9;background:#111;overflow:hidden}
+.yt-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-info{padding:10px 12px}
+.yt-info h4{margin:0;font-size:13px;color:#fff;font-weight:600}
+.yt-info p{margin:3px 0 0;font-size:11px;color:#a855f7}
+
+/* SPIELFILM Netflix */
+.sf-wrap{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sf-inner{padding:12px;max-width:640px;margin:0 auto}
+.sf-hero{position:relative;width:100%;aspect-ratio:16/10;background:#111;border-radius:12px;overflow:hidden;margin-bottom:14px}
+.sf-hero iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sf-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sf-hero-info{position:absolute;left:0;right:0;bottom:0;padding:50px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.9))}
+.sf-hero-info h2{margin:0;font-family:'Archivo Black',sans-serif;font-size:18px;color:#fff}
+.sf-hero-info p{margin:4px 0 0;font-size:11px;color:#c084fc}
+.sf-row-title{font-family:'Archivo Black',sans-serif;font-size:13px;color:#fff;margin:14px 0 8px;text-transform:uppercase}
+.sf-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.sf-row::-webkit-scrollbar{display:none}
+.sf-card{flex:0 0 auto;width:130px;background:#111;border-radius:8px;overflow:hidden;border:1px solid #1f1f1f}
+.sf-card .poster{width:100%;aspect-ratio:2/3;background:#222;position:relative;overflow:hidden}
+.sf-card .poster img{width:100%;height:100%;object-fit:cover}
+.sf-card .poster .noimg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#333;font-size:34px}
+.sf-card .info{padding:6px 8px}
+.sf-card h5{font-size:10px;color:#fff;margin:0;line-height:1.2}
+.sf-card p{font-size:9px;color:#a855f7;margin:2px 0 0}
+
+/* SCHNAPPS Facebook */
+.sn-wrap{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sn-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;padding:2px}
+.sn-cell{position:relative;aspect-ratio:1;background:#111;overflow:hidden;cursor:pointer}
+.sn-cell img{width:100%;height:100%;object-fit:cover}
+.sn-label{position:absolute;left:0;right:0;bottom:0;padding:20px 6px 6px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;color:#fff;font-family:'Archivo Black',sans-serif}
+
+/* ALINE 3 en 1 */
+.al-wrap{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.al-inner{padding:12px;max-width:640px;margin:0 auto}
+.al-tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px}
+.al-tabs::-webkit-scrollbar{display:none}
+.al-tabs button{flex:0 0 auto;padding:6px 14px;border:2px solid #a855f7;background:transparent;color:#a855f7;font-family:'Archivo Black',sans-serif;font-size:10px;text-transform:uppercase;border-radius:20px;cursor:pointer}
+.al-tabs button.active{background:#a855f7;color:#000}
+
+/* Visor foto grande */
+#visor{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.97);display:none;align-items:center;justify-content:center;padding:20px}
+#visor.on{display:flex}
+#visor img{max-width:100%;max-height:100%;object-fit:contain}
+#visor .cerrar{position:absolute;top:14px;right:20px;font-size:36px;color:#fff;background:transparent;border:0;cursor:pointer}
+
+/* REPRODUCTOR embebido modal */
+#player{position:fixed;inset:0;z-index:9400;background:rgba(0,0,0,.97);display:none;flex-direction:column;padding:10px}
+#player.on{display:flex}
+#player iframe{flex:1;border:0;background:#000;border-radius:6px}
+#player .cerrar{position:absolute;top:14px;right:20px;font-size:36px;color:#fff;background:transparent;border:0;cursor:pointer;z-index:2}
+
+body.theme-nocturno{--bg:#000}
+body.theme-dia{--bg:#3a3a3a;color:#22c55e}
+body.theme-coquette{--bg:#ff0080}
+body.theme-fuego{--bg:#ff0000}
+body.theme-sexy{--bg:#ff0066}
+body.theme-atodecedor{--bg:linear-gradient(160deg,#7c3aed,#06b6d4 60%,#10b981)}
+body.theme-secreto{--bg:linear-gradient(160deg,#ff0080,#00e5ff 50%,#10b981)}
+body.theme-normal{--bg:#1e3a8a}
+body{background:var(--bg,#000);background-attachment:fixed}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:#444}
 </style>
 </head>
 <body class="theme-nocturno select-none">
 
 <div id="sweep"></div>
 <div id="toast-wrap"></div>
+<div id="visor"><button class="cerrar" onclick="document.getElementById('visor').classList.remove('on')">×</button><img id="visor-img" src=""></div>
+<div id="player"><button class="cerrar" onclick="cerrarPlayer()">×</button><div id="player-body" style="flex:1;display:flex"></div></div>
 
-<!-- ====== SCR-PWA ====== -->
+<!-- PWA SCREEN -->
 <div id="scr-pwa" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4 overflow-y-auto">
   <div class="w-full max-w-sm my-auto">
     <div class="flex flex-col items-center mb-5">
       <div id="pwa-icon-preview" class="w-28 h-28 mb-3"></div>
-      <h1 class="arc text-4xl flex items-center justify-center gap-2 text-white">DAZER
-        <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span>
-      </h1>
+      <h1 class="arc text-4xl flex items-center justify-center gap-2 text-white">DAZER <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span></h1>
       <p class="arc text-lg tracking-widest text-white mt-1">EXTREMO</p>
       <p class="arc text-[10px] tracking-widest text-purple-400 mt-1">ESTANDAR / VOLUMEN 2</p>
     </div>
     <div class="box bg-black p-5 flex flex-col gap-4">
-      <p class="arc text-xs text-center text-white leading-relaxed">LLEVAR A DAZER A TU<br>PANTALLA DE INICIO</p>
-      <div id="pwa-status" class="text-center text-[10px] text-purple-300 py-2 px-2 border-y border-white/15 min-h-[38px] flex items-center justify-center leading-tight"></div>
+      <p class="arc text-xs text-center text-white">LLEVAR A DAZER A TU<br>PANTALLA DE INICIO</p>
+      <div id="pwa-status" class="text-center text-[10px] text-purple-300 py-2 px-2 border-y border-white/15 min-h-[38px] flex items-center justify-center"></div>
       <div class="space-y-2">
-        <button id="btn-install" onclick="installApp()" class="btn btn-w w-full py-3 text-sm flex items-center justify-center gap-2"><i class="fa-solid fa-download"></i> INSTALAR DAZER</button>
-        <button onclick="copyLink()" class="btn w-full py-3 text-xs text-white flex items-center justify-center gap-2"><i class="fa-solid fa-link"></i> COPIAR ENLACE</button>
-        <button onclick="goLang()" class="btn w-full py-3 text-xs text-white flex items-center justify-center gap-2"><i class="fa-solid fa-arrow-right"></i> ENTRAR A DAZER</button>
-      </div>
-      <div class="grid grid-cols-3 gap-1.5 text-center arc text-[7px]">
-        <div class="border border-white/15 p-2 text-white"><i class="fa-solid fa-bolt text-purple-400 block mb-1 text-sm"></i>RÁPIDO</div>
-        <div class="border border-white/15 p-2 text-white"><i class="fa-solid fa-wifi text-purple-400 block mb-1 text-sm"></i>SIN CONEXIÓN</div>
-        <div class="border border-white/15 p-2 text-white"><i class="fa-solid fa-mobile-screen text-purple-400 block mb-1 text-sm"></i>PANTALLA</div>
+        <button id="btn-install" onclick="installApp()" class="btn btn-w w-full py-3 text-sm"><i class="fa-solid fa-download"></i> INSTALAR DAZER</button>
+        <button onclick="copyLink()" class="btn w-full py-3 text-xs text-white"><i class="fa-solid fa-link"></i> COPIAR ENLACE</button>
+        <button onclick="goLang()" class="btn w-full py-3 text-xs text-white"><i class="fa-solid fa-arrow-right"></i> ENTRAR A DAZER</button>
       </div>
     </div>
-    <p class="text-[9px] text-center text-gray-500 mt-3 arc tracking-widest">DAZER · VOLUMEN 2 · v2.3</p>
   </div>
 </div>
 
-<!-- ====== SCR-LANG ====== -->
+<!-- LANG -->
 <div id="scr-lang" class="fixed inset-0 z-50 bg-black hidden items-center justify-center p-4 overflow-y-auto">
   <div class="w-full max-w-md box bg-black p-5 my-auto">
     <div class="text-center mb-4">
-      <h1 class="arc text-3xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-7 h-7 border-2 border-white rounded-full text-xs">&#9650;</span></h1>
+      <h1 class="arc text-3xl">DAZER <span class="inline-flex items-center justify-center w-7 h-7 border-2 border-white rounded-full text-xs">&#9650;</span></h1>
       <p class="arc text-lg tracking-widest">EXTREMO</p>
       <h2 class="arc text-xl mt-3">ESCOGER IDIOMA</h2>
-      <p class="arc text-2xl text-red-600 mt-1">CUIDADO</p>
-      <p class="text-[11px] text-red-400 leading-tight">en el idioma que escoja va a estar toda la página traducida</p>
     </div>
     <div id="lang-list" class="space-y-2 mb-4"></div>
     <button onclick="goAuth()" class="btn btn-w w-full py-3 text-sm">CONTINUAR</button>
   </div>
 </div>
 
-<!-- ====== SCR-AUTH ====== -->
+<!-- AUTH -->
 <div id="scr-auth" class="fixed inset-0 z-50 bg-black hidden flex-col">
   <div class="flex justify-end items-center border-b-2 border-white p-2 gap-1 shrink-0">
     <button onclick="openModal('mod-ayuda')" class="btn px-3 py-1 text-[11px] text-white">Ayuda</button>
@@ -153,74 +198,67 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
   <div class="flex-1 overflow-y-auto p-4 flex flex-col justify-center">
     <div class="text-center mb-8">
-      <h1 class="arc text-5xl flex items-center justify-center gap-2">DAZER <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span></h1>
+      <h1 class="arc text-5xl">DAZER <span class="inline-flex items-center justify-center w-9 h-9 border-2 border-white rounded-full text-base">&#9650;</span></h1>
       <p class="arc text-xl tracking-widest mt-1">EXTREMO</p>
-      <p class="arc text-sm mt-6 tracking-widest text-purple-400">INICIA SESIÓN PARA CONTINUAR</p>
+      <p class="arc text-sm mt-6 text-purple-400">INICIA SESIÓN PARA CONTINUAR</p>
     </div>
     <div class="max-w-md w-full mx-auto space-y-3">
-      <button onclick="loginGoogle()" class="btn btn-w w-full py-5 text-lg flex items-center justify-center gap-3"><i class="fa-brands fa-google text-red-500 text-2xl"></i> ENTRAR CON GOOGLE</button>
-      <button onclick="openModal('mod-email')" class="btn w-full py-3 text-sm text-white flex items-center justify-center gap-2">
-        <i class="fa-solid fa-envelope text-purple-400"></i> ENTRAR CON CORREO
-      </button>
-      <p class="text-[10px] text-center text-gray-500 mt-4 leading-relaxed">Al entrar aceptas nuestras normas de comunidad.<br>Si no tienes Gmail puedes crear una gratis.</p>
+      <button onclick="loginGoogle()" class="btn btn-w w-full py-5 text-lg"><i class="fa-brands fa-google text-red-500 text-2xl"></i> ENTRAR CON GOOGLE</button>
+      <button onclick="openModal('mod-email')" class="btn w-full py-3 text-sm text-white"><i class="fa-solid fa-envelope text-purple-400"></i> ENTRAR CON CORREO</button>
     </div>
   </div>
   <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center gap-3 shrink-0 grain">
     <i class="fa-solid fa-torii-gate text-2xl" style="color:#dc2626"></i>
-    <span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span>
+    <span class="serif text-base">DAZER ESTANDAR / VOLUMEN 2</span>
   </div>
 </div>
 
-<!-- ====== MODAL LOGIN CON CORREO ====== -->
+<!-- MODAL EMAIL -->
 <div id="mod-email" class="fixed inset-0 z-[70] bg-black/95 hidden items-center justify-center p-4">
   <div class="max-w-xs w-full box bg-black p-5 space-y-3">
-    <h3 class="arc text-lg text-center flex items-center gap-2"><i class="fa-solid fa-envelope text-purple-500"></i> ENTRAR CON CORREO</h3>
-    <input id="log-email" type="email" placeholder="CORREO" class="inp text-center" autocomplete="email">
-    <input id="log-pass" type="password" placeholder="CONTRASEÑA" class="inp text-center" autocomplete="current-password">
+    <h3 class="arc text-lg text-center">ENTRAR CON CORREO</h3>
+    <input id="log-email" type="email" placeholder="correo@dazer.app" class="inp" style="text-transform:none">
+    <input id="log-pass" type="password" placeholder="Contraseña" class="inp">
     <div class="flex gap-2">
       <button onclick="closeModal('mod-email')" class="btn flex-1 py-2 text-xs text-white">Cancelar</button>
       <button onclick="loginEmail()" class="btn btn-w flex-1 py-2 text-xs">Entrar</button>
     </div>
-    <p class="text-[9px] text-center text-gray-500">Solo para cuentas creadas en Firebase Auth</p>
   </div>
 </div>
 
-<!-- ====== MODAL AYUDA ====== -->
+<!-- MODAL AYUDA -->
 <div id="mod-ayuda" class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
   <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
-    <button onclick="closeModal('mod-ayuda')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
-    <h2 class="arc text-2xl mb-3">DAZER <span class="inline-flex items-center justify-center w-6 h-6 border-2 border-white rounded-full text-[10px]">&#9650;</span></h2>
-    <p class="arc text-sm text-center mb-3">TE BRINDE INFORMACIÓN QUE LES ESEÑA</p>
-    <div class="box2 p-3 space-y-2 text-xs font-bold">
-      <p>1 COMO INICIAR SESIÓN CON GOOGLE</p>
-      <p>2 COMO INICIAR SESIÓN CON CORREO</p>
-      <p>3 COMO COMPARTIR CONTENIDO A DAZER</p>
-      <p>4 COMO EDITAR TU PERFIL Y FOTOS</p>
+    <button onclick="closeModal('mod-ayuda')" class="absolute top-2 right-3 text-3xl">×</button>
+    <h2 class="arc text-2xl mb-3">AYUDA</h2>
+    <div class="box2 p-3 space-y-2 text-xs">
+      <p>1. Iniciar sesión con Google o correo</p>
+      <p>2. Agregar contenido pegando un enlace (YouTube, TikTok, Drive...)</p>
+      <p>3. Editar perfil y fotos tocando cada marco</p>
     </div>
   </div>
 </div>
 
-<!-- ====== MODAL COMPARTIR ====== -->
-<div id="mod-share" class="fixed inset-0 z-[70] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
+<!-- MODAL AGREGAR CONTENIDO -->
+<div id="mod-add-content" class="fixed inset-0 z-[70] bg-black/95 hidden items-center justify-center p-4 overflow-y-auto">
   <div class="max-w-sm w-full box bg-black p-5 my-8 relative">
-    <button onclick="closeModal('mod-share')" class="absolute top-2 right-3 text-3xl font-black leading-none">×</button>
-    <h2 class="arc text-2xl mb-2 text-purple-400">CONTENIDO COMPARTIDO</h2>
-    <p class="text-xs text-gray-400 mb-3">Comparte este contenido a DAZER</p>
-    <div id="share-preview" class="box2 p-3 mb-3 text-xs break-all min-h-[60px] bg-zinc-950"></div>
-    <label class="text-[10px] arc block mb-1">TÍTULO</label>
-    <input id="share-title" class="inp mb-3">
-    <label class="text-[10px] arc block mb-1">GUARDAR COMO</label>
+    <button onclick="closeModal('mod-add-content')" class="absolute top-2 right-3 text-3xl">×</button>
+    <h2 class="arc text-2xl mb-2 text-purple-400">AGREGAR CONTENIDO</h2>
+    <p class="text-[10px] text-gray-400 mb-3">Pega un enlace de YouTube, TikTok, Instagram, Drive o un MP4 directo.</p>
+    <input id="ac-title" placeholder="Título del contenido" class="inp mb-2">
+    <input id="ac-url" placeholder="https://..." class="inp mb-3" style="text-transform:none">
+    <p class="text-[10px] arc mb-1">GUARDAR EN</p>
     <div class="grid grid-cols-2 gap-2 mb-3">
-      <button onclick="saveShared('kurzclips')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-mobile-screen"></i> KURZCLIP</button>
-      <button onclick="saveShared('footage')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-film"></i> FOOTAGE</button>
-      <button onclick="saveShared('spielfilm')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-video"></i> SPIELFILM</button>
-      <button onclick="saveShared('schnapps')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-camera"></i> SCHNAPPS</button>
+      <button onclick="saveContentURL('kurzclips')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-mobile-screen"></i> KURZCLIP</button>
+      <button onclick="saveContentURL('footage')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-film"></i> FOOTAGE</button>
+      <button onclick="saveContentURL('spielfilm')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-video"></i> SPIELFILM</button>
+      <button onclick="saveContentURL('schnapps')" class="btn btn-w py-3 text-xs"><i class="fa-solid fa-camera"></i> SCHNAPPS</button>
     </div>
-    <button onclick="closeModal('mod-share')" class="btn w-full py-2 text-xs text-white">CANCELAR</button>
+    <button onclick="closeModal('mod-add-content')" class="btn w-full py-2 text-xs text-white">CANCELAR</button>
   </div>
 </div>
 
-<!-- ====== MODAL EDITAR NOMBRE ====== -->
+<!-- MODAL EDITAR NOMBRE -->
 <div id="mod-name" class="fixed inset-0 z-[70] bg-black/95 hidden items-center justify-center p-4">
   <div class="max-w-xs w-full box bg-black p-5 space-y-3">
     <h3 class="arc text-lg text-center">CAMBIAR NOMBRE</h3>
@@ -232,48 +270,31 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 </div>
 
-<!-- ====== RULES ====== -->
+<!-- RULES -->
 <div id="scr-rules" class="fixed inset-0 z-50 bg-black hidden flex-col">
   <div class="flex justify-between items-center border-b-2 border-white p-3 shrink-0">
-    <div><h1 class="arc text-xl flex items-center gap-2">DAZER <span class="inline-flex items-center justify-center w-5 h-5 border-2 border-white rounded-full text-[9px]">&#9650;</span></h1><p class="arc text-xs">ESTANDAR</p></div>
+    <div><h1 class="arc text-xl">DAZER</h1><p class="arc text-xs">ESTANDAR</p></div>
     <button onclick="rejectRules()" class="btn px-4 py-2 text-sm text-white">Salir</button>
   </div>
   <div class="flex-1 overflow-y-auto p-4">
     <div class="max-w-sm mx-auto box p-5">
-      <h2 class="arc text-2xl text-center mb-4">NORMAS DE COMUNIDAD</h2>
+      <h2 class="arc text-2xl text-center mb-4">NORMAS</h2>
       <div class="font-black text-sm space-y-1.5 leading-tight">
         <p>NO AL CONTENIDO SIN SENTIDO</p><p>NO AL PLAGIO</p><p>NO AL SPAM</p>
         <p>NO AL CIBERBULLYNG</p><p>NO AL STALKERT</p><p>NO AL PORNOGRAFIA INFANTIL</p>
-        <p>NO AL GORE</p><p>NO AL A PERSONAS OBLIGADAS HACER CONTENIDO</p>
+        <p>NO AL GORE</p>
       </div>
-      <p class="text-green-400 text-center arc text-xs mt-5">SI ACEPTO LAS NORMAS Y SI LAS VIOLO SERE BANIADO</p>
-      <button onclick="acceptRules()" class="btn btn-w w-full py-3 text-xs mt-3">ACEPTO Y CONTINÚO</button>
-      <button onclick="rejectRules()" class="btn w-full py-3 text-xs mt-2" style="color:#ef4444">NO LAS ACEPTO SALIR</button>
-    </div>
-  </div>
-  <div class="border-t-2 border-white bg-black py-2 px-3 flex items-center justify-between shrink-0 grain">
-    <div class="flex items-center gap-3"><i class="fa-solid fa-torii-gate text-2xl" style="color:#dc2626"></i><span class="serif text-base tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
-    <span class="arc text-xs text-purple-400">DIRECT@R</span>
-  </div>
-</div>
-
-<!-- ====== MASTER ====== -->
-<div id="mod-master" class="fixed inset-0 z-[80] bg-black/95 hidden items-center justify-center p-4">
-  <div class="max-w-xs w-full box bg-black p-6 space-y-4">
-    <h3 class="arc text-lg text-center flex items-center justify-center gap-2"><i class="fa-solid fa-lock text-purple-500"></i> CLAVE MAESTRA</h3>
-    <input id="master-pass" type="password" placeholder="••••••••" class="inp text-center">
-    <div class="flex gap-2">
-      <button onclick="closeModal('mod-master')" class="btn flex-1 py-2 text-xs text-white">Cancelar</button>
-      <button onclick="checkMaster()" class="btn btn-w flex-1 py-2 text-xs">Entrar</button>
+      <button onclick="acceptRules()" class="btn btn-w w-full py-3 text-xs mt-4">ACEPTO Y CONTINÚO</button>
+      <button onclick="rejectRules()" class="btn w-full py-3 text-xs mt-2" style="color:#ef4444">NO ACEPTO</button>
     </div>
   </div>
 </div>
 
-<!-- ====== APP ====== -->
+<!-- APP -->
 <div id="app" class="hidden h-full flex-col overflow-hidden">
   <header class="border-b-2 border-white bg-black flex items-center shrink-0">
     <div class="px-3 py-2 border-r-2 border-white">
-      <h1 class="arc text-lg leading-none flex items-center gap-1">DAZER <span class="inline-flex items-center justify-center w-4 h-4 border border-white rounded-full text-[8px]">&#9650;</span></h1>
+      <h1 class="arc text-lg leading-none">DAZER</h1>
       <p class="arc text-[10px] leading-none">ESTANDAR</p>
     </div>
     <div class="flex-1 text-center">
@@ -284,7 +305,7 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
     <button onclick="logoutApp()" class="px-3 py-3 arc text-sm border-l-2 border-white">Salir</button>
   </header>
 
-  <main id="viewport" class="flex-1 overflow-y-auto bg-black text-white"></main>
+  <main id="viewport" class="flex-1 overflow-hidden bg-black text-white relative"></main>
 
   <div class="nav-carousel-wrap">
     <div class="nav-carousel" id="nc-all">
@@ -302,12 +323,11 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
       <button onclick="go('footage')" id="tab-footage"><i class="fa-solid fa-film"></i><span>FOOTAGE</span></button>
       <button onclick="go('spielfilm')" id="tab-spielfilm"><i class="fa-solid fa-video"></i><span>SPIELFILM</span></button>
       <button onclick="go('schnapps')" id="tab-schnapps"><i class="fa-solid fa-camera"></i><span>SCHNAPPS</span></button>
+      <button onclick="go('aline')" id="tab-aline"><i class="fa-solid fa-layer-group"></i><span>ALINE</span></button>
       <button onclick="go('comunicacion')" id="tab-comunicacion"><i class="fa-solid fa-comments"></i><span>COMUNICACIÓN</span></button>
       <span class="nav-sep red">&#9670;</span>
-      <button onclick="toast('C.P.H — próximamente','info')"><span class="flag-ex">EXCLUSIVE</span><span>C.P.H</span></button>
-      <button onclick="toast('C.P.S — próximamente','info')"><span class="flag-ex purple">EXCLUSIVE</span><span>C.P.S</span></button>
       <button onclick="go('umikaiser')" id="exnav-umikaiser"><i class="fa-solid fa-dice" style="color:#dc2626"></i><span>UMIKAISER</span></button>
-      <button onclick="go('config')" id="exnav-config"><i class="fa-solid fa-gears"></i><span>CONFIGURACIÓNES</span></button>
+      <button onclick="go('config')" id="exnav-config"><i class="fa-solid fa-gears"></i><span>CONFIGURACIONES</span></button>
       <button onclick="go('zukurzalez')" id="exnav-zukurzalez"><i class="fa-solid fa-cart-shopping"></i><span>ZUKURZALEZ</span></button>
       <button onclick="go('gdz')" id="exnav-gdz"><i class="fa-solid fa-bag-shopping"></i><span>GDZ</span></button>
       <button onclick="go('perfil')" id="exnav-perfil"><i class="fa-solid fa-user"></i><span>PERFIL</span></button>
@@ -315,943 +335,646 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
   </div>
 
   <footer class="border-t-2 border-white bg-black px-3 py-1.5 flex items-center justify-between shrink-0 grain">
-    <div class="flex items-center gap-2"><i class="fa-solid fa-torii-gate text-xl" style="color:#dc2626"></i><span class="serif text-sm tracking-wider">DAZER ESTANDAR / VOLUMEN 2</span></div>
+    <div class="flex items-center gap-2"><i class="fa-solid fa-torii-gate text-xl" style="color:#dc2626"></i><span class="serif text-sm">DAZER ESTANDAR / VOLUMEN 2</span></div>
     <span id="ftr-role" class="arc text-xs" style="color:#a855f7">GRATUITO</span>
   </footer>
 </div>
 
 <input id="hidden-photo-input" type="file" accept="image/*" style="display:none">
-<input id="hidden-content-input" type="file" accept="image/*,video/*" style="display:none">
 
 <script type="module">
-/* ================= ICONO PWA ================= */
-const ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
-  '<defs>' +
-    '<radialGradient id="bg" cx="50%" cy="50%" r="75%">' +
-      '<stop offset="0%" stop-color="#2a1048"/>' +
-      '<stop offset="70%" stop-color="#0a0014"/>' +
-      '<stop offset="100%" stop-color="#000000"/>' +
-    '</radialGradient>' +
-    '<linearGradient id="tri" x1="0%" y1="0%" x2="0%" y2="100%">' +
-      '<stop offset="0%" stop-color="#c084fc"/>' +
-      '<stop offset="100%" stop-color="#7c3aed"/>' +
-    '</linearGradient>' +
-  '</defs>' +
-  '<rect width="512" height="512" fill="url(#bg)"/>' +
-  '<circle cx="256" cy="256" r="150" fill="none" stroke="#a855f7" stroke-width="9" opacity="0.85"/>' +
-  '<polygon points="256,150 335,315 177,315" fill="url(#tri)"/>' +
-  '<text x="256" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="6">DAZER</text>' +
-'</svg>';
+/* ============= PWA ============= */
+const ICON_SVG='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><radialGradient id="bg" cx="50%" cy="50%" r="75%"><stop offset="0%" stop-color="#2a1048"/><stop offset="70%" stop-color="#0a0014"/><stop offset="100%" stop-color="#000"/></radialGradient><linearGradient id="tri" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c084fc"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs><rect width="512" height="512" fill="url(#bg)"/><circle cx="256" cy="256" r="150" fill="none" stroke="#a855f7" stroke-width="9" opacity="0.85"/><polygon points="256,150 335,315 177,315" fill="url(#tri)"/><text x="256" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#fff" letter-spacing="6">DAZER</text></svg>';
+const ICON_URI='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(ICON_SVG)));
+document.getElementById('pwa-icon-preview').innerHTML=ICON_SVG;
+document.getElementById('apple-icon').href=ICON_URI;
+const PWA_MANIFEST={name:'DAZER ESTANDAR',short_name:'DAZER',start_url:location.href.split('?')[0],scope:'./',display:'standalone',orientation:'portrait',background_color:'#000',theme_color:'#000',icons:[{src:ICON_URI,sizes:'192x192',type:'image/svg+xml',purpose:'any'},{src:ICON_URI,sizes:'512x512',type:'image/svg+xml',purpose:'any'},{src:ICON_URI,sizes:'512x512',type:'image/svg+xml',purpose:'maskable'}]};
+try{const mB=new Blob([JSON.stringify(PWA_MANIFEST)],{type:'application/manifest+json'});document.getElementById('pwa-manifest').href=URL.createObjectURL(mB);}catch(e){document.getElementById('pwa-manifest').href='data:application/manifest+json;charset=utf-8,'+encodeURIComponent(JSON.stringify(PWA_MANIFEST));}
+const IS_IOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+const IS_STANDALONE=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+let deferredPrompt=null,justInstalled=false;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updateInstallUI();});
+window.addEventListener('appinstalled',()=>{justInstalled=true;deferredPrompt=null;updateInstallUI();});
+function updateInstallUI(){const b=document.getElementById('btn-install'),s=document.getElementById('pwa-status');if(!b||!s)return;
+  if(IS_STANDALONE()||justInstalled){b.disabled=true;b.innerHTML='<i class="fa-solid fa-circle-check"></i> YA INSTALADO';s.innerHTML='App instalada.';}
+  else if(deferredPrompt){b.disabled=false;b.innerHTML='<i class="fa-solid fa-download"></i> INSTALAR DAZER';s.innerHTML='Toca INSTALAR para añadir a tu pantalla';}
+  else if(IS_IOS){b.disabled=false;b.innerHTML='<i class="fa-solid fa-download"></i> INSTALAR DAZER';s.innerHTML='Compartir → Añadir a pantalla de inicio';}
+  else{b.disabled=false;b.innerHTML='<i class="fa-solid fa-download"></i> INSTALAR DAZER';s.innerHTML='Menú navegador → Añadir a inicio';}}
+window.installApp=async()=>{if(IS_STANDALONE()||justInstalled){toast('Ya estás usando la app','info');return;}
+  if(deferredPrompt){try{deferredPrompt.prompt();const{outcome}=await deferredPrompt.userChoice;if(outcome==='accepted')justInstalled=true;}catch(e){}deferredPrompt=null;updateInstallUI();return;}
+  toast(IS_IOS?'Compartir → Añadir a pantalla':'Menú → Añadir a inicio','info');};
+setTimeout(updateInstallUI,300);setTimeout(updateInstallUI,1500);
 
-const ICON_URI = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(ICON_SVG)));
-document.getElementById('pwa-icon-preview').innerHTML = ICON_SVG;
-document.getElementById('apple-icon').href = ICON_URI;
-
-const PWA_MANIFEST = {
-  name: 'DAZER ESTANDAR / VOLUMEN 2',
-  short_name: 'DAZER',
-  description: 'DAZER ESTÁNDAR / VOLUMEN 2 — Contenido sin censura',
-  start_url: location.href.split('?')[0].split('#')[0],
-  scope: './',
-  id: 'dazer-estandar-vol2',
-  display: 'standalone',
-  display_override: ['standalone', 'minimal-ui'],
-  orientation: 'portrait',
-  background_color: '#000000',
-  theme_color: '#000000',
-  lang: 'es',
-  dir: 'ltr',
-  categories: ['entertainment', 'social'],
-  icons: [
-    { src: ICON_URI, sizes: '192x192', type: 'image/svg+xml', purpose: 'any' },
-    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' },
-    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' }
-  ],
-  share_target: {
-    action: location.pathname || '/',
-    method: 'GET',
-    enctype: 'application/x-www-form-urlencoded',
-    params: { title: 'share_title', text: 'share_text', url: 'share_url' }
-  }
-};
-
-try {
-  const mBlob = new Blob([JSON.stringify(PWA_MANIFEST)], { type: 'application/manifest+json' });
-  document.getElementById('pwa-manifest').href = URL.createObjectURL(mBlob);
-} catch (e) {
-  document.getElementById('pwa-manifest').href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(PWA_MANIFEST));
-}
-
-const IS_IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-const IS_STANDALONE = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true || document.referrer.startsWith('android-app://');
-
-let deferredPrompt = null;
-let justInstalled = false;
-window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; updateInstallUI(); });
-window.addEventListener('appinstalled', () => { justInstalled = true; deferredPrompt = null; updateInstallUI(); });
-
-function updateInstallUI() {
-  const btn = document.getElementById('btn-install');
-  const status = document.getElementById('pwa-status');
-  if (!btn || !status) return;
-  if (IS_STANDALONE() || justInstalled) {
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> YA INSTALADO';
-    status.innerHTML = '<span style="color:#22c55e">App instalada.</span><br>Ábrela desde tu pantalla de inicio.';
-  } else if (deferredPrompt) {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'Toca INSTALAR y añade DAZER<br>a tu pantalla de inicio';
-  } else if (IS_IOS) {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'En iPhone: toca Compartir <i class="fa-solid fa-arrow-up-from-bracket"></i> →<br>Añadir a pantalla de inicio';
-  } else {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'Menú del navegador →<br>Añadir a pantalla de inicio';
-  }
-}
-window.installApp = async () => {
-  if (IS_STANDALONE() || justInstalled) { toast('Ya estás usando la app instalada','info'); return; }
-  if (deferredPrompt) {
-    try {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') { justInstalled = true; toast('Instalando DAZER...','success'); }
-      else { toast('Instalación cancelada','info'); }
-    } catch(err){ console.warn(err); }
-    deferredPrompt = null; updateInstallUI(); return;
-  }
-  if (IS_IOS) toast('Compartir → Añadir a pantalla de inicio','info');
-  else toast('Menú del navegador → Añadir a inicio','info');
-};
-setTimeout(updateInstallUI, 300);
-setTimeout(updateInstallUI, 1500);
-
-/* ================= FIREBASE ================= */
+/* ============= FIREBASE ============= */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
-const CFG = {
-  cuentas:   { apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4", authDomain:"dazer-extremo-cuentas.firebaseapp.com", projectId:"dazer-extremo-cuentas", storageBucket:"dazer-extremo-cuentas.firebasestorage.app", messagingSenderId:"551686385854", appId:"1:551686385854:web:6bb73a9b34e2471ca26eef" },
-  kurzclips: { apiKey:"AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0", authDomain:"dazer-extremo-kurzclips.firebaseapp.com", projectId:"dazer-extremo-kurzclips", storageBucket:"dazer-extremo-kurzclips.firebasestorage.app", messagingSenderId:"790098661692", appId:"1:790098661692:web:becd1e7a3b04bc9e0b8e39" },
-  footages:  { apiKey:"AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY", authDomain:"dazer-extremo-footages.firebaseapp.com", projectId:"dazer-extremo-footages", storageBucket:"dazer-extremo-footages.firebasestorage.app", messagingSenderId:"254207247947", appId:"1:254207247947:web:82a5c5ff2a5a3297a12fce" },
-  schnapps:  { apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q", authDomain:"dazer-extremo-schannps.firebaseapp.com", projectId:"dazer-extremo-schannps", storageBucket:"dazer-extremo-schannps.firebasestorage.app", messagingSenderId:"18311813658", appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3" },
-  mensajes:  { apiKey:"AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU", authDomain:"dazer-extremo-mensajes.firebaseapp.com", projectId:"dazer-extremo-mensajes", storageBucket:"dazer-extremo-mensajes.firebasestorage.app", messagingSenderId:"70744027643", appId:"1:70744027643:web:1cf308aea8a5f87f1b5b5e" }
+const CFG={
+  cuentas:  {apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4",authDomain:"dazer-extremo-cuentas.firebaseapp.com",projectId:"dazer-extremo-cuentas",storageBucket:"dazer-extremo-cuentas.firebasestorage.app",messagingSenderId:"551686385854",appId:"1:551686385854:web:6bb73a9b34e2471ca26eef"},
+  kurzclips:{apiKey:"AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0",authDomain:"dazer-extremo-kurzclips.firebaseapp.com",projectId:"dazer-extremo-kurzclips",storageBucket:"dazer-extremo-kurzclips.firebasestorage.app",messagingSenderId:"790098661692",appId:"1:790098661692:web:becd1e7a3b04bc9e0b8e39"},
+  footages: {apiKey:"AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY",authDomain:"dazer-extremo-footages.firebaseapp.com",projectId:"dazer-extremo-footages",storageBucket:"dazer-extremo-footages.firebasestorage.app",messagingSenderId:"254207247947",appId:"1:254207247947:web:82a5c5ff2a5a3297a12fce"},
+  schnapps: {apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q",authDomain:"dazer-extremo-schannps.firebaseapp.com",projectId:"dazer-extremo-schannps",storageBucket:"dazer-extremo-schannps.firebasestorage.app",messagingSenderId:"18311813658",appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3"},
+  mensajes: {apiKey:"AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU",authDomain:"dazer-extremo-mensajes.firebaseapp.com",projectId:"dazer-extremo-mensajes",storageBucket:"dazer-extremo-mensajes.firebasestorage.app",messagingSenderId:"70744027643",appId:"1:70744027643:web:1cf308aea8a5f87f1b5b5e"}
 };
+const appCuentas=initializeApp(CFG.cuentas,'appCuentas');
+const appKurz=initializeApp(CFG.kurzclips,'appKurz');
+const appFoot=initializeApp(CFG.footages,'appFoot');
+const appSchn=initializeApp(CFG.schnapps,'appSchn');
+const appMsg=initializeApp(CFG.mensajes,'appMsg');
+const auth=getAuth(appCuentas);
+const dbCuentas=getFirestore(appCuentas);
+const dbKurz=getFirestore(appKurz);
+const dbFoot=getFirestore(appFoot);
+const dbSchn=getFirestore(appSchn);
+const dbMsg=getFirestore(appMsg);
 
-const appCuentas = initializeApp(CFG.cuentas, 'appCuentas');
-const appKurz = initializeApp(CFG.kurzclips, 'appKurz');
-const appFoot = initializeApp(CFG.footages, 'appFoot');
-const appSchn = initializeApp(CFG.schnapps, 'appSchn');
-const appMsg = initializeApp(CFG.mensajes, 'appMsg');
-const auth = getAuth(appCuentas);
-const dbCuentas = getFirestore(appCuentas);
-const dbKurz = getFirestore(appKurz);
-const dbFoot = getFirestore(appFoot);
-const dbSchn = getFirestore(appSchn);
-const dbMsg = getFirestore(appMsg);
-const stKurz = getStorage(appKurz);
-const stFoot = getStorage(appFoot);
-const stSchn = getStorage(appSchn);
-const stCuentas = getStorage(appCuentas);
-
-/* ============ LÍMITES DE TAMAÑO ============ */
-const LIMITE_VIDEO_MB = 200;   // videos hasta 200 MB
-const LIMITE_FOTO_MB  = 10;    // fotos hasta 10 MB
-
-window.state = {
-  user: { uid:'', name:'', role:'GRATUITO', email:'', photo:'', photo2:'', photo3:'' },
-  settings: { transitions:true, theme:'nocturno', sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true },
-  vk: { VPN:false, REDOCULTA:false, ZUKURZALES:false, TOZO:false, DEEZZEER:false, 'AL CANDADO':false, VERKEHR:false },
-  umi: { casilla:1, puntos:0, dados:12 }
+window.state={
+  user:{uid:'',name:'',role:'GRATUITO',email:'',photo:'',photo2:'',photo3:''},
+  settings:{transitions:true,theme:'nocturno'},
+  vk:{VPN:false,REDOCULTA:false,ZUKURZALES:false,TOZO:false,DEEZZEER:false,'AL CANDADO':false,VERKEHR:false},
+  umi:{casilla:1,puntos:0,dados:12}
 };
-try { const s=JSON.parse(localStorage.getItem('dazer')||'{}');
-  if (s.user) Object.assign(state.user, s.user);
-  if (s.settings) Object.assign(state.settings, s.settings);
-  if (s.vk) Object.assign(state.vk, s.vk);
-} catch(e){}
-window.save = () => localStorage.setItem('dazer', JSON.stringify({ user:state.user, settings:state.settings, vk:state.vk }));
+try{const s=JSON.parse(localStorage.getItem('dazer')||'{}');if(s.user)Object.assign(state.user,s.user);if(s.settings)Object.assign(state.settings,s.settings);if(s.vk)Object.assign(state.vk,s.vk);}catch(e){}
+window.save=()=>localStorage.setItem('dazer',JSON.stringify({user:state.user,settings:state.settings,vk:state.vk}));
 
-window.toast = (msg, type='info') => {
-  const t = document.createElement('div');
-  t.className = `toast-msg ${type}`;
-  t.textContent = msg;
-  document.getElementById('toast-wrap').appendChild(t);
-  setTimeout(()=>{ t.classList.add('out'); setTimeout(()=>t.remove(), 250); }, 3000);
+window.toast=(msg,type='info')=>{const t=document.createElement('div');t.className=`toast-msg ${type}`;t.textContent=msg;document.getElementById('toast-wrap').appendChild(t);setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),250);},3200);};
+const show=id=>{const e=document.getElementById(id);e.classList.remove('hidden');e.classList.add('flex');};
+const hide=id=>{const e=document.getElementById(id);e.classList.add('hidden');e.classList.remove('flex');};
+window.openModal=show;window.closeModal=hide;
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* FUEGUITO */
+function spawnFire(x,y,big=false){const n=big?10:5;for(let i=0;i<n;i++){const f=document.createElement('div');f.className='fuego';f.style.left=x+'px';f.style.top=y+'px';f.style.setProperty('--dx',(Math.random()-0.5)*46+'px');const s=big?(0.9+Math.random()*0.9):(0.65+Math.random()*0.6);f.style.width=(14*s)+'px';f.style.height=(14*s)+'px';f.style.animationDelay=(i*22)+'ms';document.body.appendChild(f);setTimeout(()=>f.remove(),900+i*22);}}
+let lastX=0,lastY=0,trailOn=false;
+function stepTrail(x,y){const dx=x-lastX,dy=y-lastY;if(dx*dx+dy*dy>260){spawnFire(x,y,false);lastX=x;lastY=y;}}
+document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')return;lastX=e.clientX;lastY=e.clientY;trailOn=true;spawnFire(e.clientX,e.clientY,true);},{passive:true});
+document.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||!trailOn)return;stepTrail(e.clientX,e.clientY);},{passive:true});
+document.addEventListener('pointerup',e=>{if(e.pointerType==='touch')return;trailOn=false;},{passive:true});
+document.addEventListener('touchstart',e=>{if(!e.touches.length)return;const t=e.touches[0];lastX=t.clientX;lastY=t.clientY;trailOn=true;spawnFire(t.clientX,t.clientY,true);},{passive:true});
+document.addEventListener('touchmove',e=>{if(!trailOn||!e.touches.length)return;const t=e.touches[0];stepTrail(t.clientX,t.clientY);},{passive:true});
+document.addEventListener('touchend',()=>{trailOn=false;},{passive:true});
+
+const brainIcon=(size=28,color='#dc2626')=>`<i class="fa-solid fa-brain" style="font-size:${size}px;color:${color}"></i>`;
+const blackhole=(size=28)=>`<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px;display:inline-block;vertical-align:middle"><defs><radialGradient id="bhg" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#000"/><stop offset="60%" stop-color="#000"/><stop offset="70%" stop-color="#10b981"/><stop offset="85%" stop-color="#a7f3d0"/><stop offset="100%" stop-color="#06b6d4"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="34" fill="url(#bhg)" opacity=".9"/><circle cx="50" cy="50" r="20" fill="#000"/></svg>`;
+
+window.copyLink=()=>{navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error'));};
+window.goLang=()=>{hide('scr-pwa');show('scr-lang');};
+window.goAuth=()=>{hide('scr-lang');show('scr-auth');};
+window.exitApp=()=>{hide('scr-auth');show('scr-pwa');};
+
+const langs=['Deutsch','عربي','國語','čeština','Português','Français','English','Nnrzıßnniko'];
+document.getElementById('lang-list').innerHTML=langs.map(l=>`<div class="grid grid-cols-2 gap-2"><div class="box2 p-2.5 text-center">${l}</div><div class="box2 p-2.5 text-center text-[11px] arc">PROXIMAMENTE</div></div>`).join('');
+
+/* ============= LOGIN ============= */
+window.loginGoogle=async()=>{
+  const p=new GoogleAuthProvider();p.setCustomParameters({prompt:'select_account'});
+  try{
+    const res=await signInWithPopup(auth,p);const u=res.user;
+    const uref=doc(dbCuentas,'usuarios',u.uid);const ex=await getDoc(uref);
+    const nombre=(u.displayName||u.email.split('@')[0]).toUpperCase();
+    const data={nombre,email:u.email||'',foto:u.photoURL||'',estado:'conectado',rol:ex.exists()?(ex.data().rol||'GRATUITO'):'GRATUITO',normas:ex.exists()?(ex.data().normas||false):false};
+    await setDoc(uref,data,{merge:true});
+    state.user={uid:u.uid,name:data.nombre,role:data.rol,email:data.email,photo:'',photo2:'',photo3:''};
+    if(ex.exists()){const ed=ex.data();if(ed.foto)state.user.photo=ed.foto;if(ed.foto2)state.user.photo2=ed.foto2;if(ed.foto3)state.user.photo3=ed.foto3;}else{state.user.photo=data.foto;}
+    save();toast('Conectado','success');
+    if(data.normas){hide('scr-auth');enterApp();}else{hide('scr-auth');show('scr-rules');}
+  }catch(e){const m={'auth/popup-closed-by-user':'Cerraste la ventana','auth/unauthorized-domain':'Dominio no autorizado','auth/popup-blocked':'Ventanas bloqueadas','auth/operation-not-allowed':'Activa Google en Auth'};toast(m[e.code]||('Error: '+e.code),'error');}
 };
-
-const show = id => { const e=document.getElementById(id); e.classList.remove('hidden'); e.classList.add('flex'); };
-const hide = id => { const e=document.getElementById(id); e.classList.add('hidden'); e.classList.remove('flex'); };
-window.openModal = show; window.closeModal = hide;
-const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-
-/* ============ FUEGUITO MORADO ============ */
-function spawnFire(x, y, big=false) {
-  const n = big ? 10 : 5;
-  for (let i = 0; i < n; i++) {
-    const f = document.createElement('div');
-    f.className = 'fuego';
-    f.style.left = x + 'px'; f.style.top = y + 'px';
-    f.style.setProperty('--dx', (Math.random()-0.5)*46 + 'px');
-    const s = big ? (0.9 + Math.random()*0.9) : (0.65 + Math.random()*0.6);
-    f.style.width = (14*s) + 'px'; f.style.height = (14*s) + 'px';
-    f.style.animationDelay = (i*22) + 'ms';
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(), 900 + i*22);
-  }
-}
-let lastX=0, lastY=0, trailOn=false;
-function stepTrail(x, y){ const dx=x-lastX, dy=y-lastY; if (dx*dx+dy*dy>260) { spawnFire(x,y,false); lastX=x; lastY=y; } }
-document.addEventListener('pointerdown', e => { if (e.pointerType === 'touch') return; lastX=e.clientX; lastY=e.clientY; trailOn=true; spawnFire(e.clientX, e.clientY, true); }, { passive:true });
-document.addEventListener('pointermove', e => { if (e.pointerType === 'touch' || !trailOn) return; stepTrail(e.clientX, e.clientY); }, { passive:true });
-document.addEventListener('pointerup', e => { if (e.pointerType === 'touch') return; trailOn=false; }, { passive:true });
-document.addEventListener('touchstart', e => { if (!e.touches.length) return; const t=e.touches[0]; lastX=t.clientX; lastY=t.clientY; trailOn=true; spawnFire(t.clientX, t.clientY, true); }, { passive:true });
-document.addEventListener('touchmove', e => { if (!trailOn || !e.touches.length) return; const t=e.touches[0]; stepTrail(t.clientX, t.clientY); }, { passive:true });
-document.addEventListener('touchend', ()=>{trailOn=false;}, { passive:true });
-document.addEventListener('touchcancel', ()=>{trailOn=false;}, { passive:true });
-
-const brainIcon = (size=28, color='#dc2626') => `<i class="fa-solid fa-brain" style="font-size:${size}px;color:${color}"></i>`;
-const blackhole = (size=28) => `<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px;display:inline-block;vertical-align:middle"><defs><radialGradient id="bhg" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#000"/><stop offset="60%" stop-color="#000"/><stop offset="70%" stop-color="#10b981"/><stop offset="85%" stop-color="#a7f3d0"/><stop offset="100%" stop-color="#06b6d4"/></radialGradient></defs><ellipse cx="50" cy="50" rx="46" ry="34" fill="url(#bhg)" opacity=".9"/><circle cx="50" cy="50" r="20" fill="#000"/></svg>`;
-
-window.copyLink = () => { navigator.clipboard.writeText(location.href).then(()=>toast('Enlace copiado','success')).catch(()=>toast('Error','error')); };
-window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
-window.goAuth = () => { hide('scr-lang'); show('scr-auth'); };
-window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
-
-const langs = ['Deutsch','عربي','國語','čeština','Português','Français','English','Nnrzıßnniko'];
-document.getElementById('lang-list').innerHTML = langs.map(l => `
-  <div class="grid grid-cols-2 gap-2">
-    <div class="box2 p-2.5 text-center text-base">${l}</div>
-    <div class="box2 p-2.5 text-center text-[11px] arc">PROXIMAMENTE</div>
-  </div>`).join('');
-
-/* ============ LOGIN GOOGLE ============ */
-window.loginGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt:'select_account' });
-  try {
-    const res = await signInWithPopup(auth, provider);
-    const u = res.user; const uid = u.uid;
-    const uref = doc(dbCuentas,'usuarios',uid);
-    const exist = await getDoc(uref);
-    const nombre = (u.displayName || u.email.split('@')[0]).toUpperCase();
-    const data = {
-      nombre: nombre || 'USER',
-      email: u.email || 'sin-correo@dazer.app',
-      foto: u.photoURL || '',
-      estado: 'conectado',
-      rol: exist.exists() ? (exist.data().rol||'GRATUITO') : 'GRATUITO',
-      normas: exist.exists() ? (exist.data().normas||false) : false
-    };
-    await setDoc(uref, data, { merge:true });
-    state.user = { uid, name:data.nombre, role:data.rol, email:data.email, photo:'', photo2:'', photo3:'' };
-    if (exist.exists()) {
-      const ed = exist.data();
-      if (ed.foto) state.user.photo = ed.foto;
-      if (ed.foto2) state.user.photo2 = ed.foto2;
-      if (ed.foto3) state.user.photo3 = ed.foto3;
-    } else {
-      state.user.photo = data.foto;
-    }
-    save();
-    toast('Conectado con Google','success');
-    if (data.normas) { hide('scr-auth'); enterApp(); }
-    else { hide('scr-auth'); show('scr-rules'); }
-  } catch(e) {
-    const map = { 'auth/popup-closed-by-user':'Cerraste la ventana de Google','auth/unauthorized-domain':'Dominio no autorizado','auth/popup-blocked':'Ventanas emergentes bloqueadas','auth/operation-not-allowed':'Activa Google en Auth' };
-    toast(map[e.code]||'Error: '+(e.code||e.message),'error');
-  }
+window.loginEmail=async()=>{
+  const email=document.getElementById('log-email').value.trim();
+  const pass=document.getElementById('log-pass').value;
+  if(!email||!pass)return toast('Faltan datos','error');
+  try{
+    const res=await signInWithEmailAndPassword(auth,email,pass);const u=res.user;
+    const d=await getDoc(doc(dbCuentas,'usuarios',u.uid));const data=d.exists()?d.data():{};
+    state.user={uid:u.uid,name:(data.nombre||email.split('@')[0]).toUpperCase(),role:data.rol||'GRATUITO',email:u.email||email,photo:data.foto||'',photo2:data.foto2||'',photo3:data.foto3||''};
+    save();await setDoc(doc(dbCuentas,'usuarios',u.uid),{estado:'conectado'},{merge:true});
+    closeModal('mod-email');toast('Conectado','success');
+    if(data.normas){hide('scr-auth');enterApp();}else{hide('scr-auth');show('scr-rules');}
+  }catch(e){const m={'auth/user-not-found':'Usuario no existe','auth/wrong-password':'Contraseña incorrecta','auth/invalid-credential':'Credenciales incorrectas','auth/invalid-email':'Correo inválido'};toast(m[e.code]||('Error: '+e.code),'error');}
 };
+window.acceptRules=async()=>{try{if(state.user.uid)await setDoc(doc(dbCuentas,'usuarios',state.user.uid),{normas:true},{merge:true});}catch(e){}hide('scr-rules');enterApp();};
+window.rejectRules=async()=>{try{if(state.user.uid)await setDoc(doc(dbCuentas,'usuarios',state.user.uid),{estado:'desconectado'},{merge:true});}catch(e){}hide('scr-rules');show('scr-auth');};
 
-/* ============ LOGIN CORREO ============ */
-window.loginEmail = async () => {
-  const email = document.getElementById('log-email').value.trim();
-  const pass = document.getElementById('log-pass').value;
-  if (!email || !pass) return toast('Faltan datos','error');
-  try {
-    const res = await signInWithEmailAndPassword(auth, email, pass);
-    const u = res.user;
-    const d = await getDoc(doc(dbCuentas,'usuarios',u.uid));
-    const data = d.exists() ? d.data() : {};
-    state.user = {
-      uid: u.uid,
-      name: (data.nombre || email.split('@')[0]).toUpperCase(),
-      role: data.rol || 'GRATUITO',
-      email: u.email || email,
-      photo: data.foto || '',
-      photo2: data.foto2 || '',
-      photo3: data.foto3 || ''
-    };
-    save();
-    await setDoc(doc(dbCuentas,'usuarios',u.uid), { estado:'conectado' }, { merge:true });
-    closeModal('mod-email');
-    toast('Conectado','success');
-    if (data.normas) { hide('scr-auth'); enterApp(); }
-    else { hide('scr-auth'); show('scr-rules'); }
-  } catch(e) {
-    const map = {
-      'auth/user-not-found': 'Usuario no existe en Firebase Auth',
-      'auth/wrong-password': 'Contraseña incorrecta',
-      'auth/invalid-email': 'Correo inválido',
-      'auth/invalid-credential': 'Credenciales incorrectas',
-      'auth/too-many-requests': 'Demasiados intentos, espera'
-    };
-    toast(map[e.code] || ('Error: '+(e.code||e.message)),'error');
-  }
-};
+function enterApp(){const a=document.getElementById('app');a.classList.remove('hidden');a.classList.add('flex');document.getElementById('hdr-user').textContent=state.user.name;document.getElementById('hdr-role').textContent=state.user.role;document.getElementById('ftr-role').textContent=state.user.role;applyTheme(state.settings.theme);go('sala');}
+function applyTheme(t){document.body.className='select-none theme-'+t;}
 
-window.acceptRules = async () => {
-  try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { normas:true }, { merge:true }); } catch(e){}
-  hide('scr-rules'); enterApp();
-};
-window.rejectRules = async () => {
-  try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); } catch(e){}
-  hide('scr-rules'); show('scr-auth');
-};
+window.logoutApp=async()=>{try{if(state.user.uid)await setDoc(doc(dbCuentas,'usuarios',state.user.uid),{estado:'desconectado'},{merge:true});await signOut(auth);}catch(e){}document.getElementById('app').classList.add('hidden');document.getElementById('app').classList.remove('flex');show('scr-auth');toast('Sesión cerrada','info');};
 
-function enterApp() {
-  const app = document.getElementById('app');
-  app.classList.remove('hidden'); app.classList.add('flex');
-  document.getElementById('hdr-user').textContent = state.user.name;
-  document.getElementById('hdr-role').textContent = state.user.role;
-  document.getElementById('ftr-role').textContent = state.user.role;
-  applyTheme(state.settings.theme);
-  go('sala');
-  setTimeout(checkShareParams, 800);
-  const pending = sessionStorage.getItem('pendingShare');
-  if (pending) {
-    try { shareData = JSON.parse(pending); sessionStorage.removeItem('pendingShare'); setTimeout(openShareModal, 700); } catch(_){}
-  }
-}
-function applyTheme(t) { document.body.className = 'select-none theme-' + t; }
-
-window.logoutApp = async () => {
-  try { if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); await signOut(auth); } catch(e){}
-  document.getElementById('app').classList.add('hidden');
-  document.getElementById('app').classList.remove('flex');
-  show('scr-auth');
-  toast('Sesión cerrada','info');
-};
-
-/* ============ SHARE TARGET ============ */
-let shareData = null;
-function checkShareParams() {
-  const p = new URLSearchParams(location.search);
-  const url = p.get('share_url') || p.get('url');
-  const text = p.get('share_text') || p.get('text');
-  const title = p.get('share_title') || p.get('title');
-  if (!url && !text && !title) return;
-  shareData = { url, text, title };
-  openShareModal();
-}
-function openShareModal() {
-  if (!shareData) return;
-  const prev = document.getElementById('share-preview');
-  const titleInput = document.getElementById('share-title');
-  let preview = '';
-  if (shareData.title) preview += `<p class="text-white font-bold mb-1">${esc(shareData.title)}</p>`;
-  if (shareData.text) preview += `<p class="text-gray-400">${esc(shareData.text)}</p>`;
-  if (shareData.url) preview += `<p class="text-purple-400 break-all mt-1">${esc(shareData.url)}</p>`;
-  prev.innerHTML = preview || '<p class="text-gray-500 text-center">Sin contenido</p>';
-  titleInput.value = shareData.title || shareData.text?.slice(0, 40) || 'Contenido compartido';
-  show('mod-share');
-}
-window.saveShared = async (coll) => {
-  if (!shareData) return;
-  const titulo = document.getElementById('share-title').value.trim() || 'Contenido compartido';
-  try {
-    toast('Guardando...','info');
-    await addDoc(collection(DBS[coll], 'contenido'), {
-      tab:coll, titulo,
-      url: shareData.url || '',
-      texto: shareData.text || '',
-      tipo: shareData.url ? 'link' : 'text',
-      autor: state.user.name,
-      uid: state.user.uid,
-      compartido: true,
-      creado: Date.now()
-    });
-    toast('Compartido a '+coll.toUpperCase(),'success');
-    closeModal('mod-share');
-    shareData = null;
-    history.replaceState({}, '', location.pathname);
-    if (['kurzclips','footage','spielfilm','schnapps'].includes(coll)) go(coll);
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
-};
-(function detectShareEarly(){
-  const p = new URLSearchParams(location.search);
-  const url = p.get('share_url') || p.get('url');
-  const text = p.get('share_text') || p.get('text');
-  const title = p.get('share_title') || p.get('title');
-  if (url || text || title) sessionStorage.setItem('pendingShare', JSON.stringify({url, text, title}));
-})();
-
-/* ============ NAV ============ */
-const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
-  'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
-  'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
-const views = {};
-function findNavBtn(name){ return document.getElementById('tab-'+name) || document.getElementById('subnav-'+name) || document.getElementById('exnav-'+name); }
-function setActive(name){
-  ALL_TABS.forEach(t => { const a = findNavBtn(t); if (a) a.classList.remove('active','bg-white','text-black'); });
-  const b = findNavBtn(name);
-  if (b) { b.classList.add('active','bg-white','text-black'); b.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'}); }
-}
-window.go = (name) => {
-  const render = () => {
-    const v = views[name];
-    document.getElementById('viewport').innerHTML = v ? v() : '<p class="p-4">Vista no encontrada</p>';
+/* ============= NAV ============= */
+const ALL_TABS=['sala','navegador','kurzclips','footage','spielfilm','schnapps','aline','comunicacion','sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz','umikaiser','config','zukurzalez','gdz','perfil','reportar'];
+const views={};
+function findNavBtn(n){return document.getElementById('tab-'+n)||document.getElementById('subnav-'+n)||document.getElementById('exnav-'+n);}
+function setActive(n){ALL_TABS.forEach(t=>{const a=findNavBtn(t);if(a)a.classList.remove('active','bg-white','text-black');});const b=findNavBtn(n);if(b){b.classList.add('active','bg-white','text-black');b.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}}
+window.go=(name)=>{
+  const render=()=>{
+    const v=views[name];
+    document.getElementById('viewport').innerHTML=v?v():'<p class="p-4">Vista no encontrada</p>';
     setActive(name);
-    if (['kurzclips','footage','spielfilm','schnapps','aline'].includes(name)) loadContent(name);
-    if (name==='comunicacion') loadUsers();
-    if (name==='perfil') refreshProfileUI();
+    if(['kurzclips','footage','spielfilm','schnapps','aline'].includes(name))loadContent(name);
+    if(name==='comunicacion')loadUsers();
+    if(name==='perfil')refreshProfileUI();
   };
-  if (!state.settings.transitions) return render();
-  const sw = document.getElementById('sweep');
-  sw.classList.remove('active'); void sw.offsetWidth;
-  sw.classList.add('active');
-  setTimeout(render, 500);
-  setTimeout(()=>sw.classList.remove('active'), 1150);
+  if(!state.settings.transitions)return render();
+  const sw=document.getElementById('sweep');sw.classList.remove('active');void sw.offsetWidth;sw.classList.add('active');
+  setTimeout(render,500);setTimeout(()=>sw.classList.remove('active'),1150);
 };
 
-const contentHeader = (title) => `
-  <div class="flex items-center justify-between px-4 py-3 border-b border-white/20">
-    <div class="flex items-center gap-3">${brainIcon(32)}<h1 class="arc text-3xl">${title}</h1></div>
-    ${blackhole(38)}
-  </div>`;
+const contentHeader=(title)=>`<div class="flex items-center justify-between px-4 py-3 border-b border-white/20"><div class="flex items-center gap-3">${brainIcon(32)}<h1 class="arc text-3xl">${title}</h1></div>${blackhole(38)}</div>`;
 
-/* ================= SALA ================= */
-views.sala = () => `
-  <div class="text-center pt-8 pb-4">
-    <h1 class="arc text-5xl">DAZER</h1>
-    <h2 class="arc text-4xl mt-1">ESTANDAR</h2>
-    <p class="arc text-xs mt-3 tracking-widest">BIENVENID@</p>
-    <p class="arc text-lg mt-1" style="color:#a855f7">${esc(state.user.name)}</p>
-  </div>
-  <div class="max-w-xl mx-auto px-4 space-y-4 mt-2 pb-4">
-    <div class="relative">
-      <input id="sala-search" placeholder="" class="w-full bg-white text-black p-4 pr-14 rounded-full arc text-sm">
-      <button onclick="toast('Buscando...','info')" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border-2 border-black rounded-full flex items-center justify-center">
-        <i class="fa-solid fa-magnifying-glass text-black"></i>
-      </button>
-    </div>
-    <p class="text-center text-[10px] arc">BUSCA CONTENIDO QUE GUSTES SIN CENSURA EN EL TEXTO</p>
-    <div class="grid grid-cols-2 border-t-2 border-b border-white mt-2">
-      <button onclick="go('kurzclips')" class="arc text-2xl py-14 border-r-2 border-b-2 border-white text-center">KURZCLIPS</button>
-      <button onclick="go('footage')" class="arc text-2xl py-14 border-b-2 border-white text-center">FOOTAGE</button>
-      <button onclick="go('schnapps')" class="arc text-2xl py-14 border-r-2 border-white text-center">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="arc text-2xl py-14 text-center">SPIELFILM</button>
-    </div>
-  </div>`;
+/* ============= HELPERS DE ENLACES ============= */
+function detectarTipo(url){
+  if(!url)return 'unknown';
+  const u=url.toLowerCase();
+  if(u.match(/\.(jpg|jpeg|png|gif|webp|avif)(\?|$)/))return 'img';
+  if(u.match(/\.(mp4|webm|mov|m4v)(\?|$)/))return 'video';
+  if(u.includes('youtube.com')||u.includes('youtu.be'))return 'youtube';
+  if(u.includes('tiktok.com'))return 'tiktok';
+  if(u.includes('instagram.com'))return 'instagram';
+  if(u.includes('drive.google.com'))return 'drive';
+  if(u.includes('vimeo.com'))return 'vimeo';
+  return 'link';
+}
+function youtubeId(url){
+  const m=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+  return m?m[1]:null;
+}
+function tiktokId(url){
+  const m=url.match(/tiktok\.com\/[^/]+\/video\/(\d+)/);
+  return m?m[1]:null;
+}
+function driveId(url){
+  const m=url.match(/\/d\/([\w-]+)/)||url.match(/[?&]id=([\w-]+)/);
+  return m?m[1]:null;
+}
+function vimeoId(url){
+  const m=url.match(/vimeo\.com\/(\d+)/);return m?m[1]:null;
+}
+function embedUrl(url){
+  const t=detectarTipo(url);
+  if(t==='youtube'){const id=youtubeId(url);return id?`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`:null;}
+  if(t==='tiktok'){const id=tiktokId(url);return id?`https://www.tiktok.com/embed/v2/${id}`:null;}
+  if(t==='drive'){const id=driveId(url);return id?`https://drive.google.com/file/d/${id}/preview`:null;}
+  if(t==='vimeo'){const id=vimeoId(url);return id?`https://player.vimeo.com/video/${id}`:null;}
+  return null;
+}
+function thumbYoutube(url){const id=youtubeId(url);return id?`https://img.youtube.com/vi/${id}/hqdefault.jpg`:null;}
 
-views.navegador = () => `
-  <div class="text-center py-4 border-b border-white/20"><h1 class="arc text-2xl">CONTENIDO INTELIGENTE</h1></div>
-  <div class="p-4 max-w-md mx-auto space-y-3">
-    <div class="grid grid-cols-2 gap-3">
-      <button onclick="go('kurzclips')" class="arc text-lg py-8 bg-white text-black">KURZCLIPS</button>
-      <button onclick="go('kurzclips')" class="arc text-2xl py-8 bg-red-600 text-black">秘密</button>
-      <button onclick="go('footage')" class="arc text-lg py-8 bg-white text-black">FOOTAGE</button>
-      <button onclick="go('aline')" class="arc text-lg py-8 bg-white text-black">ALINE</button>
-      <button onclick="go('schnapps')" class="arc text-lg py-8 bg-white text-black">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="arc text-lg py-8 bg-white text-black">SPIELFILM</button>
-    </div>
-    <div class="text-center pt-8"><i class="fa-solid fa-brain text-8xl brain-pulse" style="color:#dc2626"></i>
-      <p class="text-[10px] mt-3 arc tracking-widest">VIENDO TU HISTORIAL PARA ENCONTRAR CONSIDENCIAS</p></div>
-  </div>`;
+/* ============= SUBIR CONTENIDO POR URL ============= */
+window.saveContentURL=async(coll)=>{
+  const titulo=document.getElementById('ac-title').value.trim()||'Sin título';
+  const url=document.getElementById('ac-url').value.trim();
+  if(!url)return toast('Pega un enlace','error');
+  try{
+    toast('Guardando...','info');
+    await addDoc(collection(DBS[coll],'contenido'),{
+      tab:coll,titulo,url,tipo:detectarTipo(url),
+      autor:state.user.name,uid:state.user.uid,creado:Date.now()
+    });
+    document.getElementById('ac-title').value='';
+    document.getElementById('ac-url').value='';
+    closeModal('mod-add-content');
+    toast('Guardado en '+coll.toUpperCase(),'success');
+    go(coll==='footage'?'footage':coll);
+  }catch(e){toast('Error: '+e.code,'error');}
+};
 
-const contentView = (title, coll, exclusive=false) => () => `
-  ${contentHeader(title)}
-  ${exclusive ? `<div class="px-4 pt-2"><span class="flag-ex">EXCLUSIVE</span></div>` : ''}
-  <div class="p-4 max-w-md mx-auto space-y-4">
-    <div class="box2 border-dashed p-4 flex flex-col items-center gap-2">
-      <input id="up-title-${coll}" placeholder="Título" class="inp text-center">
-      <input id="up-file-${coll}" type="file" accept="image/*,video/*" class="text-[10px] w-full">
-      <button onclick="uploadContent('${coll}')" class="btn btn-w w-full py-2 text-xs">SUBIR</button>
-      <p class="text-[9px] text-gray-500">Máx ${LIMITE_VIDEO_MB} MB</p>
-    </div>
-    <div id="feed-${coll}" class="space-y-3"><p class="text-center text-xs text-gray-500">Cargando...</p></div>
-  </div>`;
-
-views.kurzclips = contentView('KURZCLIPS','kurzclips');
-views.footage   = contentView('FOOTAGE','footage');
-views.spielfilm = contentView('SPIELFILM','spielfilm');
-views.schnapps  = contentView('SCHNAPPS','schnapps');
-views.aline     = contentView('ALINE','spielfilm', true);
-
-const DBS = { kurzclips:dbKurz, footage:dbFoot, spielfilm:dbKurz, schnapps:dbSchn, aline:dbKurz };
-const STS = { kurzclips:stKurz, footage:stFoot, spielfilm:stKurz, schnapps:stSchn, aline:stKurz };
-
-async function loadContent(coll) {
-  const feed = document.getElementById('feed-'+coll);
-  if (!feed) return;
-  try {
-    const snap = await getDocs(collection(DBS[coll], 'contenido'));
-    const items = snap.docs.map(d => d.data()).sort((a,b)=>(b.creado||0)-(a.creado||0));
-    if (!items.length) { feed.innerHTML = `<p class="text-center text-xs text-gray-500">Aún no hay contenido.</p>`; return; }
-    feed.innerHTML = items.map(c => {
-      let media;
-      if (c.tipo === 'v') media = `<video src="${c.url}" controls playsinline preload="metadata" class="w-full bg-black border border-gray-800"></video>`;
-      else if (c.tipo === 'i') media = `<img src="${c.url}" class="w-full bg-black border border-gray-800" loading="lazy">`;
-      else if (c.tipo === 'link') media = `<a href="${esc(c.url)}" target="_blank" rel="noopener" class="block p-4 bg-zinc-900 text-center border border-purple-500"><i class="fa-solid fa-link text-2xl text-purple-400 mb-1"></i><p class="text-[10px] break-all">${esc(c.url)}</p><p class="text-[9px] text-purple-400 mt-1">ABRIR ENLACE</p></a>`;
-      else if (c.tipo === 'text') media = `<div class="p-4 bg-zinc-900 border border-purple-500 text-sm">${esc(c.texto||'')}</div>`;
-      else media = '';
-      return `<div class="box2 p-2 space-y-2 bg-black">
-        ${media}
-        <p class="arc text-xs">${esc(c.titulo||'')}</p>
-        <p class="text-[10px]" style="color:#a855f7">@${esc(c.autor||'')}${c.compartido ? ' · compartido' : ''}</p>
-      </div>`;
-    }).join('');
-  } catch(e){ feed.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; }
+/* ============= RENDER DE MEDIA ============= */
+function renderMedia(c, contexto='card'){
+  const t=c.tipo||detectarTipo(c.url);
+  const url=c.url||'';
+  if(t==='youtube'){
+    const id=youtubeId(url);
+    if(!id)return `<div class="flex items-center justify-center bg-zinc-900 h-full text-xs text-gray-500">Enlace YouTube inválido</div>`;
+    if(contexto==='kz')return `<iframe src="https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1&autoplay=0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    if(contexto==='thumb')return `<img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="">`;
+    return `<iframe src="https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1" allow="encrypted-media" allowfullscreen></iframe>`;
+  }
+  if(t==='tiktok'){
+    const id=tiktokId(url);
+    if(!id)return `<a href="${esc(url)}" target="_blank" class="flex flex-col items-center justify-center h-full bg-zinc-900 p-4 text-center"><i class="fa-solid fa-mobile-screen text-3xl text-purple-400 mb-2"></i><p class="text-[10px] break-all text-gray-400">${esc(url)}</p><p class="text-[9px] text-purple-400 mt-2">ABRIR EN TIKTOK</p></a>`;
+    return `<iframe src="https://www.tiktok.com/embed/v2/${id}" allow="encrypted-media" allowfullscreen style="border:0"></iframe>`;
+  }
+  if(t==='instagram'){
+    return `<a href="${esc(url)}" target="_blank" class="flex flex-col items-center justify-center h-full bg-zinc-900 p-4 text-center"><i class="fa-brands fa-instagram text-3xl text-pink-500 mb-2"></i><p class="text-[10px] break-all text-gray-400">${esc(url)}</p><p class="text-[9px] text-pink-400 mt-2">ABRIR EN INSTAGRAM</p></a>`;
+  }
+  if(t==='drive'){
+    const id=driveId(url);
+    if(!id)return `<a href="${esc(url)}" target="_blank" class="text-xs text-purple-400 underline">Abrir Drive</a>`;
+    return `<iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay" allowfullscreen></iframe>`;
+  }
+  if(t==='vimeo'){
+    const id=vimeoId(url);
+    return id?`<iframe src="https://player.vimeo.com/video/${id}" allow="autoplay; fullscreen" allowfullscreen></iframe>`:'';
+  }
+  if(t==='video')return `<video src="${esc(url)}" controls playsinline preload="metadata"></video>`;
+  if(t==='img')return `<img src="${esc(url)}" loading="lazy" alt="">`;
+  return `<a href="${esc(url)}" target="_blank" class="flex flex-col items-center justify-center h-full bg-zinc-900 p-4 text-center"><i class="fa-solid fa-link text-3xl text-purple-400 mb-2"></i><p class="text-[10px] break-all text-gray-400">${esc(url)}</p></a>`;
 }
 
-window.uploadContent = async (coll) => {
-  const titleEl = document.getElementById('up-title-'+coll);
-  const fileEl = document.getElementById('up-file-'+coll);
-  const file = fileEl.files[0];
-  if (!file) return toast('Elige un archivo','error');
-  const sizeMB = file.size / (1024*1024);
-  if (sizeMB > LIMITE_VIDEO_MB) return toast(`Máx ${LIMITE_VIDEO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error');
-  const titulo = titleEl.value.trim() || file.name;
-  try {
-    toast('Subiendo '+sizeMB.toFixed(1)+' MB...','info');
-    const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g,'_')}`);
-    await uploadBytes(r, file);
-    const url = await getDownloadURL(r);
-    await addDoc(collection(DBS[coll], 'contenido'), { tab:coll, titulo, url, tipo:file.type.startsWith('video')?'v':'i', autor:state.user.name, uid:state.user.uid, creado:Date.now() });
-    titleEl.value=''; fileEl.value='';
-    toast('Subido','success'); loadContent(coll);
-  } catch(e){
-    console.error('[DAZER] Error subida:', e);
-    toast('Error: '+(e.code||e.message),'error');
+/* ============= SALA ============= */
+views.sala=()=>`
+  <div class="absolute inset-0 overflow-y-auto">
+    <div class="text-center pt-8 pb-4">
+      <h1 class="arc text-5xl">DAZER</h1>
+      <h2 class="arc text-4xl mt-1">ESTANDAR</h2>
+      <p class="arc text-xs mt-3 tracking-widest">BIENVENID@</p>
+      <p class="arc text-lg mt-1" style="color:#a855f7">${esc(state.user.name)}</p>
+    </div>
+    <div class="max-w-xl mx-auto px-4 space-y-4 pb-6">
+      <button onclick="openModal('mod-add-content')" class="btn btn-w w-full py-4 text-sm"><i class="fa-solid fa-plus"></i> AGREGAR CONTENIDO POR ENLACE</button>
+      <p class="text-center text-[10px] arc">BUSCA CONTENIDO SIN CENSURA</p>
+      <div class="grid grid-cols-2 border-t-2 border-b border-white">
+        <button onclick="go('kurzclips')" class="arc text-2xl py-14 border-r-2 border-b-2 border-white">KURZCLIPS</button>
+        <button onclick="go('footage')" class="arc text-2xl py-14 border-b-2 border-white">FOOTAGE</button>
+        <button onclick="go('schnapps')" class="arc text-2xl py-14 border-r-2 border-white">SCHNAPPS</button>
+        <button onclick="go('spielfilm')" class="arc text-2xl py-14">SPIELFILM</button>
+      </div>
+      <button onclick="go('aline')" class="w-full box2 py-4 arc text-sm border-purple-500 text-purple-400"><i class="fa-solid fa-layer-group"></i> ALINE - TODO COMBINADO</button>
+    </div>
+  </div>`;
+
+views.navegador=()=>`
+  <div class="absolute inset-0 overflow-y-auto">
+    <div class="text-center py-4 border-b border-white/20"><h1 class="arc text-2xl">CONTENIDO INTELIGENTE</h1></div>
+    <div class="p-4 max-w-md mx-auto space-y-3">
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="go('kurzclips')" class="arc text-lg py-8 bg-white text-black">KURZCLIPS</button>
+        <button onclick="go('footage')" class="arc text-lg py-8 bg-white text-black">FOOTAGE</button>
+        <button onclick="go('spielfilm')" class="arc text-lg py-8 bg-white text-black">SPIELFILM</button>
+        <button onclick="go('schnapps')" class="arc text-lg py-8 bg-white text-black">SCHNAPPS</button>
+      </div>
+      <button onclick="go('aline')" class="w-full box2 py-4 arc text-sm border-purple-500 text-purple-400">ALINE - 3 EN 1</button>
+      <div class="text-center pt-8"><i class="fa-solid fa-brain text-8xl brain-pulse" style="color:#dc2626"></i></div>
+    </div>
+  </div>`;
+
+/* ============= KURZCLIPS TikTok ============= */
+views.kurzclips=()=>`
+  <div class="kz-container">
+    <div class="kz-scroll" id="kz-feed"><div class="kz-empty">Cargando...</div></div>
+    <button onclick="openModal('mod-add-content')" class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/70 border-2 border-white flex items-center justify-center" style="pointer-events:auto"><i class="fa-solid fa-plus text-white"></i></button>
+  </div>`;
+
+/* ============= FOOTAGE YouTube ============= */
+views.footage=()=>`
+  <div class="yt-wrap">
+    <div class="px-3 pt-3 pb-2 flex justify-between items-center border-b border-white/15">
+      <div class="flex items-center gap-2">${brainIcon(24)}<h1 class="arc text-xl">FOOTAGE</h1></div>
+      <button onclick="openModal('mod-add-content')" class="btn px-3 py-1 text-[10px] text-white"><i class="fa-solid fa-plus"></i> AGREGAR</button>
+    </div>
+    <div id="feed-footage" class="yt-grid"><p class="text-center text-xs text-gray-500 py-8">Cargando...</p></div>
+  </div>`;
+
+/* ============= SPIELFILM Netflix ============= */
+views.spielfilm=()=>`
+  <div class="sf-wrap">
+    <div class="px-3 pt-3 pb-2 flex justify-between items-center border-b border-white/15">
+      <div class="flex items-center gap-2">${brainIcon(24)}<h1 class="arc text-xl">SPIELFILM</h1></div>
+      <button onclick="openModal('mod-add-content')" class="btn px-3 py-1 text-[10px] text-white"><i class="fa-solid fa-plus"></i> AGREGAR</button>
+    </div>
+    <div id="feed-spielfilm" class="sf-inner"><p class="text-center text-xs text-gray-500 py-8">Cargando...</p></div>
+  </div>`;
+
+/* ============= SCHNAPPS Facebook ============= */
+views.schnapps=()=>`
+  <div class="sn-wrap">
+    <div class="px-3 pt-3 pb-2 flex justify-between items-center border-b border-white/15">
+      <div class="flex items-center gap-2">${brainIcon(24)}<h1 class="arc text-xl">SCHNAPPS</h1></div>
+      <button onclick="openModal('mod-add-content')" class="btn px-3 py-1 text-[10px] text-white"><i class="fa-solid fa-plus"></i> AGREGAR</button>
+    </div>
+    <div id="feed-schnapps" class="sn-grid"><p class="text-center text-xs text-gray-500 py-8 col-span-3">Cargando...</p></div>
+  </div>`;
+
+/* ============= ALINE 3 en 1 ============= */
+let alineFiltro='todo';
+views.aline=()=>`
+  <div class="al-wrap">
+    <div class="px-3 pt-3 pb-2 flex justify-between items-center border-b border-white/15">
+      <div class="flex items-center gap-2"><i class="fa-solid fa-layer-group text-2xl" style="color:#a855f7"></i><h1 class="arc text-xl">ALINE</h1></div>
+      <button onclick="openModal('mod-add-content')" class="btn px-3 py-1 text-[10px] text-white"><i class="fa-solid fa-plus"></i> AGREGAR</button>
+    </div>
+    <div class="al-inner">
+      <div class="al-tabs" id="al-tabs">
+        <button onclick="setAline('todo')" class="active" data-f="todo">TODO</button>
+        <button onclick="setAline('kurzclips')" data-f="kurzclips">KURZCLIPS</button>
+        <button onclick="setAline('footage')" data-f="footage">FOOTAGES</button>
+        <button onclick="setAline('spielfilm')" data-f="spielfilm">SPIELFILMS</button>
+      </div>
+      <div id="feed-aline"><p class="text-center text-xs text-gray-500 py-8">Cargando...</p></div>
+    </div>
+  </div>`;
+window.setAline=(f)=>{alineFiltro=f;document.querySelectorAll('#al-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.f===f));loadContent('aline');};
+
+/* ============= LOAD CONTENT ============= */
+const DBS={kurzclips:dbKurz,footage:dbFoot,spielfilm:dbKurz,schnapps:dbSchn,aline:null};
+
+async function fetchColl(coll){
+  const snap=await getDocs(collection(DBS[coll],'contenido'));
+  return snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.creado||0)-(a.creado||0));
+}
+
+async function loadContent(coll){
+  if(coll==='kurzclips'){
+    const feed=document.getElementById('kz-feed');if(!feed)return;
+    try{
+      const items=await fetchColl('kurzclips');
+      if(!items.length){feed.innerHTML=`<div class="kz-empty"><i class="fa-solid fa-mobile-screen text-5xl mb-3 text-purple-600"></i><p class="arc text-sm">NO HAY KURZCLIPS</p><button onclick="openModal('mod-add-content')" class="btn btn-w px-6 py-3 mt-4 text-xs">AGREGAR EL PRIMERO</button></div>`;return;}
+      feed.innerHTML=items.map(c=>`
+        <div class="kz-item">
+          <div class="kz-inner">
+            ${renderMedia(c,'kz')}
+            <div class="kz-overlay">
+              <h3>${esc(c.titulo||'Sin título')}</h3>
+              <p>@${esc(c.autor||'')}</p>
+            </div>
+            <div class="kz-actions">
+              <div><button onclick="toast('Me gusta','info')"><i class="fa-solid fa-heart"></i></button><span>0</span></div>
+              <div><button onclick="toast('Comentarios','info')"><i class="fa-solid fa-comment"></i></button><span>0</span></div>
+              <div><button onclick="compartir('${esc(c.url)}')"><i class="fa-solid fa-share"></i></button><span>0</span></div>
+            </div>
+          </div>
+        </div>`).join('');
+    }catch(e){feed.innerHTML=`<div class="kz-empty text-red-400">Error: ${e.code||e.message}</div>`;}
+    return;
   }
-};
-
-/* ============ SUBIR DESDE PERFIL ============ */
-let pendingUploadType = null;
-const hiddenContentInput = document.getElementById('hidden-content-input');
-window.uploadFromProfile = (type) => {
-  pendingUploadType = type;
-  hiddenContentInput.value = '';
-  hiddenContentInput.click();
-};
-hiddenContentInput.addEventListener('change', async () => {
-  const file = hiddenContentInput.files[0];
-  if (!file || !pendingUploadType) return;
-  const coll = pendingUploadType;
-  const sizeMB = file.size / (1024*1024);
-  if (sizeMB > LIMITE_VIDEO_MB) { toast(`Máx ${LIMITE_VIDEO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error'); pendingUploadType=null; return; }
-  try {
-    toast('Subiendo a '+coll.toUpperCase()+' ('+sizeMB.toFixed(1)+' MB)...','info');
-    const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g,'_')}`);
-    await uploadBytes(r, file);
-    const url = await getDownloadURL(r);
-    await addDoc(collection(DBS[coll], 'contenido'), {
-      tab:coll, titulo: file.name.replace(/\.[^.]+$/,''), url,
-      tipo: file.type.startsWith('video')?'v':'i',
-      autor: state.user.name, uid: state.user.uid, creado: Date.now()
-    });
-    toast('Subido a '+coll.toUpperCase(),'success');
-    pendingUploadType = null;
-  } catch(e){
-    console.error('[DAZER] Error subida perfil:', e);
-    toast('Error: '+(e.code||e.message),'error');
-    pendingUploadType=null;
+  if(coll==='footage'){
+    const feed=document.getElementById('feed-footage');if(!feed)return;
+    try{
+      const items=await fetchColl('footage');
+      if(!items.length){feed.innerHTML=`<p class="text-center text-xs text-gray-500 py-8">Aún no hay footages. Toca AGREGAR.</p>`;return;}
+      feed.innerHTML=items.map(c=>`
+        <div class="yt-card">
+          <div class="yt-thumb" onclick="abrirPlayer('${esc(c.url)}')">${renderMedia(c,'thumb')}</div>
+          <div class="yt-info">
+            <h4>${esc(c.titulo||'Sin título')}</h4>
+            <p>@${esc(c.autor||'')}</p>
+          </div>
+        </div>`).join('');
+    }catch(e){feed.innerHTML=`<p class="text-center text-xs text-red-400 py-8">Error: ${e.code||e.message}</p>`;}
+    return;
   }
-});
+  if(coll==='spielfilm'){
+    const feed=document.getElementById('feed-spielfilm');if(!feed)return;
+    try{
+      const items=await fetchColl('spielfilm');
+      if(!items.length){feed.innerHTML=`<p class="text-center text-xs text-gray-500 py-8">Aún no hay spiel films. Toca AGREGAR.</p>`;return;}
+      const hero=items[0];
+      const resto=items.slice(1);
+      let html=`<div class="sf-hero" onclick="abrirPlayer('${esc(hero.url)}')">${renderMedia(hero,'thumb')}<div class="sf-hero-info"><h2>${esc(hero.titulo||'Sin título')}</h2><p>@${esc(hero.autor||'')}</p></div></div>`;
+      if(resto.length){
+        html+=`<p class="sf-row-title">Más películas</p><div class="sf-row">`;
+        html+=resto.map(c=>{
+          const thumb=c.tipo==='youtube'?thumbYoutube(c.url):(c.tipo==='img'?c.url:null);
+          return `<div class="sf-card" onclick="abrirPlayer('${esc(c.url)}')">
+            <div class="poster">${thumb?`<img src="${thumb}" alt="">`:`<div class="noimg"><i class="fa-solid fa-video"></i></div>`}</div>
+            <div class="info"><h5>${esc(c.titulo||'Sin título')}</h5><p>@${esc(c.autor||'')}</p></div>
+          </div>`;
+        }).join('');
+        html+=`</div>`;
+      }
+      feed.innerHTML=html;
+    }catch(e){feed.innerHTML=`<p class="text-center text-xs text-red-400 py-8">Error: ${e.code||e.message}</p>`;}
+    return;
+  }
+  if(coll==='schnapps'){
+    const feed=document.getElementById('feed-schnapps');if(!feed)return;
+    try{
+      const items=await fetchColl('schnapps');
+      if(!items.length){feed.innerHTML=`<p class="text-center text-xs text-gray-500 py-8 col-span-3">Aún no hay fotos. Toca AGREGAR.</p>`;return;}
+      feed.innerHTML=items.map(c=>{
+        let media='';
+        const t=c.tipo||detectarTipo(c.url);
+        if(t==='img')media=`<img src="${esc(c.url)}" loading="lazy" onclick="verFoto('${esc(c.url)}')">`;
+        else media=renderMedia(c,'thumb');
+        return `<div class="sn-cell">${media}<div class="sn-label">@${esc(c.autor||'')}</div></div>`;
+      }).join('');
+    }catch(e){feed.innerHTML=`<p class="text-center text-xs text-red-400 py-8 col-span-3">Error: ${e.code||e.message}</p>`;}
+    return;
+  }
+  if(coll==='aline'){
+    const feed=document.getElementById('feed-aline');if(!feed)return;
+    try{
+      let todos=[];
+      if(alineFiltro==='todo'||alineFiltro==='kurzclips'){const a=await fetchColl('kurzclips');todos.push(...a.map(x=>({...x,_cat:'kurzclips'})));}
+      if(alineFiltro==='todo'||alineFiltro==='footage'){const a=await fetchColl('footage');todos.push(...a.map(x=>({...x,_cat:'footage'})));}
+      if(alineFiltro==='todo'||alineFiltro==='spielfilm'){const a=await fetchColl('spielfilm');todos.push(...a.map(x=>({...x,_cat:'spielfilm'})));}
+      todos.sort((a,b)=>(b.creado||0)-(a.creado||0));
+      if(!todos.length){feed.innerHTML=`<p class="text-center text-xs text-gray-500 py-8">No hay contenido aún.</p>`;return;}
+      feed.innerHTML=todos.map(c=>{
+        const thumb=c.tipo==='youtube'?thumbYoutube(c.url):(c.tipo==='img'?c.url:null);
+        const badge=c._cat==='kurzclips'?'KURZCLIP':c._cat==='footage'?'FOOTAGE':'SPIELFILM';
+        return `<div class="yt-card mb-3" onclick="abrirPlayer('${esc(c.url)}')">
+          <div class="yt-thumb">${thumb?`<img src="${thumb}" alt="">`:`<div class="noimg flex items-center justify-center h-full text-gray-600"><i class="fa-solid fa-video text-4xl"></i></div>`}<span class="flag-ex" style="position:absolute;top:6px;left:6px">${badge}</span></div>
+          <div class="yt-info"><h4>${esc(c.titulo||'Sin título')}</h4><p>@${esc(c.autor||'')}</p></div>
+        </div>`;
+      }).join('');
+    }catch(e){feed.innerHTML=`<p class="text-center text-xs text-red-400 py-8">Error: ${e.code||e.message}</p>`;}
+    return;
+  }
+}
 
-/* ============ COMUNICACIÓN ============ */
-views.comunicacion = () => `
-  ${contentHeader('COMUNICACIÓN')}
-  <div class="text-center py-6">${blackhole(140)}<p class="arc text-2xl mt-6 tracking-wider">BUSCA A TUS COMPAÑEROS</p></div>
-  <div class="p-4 max-w-md mx-auto"><div id="users-list" class="grid grid-cols-2 gap-3"><p class="col-span-2 text-center text-xs text-gray-500">Cargando...</p></div></div>`;
+window.verFoto=(url)=>{document.getElementById('visor-img').src=url;document.getElementById('visor').classList.add('on');};
+window.compartir=(url)=>{if(navigator.share){navigator.share({url});}else{navigator.clipboard.writeText(url);toast('Enlace copiado','success');}};
+window.abrirPlayer=(url)=>{
+  const embed=embedUrl(url);
+  const t=detectarTipo(url);
+  const pb=document.getElementById('player-body');
+  if(embed){pb.innerHTML=`<iframe src="${embed}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="flex:1;border:0;border-radius:6px"></iframe>`;}
+  else if(t==='video'){pb.innerHTML=`<video src="${esc(url)}" controls autoplay playsinline style="flex:1;max-width:100%;background:#000;border-radius:6px"></video>`;}
+  else if(t==='img'){pb.innerHTML=`<img src="${esc(url)}" style="flex:1;max-width:100%;object-fit:contain">`;}
+  else{pb.innerHTML=`<div class="flex items-center justify-center w-full text-center p-6"><div><i class="fa-solid fa-external-link text-4xl text-purple-400 mb-3"></i><p class="text-xs text-gray-400 break-all mb-3">${esc(url)}</p><a href="${esc(url)}" target="_blank" class="btn btn-w px-6 py-2 text-xs">ABRIR ENLACE</a></div></div>`;}
+  document.getElementById('player').classList.add('on');
+};
+window.cerrarPlayer=()=>{document.getElementById('player').classList.remove('on');document.getElementById('player-body').innerHTML='';};
 
-async function loadUsers() {
-  const list = document.getElementById('users-list');
-  if (!list) return;
-  try {
-    const snap = await getDocs(collection(dbCuentas, 'usuarios'));
-    const users = snap.docs.map(d => ({ uid:d.id, ...d.data() })).filter(u => u.uid !== state.user.uid);
-    if (!users.length) { list.innerHTML = `<p class="col-span-2 text-center text-xs text-gray-500">No hay otros usuarios.</p>`; return; }
-    list.innerHTML = users.map(u => {
-      const on = u.estado === 'conectado';
+/* ============= COMUNICACIÓN ============= */
+views.comunicacion=()=>`${contentHeader('COMUNICACIÓN')}<div class="absolute inset-0 pt-20 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><div id="users-list" class="grid grid-cols-2 gap-3"><p class="col-span-2 text-center text-xs text-gray-500">Cargando...</p></div></div></div>`;
+async function loadUsers(){const list=document.getElementById('users-list');if(!list)return;
+  try{const snap=await getDocs(collection(dbCuentas,'usuarios'));
+    const users=snap.docs.map(d=>({uid:d.id,...d.data()})).filter(u=>u.uid!==state.user.uid);
+    if(!users.length){list.innerHTML=`<p class="col-span-2 text-center text-xs text-gray-500">No hay otros usuarios.</p>`;return;}
+    list.innerHTML=users.map(u=>{const on=u.estado==='conectado';
       return `<div style="background:#f5f5f5;padding:8px 8px 14px"><div style="background:#000;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px">
-        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden">
-          ${u.foto ? `<img src="${u.foto}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-3xl text-black"></i>`}
-        </div>
+        <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center overflow-hidden">${u.foto?`<img src="${u.foto}" class="w-full h-full object-cover">`:`<i class="fa-solid fa-user text-3xl text-black"></i>`}</div>
         <p class="arc text-xs text-white truncate w-full text-center">${esc(u.nombre||'')}</p>
-        <p class="text-[10px] font-black ${on?'text-green-500':'text-red-500'}">
-          <span class="inline-block w-2 h-2 rounded-full ${on?'bg-green-500':'bg-red-500'} align-middle"></span> ${on?'CONECTADO':'DESCONECTADO'}
-        </p>
-        <button onclick="openChat('${u.uid}','${esc(u.nombre||'')}','${u.foto||''}')" class="px-4 py-1 border-2 border-black text-black arc text-[10px] bg-white rounded-full">COMUNICARTE</button>
+        <p class="text-[10px] font-black ${on?'text-green-500':'text-red-500'}">${on?'CONECTADO':'DESCONECTADO'}</p>
+        <button onclick="openChat('${u.uid}','${esc(u.nombre||'')}','${u.foto||''}')" class="px-4 py-1 border-2 border-black text-black arc text-[10px] bg-white rounded-full">CHATEAR</button>
       </div></div>`;
     }).join('');
-  } catch(e){ list.innerHTML = `<p class="col-span-2 text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; }
+  }catch(e){list.innerHTML=`<p class="col-span-2 text-center text-xs text-red-400">Error: ${e.code}</p>`;}
 }
-
-window.openChat = (otroUid, otroNombre, otroFoto) => {
-  const cid = [state.user.uid, otroUid].sort().join('__');
-  document.getElementById('viewport').innerHTML = `
-    <div class="m-2 rounded-xl flex items-center gap-3 px-3 py-2" style="background:linear-gradient(90deg,#4c1d95,#6b21a8)">
-      <button onclick="go('comunicacion')" class="arc text-4xl" style="color:#dc2626;line-height:1">×</button>
-      <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-white">
-        ${otroFoto ? `<img src="${otroFoto}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-user text-2xl text-black"></i>`}
+window.openChat=(otroUid,otroNombre,otroFoto)=>{
+  const cid=[state.user.uid,otroUid].sort().join('__');
+  document.getElementById('viewport').innerHTML=`
+    <div class="absolute inset-0 flex flex-col">
+      <div class="m-2 rounded-xl flex items-center gap-3 px-3 py-2 shrink-0" style="background:linear-gradient(90deg,#4c1d95,#6b21a8)">
+        <button onclick="go('comunicacion')" class="arc text-4xl" style="color:#dc2626">×</button>
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-white">${otroFoto?`<img src="${otroFoto}" class="w-full h-full object-cover">`:`<i class="fa-solid fa-user text-2xl text-black"></i>`}</div>
+        <span class="arc text-2xl text-white">${esc(otroNombre)}</span>
       </div>
-      <span class="arc text-2xl text-white">${esc(otroNombre)}</span>
-    </div>
-    <div id="chat-msgs" class="px-3 space-y-3 overflow-y-auto" style="min-height:50vh;max-height:58vh"></div>
-    <div class="px-3 pb-4"><input id="chat-in" placeholder="Escribe un mensaje" maxlength="500" class="inp">
-      <button onclick="sendMsg('${cid}')" class="btn btn-w w-full py-2 text-xs mt-2">ENVIAR</button>
+      <div id="chat-msgs" class="flex-1 overflow-y-auto px-3 space-y-3"></div>
+      <div class="px-3 pb-4 shrink-0"><input id="chat-in" placeholder="Escribe un mensaje" maxlength="500" class="inp mb-2">
+        <button onclick="sendMsg('${cid}')" class="btn btn-w w-full py-2 text-xs">ENVIAR</button>
+      </div>
     </div>`;
-  const col = collection(dbMsg, 'chats', cid, 'mensajes');
-  const q = query(col, orderBy('creado'));
-  onSnapshot(q, snap => {
-    const c = document.getElementById('chat-msgs');
-    if (!c) return;
-    c.innerHTML = snap.docs.map(d => {
-      const m = d.data(); const mine = m.de === state.user.uid;
+  const col=collection(dbMsg,'chats',cid,'mensajes');const q=query(col,orderBy('creado'));
+  onSnapshot(q,snap=>{const c=document.getElementById('chat-msgs');if(!c)return;
+    c.innerHTML=snap.docs.map(d=>{const m=d.data();const mine=m.de===state.user.uid;
       return `<div class="flex ${mine?'justify-end':'justify-start'} items-start gap-2">
-        ${!mine ? `<div class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">${otroFoto ? `<img src="${otroFoto}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-user text-black"></i>`}</div>` : ''}
-        <div class="bg-white text-black px-4 py-3 rounded-2xl max-w-[70%] text-sm font-semibold" style="border-radius:20px">${esc(m.texto||'')}</div>
-      </div>`;
-    }).join('');
-    c.scrollTop = c.scrollHeight;
-  }, e => toast('Chat: '+(e.code||e.message),'error'));
+        <div class="bg-white text-black px-4 py-3 rounded-2xl max-w-[70%] text-sm font-semibold">${esc(m.texto||'')}</div></div>`;
+    }).join('');c.scrollTop=c.scrollHeight;},e=>toast('Chat: '+e.code,'error'));
 };
-window.sendMsg = async (cid) => {
-  const inp = document.getElementById('chat-in'); const t = inp.value.trim(); if (!t) return; inp.value='';
-  try { await addDoc(collection(dbMsg, 'chats', cid, 'mensajes'), { de:state.user.uid, texto:t, creado:Date.now() }); }
-  catch(e){ toast('Error: '+(e.code||e.message),'error'); }
-};
+window.sendMsg=async(cid)=>{const inp=document.getElementById('chat-in');const t=inp.value.trim();if(!t)return;inp.value='';
+  try{await addDoc(collection(dbMsg,'chats',cid,'mensajes'),{de:state.user.uid,texto:t,creado:Date.now()});}catch(e){toast('Error: '+e.code,'error');}};
 
-/* ================= PERFIL ================= */
-views.perfil = () => `
-  <div class="max-w-md mx-auto pb-6">
-    <div class="relative grid grid-cols-2 h-48 overflow-hidden border-b-2 border-purple-500">
-      <div class="frame bg-zinc-900 border-r border-purple-500/50" onclick="changePhoto(2)">
-        <div id="frame-2" class="w-full h-full flex items-center justify-center">
-          ${state.user.photo2 ? `<img src="${state.user.photo2}" class="w-full h-full object-cover">` : `<div class="text-center opacity-70"><i class="fa-solid fa-image text-3xl text-purple-400 mb-1"></i><p class="arc text-[8px] text-gray-400">PORTADA 1</p></div>`}
+/* ============= PERFIL ============= */
+views.perfil=()=>`
+  <div class="absolute inset-0 overflow-y-auto">
+    <div class="max-w-md mx-auto pb-6">
+      <div class="relative grid grid-cols-2 h-48 overflow-hidden border-b-2 border-purple-500">
+        <div class="frame bg-zinc-900 border-r border-purple-500/50" onclick="changePhoto(2)">
+          <div id="frame-2" class="w-full h-full flex items-center justify-center">${state.user.photo2?`<img src="${state.user.photo2}">`:`<div class="text-center opacity-70"><i class="fa-solid fa-image text-3xl text-purple-400 mb-1"></i><p class="arc text-[8px] text-gray-400">PORTADA 1</p></div>`}</div>
+          <span class="edit-badge"><i class="fa-solid fa-plus"></i></span>
         </div>
-        <span class="edit-badge"><i class="fa-solid fa-plus"></i></span>
-      </div>
-      <div class="frame bg-zinc-900" onclick="changePhoto(3)">
-        <div id="frame-3" class="w-full h-full flex items-center justify-center">
-          ${state.user.photo3 ? `<img src="${state.user.photo3}" class="w-full h-full object-cover">` : `<div class="text-center opacity-70"><i class="fa-solid fa-image text-3xl text-purple-400 mb-1"></i><p class="arc text-[8px] text-gray-400">PORTADA 2</p></div>`}
+        <div class="frame bg-zinc-900" onclick="changePhoto(3)">
+          <div id="frame-3" class="w-full h-full flex items-center justify-center">${state.user.photo3?`<img src="${state.user.photo3}">`:`<div class="text-center opacity-70"><i class="fa-solid fa-image text-3xl text-purple-400 mb-1"></i><p class="arc text-[8px] text-gray-400">PORTADA 2</p></div>`}</div>
+          <span class="edit-badge"><i class="fa-solid fa-plus"></i></span>
         </div>
-        <span class="edit-badge"><i class="fa-solid fa-plus"></i></span>
       </div>
-    </div>
-    <div class="px-4 -mt-16 relative z-10 flex items-end gap-3 mb-4">
-      <div class="frame w-28 h-28 rounded-full border-4 border-black bg-zinc-900 shrink-0" onclick="changePhoto(1)">
-        <div id="frame-1" class="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
-          ${state.user.photo ? `<img src="${state.user.photo}" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="fa-solid fa-user text-4xl"></i>`}
+      <div class="px-4 -mt-16 relative z-10 flex items-end gap-3 mb-4">
+        <div class="frame w-28 h-28 rounded-full border-4 border-black bg-zinc-900 shrink-0" onclick="changePhoto(1)">
+          <div id="frame-1" class="w-full h-full flex items-center justify-center overflow-hidden rounded-full">${state.user.photo?`<img src="${state.user.photo}">`:`<i class="fa-solid fa-user text-4xl"></i>`}</div>
+          <span class="edit-badge"><i class="fa-solid fa-camera"></i></span>
         </div>
-        <span class="edit-badge"><i class="fa-solid fa-camera"></i></span>
-      </div>
-      <div class="flex-1 pb-2 min-w-0">
-        <div class="flex items-center gap-2">
-          <h2 id="perf-name" class="arc text-2xl truncate">${esc(state.user.name)}</h2>
-          <button onclick="openNameEditor()" class="text-purple-400 shrink-0"><i class="fa-solid fa-pen text-sm"></i></button>
+        <div class="flex-1 pb-2 min-w-0">
+          <div class="flex items-center gap-2">
+            <h2 id="perf-name" class="arc text-2xl truncate">${esc(state.user.name)}</h2>
+            <button onclick="openNameEditor()" class="text-purple-400"><i class="fa-solid fa-pen text-sm"></i></button>
+          </div>
+          <p class="text-xs arc" style="color:#a855f7">${esc(state.user.role)}</p>
+          <p class="text-[9px] text-gray-500 truncate">${esc(state.user.email||'@dazer')}</p>
         </div>
-        <p class="text-xs arc" style="color:#a855f7">${esc(state.user.role)}</p>
-        <p class="text-[9px] text-gray-500 truncate">${esc(state.user.email || '@dazer')}</p>
       </div>
-    </div>
-    <div class="mx-4 grid grid-cols-3 gap-2 text-center border-y-2 border-white py-3 mb-4">
-      <div><p class="arc text-xl">0</p><p class="text-[10px]">SEGUIDORES</p></div>
-      <div><p class="arc text-xl">0</p><p class="text-[10px]">SIGUIENDO</p></div>
-      <div><p class="arc text-xl">0</p><p class="text-[10px]">ME GUSTAS</p></div>
-    </div>
-    <div class="px-4 mb-4">
-      <p class="arc text-xs text-purple-400 mb-2 tracking-widest"><i class="fa-solid fa-arrow-up"></i> SUBIR CONTENIDO</p>
-      <div class="grid grid-cols-2 gap-2">
-        <button onclick="uploadFromProfile('kurzclips')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-mobile-screen text-base block mb-1"></i>KURZCLIP<br><span class="text-[7px] opacity-70">CORTO · TIKTOK/REELS</span></button>
-        <button onclick="uploadFromProfile('footage')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-film text-base block mb-1"></i>FOOTAGE<br><span class="text-[7px] opacity-70">MEDIANO · YOUTUBE</span></button>
-        <button onclick="uploadFromProfile('spielfilm')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-video text-base block mb-1"></i>SPIELFILM<br><span class="text-[7px] opacity-70">LARGO · NETFLIX</span></button>
-        <button onclick="uploadFromProfile('schnapps')" class="box2 py-3 arc text-[11px] hover:bg-white hover:text-black transition"><i class="fa-solid fa-camera text-base block mb-1"></i>SCHNAPPS<br><span class="text-[7px] opacity-70">FOTO</span></button>
+      <div class="px-4 mb-4">
+        <button onclick="openModal('mod-add-content')" class="btn btn-w w-full py-3 text-xs mb-2"><i class="fa-solid fa-plus"></i> AGREGAR CONTENIDO POR ENLACE</button>
       </div>
-      <p class="text-[9px] text-gray-500 text-center mt-2">Máx ${LIMITE_VIDEO_MB} MB por video</p>
-    </div>
-    <div class="px-4 grid grid-cols-2 gap-2 text-center arc text-xs mb-4">
-      ${['CONTENIDO TOTAL','KURZCLIPS','SPIELFILMS','SCHNAPPS','FOOTAGES','ME GUSTAS'].map(t=>`<div class="box2 p-2">${t}</div>`).join('')}
-    </div>
-    <div class="px-4 space-y-2">
-      <button onclick="diagnosticarStorage()" class="w-full box2 border-yellow-500 text-yellow-500 py-2 text-[10px]">DIAGNOSTICAR STORAGE</button>
-      <button onclick="logoutApp()" class="btn w-full py-3 text-sm" style="color:#ef4444">CERRAR SESIÓN</button>
+      <div class="px-4">
+        <button onclick="logoutApp()" class="btn w-full py-3 text-sm" style="color:#ef4444">CERRAR SESIÓN</button>
+      </div>
     </div>
   </div>`;
 
-function refreshProfileUI() {
-  const map = { '1': 'photo', '2': 'photo2', '3': 'photo3' };
-  Object.keys(map).forEach(n => {
-    const el = document.getElementById('frame-'+n);
-    if (!el) return;
-    const src = state.user[map[n]];
-    if (src) el.innerHTML = `<img src="${src}" class="w-full h-full object-cover" referrerpolicy="no-referrer">`;
+function refreshProfileUI(){const map={'1':'photo','2':'photo2','3':'photo3'};Object.keys(map).forEach(n=>{const el=document.getElementById('frame-'+n);if(!el)return;const src=state.user[map[n]];if(src)el.innerHTML=`<img src="${src}" class="w-full h-full object-cover">`;});const ne=document.getElementById('perf-name');if(ne)ne.textContent=state.user.name;}
+
+window.openNameEditor=()=>{document.getElementById('edit-name-input').value=state.user.name;show('mod-name');};
+window.saveNewName=async()=>{const n=document.getElementById('edit-name-input').value.trim().toUpperCase();if(!n||n.length<2)return toast('Muy corto','error');
+  try{if(state.user.uid)await setDoc(doc(dbCuentas,'usuarios',state.user.uid),{nombre:n},{merge:true});state.user.name=n;save();document.getElementById('hdr-user').textContent=n;closeModal('mod-name');toast('Nombre actualizado','success');go('perfil');}catch(e){toast('Error: '+e.code,'error');}};
+
+/* ============= FOTOS EN BASE64 ============= */
+let editingFrame=1;
+const hiddenPhotoInput=document.getElementById('hidden-photo-input');
+window.changePhoto=(n)=>{editingFrame=n;hiddenPhotoInput.value='';hiddenPhotoInput.click();};
+function resizeImage(file,maxSize=500){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=(e)=>{
+      const img=new Image();
+      img.onload=()=>{
+        let w=img.width,h=img.height;
+        if(w>h){if(w>maxSize){h=(h*maxSize)/w;w=maxSize;}}else{if(h>maxSize){w=(w*maxSize)/h;h=maxSize;}}
+        const c=document.createElement('canvas');c.width=w;c.height=h;
+        const ctx=c.getContext('2d');ctx.drawImage(img,0,0,w,h);
+        resolve(c.toDataURL('image/jpeg',0.75));
+      };
+      img.onerror=()=>reject(new Error('No se pudo leer la imagen'));
+      img.src=e.target.result;
+    };
+    reader.onerror=()=>reject(new Error('Error leyendo archivo'));
+    reader.readAsDataURL(file);
   });
-  const nameEl = document.getElementById('perf-name');
-  if (nameEl) nameEl.textContent = state.user.name;
 }
-
-window.openNameEditor = () => {
-  document.getElementById('edit-name-input').value = state.user.name;
-  show('mod-name');
-};
-window.saveNewName = async () => {
-  const nuevo = document.getElementById('edit-name-input').value.trim().toUpperCase();
-  if (!nuevo || nuevo.length < 2) return toast('Nombre muy corto','error');
-  try {
-    if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { nombre: nuevo }, { merge:true });
-    state.user.name = nuevo; save();
-    document.getElementById('hdr-user').textContent = nuevo;
-    closeModal('mod-name');
-    toast('Nombre actualizado','success');
-    go('perfil');
-  } catch(e){ toast('Error: '+(e.code||e.message),'error'); }
-};
-
-/* ============ FOTOS DE PERFIL ============ */
-let editingFrame = 1;
-const hiddenPhotoInput = document.getElementById('hidden-photo-input');
-window.changePhoto = (frameNum) => {
-  editingFrame = frameNum;
-  hiddenPhotoInput.value = '';
-  hiddenPhotoInput.click();
-};
-hiddenPhotoInput.addEventListener('change', async () => {
-  const file = hiddenPhotoInput.files[0];
-  if (!file) return;
-  const sizeMB = file.size / (1024*1024);
-  if (sizeMB > LIMITE_FOTO_MB) return toast(`Foto máx ${LIMITE_FOTO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error');
-  toast('Subiendo foto...','info');
-  try {
-    const safeName = file.name.replace(/[^\w.-]/g,'_');
-    const path = `perfiles/${state.user.uid}/foto${editingFrame}_${Date.now()}_${safeName}`;
-    console.log('[DAZER] Subiendo foto a:', path);
-    console.log('[DAZER] Bucket:', CFG.cuentas.storageBucket);
-    const r = ref(stCuentas, path);
-    await uploadBytes(r, file);
-    const url = await getDownloadURL(r);
-    console.log('[DAZER] URL obtenida:', url);
-    const key = editingFrame === 1 ? 'foto' : ('foto' + editingFrame);
-    const stateKey = editingFrame === 1 ? 'photo' : ('photo' + editingFrame);
-    if (state.user.uid) await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { [key]: url }, { merge:true });
-    state.user[stateKey] = url; save();
+hiddenPhotoInput.addEventListener('change',async()=>{
+  const file=hiddenPhotoInput.files[0];if(!file)return;
+  if(file.size>8*1024*1024)return toast('Foto máx 8 MB','error');
+  toast('Procesando foto...','info');
+  try{
+    const base64=await resizeImage(file,500);
+    const sizeKB=Math.round(base64.length/1024);
+    console.log('[DAZER] Foto base64 ~'+sizeKB+' KB');
+    if(sizeKB>900)return toast('Foto muy pesada ('+sizeKB+' KB). Usa una más pequeña','error');
+    const key=editingFrame===1?'foto':('foto'+editingFrame);
+    const stateKey=editingFrame===1?'photo':('photo'+editingFrame);
+    if(state.user.uid)await setDoc(doc(dbCuentas,'usuarios',state.user.uid),{[key]:base64},{merge:true});
+    state.user[stateKey]=base64;save();
     toast('Foto actualizada','success');
     refreshProfileUI();
-  } catch(e) {
-    console.error('[DAZER] Error subiendo foto:', e);
-    const map = {
-      'storage/unauthorized': 'Storage sin permisos. Revisa las Rules',
-      'storage/canceled': 'Subida cancelada',
-      'storage/unknown': 'Storage NO activado en Firebase. Actívalo',
-      'storage/retry-limit-exceeded': 'Timeout. Intenta con una foto más pequeña',
-      'storage/invalid-format': 'Formato no soportado',
-      'storage/quota-exceeded': 'Cuota de Storage llena'
-    };
-    toast(map[e.code] || ('Error: ' + (e.code || e.message)), 'error');
-  }
+  }catch(e){console.error(e);toast('Error: '+(e.message||e),'error');}
 });
 
-/* ============ DIAGNÓSTICO DE STORAGE ============ */
-window.diagnosticarStorage = async () => {
-  const pruebas = [];
-  pruebas.push('Bucket: ' + CFG.cuentas.storageBucket);
-  pruebas.push('UID: ' + (state.user.uid || 'NO LOGUEADO'));
-  try {
-    const testData = new Blob(['test'], { type: 'text/plain' });
-    const testRef = ref(stCuentas, `perfiles/${state.user.uid}/test_${Date.now()}.txt`);
-    await uploadBytes(testRef, testData);
-    const testUrl = await getDownloadURL(testRef);
-    console.log('[DAZER] Test URL:', testUrl);
-    toast('Storage FUNCIONA correctamente','success');
-  } catch(e) {
-    console.error('[DAZER] Test falló:', e);
-    toast('Storage FALLA: ' + (e.code || e.message), 'error');
-  }
-};
-
-/* ================= SUSCRIPCIONES ================= */
-views['sub-sus'] = () => {
-  const roles = [
-    { n:'DIRECT@R', color:'#a855f7', font:'arc', title:'TU ERES EL DIRECTOR' },
-    { n:'ADMIN', color:'#22c55e', font:'arc', title:'TU ERES UN ADMIN' },
-    { n:'HAIKU', color:'#ec4899', font:'serif', title:'ERES UN USUARIO DE HAIKU DISFRUTA DE TUS FUNCIONES PREMIUM' },
-    { n:'SCHEITEL', color:'#818cf8', font:'serif', title:'ERES UN USUARIO DE SCHEITEL DISFRUTA DE ALGUNAS FUNCIONES PREMIUM' },
-    { n:'GRATUITO', color:'#ffffff', font:'serif', title:'ERES USUARIO GRATUITO TE RECOMIENDO PASARTE A UNA SUSCRIPCIÓN PARA DISFRUTAR LAS FUNCIONES PREMIUM' }
+/* ============= SUSCRIPCIONES ============= */
+views['sub-sus']=()=>{
+  const roles=[
+    {n:'DIRECT@R',color:'#a855f7',font:'arc',title:'TU ERES EL DIRECTOR'},
+    {n:'ADMIN',color:'#22c55e',font:'arc',title:'TU ERES UN ADMIN'},
+    {n:'HAIKU',color:'#ec4899',font:'serif',title:'ERES UN USUARIO DE HAIKU'},
+    {n:'SCHEITEL',color:'#818cf8',font:'serif',title:'ERES UN USUARIO DE SCHEITEL'},
+    {n:'GRATUITO',color:'#ffffff',font:'serif',title:'ERES USUARIO GRATUITO'}
   ];
-  const cur = roles.find(r=>r.n===state.user.role) || roles[4];
-  return `<div class="pt-6 pb-4 px-4">
+  const cur=roles.find(r=>r.n===state.user.role)||roles[4];
+  return `<div class="absolute inset-0 overflow-y-auto"><div class="pt-6 pb-4 px-4">
     <h1 class="arc text-2xl text-center mb-6">${cur.title}</h1>
-    <div class="max-w-sm mx-auto space-y-2">
-      ${roles.map(r=>`<div onclick="pickRole('${r.n}')" class="flex items-center gap-3 cursor-pointer py-1">
-        <span class="${r.font==='serif'?'serif':'arc'} text-4xl leading-none" style="color:${r.color}">${r.n}</span>
-        ${cur.n===r.n?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}
-      </div>`).join('')}
-    </div></div>`;
-};
-window.pickRole = r => { state.user.role = r; save();
-  document.getElementById('hdr-role').textContent = r;
-  document.getElementById('ftr-role').textContent = r;
-  toast('Rol: '+r,'success'); go('sub-sus');
-};
-
-/* ================= VK ================= */
-views['sub-vk'] = () => {
-  const intro = sessionStorage.getItem('vk-intro') === '0' ? '' : `
-    <div class="glitch" style="position:absolute;inset:0;z-index:-1"></div>
-    <div class="relative flex flex-col items-center justify-center py-12">
-      <div class="flex items-center gap-3"><i class="fa-solid fa-mask text-4xl" style="color:#dc2626"></i><h1 class="arc text-3xl">VERKEHRSMASKEN</h1></div>
-      <p class="arc text-sm mt-6 tracking-widest">BIENVENIDO A LA MASCARA DE TRAFICO</p>
-      <button onclick="sessionStorage.setItem('vk-intro','0'); go('sub-vk');" class="hand mt-10 px-10 py-4 arc text-3xl">ENTRAR</button>
-    </div>`;
-  if (intro) return `<div style="position:relative;min-height:70vh">${intro}</div>`;
-  const items = Object.keys(state.vk);
-  return `<div class="p-4 max-w-md mx-auto space-y-2">
-    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-mask text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">VERKEHRSMASKEN</h1></div>
-    ${items.map(k=>`<div class="flex items-center justify-between gap-3 py-1">
-      <span class="arc text-2xl px-4 py-1 rounded-2xl" style="background:#fce7f3;color:#000">${k}</span>
-      <div class="toggle ${state.vk[k]?'on':'off'}" onclick="toggleVK('${k}')"></div>
-    </div>`).join('')}</div>`;
-};
-window.toggleVK = k => { state.vk[k] = !state.vk[k]; save(); go('sub-vk'); };
-
-const storageView = (title) => () => `<div class="p-4 max-w-md mx-auto">
-  <h1 class="arc text-2xl text-center mb-2">ALMACENAMIENTO ${title}</h1>
-  <p class="arc text-xs text-center text-gray-400 mb-8">MODO SIN CONEXIÓN</p>
-  <div class="space-y-8">${['KURZCLIPS','SCHNAPPS','FOOTAGE','SPIELFILM'].map(x=>`<div><p class="arc text-lg">${x}</p><div class="mt-1 h-px bg-white/30"></div></div>`).join('')}</div>
-</div>`;
-views['sub-atico']  = storageView('ÁTICO');
-views['sub-boveda'] = storageView('BOVEDA');
-views['sub-bodega'] = storageView('BODEGA');
-
-views['sub-ci'] = () => `<div class="p-4 max-w-md mx-auto">
-  <h1 class="arc text-3xl text-center mb-8">CONTENIDO INTELIGENTE</h1>
-  <div class="grid grid-cols-2 gap-4">
-    <button onclick="go('kurzclips')" class="arc text-2xl py-12 bg-white text-black">KURZCLIPS</button>
-    <button onclick="go('kurzclips')" class="arc text-3xl py-12 bg-red-600 text-black">秘密</button>
-    <button onclick="go('footage')" class="arc text-2xl py-12 bg-white text-black">FOOTAGE</button>
-    <button onclick="go('aline')" class="arc text-2xl py-12 bg-white text-black">ALINE</button>
-    <button onclick="go('schnapps')" class="arc text-2xl py-12 bg-white text-black">SCHNAPPS</button>
-    <button onclick="go('spielfilm')" class="arc text-2xl py-12 bg-white text-black">SPIELFILM</button>
+    <div class="max-w-sm mx-auto space-y-2">${roles.map(r=>`<div onclick="pickRole('${r.n}')" class="flex items-center gap-3 cursor-pointer py-1"><span class="${r.font==='serif'?'serif':'arc'} text-4xl leading-none" style="color:${r.color}">${r.n}</span>${cur.n===r.n?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}</div>`).join('')}</div>
   </div></div>`;
-
-views['sub-moduz'] = () => {
-  const temas = [{id:'nocturno',n:'NOCTURNO'},{id:'dia',n:'DIA'},{id:'coquette',n:'COQUETTE'},{id:'fuego',n:'FUEGO'},{id:'sexy',n:'SEXY'},{id:'atodecedor',n:'ATODECEDOR'},{id:'secreto',n:'SECRETO'},{id:'normal',n:'NORMAL'}];
-  return `<div class="p-4 max-w-md mx-auto"><div class="space-y-2">
-    ${temas.map(t=>`<div onclick="setTheme('${t.id}')" class="flex items-center gap-3 cursor-pointer py-1">
-      <span class="arc text-4xl leading-none">${t.n}</span>
-      ${state.settings.theme===t.id?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}
-    </div>`).join('')}</div></div>`;
 };
-window.setTheme = t => { state.settings.theme = t; save(); applyTheme(t); toast('Tema: '+t.toUpperCase(),'success'); go('sub-moduz'); };
+window.pickRole=r=>{state.user.role=r;save();document.getElementById('hdr-role').textContent=r;document.getElementById('ftr-role').textContent=r;toast('Rol: '+r,'success');go('sub-sus');};
 
-/* ================= UMIKAISER ================= */
-views.umikaiser = () => `<div class="p-4 max-w-md mx-auto space-y-3">
-  <div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div>
-  <p class="arc text-2xl text-center leading-tight">JUEGA Y CONSIGUE RECOMPENSAS</p>
-  <div class="flex justify-center py-4"><button onclick="showUmiRules()" class="hand px-10 py-6 arc text-3xl">ENTRAR</button></div>
-  <button onclick="showUmiHelp()" class="w-full btn py-2 text-xs text-white"><i class="fa-solid fa-circle-info"></i> CÓMO FUNCIONA LOS UMIKAISER</button>
-</div>`;
-
-window.showUmiRules = () => {
-  document.getElementById('viewport').innerHTML = `<div class="p-4 max-w-md mx-auto space-y-4">
-    <div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div>
-    <div class="grid grid-cols-2 gap-3">
-      <div class="bg-gray-300 text-black p-3 space-y-3">
-        <div class="flex gap-1">${Array(5).fill(0).map(()=>`<i class="fa-solid fa-dice text-purple-700"></i>`).join('')}</div>
-        <p class="font-black text-sm">CASILLA: ${state.umi.casilla}</p><div class="h-px bg-black"></div>
-        <p class="font-black text-sm">PUNTAJE: ${state.umi.puntos}</p><div class="h-px bg-black"></div>
-        <p class="arc text-3xl">dados</p><div class="h-px bg-black"></div>
-      </div>
-      <div class="border-4 border-purple-600 p-3"><svg viewBox="0 0 200 260" class="w-full"><path d="M20 40 H180 V100 H40 V160 H180 V220 H40" fill="none" stroke="#a855f7" stroke-width="4"/><text x="100" y="130" fill="#a855f7" font-size="26" font-family="Archivo Black" text-anchor="middle">π</text></svg></div>
-    </div>
-    <p class="text-center arc text-5xl">${state.umi.dados}</p>
-    <div class="flex justify-between items-center gap-2">
-      ${[0,1,2].map(()=>`<div class="w-16 h-16 bg-white rounded-lg grid grid-cols-3 grid-rows-3 gap-0.5 p-1">${Array(9).fill(0).map((_,i)=>`<div class="w-3 h-3 rounded-full ${[0,8].includes(i)?'bg-black':'bg-transparent'}"></div>`).join('')}</div>`).join('')}
-      <div class="flex flex-col items-center"><span class="text-[9px] arc mb-1">USAR</span>
-        <button onclick="useHeart()" class="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-3xl"><i class="fa-solid fa-heart text-black"></i></button></div>
-    </div>
-    <button onclick="rollDice()" class="btn btn-w w-full py-4 text-xl">TIRAR DADOS</button>
-    <button onclick="go('umikaiser')" class="btn w-full py-2 text-xs text-white">VOLVER</button>
-  </div>`;
+/* ============= VK ============= */
+views['sub-vk']=()=>{
+  const intro=sessionStorage.getItem('vk-intro')==='0'?'':`<div class="glitch" style="position:absolute;inset:0;z-index:-1"></div><div class="relative flex flex-col items-center justify-center py-12"><div class="flex items-center gap-3"><i class="fa-solid fa-mask text-4xl" style="color:#dc2626"></i><h1 class="arc text-3xl">VERKEHRSMASKEN</h1></div><p class="arc text-sm mt-6">BIENVENIDO A LA MASCARA DE TRAFICO</p><button onclick="sessionStorage.setItem('vk-intro','0');go('sub-vk');" class="hand mt-10 px-10 py-4 arc text-3xl">ENTRAR</button></div>`;
+  if(intro)return `<div style="position:relative;min-height:70vh">${intro}</div>`;
+  const items=Object.keys(state.vk);
+  return `<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto space-y-2"><div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-mask text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">VERKEHRSMASKEN</h1></div>${items.map(k=>`<div class="flex items-center justify-between gap-3 py-1"><span class="arc text-2xl px-4 py-1 rounded-2xl" style="background:#fce7f3;color:#000">${k}</span><div class="toggle ${state.vk[k]?'on':'off'}" onclick="toggleVK('${k}')"></div></div>`).join('')}</div></div>`;
 };
-window.showUmiHelp = () => {
-  document.getElementById('viewport').innerHTML = `<div class="p-4 max-w-md mx-auto space-y-4">
-    <div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div>
-    <h2 class="arc text-xl text-center">COMO FUNCIONA LOS UMIKAISER</h2>
-    <p class="text-xs text-gray-400 leading-relaxed">El umikaiser es también el de los dados: se juega sacando los cinco dados y te pueden tocar hechizos o dados de números.</p>
-    <button onclick="go('umikaiser')" class="btn btn-w w-full py-4 text-2xl">ENTRAR</button>
-  </div>`;
-};
-window.rollDice = () => {
-  const u = state.umi; if (u.dados <= 0) return toast('Sin dados','error');
-  const d1 = Math.floor(Math.random()*6)+1, d2 = Math.floor(Math.random()*6)+1;
-  u.casilla = ((u.casilla-1 + d1 + d2) % 20) + 1; u.puntos += (d1+d2)*10; u.dados -= 1;
-  save(); showUmiRules();
-  let combo = ''; const s = [d1,d2].sort().join('+');
-  if (s==='5+6') combo='MASTER'; else if (s==='3+4') combo='JACKPON'; else if (s==='1+2') combo='CAMBIO';
-  else if (d1===d2) combo='DuDoZo'; else if (d1+d2===7) combo='DEEZZEER';
-  if (combo) toast(combo+' +'+(d1+d2)*10,'success');
-};
-window.useHeart = () => { state.umi.dados += 3; save(); toast('+3 dados','success'); showUmiRules(); };
+window.toggleVK=k=>{state.vk[k]=!state.vk[k];save();go('sub-vk');};
 
-/* ================= CONFIG ================= */
-views.config = () => {
-  const s = state.settings;
-  const left = [['sndBg','sonido de fondo'],['sndBtn','sonido de botones'],['sndKz','sonido de audio de kurzclips'],['sndFt','sonido de audio de footage'],['sndSf','sonido de audio de Spielfilm']];
-  const right = [['privacidad','fa-lock'],['dazerlabs','fa-flask'],['créditos','fa-copyright'],['permisos','fa-key'],['modelos','fa-ruler-combined'],['información de la web básica','fa-circle-info'],['datos personales','fa-chart-simple'],['potencia','fa-bolt'],['notifications','fa-bell'],['gdz','fa-bag-shopping'],['demandas o avisos','fa-triangle-exclamation']];
-  return `<div class="p-4 max-w-md mx-auto">
-    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-gears text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">CONFIGURACIÓNES</h1></div>
-    <div class="grid grid-cols-2 gap-2 text-xs">
-      ${left.map(([k,l])=>`<div class="flex items-center justify-between py-2 border-b border-white/20"><span class="text-[11px] flex-1">${l}</span><div class="toggle ${s[k]?'on':'off'} scale-75" onclick="tog('${k}')"></div></div>`).join('')}
-      ${right.map(([l,i])=>`<div onclick="toast('${l}','info')" class="flex items-center justify-between py-2 border-b border-white/20 cursor-pointer"><span class="text-[11px]">${l}</span><i class="fa-solid ${i} text-purple-400"></i></div>`).join('')}
-    </div>
-    <div class="mt-4 space-y-2">
-      <button onclick="openModal('mod-master')" class="w-full box2 py-2 text-xs">CAMBIAR CONTRASEÑA</button>
-      <button onclick="diagnosticarStorage()" class="w-full box2 border-yellow-500 text-yellow-500 py-2 text-xs">DIAGNOSTICAR STORAGE</button>
-      <button onclick="if(confirm('¿Eliminar cuenta?')){localStorage.clear();location.reload()}" class="w-full box2 border-red-500 text-red-500 py-2 text-xs">ELIMINAR CUENTA</button>
-      <div class="box2 p-2 flex items-center justify-between"><span class="text-[11px]">transiciones</span><div class="toggle ${s.transitions?'on':'off'} scale-75" onclick="tog('transitions')"></div></div>
-    </div></div>`;
+const storageView=(title)=>()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><h1 class="arc text-2xl text-center mb-2">ALMACENAMIENTO ${title}</h1><p class="arc text-xs text-center text-gray-400 mb-8">MODO SIN CONEXIÓN</p><div class="space-y-8">${['KURZCLIPS','SCHNAPPS','FOOTAGE','SPIELFILM'].map(x=>`<div><p class="arc text-lg">${x}</p><div class="mt-1 h-px bg-white/30"></div></div>`).join('')}</div></div></div>`;
+views['sub-atico']=storageView('ÁTICO');
+views['sub-boveda']=storageView('BOVEDA');
+views['sub-bodega']=storageView('BODEGA');
+
+views['sub-ci']=()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><h1 class="arc text-3xl text-center mb-8">CONTENIDO INTELIGENTE</h1><div class="grid grid-cols-2 gap-4"><button onclick="go('kurzclips')" class="arc text-2xl py-12 bg-white text-black">KURZCLIPS</button><button onclick="go('footage')" class="arc text-2xl py-12 bg-white text-black">FOOTAGE</button><button onclick="go('spielfilm')" class="arc text-2xl py-12 bg-white text-black">SPIELFILM</button><button onclick="go('schnapps')" class="arc text-2xl py-12 bg-white text-black">SCHNAPPS</button><button onclick="go('aline')" class="arc text-2xl py-12 bg-purple-600 col-span-2">ALINE 3 EN 1</button></div></div></div>`;
+
+views['sub-moduz']=()=>{
+  const temas=[{id:'nocturno',n:'NOCTURNO'},{id:'dia',n:'DIA'},{id:'coquette',n:'COQUETTE'},{id:'fuego',n:'FUEGO'},{id:'sexy',n:'SEXY'},{id:'atodecedor',n:'ATODECEDOR'},{id:'secreto',n:'SECRETO'},{id:'normal',n:'NORMAL'}];
+  return `<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><div class="space-y-2">${temas.map(t=>`<div onclick="setTheme('${t.id}')" class="flex items-center gap-3 cursor-pointer py-1"><span class="arc text-4xl leading-none">${t.n}</span>${state.settings.theme===t.id?'<span style="color:#dc2626;font-size:22px">&#9664;</span>':''}</div>`).join('')}</div></div></div>`;
 };
-window.tog = k => { state.settings[k] = !state.settings[k]; save(); go('config'); };
+window.setTheme=t=>{state.settings.theme=t;save();applyTheme(t);toast('Tema: '+t.toUpperCase(),'success');go('sub-moduz');};
 
-/* ================= ZUKURZALEZ ================= */
-views.zukurzalez = () => `<div class="p-4 max-w-md mx-auto">
-  <div class="flex items-center justify-between mb-6">
-    <div class="flex items-center gap-3"><i class="fa-solid fa-cart-shopping text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">ZUKURZALEZ</h1></div>
-    <button onclick="go('reportar')" class="arc flex items-center gap-2" style="color:#dc2626"><i class="fa-solid fa-bullhorn text-xl"></i> REPORTAR</button>
-  </div>
-  <div class="space-y-6">${['contenido comprado','acuerdos de comprar contenido','Destinos y información de compra'].map(t=>`<div class="flex items-center gap-3"><div class="w-16 h-16 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#22c55e,#0ea5e9)"><i class="fa-solid fa-map-location-dot text-3xl text-white"></i></div><span class="arc text-base">${t}</span></div>`).join('')}</div>
-</div>`;
-views.reportar = () => `<div class="p-4 max-w-md mx-auto space-y-3">
-  <h1 class="arc text-2xl text-center mb-4">REPORTAR</h1>
-  <input id="rep-target" placeholder="Usuario a reportar" class="inp">
-  <textarea id="rep-msg" rows="4" placeholder="Motivo" class="inp" style="text-transform:none"></textarea>
-  <button onclick="sendReport()" class="btn w-full py-3 text-lg bg-red-600 border-red-600 text-white">ENVIAR REPORTE</button>
-  <button onclick="go('zukurzalez')" class="btn w-full py-2 text-xs text-white">CANCELAR</button>
-</div>`;
-window.sendReport = () => { const t=document.getElementById('rep-target').value; if(!t) return toast('Ingresa usuario','error'); toast('Reporte enviado','success'); go('zukurzalez'); };
+/* ============= UMIKAISER ============= */
+views.umikaiser=()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto space-y-3"><div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div><p class="arc text-2xl text-center">JUEGA Y CONSIGUE RECOMPENSAS</p><div class="flex justify-center py-4"><button onclick="showUmiRules()" class="hand px-10 py-6 arc text-3xl">ENTRAR</button></div></div></div>`;
+window.showUmiRules=()=>{document.getElementById('viewport').innerHTML=`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto space-y-4"><div class="flex items-center gap-3"><i class="fa-solid fa-dice text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">UMIKAISER</h1></div><div class="grid grid-cols-2 gap-3"><div class="bg-gray-300 text-black p-3"><p class="font-black text-sm">CASILLA: ${state.umi.casilla}</p><p class="font-black text-sm mt-2">PUNTAJE: ${state.umi.puntos}</p></div><div class="border-4 border-purple-600 p-3"><svg viewBox="0 0 200 260" class="w-full"><path d="M20 40 H180 V100 H40 V160 H180 V220 H40" fill="none" stroke="#a855f7" stroke-width="4"/></svg></div></div><p class="text-center arc text-5xl">${state.umi.dados}</p><button onclick="rollDice()" class="btn btn-w w-full py-4 text-xl">TIRAR DADOS</button><button onclick="go('umikaiser')" class="btn w-full py-2 text-xs text-white">VOLVER</button></div></div>`;};
+window.rollDice=()=>{const u=state.umi;if(u.dados<=0)return toast('Sin dados','error');const d1=Math.floor(Math.random()*6)+1,d2=Math.floor(Math.random()*6)+1;u.casilla=((u.casilla-1+d1+d2)%20)+1;u.puntos+=(d1+d2)*10;u.dados-=1;save();showUmiRules();};
 
-views.gdz = () => `<div class="p-4 max-w-md mx-auto">
-  <div class="flex items-center gap-3 mb-6"><i class="fa-solid fa-bag-shopping text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">GDZ</h1></div>
-  <div class="space-y-4 arc text-2xl">${['información personal','compras','Registros','mesajería','Dazergdzavisos'].map(t=>`<div onclick="toast('${t}','info')" class="cursor-pointer border-b border-white/20 pb-2">${t}</div>`).join('')}</div>
-</div>`;
+/* ============= CONFIG ============= */
+views.config=()=>{
+  const s=state.settings;
+  const left=[['sndBg','sonido de fondo'],['sndBtn','sonido de botones'],['sndKz','sonido de kurzclips'],['sndFt','sonido de footage'],['sndSf','sonido de Spielfilm']];
+  const right=[['privacidad','fa-lock'],['dazerlabs','fa-flask'],['créditos','fa-copyright'],['permisos','fa-key'],['información','fa-circle-info'],['datos personales','fa-chart-simple'],['potencia','fa-bolt'],['notifications','fa-bell'],['gdz','fa-bag-shopping'],['avisos','fa-triangle-exclamation']];
+  return `<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-gears text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">CONFIGURACIONES</h1></div><div class="grid grid-cols-2 gap-2 text-xs">${left.map(([k,l])=>`<div class="flex items-center justify-between py-2 border-b border-white/20"><span class="text-[11px] flex-1">${l}</span><div class="toggle ${s[k]?'on':'off'} scale-75" onclick="tog('${k}')"></div></div>`).join('')}${right.map(([l,i])=>`<div onclick="toast('${l}','info')" class="flex items-center justify-between py-2 border-b border-white/20 cursor-pointer"><span class="text-[11px]">${l}</span><i class="fa-solid ${i} text-purple-400"></i></div>`).join('')}</div><div class="mt-4 space-y-2"><button onclick="if(confirm('¿Eliminar cuenta?')){localStorage.clear();location.reload()}" class="w-full box2 border-red-500 text-red-500 py-2 text-xs">ELIMINAR CUENTA</button><div class="box2 p-2 flex items-center justify-between"><span class="text-[11px]">transiciones</span><div class="toggle ${s.transitions?'on':'off'} scale-75" onclick="tog('transitions')"></div></div></div></div></div>`;
+};
+window.tog=k=>{state.settings[k]=!state.settings[k];save();go('config');};
+
+/* ============= ZUKURZALEZ ============= */
+views.zukurzalez=()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><div class="flex items-center justify-between mb-6"><div class="flex items-center gap-3"><i class="fa-solid fa-cart-shopping text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">ZUKURZALEZ</h1></div><button onclick="go('reportar')" class="arc flex items-center gap-2" style="color:#dc2626"><i class="fa-solid fa-bullhorn"></i> REPORTAR</button></div><div class="space-y-6">${['contenido comprado','acuerdos de comprar contenido','Destinos y información de compra'].map(t=>`<div class="flex items-center gap-3"><div class="w-16 h-16 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#22c55e,#0ea5e9)"><i class="fa-solid fa-map-location-dot text-3xl text-white"></i></div><span class="arc text-base">${t}</span></div>`).join('')}</div></div></div>`;
+views.reportar=()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto space-y-3"><h1 class="arc text-2xl text-center mb-4">REPORTAR</h1><input id="rep-target" placeholder="Usuario" class="inp"><textarea id="rep-msg" rows="4" placeholder="Motivo" class="inp"></textarea><button onclick="sendReport()" class="btn w-full py-3 bg-red-600 border-red-600 text-white">ENVIAR</button><button onclick="go('zukurzalez')" class="btn w-full py-2 text-xs text-white">CANCELAR</button></div></div>`;
+window.sendReport=()=>{const t=document.getElementById('rep-target').value;if(!t)return toast('Ingresa usuario','error');toast('Reporte enviado','success');go('zukurzalez');};
+
+views.gdz=()=>`<div class="absolute inset-0 overflow-y-auto"><div class="p-4 max-w-md mx-auto"><div class="flex items-center gap-3 mb-6"><i class="fa-solid fa-bag-shopping text-3xl" style="color:#dc2626"></i><h1 class="arc text-2xl">GDZ</h1></div><div class="space-y-4 arc text-2xl">${['información personal','compras','Registros','mesajería','Dazergdzavisos'].map(t=>`<div onclick="toast('${t}','info')" class="cursor-pointer border-b border-white/20 pb-2">${t}</div>`).join('')}</div></div></div>`;
 
 applyTheme(state.settings.theme||'nocturno');
-window.checkMaster = () => {
-  const p = document.getElementById('master-pass').value;
-  if (p === '29112009') {
-    state.user.role = 'DIRECT@R'; save();
-    document.getElementById('hdr-role').textContent = 'DIRECT@R';
-    document.getElementById('ftr-role').textContent = 'DIRECT@R';
-    closeModal('mod-master'); toast('Acceso Director','success');
-  } else toast('Clave incorrecta','error');
-};
-
-if (IS_STANDALONE()) {
-  setTimeout(() => { hide('scr-pwa'); show('scr-lang'); }, 150);
-}
+if(IS_STANDALONE())setTimeout(()=>{hide('scr-pwa');show('scr-lang');},150);
 </script>
 </body>
 </html>
