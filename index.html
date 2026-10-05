@@ -95,6 +95,60 @@ body.theme-atodecedor,body.theme-secreto{background:var(--bg)}
 ::-webkit-scrollbar-track{background:#000}
 ::-webkit-scrollbar-thumb{background:#444}
 </style>
+
+<style id="dz-mejoras">
+html,body,button,input,textarea,select{font-family:'Archivo Black',Inter,system-ui,sans-serif!important}
+.serif,.inp::placeholder{font-family:'Archivo Black',sans-serif!important}
+h1.arc,h2.arc,h3.arc{text-shadow:1px 1px 0 #7e22ce,2px 2px 0 #6b21a8,3px 3px 0 #581c87,4px 7px 12px rgba(0,0,0,.7)}
+.btn,.hand,.box2{transition:transform .15s,box-shadow .15s;box-shadow:0 4px 0 rgba(126,34,206,.9),0 10px 18px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.25);background-image:linear-gradient(180deg,rgba(255,255,255,.12),transparent 55%)}
+.btn:active,.hand:active,.box2:active{transform:translateY(3px) scale(.98);box-shadow:0 1px 0 rgba(126,34,206,.9),0 3px 8px rgba(0,0,0,.5)}
+.dzp{animation:dzP .35s}
+@keyframes dzP{0%{box-shadow:0 0 0 0 rgba(168,85,247,.8)}100%{box-shadow:0 0 0 16px rgba(168,85,247,0)}}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:8000;background:radial-gradient(ellipse at center,transparent 62%,rgba(0,0,0,.5))}
+@keyframes dzUp{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+#viewport>*,#viewport :is(.space-y-2,.space-y-3,.space-y-4,.grid)>*{animation:dzUp .45s cubic-bezier(.2,.8,.2,1) both}
+#viewport :is(.space-y-2,.space-y-3,.space-y-4,.grid)>:nth-child(2){animation-delay:.06s}
+#viewport :is(.space-y-2,.space-y-3,.space-y-4,.grid)>:nth-child(3){animation-delay:.12s}
+#viewport :is(.space-y-2,.space-y-3,.space-y-4,.grid)>:nth-child(4){animation-delay:.18s}
+#viewport :is(.space-y-2,.space-y-3,.space-y-4,.grid)>:nth-child(n+5){animation-delay:.24s}
+.nav-sep,.nav-carousel>button span{display:none}
+.nav-carousel>button.active span{display:block}
+.nav-carousel>button{min-width:56px}
+.nav-carousel>button.active{min-width:84px;box-shadow:0 0 18px rgba(168,85,247,.8)}
+.nav-carousel>button.active i{animation:dzF 1.6s ease-in-out infinite}
+@keyframes dzF{50%{transform:translateY(-3px)}}
+#sweep{background:none!important;overflow:hidden}
+#sweep.active{animation:none!important}
+#sweep::before{content:"";position:absolute;top:-10%;bottom:-10%;left:-25%;width:150%;transform:translateX(-130%) skewX(-16deg);background:linear-gradient(90deg,#f5e8ff,#a855f7 8%,#4c1d95 40%,#12002b 50%,#4c1d95 60%,#a855f7 92%,#f5e8ff);filter:drop-shadow(0 0 28px #a855f7)}
+#sweep.active::before{animation:dzSw 1.1s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes dzSw{0%{transform:translateX(-130%) skewX(-16deg)}45%,55%{transform:translateX(0) skewX(-16deg)}100%{transform:translateX(130%) skewX(-16deg)}}
+body[class*=theme-] #viewport,body[class*=theme-] #app{background:var(--bg)!important}
+body[class*=theme-] #viewport,body[class*=theme-] .text-white{color:var(--fg)!important}
+body[class*=theme-] .text-purple-400,body[class*=theme-] .text-purple-500{color:var(--ac)!important}
+body[class*=theme-] .btn,body[class*=theme-] .box2{border-color:var(--ac)}
+body.calm #viewport *,body.calm #sweep,body.m-tozo *,body.m-tozo #sweep{animation:none!important;transition:none!important}
+body.m-vk img,body.m-vk video{filter:blur(18px);transition:filter .3s}
+body.m-vk img:hover,body.m-vk video:hover,body.m-vk img:active,body.m-vk video:active{filter:none}
+body.m-red input[type=search],body.m-red input[placeholder*=usc i]{-webkit-text-security:disc}
+body.m-zk button:has(.flag-ex){display:none!important}
+body.m-zk #viewport div:has(>.flag-ex)~*{display:none!important}
+body.m-zk #viewport div:has(>.flag-ex)::after{content:"CONTENIDO DE PAGA OCULTO";display:block;padding:12px 0;font-size:10px;color:#c084fc}
+body.m-tozo .fuego,body.m-tozo #sweep,body.m-tozo::after{display:none!important}
+body.m-tozo *{box-shadow:none!important;text-shadow:none!important;background-image:none!important;border-radius:0!important}
+body.m-vpn::before{content:"ESCUDO ON";position:fixed;top:4px;right:6px;z-index:8100;font-size:9px;color:#c084fc;background:rgba(0,0,0,.6);padding:2px 6px;border:1px solid #a855f7;pointer-events:none}
+#dzp{position:fixed;left:0;right:0;bottom:64px;z-index:8500;background:#0b0614;border-top:2px solid #a855f7;box-shadow:0 -8px 24px rgba(0,0,0,.6);transition:transform .3s}
+#dzp.min{transform:translateY(calc(100% - 38px))}
+.dzp-bar{display:flex;gap:6px;align-items:center;padding:6px;font-size:11px;color:#c084fc}
+.dzp-bar input{flex:1;min-width:0;background:#000;border:1px solid #6b7280;color:#fff;padding:4px 6px;font-size:10px}
+.dzp-bar button{padding:2px 8px;border:1px solid #a855f7;color:#fff}
+#dzp iframe{width:100%;height:150px;border:0;display:block}
+#dzlock{position:fixed;inset:0;z-index:9600;background:rgba(0,0,0,.95);backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff}
+#dzlock>i{font-size:54px;color:#a855f7;filter:drop-shadow(0 0 16px #a855f7);animation:dzF 2s infinite}
+#dzlock input{width:200px;text-align:center;font-size:24px;letter-spacing:.4em;background:#000;border:2px solid #fff;color:#fff;padding:10px}
+#dzlock .btn{padding:8px 18px;color:#fff}
+#dzlock.shake{animation:dzSh .4s}
+@keyframes dzSh{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+</style>
 </head>
 <body class="theme-nocturno select-none">
 
@@ -428,7 +482,7 @@ setTimeout(updateInstallUI, 1500);
 
 /* ================= FIREBASE ================= */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword, reauthenticateWithPopup } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
@@ -446,6 +500,7 @@ const appFoot = initializeApp(CFG.footages, 'appFoot');
 const appSchn = initializeApp(CFG.schnapps, 'appSchn');
 const appMsg = initializeApp(CFG.mensajes, 'appMsg');
 const auth = getAuth(appCuentas);
+window.__reauth = async () => { const p = new GoogleAuthProvider(); p.setCustomParameters({prompt:'select_account'}); await reauthenticateWithPopup(auth.currentUser, p); };
 const dbCuentas = getFirestore(appCuentas);
 const dbKurz = getFirestore(appKurz);
 const dbFoot = getFirestore(appFoot);
@@ -1252,6 +1307,63 @@ window.checkMaster = () => {
 if (IS_STANDALONE()) {
   setTimeout(() => { hide('scr-pwa'); show('scr-lang'); }, 150);
 }
+</script>
+
+<script id="dz-mejoras-js">
+(()=>{try{
+const $=s=>document.querySelector(s),S=()=>window.state||{};
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('button,.btn,.hand,.box2,[onclick]');if(!b)return;try{if(localStorage.dz_vib!=='0')navigator.vibrate&&navigator.vibrate(10)}catch(x){}b.classList.remove('dzp');void b.offsetWidth;b.classList.add('dzp')},true);
+const H=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('dz'+s)))].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function setPin(){const c=localStorage.dz_pin;if(c&&await H(prompt('PIN actual')||'')!==c){toast('PIN incorrecto','error');return 0}const a=prompt('Nuevo PIN (4 a 8 números)');if(!/^\d{4,8}$/.test(a||'')){toast('PIN no válido','error');return 0}localStorage.dz_pin=await H(a);toast('PIN guardado','success');return 1}
+let L=null;
+async function lock(){if(L)return;if(!S().user)return toast('Inicia sesión para usar el candado','info');
+if(!localStorage.dz_pin&&!await setPin())return;
+L=document.createElement('div');L.id='dzlock';
+L.innerHTML='<i class="fa-solid fa-lock"></i><h2 class="arc text-2xl">CANDADO</h2><input id="dzpin" type="password" inputmode="numeric" maxlength="8" placeholder="PIN"><button id="dzok" class="btn">DESBLOQUEAR</button><button id="dzgo" class="btn">USAR GOOGLE</button>';
+document.body.appendChild(L);const un=()=>{L.remove();L=null};
+$('#dzok').onclick=async()=>{if(await H($('#dzpin').value)===localStorage.dz_pin)un();else{toast('PIN incorrecto','error');L.classList.add('shake');setTimeout(()=>L&&L.classList.remove('shake'),400)}};
+$('#dzgo').onclick=async()=>{try{await window.__reauth();localStorage.removeItem('dz_pin');un();toast('Verificado con Google. Crea un PIN nuevo en Ajustes','success')}catch(e){toast('No se pudo verificar con Google','error')}}}
+let T=[],LT;document.addEventListener('touchstart',e=>{if(e.touches.length!==5)return;const n=Date.now();T=T.filter(t=>n-t<1800);T.push(n);clearTimeout(LT);if((S().vk||{}).VPN){if(T.length>=3){location.replace('https://www.google.com/');return}LT=setTimeout(lock,900)}else lock()},{passive:true});
+const dzParse=u=>{const m=(u||'').match(/deezer\.com\/(?:\w\w\/)?(track|album|playlist|artist)\/(\d+)/);return m?m[1]+'/'+m[2]:null};
+function deezer(on){let p=$('#dzp');if(!on){p&&p.remove();return}if(p)return;
+p=document.createElement('div');p.id='dzp';
+p.innerHTML='<div class="dzp-bar"><span>♫ DEEZER</span><input id="dzi" placeholder="Pega un link de Deezer"><button id="dzg">IR</button><button id="dzl">CUENTA</button><button id="dzx">▾</button></div><iframe id="dzf" title="Deezer" allow="encrypted-media; clipboard-write" loading="lazy" src="https://widget.deezer.com/widget/dark/'+(localStorage.dz_dz||'playlist/3155776842')+'"></iframe>';
+document.body.appendChild(p);
+$('#dzg').onclick=()=>{const r=dzParse($('#dzi').value);if(!r)return toast('Link de Deezer no válido','error');localStorage.dz_dz=r;$('#dzf').src='https://widget.deezer.com/widget/dark/'+r;toast('Cargando en Deezer','success')};
+$('#dzl').onclick=()=>window.open('https://www.deezer.com/register','_blank');$('#dzx').onclick=()=>p.classList.toggle('min')}
+function tozo(on){const s=S().settings;if(!s)return;const k='dz_tz';if(on&&!localStorage[k]){localStorage[k]=JSON.stringify({t:s.transitions,a:s.sndBg,b:s.sndBtn,c:s.sndKz,d:s.sndFt,e:s.sndSf});Object.assign(s,{transitions:false,sndBg:false,sndBtn:false,sndKz:false,sndFt:false,sndSf:false});save()}else if(!on&&localStorage[k]){const o=JSON.parse(localStorage[k]);Object.assign(s,{transitions:o.t,sndBg:o.a,sndBtn:o.b,sndKz:o.c,sndFt:o.d,sndSf:o.e});localStorage.removeItem(k);save()}}
+function mods(){const v=S().vk||{},b=document.body;
+b.classList.toggle('m-red',!!v.REDOCULTA);b.classList.toggle('m-vk',!!v.VERKEHR);b.classList.toggle('m-zk',!!v.ZUKURZALES);b.classList.toggle('m-tozo',!!v.TOZO);b.classList.toggle('m-vpn',!!v.VPN);b.classList.toggle('calm',localStorage.dz_calm==='1');
+let m=$('meta[name=referrer]');if(v.VPN){if(!m){m=document.createElement('meta');m.name='referrer';document.head.appendChild(m)}m.content='no-referrer'}else if(m)m.content='strict-origin-when-cross-origin';
+deezer(!!v.DEEZZEER);
+tozo(!!v.TOZO);
+}
+const COL=()=>{try{return JSON.parse(localStorage.dz_col||'null')}catch(e){return null}};
+function paint(c){const b=document.body.style;['bg','fg','ac'].forEach(k=>c&&c[k]?b.setProperty('--'+k,c[k]):b.removeProperty('--'+k))}
+function moduz(v){if($('#xcol')||!v.querySelector('[onclick*="setTheme"]'))return;
+const D={bg:'#000000',fg:'#ffffff',ac:'#a855f7'},c=COL()||D,d=document.createElement('div');d.id='xcol';d.className='p-4 max-w-md mx-auto';
+d.innerHTML='<h3 class="arc text-lg mb-2">TUS COLORES</h3>'+[['fg','TEXTO'],['bg','FONDO'],['ac','DETALLES']].map(([k,n])=>'<label class="box2 p-2 mb-3 flex justify-between items-center"><span class="text-[11px]">'+n+'</span><input type="color" data-k="'+k+'" value="'+c[k]+'"></label>').join('')+'<button id="xcr" class="btn w-full py-2">QUITAR MIS COLORES</button>';
+v.appendChild(d);
+d.querySelectorAll('input').forEach(i=>i.oninput=()=>{const n=COL()||{...D};n[i.dataset.k]=i.value;localStorage.dz_col=JSON.stringify(n);paint(n)});
+$('#xcr').onclick=()=>{localStorage.removeItem('dz_col');paint(null);go('sub-moduz')}}
+function aloha(v){if($('#xal')||!v.querySelector('[onclick="go(\'aline\')"]'))return;
+const d=document.createElement('div');d.id='xal';d.className='p-4 max-w-md mx-auto';
+d.innerHTML='<h3 class="arc text-lg mb-2">ALOHA</h3><div class="flex gap-2 mb-3"><input id="xq" class="inp flex-1" type="search" placeholder="Buscar en la web"><button id="xqg" class="btn px-3">IR</button></div><select id="xd" class="inp w-full mb-2">'+['kurzclips','footage','schnapps','spielfilm','aline'].map(x=>'<option value="'+x+'">'+x.toUpperCase()+'</option>').join('')+'</select><input id="xf" type="file" accept="video/*" class="text-[10px] w-full mb-2"><button id="xs" class="btn w-full py-2">SUBIR VIDEO DESCARGADO</button><p class="text-[9px] text-gray-500 mt-1">Solo videos tuyos o con permiso.</p>';
+v.appendChild(d);
+const q=()=>{const t=$('#xq').value.trim();if(t)window.open('https://duckduckgo.com/?q='+encodeURIComponent(t),'_blank','noopener')};
+$('#xqg').onclick=q;$('#xq').onkeydown=e=>e.key==='Enter'&&q();
+$('#xs').onclick=()=>{const f=$('#xf').files[0],c=$('#xd').value;if(!f)return toast('Elige un video primero','info');go(c);let n=0;const w=setInterval(()=>{const i=$('#up-file-'+c);if(i||++n>30){clearInterval(w);if(!i)return toast('No se pudo abrir la sección','error');const dt=new DataTransfer();dt.items.add(f);i.files=dt.files;$('#up-title-'+c).value=f.name.replace(/\.\w+$/,'');uploadContent(c)}},200)}}
+function extra(){const v=$('#viewport');if(!v)return;moduz(v);aloha(v);if($('#xset')||!v.querySelector('[onclick*="transitions"]'))return;
+const d=document.createElement('div');d.id='xset';d.className='p-4 max-w-md mx-auto';
+d.innerHTML='<h3 class="arc text-lg mb-2">EXTRA</h3><div class="box2 p-2 mb-3 flex justify-between items-center"><span class="text-[11px]">VIBRAR AL TOCAR</span><div id="xv" class="toggle '+(localStorage.dz_vib==='0'?'off':'on')+' scale-75"></div></div><div class="box2 p-2 mb-3 flex justify-between items-center"><span class="text-[11px]">MODO CALMA</span><div id="xc" class="toggle '+(localStorage.dz_calm==='1'?'on':'off')+' scale-75"></div></div><button id="xl" class="btn w-full py-2 mb-3">BLOQUEAR AHORA</button><button id="xp" class="btn w-full py-2 mb-3">CAMBIAR PIN</button><button id="xr" class="btn w-full py-2">RESTABLECER AJUSTES</button>';
+v.appendChild(d);
+const tg=(id,k,on)=>{$(id).onclick=e=>{const t=e.currentTarget,o=t.classList.contains('on');t.classList.toggle('on',!o);t.classList.toggle('off',o);localStorage[k]=(!o)===on?on:(on==='1'?'0':'1');mods()}};
+tg('#xv','dz_vib','1');tg('#xc','dz_calm','1');
+$('#xl').onclick=lock;$('#xp').onclick=setPin;
+$('#xr').onclick=()=>{if(!confirm('¿Restablecer todos los ajustes?'))return;['dz_vib','dz_calm','dz_dz'].forEach(k=>localStorage.removeItem(k));Object.assign(S().settings,{transitions:true,theme:'nocturno',sndBg:true,sndBtn:true,sndKz:true,sndFt:true,sndSf:true});save();location.reload()}}
+new MutationObserver(()=>{extra();mods()}).observe($('#viewport'),{childList:true});
+addEventListener('load',()=>{paint(COL());const st=window.setTheme;if(st)window.setTheme=t=>{localStorage.removeItem('dz_col');paint(null);st(t)};const o=window.toggleVK;if(o)window.toggleVK=k=>{o(k);if(k==='AL CANDADO'&&S().vk[k]){S().vk[k]=false;save();lock()}mods()};mods()});
+}catch(e){console.warn('dz-mejoras',e)}})();
 </script>
 </body>
 </html>
