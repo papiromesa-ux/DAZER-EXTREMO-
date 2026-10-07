@@ -12,20 +12,41 @@
 <meta name="application-name" content="DAZER">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>DAZER EXTREMO / VOLUMEN 3</title>
+
 <link id="apple-icon" rel="apple-touch-icon">
 <link id="pwa-manifest" rel="manifest">
+
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@600;700&display=swap"
+  rel="stylesheet">
 
 <style>
 /* ====== BASE 3D & PERSPECTIVA ====== */
 :root {
-  --depth-1: 2px; --depth-2: 4px; --depth-3: 8px; --depth-4: 16px;
-  --shadow-3d: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
-  --glow-purple: 0 0 20px rgba(168,85,247,0.6), 0 0 40px rgba(168,85,247,0.3);
-  --glow-red: 0 0 20px rgba(220,38,38,0.6), 0 0 40px rgba(220,38,38,0.3);
-  --glow-green: 0 0 20px rgba(34,197,94,0.6), 0 0 40px rgba(34,197,94,0.3);
+  --depth-1: 2px;
+  --depth-2: 4px;
+  --depth-3: 8px;
+  --depth-4: 16px;
+
+  --shadow-3d:
+    0 10px 30px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.1);
+
+  --glow-purple:
+    0 0 20px rgba(168,85,247,0.6),
+    0 0 40px rgba(168,85,247,0.3);
+
+  --glow-red:
+    0 0 20px rgba(220,38,38,0.6),
+    0 0 40px rgba(220,38,38,0.3);
+
+  --glow-green:
+    0 0 20px rgba(34,197,94,0.6),
+    0 0 40px rgba(34,197,94,0.3);
 }
 
 * {
@@ -34,7 +55,8 @@
   transform-style: preserve-3d;
 }
 
-html, body {
+html,
+body {
   overscroll-behavior: none;
   margin: 0;
   padding: 0;
@@ -46,12 +68,12 @@ html, body {
   overflow: hidden;
 }
 
-/* ====== TIPOGRAFÍA 3D MEJORADA ====== */
+/* ====== TIPOGRAFÍA 3D ====== */
 .arc {
   font-family: 'Archivo Black', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  text-shadow: 
+  text-shadow:
     0 1px 0 #7e22ce,
     0 2px 0 #6b21a8,
     0 3px 0 #581c87,
@@ -66,13 +88,15 @@ html, body {
   text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
-/* ====== BOTONES 3D PREMIUM ====== */
+/* ====== BOTONES 3D ====== */
 .btn {
   border: 2px solid currentColor;
-  background: linear-gradient(180deg, 
-    rgba(255,255,255,0.15) 0%, 
-    rgba(255,255,255,0.05) 40%, 
-    transparent 41%);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.05) 40%,
+    transparent 41%
+  );
   color: inherit;
   font-family: 'Archivo Black', sans-serif;
   text-transform: uppercase;
@@ -81,7 +105,7 @@ html, body {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 6px 0 rgba(126,34,206,0.9),
     0 12px 24px rgba(0,0,0,0.6),
     inset 0 1px 0 rgba(255,255,255,0.3),
@@ -92,20 +116,26 @@ html, body {
 .btn::before {
   content: '';
   position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255,255,255,0.4), 
-    transparent);
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
   transition: left 0.5s;
 }
 
-.btn:hover::before { left: 100%; }
+.btn:hover::before {
+  left: 100%;
+}
 
 .btn:active {
   transform: translateZ(5px) translateY(4px) scale(0.98);
-  box-shadow: 
+  box-shadow:
     0 2px 0 rgba(126,34,206,0.9),
     0 4px 12px rgba(0,0,0,0.7),
     inset 0 2px 4px rgba(0,0,0,0.3);
@@ -121,7 +151,7 @@ html, body {
   background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 100%);
   color: #000;
   border-color: #ffffff;
-  box-shadow: 
+  box-shadow:
     0 6px 0 #a855f7,
     0 12px 24px rgba(0,0,0,0.6),
     inset 0 1px 0 rgba(255,255,255,0.8),
@@ -129,7 +159,7 @@ html, body {
 }
 
 .btn-w:active {
-  box-shadow: 
+  box-shadow:
     0 2px 0 #a855f7,
     0 4px 12px rgba(0,0,0,0.7),
     inset 0 2px 4px rgba(0,0,0,0.2);
@@ -147,7 +177,7 @@ html, body {
   font-size: 13px;
   width: 100%;
   border-radius: 8px;
-  box-shadow: 
+  box-shadow:
     inset 0 4px 8px rgba(0,0,0,0.6),
     0 2px 0 rgba(255,255,255,0.1),
     0 0 15px rgba(168,85,247,0.2);
@@ -165,7 +195,7 @@ html, body {
 .inp:focus {
   outline: none;
   border-color: #a855f7;
-  box-shadow: 
+  box-shadow:
     inset 0 4px 12px rgba(0,0,0,0.8),
     0 0 0 3px rgba(168,85,247,0.3),
     0 0 30px rgba(168,85,247,0.5);
@@ -182,7 +212,7 @@ html, body {
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.5),
     0 2px 0 rgba(255,255,255,0.1),
     0 4px 8px rgba(0,0,0,0.4);
@@ -198,14 +228,14 @@ html, body {
   background: linear-gradient(180deg, #ffffff 0%, #d4d4d4 100%);
   top: 3px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     0 2px 4px rgba(0,0,0,0.4),
     inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .toggle.on {
   background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
-  box-shadow: 
+  box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.4),
     0 0 20px rgba(34,197,94,0.5);
 }
@@ -217,22 +247,20 @@ html, body {
 
 .toggle.off {
   background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
-  box-shadow: 
+  box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.4),
     0 0 20px rgba(239,68,68,0.5);
 }
 
 .toggle.off::after {
   left: 4px;
-}
-
-/* ====== FRAMES 3D ====== */
+}/* ====== FRAMES 3D ====== */
 .frame {
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     0 8px 24px rgba(0,0,0,0.6),
     0 0 0 1px rgba(255,255,255,0.1);
   transform: translateZ(15px);
@@ -240,7 +268,7 @@ html, body {
 
 .frame:active {
   transform: translateZ(5px) scale(0.97);
-  box-shadow: 
+  box-shadow:
     0 4px 12px rgba(0,0,0,0.7),
     0 0 0 1px rgba(255,255,255,0.05);
 }
@@ -272,12 +300,12 @@ html, body {
   border: 2px solid #000;
   z-index: 2;
   color: #fff;
-  box-shadow: 
+  box-shadow:
     0 4px 12px rgba(168,85,247,0.6),
     0 0 20px rgba(168,85,247,0.4);
 }
 
-/* ====== EFECTO SWEEP MEJORADO ====== */
+/* ====== EFECTO SWEEP ====== */
 #sweep {
   position: fixed;
   inset: 0;
@@ -314,7 +342,7 @@ html, body {
     #f5e8ff 95%,
     transparent 100%
   );
-  filter: 
+  filter:
     drop-shadow(0 0 30px #a855f7)
     drop-shadow(0 0 60px #7c3aed)
     blur(8px);
@@ -330,19 +358,27 @@ html, body {
     transform: translateX(-140%) skewX(-20deg) rotateZ(-5deg);
     opacity: 0;
   }
-  10% { opacity: 1; }
+
+  10% {
+    opacity: 1;
+  }
+
   50% {
     transform: translateX(0) skewX(-20deg) rotateZ(-5deg);
     opacity: 1;
   }
-  90% { opacity: 1; }
+
+  90% {
+    opacity: 1;
+  }
+
   100% {
     transform: translateX(140%) skewX(-20deg) rotateZ(-5deg);
     opacity: 0;
   }
 }
 
-/* ====== FUEGO ULTRA MEJORADO ====== */
+/* ====== FUEGO ====== */
 .fuego {
   position: fixed;
   width: 18px;
@@ -362,7 +398,7 @@ html, body {
     transparent 100%
   );
   transform: translate(-50%, -50%);
-  box-shadow: 
+  box-shadow:
     0 0 15px #a855f7,
     0 0 30px #7c3aed,
     0 0 50px rgba(168,85,247,0.7),
@@ -386,8 +422,15 @@ html, body {
 }
 
 @keyframes pulseGlow {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  100% { transform: scale(1.2); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 @keyframes fireRise {
@@ -396,23 +439,44 @@ html, body {
     opacity: 1;
     filter: blur(0.5px);
   }
+
   30% {
-    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% - 25px)) scale(1.1) rotate(45deg);
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 25px)
+      )
+      scale(1.1)
+      rotate(45deg);
     opacity: 0.95;
   }
+
   60% {
-    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% - 50px)) scale(0.9) rotate(90deg);
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 50px)
+      )
+      scale(0.9)
+      rotate(90deg);
     opacity: 0.7;
     filter: blur(1px);
   }
+
   100% {
-    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% - 80px)) scale(0.2) rotate(180deg);
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 80px)
+      )
+      scale(0.2)
+      rotate(180deg);
     opacity: 0;
     filter: blur(3px);
   }
 }
 
-/* Partículas secundarias de fuego */
+/* ====== PARTÍCULAS DE FUEGO ====== */
 .fuego-spark {
   position: fixed;
   width: 6px;
@@ -435,8 +499,11 @@ html, body {
     transform: translate(0, 0) scale(1);
     opacity: 1;
   }
+
   100% {
-    transform: translate(var(--sx, 30px), var(--sy, -60px)) scale(0.3);
+    transform:
+      translate(var(--sx, 30px), var(--sy, -60px))
+      scale(0.3);
     opacity: 0;
   }
 }
@@ -448,7 +515,7 @@ html, body {
   border-top: 2px solid #fff;
   background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
   flex-shrink: 0;
-  box-shadow: 
+  box-shadow:
     0 -4px 20px rgba(0,0,0,0.8),
     0 0 0 1px rgba(255,255,255,0.05);
 }
@@ -466,12 +533,22 @@ html, body {
 
 .nav-carousel-wrap::before {
   left: 0;
-  background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0,0,0,0.8) 50%,
+    transparent 100%
+  );
 }
 
 .nav-carousel-wrap::after {
   right: 0;
-  background: linear-gradient(-90deg, #000 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
+  background: linear-gradient(
+    -90deg,
+    #000 0%,
+    rgba(0,0,0,0.8) 50%,
+    transparent 100%
+  );
 }
 
 .nav-carousel {
@@ -503,7 +580,11 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05) 0%,
+    transparent 100%
+  );
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 9px;
@@ -517,8 +598,15 @@ html, body {
 .nav-carousel > button::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(168,85,247,0.2), transparent);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(168,85,247,0.2),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.25s;
 }
@@ -538,7 +626,7 @@ html, body {
 .nav-carousel > button.bg-white {
   background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 100%);
   color: #000;
-  box-shadow: 
+  box-shadow:
     0 0 25px rgba(168,85,247,0.9),
     0 0 50px rgba(168,85,247,0.5),
     inset 0 1px 0 rgba(255,255,255,0.8);
@@ -558,659 +646,399 @@ html, body {
 .nav-carousel > button.active {
   min-width: 92px;
   transform: translateZ(10px) scale(1.05);
-}
-
-@keyframes dzF {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-4px) rotate(-5deg); }
-  75% { transform: translateY(-4px) rotate(5deg); }
-}
-
-.nav-sep {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  color: #a855f7;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 16px;
-  user-select: none;
-  text-shadow: 0 0 15px rgba(168,85,247,0.8);
-}
-
-.nav-sep.red {
-  color: #dc2626;
-  text-shadow: 0 0 15px rgba(220,38,38,0.8);
-}
-
-/* ====== EFECTOS ESPECIALES ====== */
-.brain-pulse {
-  animation: bp 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px #dc2626);
-}
-
-@keyframes bp {
-  0%, 100% {
-    filter: drop-shadow(0 0 10px #dc2626) drop-shadow(0 0 20px #dc2626);
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 25px #dc2626) drop-shadow(0 0 50px #dc2626);
-    transform: scale(1.05);
-  }
-}
-
-.glitch {
-  background-color: #0a0a1f;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,0,102,0.2) 3px, rgba(255,0,102,0.2) 4px),
-    repeating-linear-gradient(90deg, transparent 0, transparent 8px, rgba(59,130,246,0.25) 8px, rgba(59,130,246,0.25) 10px);
-  background-size: 100% 20px, 20px 100%;
-  animation: gs 3s linear infinite;
+}/* ====== FRAMES 3D ====== */
+.frame {
   position: relative;
-}
-
-.glitch::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(168,85,247,0.1) 50%,
-    transparent 100%
-  );
-  animation: glitchSweep 2s linear infinite;
-}
-
-@keyframes gs {
-  0% { background-position: 0 0, 0 0; }
-  100% { background-position: 0 20px, 20px 0; }
-}
-
-@keyframes glitchSweep {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-.grain {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.04) 0,
-    rgba(255,255,255,0.04) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  background-size: 8px 8px;
-}
-
-.hand {
-  border: 2px solid #fff;
-  border-radius: 10px 14px 12px 16px / 14px 10px 16px 12px;
-  transform: rotate(-2deg) translateZ(10px);
-  box-shadow: 
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
     0 8px 24px rgba(0,0,0,0.6),
     0 0 0 1px rgba(255,255,255,0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(15px);
 }
 
-.hand:active {
-  transform: rotate(0deg) translateZ(5px) scale(0.98);
-  box-shadow: 
+.frame:active {
+  transform: translateZ(5px) scale(0.97);
+  box-shadow:
     0 4px 12px rgba(0,0,0,0.7),
     0 0 0 1px rgba(255,255,255,0.05);
 }
 
-.flag-ex {
-  display: inline-block;
-  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
-  color: #fff;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  padding: 3px 10px;
-  transform: skewX(-15deg) translateZ(5px);
-  box-shadow: 
-    0 4px 12px rgba(220,38,38,0.6),
-    0 0 20px rgba(220,38,38,0.4);
-  border: 1px solid rgba(255,255,255,0.2);
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
 }
 
-.flag-ex.purple {
+.frame:hover img {
+  transform: scale(1.05);
+}
+
+.frame .edit-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
   background: linear-gradient(180deg, #a855f7 0%, #7c3aed 100%);
-  box-shadow: 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  border: 2px solid #000;
+  z-index: 2;
+  color: #fff;
+  box-shadow:
     0 4px 12px rgba(168,85,247,0.6),
     0 0 20px rgba(168,85,247,0.4);
 }
 
-/* ====== TOAST 3D ====== */
-#toast-wrap {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: auto;
-  max-width: min(85vw, 320px);
-  pointer-events: none;
-  align-items: flex-end;
-}
-
-.toast-msg {
-  background: linear-gradient(180deg, rgba(18,10,32,0.95) 0%, rgba(0,0,0,0.95) 100%);
-  border-left: 4px solid #a855f7;
-  padding: 10px 14px;
-  border-radius: 6px;
-  color: #fff;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 
-    0 4px 16px rgba(0,0,0,0.7),
-    0 0 20px rgba(168,85,247,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  animation: toastIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 0;
-  transform: translateX(30px) translateZ(20px);
-}
-
-.toast-msg.error {
-  border-left-color: #ef4444;
-  box-shadow: 
-    0 4px 16px rgba(0,0,0,0.7),
-    0 0 20px rgba(239,68,68,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-.toast-msg.success {
-  border-left-color: #22c55e;
-  box-shadow: 
-    0 4px 16px rgba(0,0,0,0.7),
-    0 0 20px rgba(34,197,94,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-.toast-msg.info {
-  border-left-color: #a855f7;
-}
-
-.toast-msg.out {
-  animation: toastOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes toastIn {
-  from {
-    transform: translateX(30px) translateZ(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0) translateZ(20px);
-    opacity: 1;
-  }
-}
-
-@keyframes toastOut {
-  to {
-    transform: translateX(30px) translateZ(20px);
-    opacity: 0;
-  }
-}
-
-/* ====== TEMAS 3D ====== */
-body.theme-nocturno { --bg: #000000; --fg: #fff; --ac: #a855f7; }
-body.theme-dia { --bg: #3a3a3a; --fg: #22c55e; --ac: #22c55e; color: #22c55e; }
-body.theme-coquette { --bg: linear-gradient(160deg, #ff0080 0%, #ff66b3 100%); --fg: #fff; --ac: #fff; }
-body.theme-fuego { --bg: linear-gradient(160deg, #ff0000 0%, #ff4444 100%); --fg: #fff; --ac: #ffcc00; }
-body.theme-sexy { --bg: linear-gradient(160deg, #ff0066 0%, #ff3399 100%); --fg: #fff; --ac: #ff00cc; }
-body.theme-atodecedor { --bg: linear-gradient(160deg, #7c3aed 0%, #06b6d4 60%, #10b981 100%); --fg: #fff; --ac: #fff; }
-body.theme-secreto { --bg: linear-gradient(160deg, #ff0080 0%, #00e5ff 50%, #10b981 100%); --fg: #fff; --ac: #fff; }
-body.theme-normal { --bg: #1e3a8a; --fg: #fff; --ac: #a855f7; }
-
-body {
-  background: var(--bg, #000);
-  color: var(--fg, #fff);
-  background-attachment: fixed;
-  transition: background 0.5s ease;
-}
-
-body.theme-atodecedor,
-body.theme-secreto,
-body.theme-coquette,
-body.theme-fuego,
-body.theme-sexy {
-  background: var(--bg);
-}
-
-/* ====== SCROLLBARS 3D ====== */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: linear-gradient(90deg, #0a0a0a 0%, #000000 100%);
-  box-shadow: inset 0 0 4px rgba(0,0,0,0.8);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #444 0%, #222 100%);
-  border-radius: 3px;
-  box-shadow: 
-    0 0 4px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #555 0%, #333 100%);
-  box-shadow: 
-    0 0 8px rgba(168,85,247,0.5),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-}
-
-/* ====== MEJORAS GENERALES 3D ====== */
-.box {
-  border: 3px solid #fff;
-  box-shadow: 
-    0 8px 24px rgba(0,0,0,0.7),
-    0 0 0 1px rgba(255,255,255,0.1),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.95) 100%);
-}
-
-.box2 {
-  border: 2px solid #fff;
-  box-shadow: 
-    0 4px 16px rgba(0,0,0,0.6),
-    0 0 0 1px rgba(255,255,255,0.05),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.box2:hover {
-  box-shadow: 
-    0 6px 20px rgba(0,0,0,0.7),
-    0 0 0 1px rgba(168,85,247,0.3),
-    0 0 20px rgba(168,85,247,0.2);
-  transform: translateZ(5px);
-}
-
-/* ====== ANIMACIONES DE ENTRADA ====== */
-@keyframes dzUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) translateZ(-10px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateZ(0) scale(1);
-  }
-}
-
-#viewport > *,
-#viewport :is(.space-y-2, .space-y-3, .space-y-4, .grid) > * {
-  animation: dzUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-#viewport :is(.space-y-2, .space-y-3, .space-y-4, .grid) > :nth-child(2) { animation-delay: 0.08s; }
-#viewport :is(.space-y-2, .space-y-3, .space-y-4, .grid) > :nth-child(3) { animation-delay: 0.16s; }
-#viewport :is(.space-y-2, .space-y-3, .space-y-4, .grid) > :nth-child(4) { animation-delay: 0.24s; }
-#viewport :is(.space-y-2, .space-y-3, .space-y-4, .grid) > :nth-child(n+5) { animation-delay: 0.32s; }
-
-/* ====== EFECTO DE PROFUNDIDAD ====== */
-body::after {
-  content: "";
+/* ====== EFECTO SWEEP ====== */
+#sweep {
   position: fixed;
   inset: 0;
+  z-index: 9000;
   pointer-events: none;
-  z-index: 8000;
+  opacity: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+#sweep.active {
+  opacity: 1;
+}
+
+#sweep::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -30%;
+  width: 160%;
+  transform: translateX(-140%) skewX(-20deg) rotateZ(-5deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f5e8ff 5%,
+    #a855f7 15%,
+    #7c3aed 35%,
+    #4c1d95 50%,
+    #12002b 55%,
+    #4c1d95 60%,
+    #7c3aed 75%,
+    #a855f7 90%,
+    #f5e8ff 95%,
+    transparent 100%
+  );
+  filter:
+    drop-shadow(0 0 30px #a855f7)
+    drop-shadow(0 0 60px #7c3aed)
+    blur(8px);
+  animation: none;
+}
+
+#sweep.active::before {
+  animation: dzSw 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes dzSw {
+  0% {
+    transform: translateX(-140%) skewX(-20deg) rotateZ(-5deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(0) skewX(-20deg) rotateZ(-5deg);
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(140%) skewX(-20deg) rotateZ(-5deg);
+    opacity: 0;
+  }
+}
+
+/* ====== FUEGO ====== */
+.fuego {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
   background: radial-gradient(
-    ellipse at center,
-    transparent 50%,
-    rgba(0,0,0,0.4) 80%,
-    rgba(0,0,0,0.7) 100%
+    circle at 30% 30%,
+    #ffffff 0%,
+    #f3e8ff 15%,
+    #e9d5ff 30%,
+    #c084fc 50%,
+    #a855f7 65%,
+    #7c3aed 80%,
+    #5b21b6 90%,
+    transparent 100%
+  );
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 15px #a855f7,
+    0 0 30px #7c3aed,
+    0 0 50px rgba(168,85,247,0.7),
+    0 0 80px rgba(124,58,237,0.5),
+    inset 0 0 20px rgba(255,255,255,0.5);
+  animation: fireRise 1s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
+  filter: blur(0.5px);
+}
+
+.fuego::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(168,85,247,0.4) 0%,
+    transparent 70%
+  );
+  animation: pulseGlow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fireRise {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+    filter: blur(0.5px);
+  }
+
+  30% {
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 25px)
+      )
+      scale(1.1)
+      rotate(45deg);
+    opacity: 0.95;
+  }
+
+  60% {
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 50px)
+      )
+      scale(0.9)
+      rotate(90deg);
+    opacity: 0.7;
+    filter: blur(1px);
+  }
+
+  100% {
+    transform:
+      translate(
+        calc(-50% + var(--dx, 0px)),
+        calc(-50% - 80px)
+      )
+      scale(0.2)
+      rotate(180deg);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+/* ====== PARTÍCULAS DE FUEGO ====== */
+.fuego-spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #c084fc 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px #a855f7;
+  animation: sparkFly 0.7s ease-out forwards;
+}
+
+@keyframes sparkFly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(var(--sx, 30px), var(--sy, -60px))
+      scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* ====== NAV CAROUSEL 3D ====== */
+.nav-carousel-wrap {
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #fff;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+  flex-shrink: 0;
+  box-shadow:
+    0 -4px 20px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.nav-carousel-wrap::before,
+.nav-carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nav-carousel-wrap::before {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0,0,0,0.8) 50%,
+    transparent 100%
   );
 }
 
-/* ====== MODO CALMA ====== */
-body.calm #viewport *,
-body.calm #sweep,
-body.calm::after {
-  animation: none !important;
-  transition: none !important;
-}
-
-/* ====== OTROS MODOS ====== */
-body.m-tozo .fuego,
-body.m-tozo #sweep,
-body.m-tozo::after {
-  display: none !important;
-}
-
-body.m-tozo * {
-  box-shadow: none !important;
-  text-shadow: none !important;
-  background-image: none !important;
-  border-radius: 0 !important;
-}
-
-body.m-vk img,
-body.m-vk video {
-  filter: blur(20px);
-  transition: filter 0.4s;
-}
-
-body.m-vk img:hover,
-body.m-vk video:hover,
-body.m-vk img:active,
-body.m-vk video:active {
-  filter: none;
-}
-
-body.m-vpn::before {
-  content: "ESCUDO ON";
-  position: fixed;
-  top: 6px;
-  right: 8px;
-  z-index: 8100;
-  font-size: 10px;
-  color: #c084fc;
-  background: rgba(0,0,0,0.7);
-  padding: 3px 8px;
-  border: 1px solid #a855f7;
-  border-radius: 4px;
-  pointer-events: none;
-  box-shadow: 0 0 15px rgba(168,85,247,0.6);
-}
-
-/* ====== DZP - DEEZER PLAYER ====== */
-#dzp {
-  position: fixed;
-  left: 0;
+.nav-carousel-wrap::after {
   right: 0;
-  bottom: 72px;
-  z-index: 8500;
-  background: linear-gradient(180deg, #0b0614 0%, #000000 100%);
-  border-top: 2px solid #a855f7;
-  box-shadow: 
-    0 -10px 30px rgba(0,0,0,0.8),
-    0 0 30px rgba(168,85,247,0.4);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateZ(30px);
+  background: linear-gradient(
+    -90deg,
+    #000 0%,
+    rgba(0,0,0,0.8) 50%,
+    transparent 100%
+  );
 }
 
-#dzp.min {
-  transform: translateY(calc(100% - 42px)) translateZ(30px);
-}
-
-.dzp-bar {
+.nav-carousel {
   display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 8px;
-  font-size: 12px;
-  color: #c084fc;
-  background: rgba(168,85,247,0.1);
-  border-bottom: 1px solid rgba(168,85,247,0.2);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 0 16px;
 }
 
-.dzp-bar input {
-  flex: 1;
-  min-width: 0;
-  background: #000;
-  border: 1px solid #6b7280;
-  color: #fff;
-  padding: 6px 8px;
-  font-size: 11px;
-  border-radius: 4px;
+.nav-carousel::-webkit-scrollbar {
+  display: none;
 }
 
-.dzp-bar button {
-  padding: 4px 10px;
-  border: 1px solid #a855f7;
-  color: #fff;
-  background: rgba(168,85,247,0.2);
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-.dzp-bar button:hover {
-  background: rgba(168,85,247,0.4);
-  box-shadow: 0 0 10px rgba(168,85,247,0.5);
-}
-
-#dzp iframe {
-  width: 100%;
-  height: 160px;
-  border: 0;
-  display: block;
-}
-
-/* ====== CANDADO 3D ====== */
-#dzlock {
-  position: fixed;
-  inset: 0;
-  z-index: 9600;
-  background: rgba(0,0,0,0.96);
-  backdrop-filter: blur(16px);
+.nav-carousel > button {
+  flex: 0 0 auto;
+  min-width: 76px;
+  scroll-snap-align: center;
+  padding: 10px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  color: #fff;
-}
-
-#dzlock > i {
-  font-size: 64px;
-  color: #a855f7;
-  filter: drop-shadow(0 0 20px #a855f7) drop-shadow(0 0 40px #7c3aed);
-  animation: dzF 2.5s ease-in-out infinite;
-}
-
-#dzlock input {
-  width: 220px;
+  gap: 4px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05) 0%,
+    transparent 100%
+  );
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 9px;
+  line-height: 1.1;
   text-align: center;
-  font-size: 28px;
-  letter-spacing: 0.5em;
-  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 
-    inset 0 4px 12px rgba(0,0,0,0.7),
-    0 0 20px rgba(168,85,247,0.3);
-}
-
-#dzlock .btn {
-  padding: 10px 24px;
-  color: #fff;
-  font-size: 14px;
-}
-
-#dzlock.shake {
-  animation: dzSh 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes dzSh {
-  0%, 100% { transform: translateX(0) translateZ(10px); }
-  20% { transform: translateX(-12px) translateZ(10px); }
-  40% { transform: translateX(12px) translateZ(10px); }
-  60% { transform: translateX(-12px) translateZ(10px); }
-  80% { transform: translateX(12px) translateZ(10px); }
-}
-
-/* ====== MEJORAS ADICIONALES ====== */
-.dzp {
-  animation: dzP 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes dzP {
-  0% {
-    box-shadow: 
-      0 0 0 0 rgba(168,85,247,0.8),
-      0 6px 0 rgba(126,34,206,0.9);
-  }
-  50% {
-    box-shadow: 
-      0 0 0 20px rgba(168,85,247,0.3),
-      0 6px 0 rgba(126,34,206,0.9);
-  }
-  100% {
-    box-shadow: 
-      0 0 0 0 rgba(168,85,247,0),
-      0 6px 0 rgba(126,34,206,0.9);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 400px) {
-  .nav-carousel > button { min-width: 68px; font-size: 8px; }
-  .btn { font-size: 11px; padding: 8px 12px; }
-  .arc { letter-spacing: 0.04em; }
-}
-</style><style id="dz-mejoras">
-/* ====== MÁS MEJORAS VISUALES ====== */
-html, body, button, input, textarea, select {
-  font-family: 'Archivo Black', 'Inter', system-ui, sans-serif !important;
-}
-
-.serif, .inp::placeholder {
-  font-family: 'Archivo Black', sans-serif !important;
-}
-
-h1.arc, h2.arc, h3.arc {
-  text-shadow: 
-    1px 1px 0 #7e22ce,
-    2px 2px 0 #6b21a8,
-    3px 3px 0 #581c87,
-    4px 8px 16px rgba(0,0,0,0.8),
-    0 0 30px rgba(168,85,247,0.5);
-  animation: titlePulse 3s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-  0%, 100% { 
-    text-shadow: 
-      1px 1px 0 #7e22ce,
-      2px 2px 0 #6b21a8,
-      3px 3px 0 #581c87,
-      4px 8px 16px rgba(0,0,0,0.8),
-      0 0 30px rgba(168,85,247,0.5);
-  }
-  50% { 
-    text-shadow: 
-      1px 1px 0 #7e22ce,
-      2px 2px 0 #6b21a8,
-      3px 3px 0 #581c87,
-      4px 8px 16px rgba(0,0,0,0.8),
-      0 0 50px rgba(168,85,247,0.8),
-      0 0 80px rgba(168,85,247,0.4);
-  }
-}
-
-.btn, .hand, .box2 {
-  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-  box-shadow: 
-    0 6px 0 rgba(126,34,206,0.9),
-    0 14px 28px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.25);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.12), transparent 55%);
-}
-
-.btn:active, .hand:active, .box2:active {
-  transform: translateY(5px) scale(0.97);
-  box-shadow: 
-    0 2px 0 rgba(126,34,206,0.9),
-    0 6px 14px rgba(0,0,0,0.6),
-    inset 0 2px 4px rgba(0,0,0,0.3);
-}
-
-/* Hover effects */
-.btn:hover, .hand:hover, .box2:hover {
-  filter: brightness(1.15);
-  box-shadow: 
-    0 8px 0 rgba(126,34,206,0.9),
-    0 18px 32px rgba(0,0,0,0.7),
-    inset 0 1px 0 rgba(255,255,255,0.3),
-    0 0 25px rgba(168,85,247,0.5);
-}
-
-/* Animación de pulso para elementos importantes */
-@keyframes pulseImportant {
-  0%, 100% { 
-    transform: scale(1) translateZ(10px);
-    box-shadow: 0 6px 0 rgba(126,34,206,0.9), 0 14px 28px rgba(0,0,0,0.6);
-  }
-  50% { 
-    transform: scale(1.03) translateZ(15px);
-    box-shadow: 0 8px 0 rgba(126,34,206,0.9), 0 20px 40px rgba(0,0,0,0.7), 0 0 30px rgba(168,85,247,0.4);
-  }
-}
-
-.btn-important {
-  animation: pulseImportant 2s ease-in-out infinite;
-}
-
-/* Efecto de onda al hacer click */
-.ripple {
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
-.ripple::after {
+.nav-carousel > button::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(168,85,247,0.2),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.25s;
 }
 
-.ripple:active::after {
-  width: 300px;
-  height: 300px;
+.nav-carousel > button:hover::before {
+  opacity: 1;
 }
 
-/* ====== NAV CAROUSEL OCULTAR TEXTO ====== */
-.nav-sep, .nav-carousel > button span {
-  display: none;
+.nav-carousel > button i {
+  font-size: 15px;
+  margin-bottom: 2px;
+  transition: transform 0.25s;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
 }
 
-.nav-carousel > button.active span {
-  display: block;
-  animation: fadeInText 0.3s ease;
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.nav-carousel > button {
-  min-width: 64px;
-}
-
-.nav-carousel > button.active {
-  min-width: 100px;
-  box-shadow: 
+.nav-carousel > button.active,
+.nav-carousel > button.bg-white {
+  background: linear-gradient(180deg, #ffffff 0%, #e5e5e5 100%);
+  color: #000;
+  box-shadow:
     0 0 25px rgba(168,85,247,0.9),
     0 0 50px rgba(168,85,247,0.5),
     inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
-/* ====== SWEEP MEJORADO ====== */
+.nav-carousel > button.active i,
+.nav-carousel > button.bg-white i {
+  animation: dzF 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(168,85,247,0.8));
+}
+
+.nav-carousel > button.active span {
+  display: block;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.nav-carousel > button.active {
+  min-width: 92px;
+  transform: translateZ(10px) scale(1.05);
+}/* ====== SWEEP MEJORADO ====== */
 #sweep {
   background: none !important;
   overflow: hidden;
@@ -1242,7 +1070,7 @@ h1.arc, h2.arc, h3.arc {
     #c084fc 95%,
     #f5e8ff 100%
   );
-  filter: 
+  filter:
     drop-shadow(0 0 35px #a855f7)
     drop-shadow(0 0 70px #7c3aed)
     blur(10px);
@@ -1257,12 +1085,20 @@ h1.arc, h2.arc, h3.arc {
     transform: translateX(-140%) skewX(-18deg);
     opacity: 0;
   }
-  10% { opacity: 1; }
+
+  10% {
+    opacity: 1;
+  }
+
   50% {
     transform: translateX(0) skewX(-18deg);
     opacity: 1;
   }
-  90% { opacity: 1; }
+
+  90% {
+    opacity: 1;
+  }
+
   100% {
     transform: translateX(140%) skewX(-18deg);
     opacity: 0;
@@ -1369,18 +1205,24 @@ body.m-vpn::before {
 }
 
 @keyframes pulseShield {
-  0%, 100% { 
+  0%, 100% {
     box-shadow: 0 0 15px rgba(168,85,247,0.6);
     opacity: 0.8;
   }
-  50% { 
-    box-shadow: 0 0 30px rgba(168,85,247,0.9), 0 0 60px rgba(168,85,247,0.5);
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(168,85,247,0.9),
+      0 0 60px rgba(168,85,247,0.5);
     opacity: 1;
   }
 }
-</style><script type="module">
+</style>
+
+<script type="module">
 /* ================= ICONO PWA ================= */
-const ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
+const ICON_SVG =
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
   '<defs>' +
     '<radialGradient id="bg" cx="50%" cy="50%" r="75%">' +
       '<stop offset="0%" stop-color="#2a1048"/>' +
@@ -1403,9 +1245,12 @@ const ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   '<circle cx="256" cy="256" r="150" fill="none" stroke="#a855f7" stroke-width="9" opacity="0.85" filter="url(#glow)"/>' +
   '<polygon points="256,150 335,315 177,315" fill="url(#tri)" filter="url(#glow)"/>' +
   '<text x="256" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="6" style="text-shadow: 0 0 20px rgba(168,85,247,0.8)">DAZER</text>' +
-'</svg>';
+  '</svg>';
 
-const ICON_URI = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(ICON_SVG)));
+const ICON_URI =
+  'data:image/svg+xml;base64,' +
+  btoa(unescape(encodeURIComponent(ICON_SVG)));
+
 document.getElementById('pwa-icon-preview').innerHTML = ICON_SVG;
 document.getElementById('apple-icon').href = ICON_URI;
 
@@ -1425,66 +1270,150 @@ const PWA_MANIFEST = {
   dir: 'ltr',
   categories: ['entertainment', 'social'],
   icons: [
-    { src: ICON_URI, sizes: '192x192', type: 'image/svg+xml', purpose: 'any' },
-    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' },
-    { src: ICON_URI, sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' }
+    {
+      src: ICON_URI,
+      sizes: '192x192',
+      type: 'image/svg+xml',
+      purpose: 'any'
+    },
+    {
+      src: ICON_URI,
+      sizes: '512x512',
+      type: 'image/svg+xml',
+      purpose: 'any'
+    },
+    {
+      src: ICON_URI,
+      sizes: '512x512',
+      type: 'image/svg+xml',
+      purpose: 'maskable'
+    }
   ],
   share_target: {
     action: location.pathname || '/',
     method: 'GET',
     enctype: 'application/x-www-form-urlencoded',
-    params: { title: 'share_title', text: 'share_text', url: 'share_url' }
+    params: {
+      title: 'share_title',
+      text: 'share_text',
+      url: 'share_url'
+    }
   }
 };
 
 try {
-  const mBlob = new Blob([JSON.stringify(PWA_MANIFEST)], { type: 'application/manifest+json' });
-  document.getElementById('pwa-manifest').href = URL.createObjectURL(mBlob);
+  const mBlob = new Blob(
+    [JSON.stringify(PWA_MANIFEST)],
+    { type: 'application/manifest+json' }
+  );
+
+  document.getElementById('pwa-manifest').href =
+    URL.createObjectURL(mBlob);
 } catch (e) {
-  document.getElementById('pwa-manifest').href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(PWA_MANIFEST));
+  document.getElementById('pwa-manifest').href =
+    'data:application/manifest+json;charset=utf-8,' +
+    encodeURIComponent(JSON.stringify(PWA_MANIFEST));
 }
 
-const IS_IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-const IS_STANDALONE = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true || document.referrer.startsWith('android-app://');
+const IS_IOS =
+  /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+const IS_STANDALONE = () =>
+  window.matchMedia('(display-mode: standalone)').matches ||
+  window.navigator.standalone === true ||
+  document.referrer.startsWith('android-app://');
 
 let deferredPrompt = null;
 let justInstalled = false;
-window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; updateInstallUI(); });
-window.addEventListener('appinstalled', () => { justInstalled = true; deferredPrompt = null; updateInstallUI(); });
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  updateInstallUI();
+});
+
+window.addEventListener('appinstalled', () => {
+  justInstalled = true;
+  deferredPrompt = null;
+  updateInstallUI();
+});
 
 function updateInstallUI() {
   const btn = document.getElementById('btn-install');
   const status = document.getElementById('pwa-status');
+
   if (!btn || !status) return;
+
   if (IS_STANDALONE() || justInstalled) {
     btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> YA INSTALADO';
-    status.innerHTML = '<span style="color:#22c55e">App instalada.</span><br>Ábrela desde tu pantalla de inicio.';
+    btn.innerHTML =
+      '<i class="fa-solid fa-circle-check"></i> YA INSTALADO';
+
+    status.innerHTML =
+      '<span style="color:#22c55e">App instalada.</span><br>' +
+      'Ábrela desde tu pantalla de inicio.';
   } else if (deferredPrompt) {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'Toca INSTALAR y añade DAZER<br>a tu pantalla de inicio';
+    btn.disabled = false;
+    btn.innerHTML =
+      '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+
+    status.innerHTML =
+      'Toca INSTALAR y añade DAZER<br>' +
+      'a tu pantalla de inicio';
   } else if (IS_IOS) {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'En iPhone: toca Compartir <i class="fa-solid fa-arrow-up-from-bracket"></i> →<br>Añadir a pantalla de inicio';
+    btn.disabled = false;
+    btn.innerHTML =
+      '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+
+    status.innerHTML =
+      'En iPhone: toca Compartir ' +
+      '<i class="fa-solid fa-arrow-up-from-bracket"></i> →<br>' +
+      'Añadir a pantalla de inicio';
   } else {
-    btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
-    status.innerHTML = 'Menú del navegador →<br>Añadir a inicio';
+    btn.disabled = false;
+    btn.innerHTML =
+      '<i class="fa-solid fa-download"></i> INSTALAR DAZER';
+
+    status.innerHTML =
+      'Menú del navegador →<br>' +
+      'Añadir a inicio';
   }
 }
 
 window.installApp = async () => {
-  if (IS_STANDALONE() || justInstalled) { toast('Ya estás usando la app instalada','info'); return; }
+  if (IS_STANDALONE() || justInstalled) {
+    toast('Ya estás usando la app instalada', 'info');
+    return;
+  }
+
   if (deferredPrompt) {
     try {
       deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') { justInstalled = true; toast('Instalando DAZER...','success'); }
-      else { toast('Instalación cancelada','info'); }
-    } catch(err){ console.warn(err); }
-    deferredPrompt = null; updateInstallUI(); return;
+
+      const { outcome } =
+        await deferredPrompt.userChoice;
+
+      if (outcome === 'accepted') {
+        justInstalled = true;
+        toast('Instalando DAZER...', 'success');
+      } else {
+        toast('Instalación cancelada', 'info');
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+
+    deferredPrompt = null;
+    updateInstallUI();
+    return;
   }
-  if (IS_IOS) toast('Compartir → Añadir a pantalla de inicio','info');
-  else toast('Menú del navegador → Añadir a inicio','info');
+
+  if (IS_IOS) {
+    toast('Compartir → Añadir a pantalla de inicio', 'info');
+  } else {
+    toast('Menú del navegador → Añadir a inicio', 'info');
+  }
 };
 
 setTimeout(updateInstallUI, 300);
@@ -1493,334 +1422,72 @@ setTimeout(updateInstallUI, 1500);
 /* ================= SONIDOS 3D ================= */
 const AudioEngine = {
   ctx: null,
+
   init() {
     if (!this.ctx) {
-      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+      this.ctx = new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
     }
   },
-  playTone(freq, type, duration, vol = 0.3) {
-    if (!this.ctx) this.init();
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-    gain.gain.setValueAtTime(vol, this.ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-    osc.start();
-    osc.stop(this.ctx.currentTime + duration);
+
+  tone(freq = 440, duration = 0.08, type = 'sine') {
+    try {
+      this.init();
+
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = type;
+      osc.frequency.value = freq;
+
+      gain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(
+        0.08,
+        this.ctx.currentTime + 0.01
+      );
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        this.ctx.currentTime + duration
+      );
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + duration);
+    } catch (e) {
+      console.warn('[DAZER AUDIO]', e);
+    }
   },
+
   click() {
-    this.playTone(800, 'sine', 0.08, 0.2);
-    this.playTone(1200, 'sine', 0.05, 0.15);
+    this.tone(520, 0.06, 'square');
   },
-  success() {
-    this.playTone(523.25, 'sine', 0.15, 0.3);
-    setTimeout(() => this.playTone(659.25, 'sine', 0.15, 0.3), 80);
-    setTimeout(() => this.playTone(783.99, 'sine', 0.2, 0.3), 160);
-  },
-  error() {
-    this.playTone(200, 'sawtooth', 0.2, 0.25);
-    setTimeout(() => this.playTone(150, 'sawtooth', 0.25, 0.25), 100);
-  },
+
   sweep() {
-    if (!this.ctx) this.init();
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-    osc.frequency.setValueAtTime(200, this.ctx.currentTime);
-    osc.frequency.linearRampToValueAtTime(800, this.ctx.currentTime + 0.5);
-    gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 0.6);
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-    osc.start();
-    osc.stop(this.ctx.currentTime + 0.6);
-  },
-  fire() {
-    if (!this.ctx) this.init();
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-    osc.type = 'triangle';
-    osc.frequency.setValueAtTime(300 + Math.random() * 200, this.ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(100, this.ctx.currentTime + 0.15);
-    gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.15);
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-    osc.start();
-    osc.stop(this.ctx.currentTime + 0.15);
+    this.tone(180, 0.18, 'sawtooth');
   }
-};
-
-// Inicializar audio al primer click
-document.addEventListener('click', () => AudioEngine.init(), { once: true });
-
-/* ================= FIREBASE ================= */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword, reauthenticateWithPopup } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { getFirestore, collection, doc, setDoc, getDoc, getDocs, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
-
-const CFG = {
-  cuentas:   { apiKey:"AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4", authDomain:"dazer-extremo-cuentas.firebaseapp.com", projectId:"dazer-extremo-cuentas", storageBucket:"dazer-extremo-cuentas.firebasestorage.app", messagingSenderId:"551686385854", appId:"1:551686385854:web:6bb73a9b34e2471ca26eef" },
-  kurzclips: { apiKey:"AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0", authDomain:"dazer-extremo-kurzclips.firebaseapp.com", projectId:"dazer-extremo-kurzclips", storageBucket:"dazer-extremo-kurzclips.firebasestorage.app", messagingSenderId:"790098661692", appId:"1:790098661692:web:becd1e7a3b04bc9e0b8e39" },
-  footages:  { apiKey:"AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY", authDomain:"dazer-extremo-footages.firebaseapp.com", projectId:"dazer-extremo-footages", storageBucket:"dazer-extremo-footages.firebasestorage.app", messagingSenderId:"254207247947", appId:"1:254207247947:web:82a5c5ff2a5a3297a12fce" },
-  schnapps:  { apiKey:"AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q", authDomain:"dazer-extremo-schannps.firebaseapp.com", projectId:"dazer-extremo-schannps", storageBucket:"dazer-extremo-schannps.firebasestorage.app", messagingSenderId:"18311813658", appId:"1:18311813658:web:b26bd0d9fed7bcedad0fa3" },
-  mensajes:  { apiKey:"AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU", authDomain:"dazer-extremo-mensajes.firebaseapp.com", projectId:"dazer-extremo-mensajes", storageBucket:"dazer-extremo-mensajes.firebasestorage.app", messagingSenderId:"70744027643", appId:"1:70744027643:web:1cf308aea8a5f87f1b5b5e" }
-};
-
-const appCuentas = initializeApp(CFG.cuentas, 'appCuentas');
-const appKurz = initializeApp(CFG.kurzclips, 'appKurz');
-const appFoot = initializeApp(CFG.footages, 'appFoot');
-const appSchn = initializeApp(CFG.schnapps, 'appSchn');
-const appMsg = initializeApp(CFG.mensajes, 'appMsg');
-const auth = getAuth(appCuentas);
-window.__reauth = async () => { const p = new GoogleAuthProvider(); p.setCustomParameters({prompt:'select_account'}); await reauthenticateWithPopup(auth.currentUser, p); };
-const dbCuentas = getFirestore(appCuentas);
-const dbKurz = getFirestore(appKurz);
-const dbFoot = getFirestore(appFoot);
-const dbSchn = getFirestore(appSchn);
-const dbMsg = getFirestore(appMsg);
-const stKurz = getStorage(appKurz);
-const stFoot = getStorage(appFoot);
-const stSchn = getStorage(appSchn);
-const stCuentas = getStorage(appCuentas);
-
-/* ============ LÍMITES DE TAMAÑO ============ */
-const LIMITE_VIDEO_MB = 200;
-const LIMITE_FOTO_MB  = 10;
-
-window.state = {
-  user: { uid:'', name:'', role:'GRATUITO', email:'', photo:'', photo2:'', photo3:'' },
-  settings: { transitions:true, theme:'nocturno', sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true, vib:true, fuego:true },
-  vk: { VPN:false, REDOCULTA:false, ZUKURZALES:false, TOZO:false, DEEZZEER:false, 'AL CANDADO':false, VERKEHR:false }
-};
-
-try { 
-  const s = JSON.parse(localStorage.getItem('dazer') || '{}');
-  if (s.user) Object.assign(state.user, s.user);
-  if (s.settings) Object.assign(state.settings, s.settings);
-  if (s.vk) Object.assign(state.vk, s.vk);
-} catch(e) {}
-
-window.save = () => localStorage.setItem('dazer', JSON.stringify({ 
-  user: state.user, 
-  settings: state.settings, 
-  vk: state.vk 
-}));
-
-/* ============ TOAST MEJORADO ============ */
-window.toast = (msg, type='info') => {
-  if (state.settings.sndBtn) {
-    if (type === 'success') AudioEngine.success();
-    else if (type === 'error') AudioEngine.error();
-  }
-  
-  const t = document.createElement('div');
-  t.className = `toast-msg ${type}`;
-  t.textContent = msg;
-  document.getElementById('toast-wrap').appendChild(t);
-  setTimeout(() => { 
-    t.classList.add('out'); 
-    setTimeout(() => t.remove(), 300); 
-  }, 3500);
-};
-
-const show = id => { 
-  const e = document.getElementById(id); 
-  e.classList.remove('hidden'); 
-  e.classList.add('flex'); 
-};
-const hide = id => { 
-  const e = document.getElementById(id); 
-  e.classList.add('hidden'); 
-  e.classList.remove('flex'); 
-};
-window.openModal = show; 
-window.closeModal = hide;
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-
-/* ============ FUEGO ULTRA MEJORADO ============ */
-function spawnFire(x, y, big = false) {
-  if (!state.settings.fuego) return;
-  
-  const n = big ? 15 : 8;
-  for (let i = 0; i < n; i++) {
-    const f = document.createElement('div');
-    f.className = 'fuego';
-    f.style.left = x + 'px';
-    f.style.top = y + 'px';
-    f.style.setProperty('--dx', (Math.random() - 0.5) * 60 + 'px');
-    
-    const s = big ? (0.9 + Math.random() * 1.2) : (0.7 + Math.random() * 0.8);
-    f.style.width = (18 * s) + 'px';
-    f.style.height = (18 * s) + 'px';
-    f.style.animationDelay = (i * 18) + 'ms';
-    
-    document.body.appendChild(f);
-    
-    // Sonido de fuego
-    if (state.settings.sndBtn && Math.random() > 0.7) {
-      AudioEngine.fire();
-    }
-    
-    // Crear partículas secundarias
-    if (big && Math.random() > 0.6) {
-      setTimeout(() => spawnSpark(x, y), i * 20);
-    }
-    
-    setTimeout(() => f.remove(), 1000 + i * 18);
-  }
-}
-
-function spawnSpark(x, y) {
-  const spark = document.createElement('div');
-  spark.className = 'fuego-spark';
-  spark.style.left = x + 'px';
-  spark.style.top = y + 'px';
-  spark.style.setProperty('--sx', (Math.random() - 0.5) * 80 + 'px');
-  spark.style.setProperty('--sy', -(50 + Math.random() * 40) + 'px');
-  document.body.appendChild(spark);
-  setTimeout(() => spark.remove(), 700);
-}
-
-let lastX = 0, lastY = 0, trailOn = false;
-function stepTrail(x, y) {
-  const dx = x - lastX, dy = y - lastY;
-  if (dx * dx + dy * dy > 200) {
-    spawnFire(x, y, false);
-    lastX = x;
-    lastY = y;
-  }
-}
-
-document.addEventListener('pointerdown', e => {
-  if (e.pointerType === 'touch') return;
-  lastX = e.clientX;
-  lastY = e.clientY;
-  trailOn = true;
-  spawnFire(e.clientX, e.clientY, true);
-  if (state.settings.sndBtn) AudioEngine.click();
-}, { passive: true });
-
-document.addEventListener('pointermove', e => {
-  if (e.pointerType === 'touch' || !trailOn) return;
-  stepTrail(e.clientX, e.clientY);
-}, { passive: true });
-
-document.addEventListener('pointerup', e => {
-  if (e.pointerType === 'touch') return;
-  trailOn = false;
-}, { passive: true });
-
-document.addEventListener('touchstart', e => {
-  if (!e.touches.length) return;
-  const t = e.touches[0];
-  lastX = t.clientX;
-  lastY = t.clientY;
-  trailOn = true;
-  spawnFire(t.clientX, t.clientY, true);
-}, { passive: true });
-
-document.addEventListener('touchmove', e => {
-  if (!trailOn || !e.touches.length) return;
-  const t = e.touches[0];
-  stepTrail(t.clientX, t.clientY);
-}, { passive: true });
-
-document.addEventListener('touchend', () => { trailOn = false; }, { passive: true });
-document.addEventListener('touchcancel', () => { trailOn = false; }, { passive: true });
-
-/* ============ ICONOS ============ */
-const brainIcon = (size = 32, color = '#dc2626') => 
-  `<i class="fa-solid fa-brain" style="font-size:${size}px;color:${color};filter:drop-shadow(0 0 15px ${color})"></i>`;
-
-const blackhole = (size = 32) => 
-  `<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px;display:inline-block;vertical-align:middle;filter:drop-shadow(0 0 20px #06b6d4)">
-    <defs>
-      <radialGradient id="bhg" cx="50%" cy="50%" r="60%">
-        <stop offset="0%" stop-color="#000"/>
-        <stop offset="60%" stop-color="#000"/>
-        <stop offset="70%" stop-color="#10b981"/>
-        <stop offset="85%" stop-color="#a7f3d0"/>
-        <stop offset="100%" stop-color="#06b6d4"/>
-      </radialGradient>
-    </defs>
-    <ellipse cx="50" cy="50" rx="46" ry="34" fill="url(#bhg)" opacity=".95"/>
-    <circle cx="50" cy="50" r="20" fill="#000"/>
-  </svg>`;
-
-window.copyLink = () => { 
-  navigator.clipboard.writeText(location.href)
-    .then(() => toast('Enlace copiado','success'))
-    .catch(() => toast('Error','error')); 
-};
-
-window.goLang = () => { hide('scr-pwa'); show('scr-lang'); };
-window.goAuth = () => { hide('scr-lang'); show('scr-auth'); };
-window.exitApp = () => { hide('scr-auth'); show('scr-pwa'); };
-
-const langs = ['Deutsch','عربي','國語','čeština','Português','Français','English','Nnrzıßnniko'];
-document.getElementById('lang-list').innerHTML = langs.map(l => `
-  <div class="grid grid-cols-2 gap-2">
-    <div class="box2 p-3 text-center text-base hover:bg-white hover:text-black transition cursor-pointer">${l}</div>
-    <div class="box2 p-3 text-center text-[11px] arc opacity-50">PROXIMAMENTE</div>
-  </div>`).join('');/* ============ LOGIN GOOGLE MEJORADO ============ */
-window.loginGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt:'select_account' });
-  try {
-    const res = await signInWithPopup(auth, provider);
-    const u = res.user; const uid = u.uid;
-    const uref = doc(dbCuentas,'usuarios',uid);
-    const exist = await getDoc(uref);
-    const nombre = (u.displayName || u.email.split('@')[0]).toUpperCase();
-    const data = {
-      nombre: nombre || 'USER',
-      email: u.email || 'sin-correo@dazer.app',
-      foto: u.photoURL || '',
-      estado: 'conectado',
-      rol: exist.exists() ? (exist.data().rol||'GRATUITO') : 'GRATUITO',
-      normas: exist.exists() ? (exist.data().normas||false) : false,
-      foto2: exist.exists() ? (exist.data().foto2||'') : '',
-      foto3: exist.exists() ? (exist.data().foto3||'') : ''
-    };
-    await setDoc(uref, data, { merge:true });
-    state.user = { uid, name:data.nombre, role:data.rol, email:data.email, photo:'', photo2:'', photo3:'' };
-    if (exist.exists()) {
-      const ed = exist.data();
-      if (ed.foto) state.user.photo = ed.foto;
-      if (ed.foto2) state.user.photo2 = ed.foto2;
-      if (ed.foto3) state.user.photo3 = ed.foto3;
-    } else {
-      state.user.photo = data.foto;
-    }
-    save();
-    toast('Conectado con Google','success');
-    if (data.normas) { hide('scr-auth'); enterApp(); }
-    else { hide('scr-auth'); show('scr-rules'); }
-  } catch(e) {
-    const map = { 
-      'auth/popup-closed-by-user':'Cerraste la ventana de Google',
-      'auth/unauthorized-domain':'Dominio no autorizado',
-      'auth/popup-blocked':'Ventanas emergentes bloqueadas',
-      'auth/operation-not-allowed':'Activa Google en Auth' 
-    };
-    toast(map[e.code]||'Error: '+(e.code||e.message),'error');
-  }
-};
-
-/* ============ LOGIN CORREO MEJORADO ============ */
+};/* ================= LOGIN CORREO ================= */
 window.loginEmail = async () => {
   const email = document.getElementById('log-email').value.trim();
   const pass = document.getElementById('log-pass').value;
-  if (!email || !pass) return toast('Faltan datos','error');
+
+  if (!email || !pass) {
+    return toast('Faltan datos', 'error');
+  }
+
   try {
     const res = await signInWithEmailAndPassword(auth, email, pass);
     const u = res.user;
-    const d = await getDoc(doc(dbCuentas,'usuarios',u.uid));
+
+    const d = await getDoc(
+      doc(dbCuentas, 'usuarios', u.uid)
+    );
+
     const data = d.exists() ? d.data() : {};
+
     state.user = {
       uid: u.uid,
       name: (data.nombre || email.split('@')[0]).toUpperCase(),
@@ -1830,357 +1497,803 @@ window.loginEmail = async () => {
       photo2: data.foto2 || '',
       photo3: data.foto3 || ''
     };
+
     save();
-    await setDoc(doc(dbCuentas,'usuarios',u.uid), { estado:'conectado' }, { merge:true });
+
+    await setDoc(
+      doc(dbCuentas, 'usuarios', u.uid),
+      { estado: 'conectado' },
+      { merge: true }
+    );
+
     closeModal('mod-email');
-    toast('Conectado','success');
-    if (data.normas) { hide('scr-auth'); enterApp(); }
-    else { hide('scr-auth'); show('scr-rules'); }
-  } catch(e) {
+    toast('Conectado', 'success');
+
+    if (data.normas) {
+      hide('scr-auth');
+      enterApp();
+    } else {
+      hide('scr-auth');
+      show('scr-rules');
+    }
+  } catch (e) {
     const map = {
-      'auth/user-not-found': 'Usuario no existe en Firebase Auth',
-      'auth/wrong-password': 'Contraseña incorrecta',
-      'auth/invalid-email': 'Correo inválido',
-      'auth/invalid-credential': 'Credenciales incorrectas',
-      'auth/too-many-requests': 'Demasiados intentos, espera'
+      'auth/user-not-found':
+        'Usuario no existe en Firebase Auth',
+      'auth/wrong-password':
+        'Contraseña incorrecta',
+      'auth/invalid-email':
+        'Correo inválido',
+      'auth/invalid-credential':
+        'Credenciales incorrectas',
+      'auth/too-many-requests':
+        'Demasiados intentos, espera'
     };
-    toast(map[e.code] || ('Error: '+(e.code||e.message)),'error');
+
+    toast(
+      map[e.code] || ('Error: ' + (e.code || e.message)),
+      'error'
+    );
   }
 };
 
 window.acceptRules = async () => {
-  try { 
+  try {
     if (state.user.uid) {
-      await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { normas:true }, { merge:true });
+      await setDoc(
+        doc(dbCuentas, 'usuarios', state.user.uid),
+        { normas: true },
+        { merge: true }
+      );
     }
-  } catch(e){}
-  hide('scr-rules'); enterApp();
+  } catch (e) {}
+
+  hide('scr-rules');
+  enterApp();
 };
 
 window.rejectRules = async () => {
-  try { 
+  try {
     if (state.user.uid) {
-      await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true });
+      await setDoc(
+        doc(dbCuentas, 'usuarios', state.user.uid),
+        { estado: 'desconectado' },
+        { merge: true }
+      );
     }
-  } catch(e){}
-  hide('scr-rules'); show('scr-auth');
+  } catch (e) {}
+
+  hide('scr-rules');
+  show('scr-auth');
 };
 
 function enterApp() {
   const app = document.getElementById('app');
-  app.classList.remove('hidden'); 
+
+  app.classList.remove('hidden');
   app.classList.add('flex');
-  document.getElementById('hdr-user').textContent = state.user.name;
-  document.getElementById('hdr-role').textContent = state.user.role;
-  document.getElementById('ftr-role').textContent = state.user.role;
+
+  document.getElementById('hdr-user').textContent =
+    state.user.name;
+
+  document.getElementById('hdr-role').textContent =
+    state.user.role;
+
+  document.getElementById('ftr-role').textContent =
+    state.user.role;
+
   applyTheme(state.settings.theme);
   go('sala');
+
   setTimeout(checkShareParams, 800);
-  const pending = sessionStorage.getItem('pendingShare');
+
+  const pending =
+    sessionStorage.getItem('pendingShare');
+
   if (pending) {
-    try { 
-      shareData = JSON.parse(pending); 
-      sessionStorage.removeItem('pendingShare'); 
-      setTimeout(openShareModal, 700); 
-    } catch(_){}
+    try {
+      shareData = JSON.parse(pending);
+      sessionStorage.removeItem('pendingShare');
+
+      setTimeout(openShareModal, 700);
+    } catch (_) {}
   }
 }
 
-function applyTheme(t) { 
-  document.body.className = 'select-none theme-' + t; 
+function applyTheme(t) {
+  document.body.className =
+    'select-none theme-' + t;
 }
 
 window.logoutApp = async () => {
-  try { 
+  try {
     if (state.user.uid) {
-      await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { estado:'desconectado' }, { merge:true }); 
+      await setDoc(
+        doc(dbCuentas, 'usuarios', state.user.uid),
+        { estado: 'desconectado' },
+        { merge: true }
+      );
     }
-    await signOut(auth); 
-  } catch(e){}
+
+    await signOut(auth);
+  } catch (e) {}
+
   document.getElementById('app').classList.add('hidden');
   document.getElementById('app').classList.remove('flex');
+
   show('scr-auth');
-  toast('Sesión cerrada','info');
+  toast('Sesión cerrada', 'info');
 };
 
-/* ============ SHARE TARGET ============ */
+/* ================= SHARE TARGET ================= */
 let shareData = null;
 
 function checkShareParams() {
   const p = new URLSearchParams(location.search);
-  const url = p.get('share_url') || p.get('url');
-  const text = p.get('share_text') || p.get('text');
-  const title = p.get('share_title') || p.get('title');
+
+  const url =
+    p.get('share_url') ||
+    p.get('url');
+
+  const text =
+    p.get('share_text') ||
+    p.get('text');
+
+  const title =
+    p.get('share_title') ||
+    p.get('title');
+
   if (!url && !text && !title) return;
+
   shareData = { url, text, title };
   openShareModal();
 }
 
 function openShareModal() {
   if (!shareData) return;
-  const prev = document.getElementById('share-preview');
-  const titleInput = document.getElementById('share-title');
+
+  const prev =
+    document.getElementById('share-preview');
+
+  const titleInput =
+    document.getElementById('share-title');
+
   let preview = '';
-  if (shareData.title) preview += `<p class="text-white font-bold mb-1">${esc(shareData.title)}</p>`;
-  if (shareData.text) preview += `<p class="text-gray-400">${esc(shareData.text)}</p>`;
-  if (shareData.url) preview += `<p class="text-purple-400 break-all mt-1">${esc(shareData.url)}</p>`;
-  prev.innerHTML = preview || '<p class="text-gray-500 text-center">Sin contenido</p>';
-  titleInput.value = shareData.title || shareData.text?.slice(0, 40) || 'Contenido compartido';
+
+  if (shareData.title) {
+    preview +=
+      `<p class="text-white font-bold mb-1">` +
+      `${esc(shareData.title)}</p>`;
+  }
+
+  if (shareData.text) {
+    preview +=
+      `<p class="text-gray-400">` +
+      `${esc(shareData.text)}</p>`;
+  }
+
+  if (shareData.url) {
+    preview +=
+      `<p class="text-purple-400 break-all mt-1">` +
+      `${esc(shareData.url)}</p>`;
+  }
+
+  prev.innerHTML =
+    preview ||
+    '<p class="text-gray-500 text-center">Sin contenido</p>';
+
+  titleInput.value =
+    shareData.title ||
+    shareData.text?.slice(0, 40) ||
+    'Contenido compartido';
+
   show('mod-share');
 }
 
-window.saveShared = async (coll) => {
+window.saveShared = async coll => {
   if (!shareData) return;
-  const titulo = document.getElementById('share-title').value.trim() || 'Contenido compartido';
+
+  const titulo =
+    document.getElementById('share-title')
+      .value.trim() ||
+    'Contenido compartido';
+
   try {
-    toast('Guardando...','info');
-    await addDoc(collection(DBS[coll], 'contenido'), {
-      tab:coll, titulo,
-      url: shareData.url || '',
-      texto: shareData.text || '',
-      tipo: shareData.url ? 'link' : 'text',
-      autor: state.user.name,
-      uid: state.user.uid,
-      compartido: true,
-      creado: Date.now()
-    });
-    toast('Compartido a '+coll.toUpperCase(),'success');
+    toast('Guardando...', 'info');
+
+    await addDoc(
+      collection(DBS[coll], 'contenido'),
+      {
+        tab: coll,
+        titulo,
+        url: shareData.url || '',
+        texto: shareData.text || '',
+        tipo: shareData.url ? 'link' : 'text',
+        autor: state.user.name,
+        uid: state.user.uid,
+        compartido: true,
+        creado: Date.now()
+      }
+    );
+
+    toast(
+      'Compartido a ' + coll.toUpperCase(),
+      'success'
+    );
+
     closeModal('mod-share');
     shareData = null;
-    history.replaceState({}, '', location.pathname);
-    if (['kurzclips','footage','spielfilm','schnapps'].includes(coll)) go(coll);
-  } catch(e){ 
-    toast('Error: '+(e.code||e.message),'error'); 
+
+    history.replaceState(
+      {},
+      '',
+      location.pathname
+    );
+
+    if (
+      ['kurzclips', 'footage', 'spielfilm', 'schnapps']
+        .includes(coll)
+    ) {
+      go(coll);
+    }
+  } catch (e) {
+    toast(
+      'Error: ' + (e.code || e.message),
+      'error'
+    );
   }
 };
 
-(function detectShareEarly(){
+(function detectShareEarly() {
   const p = new URLSearchParams(location.search);
-  const url = p.get('share_url') || p.get('url');
-  const text = p.get('share_text') || p.get('text');
-  const title = p.get('share_title') || p.get('title');
+
+  const url =
+    p.get('share_url') ||
+    p.get('url');
+
+  const text =
+    p.get('share_text') ||
+    p.get('text');
+
+  const title =
+    p.get('share_title') ||
+    p.get('title');
+
   if (url || text || title) {
-    sessionStorage.setItem('pendingShare', JSON.stringify({url, text, title}));
+    sessionStorage.setItem(
+      'pendingShare',
+      JSON.stringify({ url, text, title })
+    );
   }
 })();
 
-/* ============ NAVEGACIÓN MEJORADA ============ */
-const ALL_TABS = ['sala','navegador','kurzclips','footage','spielfilm','schnapps','comunicacion',
-  'sub-sus','sub-vk','sub-atico','sub-boveda','sub-bodega','sub-ci','sub-moduz',
-  'umikaiser','config','zukurzalez','gdz','perfil','aline','reportar'];
+/* ================= NAVEGACIÓN ================= */
+const ALL_TABS = [
+  'sala',
+  'navegador',
+  'kurzclips',
+  'footage',
+  'spielfilm',
+  'schnapps',
+  'comunicacion',
+  'sub-sus',
+  'sub-vk',
+  'sub-atico',
+  'sub-boveda',
+  'sub-bodega',
+  'sub-ci',
+  'sub-moduz',
+  'umikaiser',
+  'config',
+  'zukurzalez',
+  'gdz',
+  'perfil',
+  'aline',
+  'reportar'
+];
 
 const views = {};
 
-function findNavBtn(name) { 
-  return document.getElementById('tab-'+name) || 
-         document.getElementById('subnav-'+name) || 
-         document.getElementById('exnav-'+name); 
+function findNavBtn(name) {
+  return document.getElementById('tab-' + name) ||
+    document.getElementById('subnav-' + name) ||
+    document.getElementById('exnav-' + name);
 }
 
 function setActive(name) {
-  ALL_TABS.forEach(t => { 
-    const a = findNavBtn(t); 
+  ALL_TABS.forEach(t => {
+    const a = findNavBtn(t);
+
     if (a) {
-      a.classList.remove('active','bg-white','text-black'); 
+      a.classList.remove(
+        'active',
+        'bg-white',
+        'text-black'
+      );
     }
   });
+
   const b = findNavBtn(name);
-  if (b) { 
-    b.classList.add('active','bg-white','text-black'); 
+
+  if (b) {
+    b.classList.add(
+      'active',
+      'bg-white',
+      'text-black'
+    );
+
     b.scrollIntoView({
-      behavior:'smooth', 
-      inline:'center', 
-      block:'nearest'
-    }); 
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest'
+    });
   }
 }
 
-window.go = (name) => {
+window.go = name => {
   const render = () => {
     const v = views[name];
-    document.getElementById('viewport').innerHTML = v ? v() : '<p class="p-4">Vista no encontrada</p>';
+
+    document.getElementById('viewport').innerHTML =
+      v
+        ? v()
+        : '<p class="p-4">Vista no encontrada</p>';
+
     setActive(name);
-    if (['kurzclips','footage','spielfilm','schnapps','aline'].includes(name)) loadContent(name);
-    if (name==='comunicacion') loadUsers();
-    if (name==='perfil') refreshProfileUI();
+
+    if (
+      ['kurzclips', 'footage', 'spielfilm', 'schnapps', 'aline']
+        .includes(name)
+    ) {
+      loadContent(name);
+    }
+
+    if (name === 'comunicacion') {
+      loadUsers();
+    }
+
+    if (name === 'perfil') {
+      refreshProfileUI();
+    }
   };
-  
+
   if (!state.settings.transitions) {
     render();
     return;
   }
-  
+
   const sw = document.getElementById('sweep');
-  sw.classList.remove('active'); 
+
+  sw.classList.remove('active');
   void sw.offsetWidth;
   sw.classList.add('active');
-  
-  // Sonido de sweep
+
   if (state.settings.sndBg) {
     AudioEngine.sweep();
   }
-  
+
   setTimeout(render, 600);
-  setTimeout(() => sw.classList.remove('active'), 1250);
+  setTimeout(() => {
+    sw.classList.remove('active');
+  }, 1250);
 };
 
-const contentHeader = (title) => `
-  <div class="flex items-center justify-between px-4 py-3 border-b border-white/20" style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent)">
-    <div class="flex items-center gap-3">${brainIcon(36)}<h1 class="arc text-4xl">${title}</h1></div>
+const contentHeader = title => `
+  <div
+    class="flex items-center justify-between px-4 py-3 border-b border-white/20"
+    style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent)"
+  >
+    <div class="flex items-center gap-3">
+      ${brainIcon(36)}
+      <h1 class="arc text-4xl">${title}</h1>
+    </div>
     ${blackhole(42)}
   </div>`;
 
-/* ================= SALA MEJORADA ================= */
+/* ================= SALA ================= */
 views.sala = () => `
-  <div class="text-center pt-10 pb-6" style="transform:translateZ(20px)">
-    <h1 class="arc text-6xl" style="animation:titlePulse 3s ease-in-out infinite">DAZER</h1>
-    <h2 class="arc text-5xl mt-2" style="color:#a855f7">EXTREMO</h2>
-    <p class="arc text-xs mt-4 tracking-widest opacity-80">BIENVENID@</p>
-    <p class="arc text-2xl mt-2" style="color:#a855f7;text-shadow:0 0 20px rgba(168,85,247,0.6)">${esc(state.user.name)}</p>
+  <div
+    class="text-center pt-10 pb-6"
+    style="transform:translateZ(20px)"
+  >
+    <h1
+      class="arc text-6xl"
+      style="animation:titlePulse 3s ease-in-out infinite"
+    >
+      DAZER
+    </h1>
+
+    <h2
+      class="arc text-5xl mt-2"
+      style="color:#a855f7"
+    >
+      EXTREMO
+    </h2>
+
+    <p class="arc text-xs mt-4 tracking-widest opacity-80">
+      BIENVENID@
+    </p>
+
+    <p
+      class="arc text-2xl mt-2"
+      style="color:#a855f7;text-shadow:0 0 20px rgba(168,85,247,0.6)"
+    >
+      ${esc(state.user.name)}
+    </p>
   </div>
+
   <div class="max-w-xl mx-auto px-4 space-y-5 mt-4 pb-4">
     <div class="relative">
-      <input id="sala-search" placeholder="BUSCAR CONTENIDO..." class="w-full bg-white text-black p-5 pr-14 rounded-full arc text-sm" style="box-shadow:0 0 30px rgba(168,85,247,0.4)">
-      <button onclick="toast('Buscando...','info')" class="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center hover:bg-purple-400 transition" style="box-shadow:0 4px 12px rgba(0,0,0,0.4)">
+      <input
+        id="sala-search"
+        placeholder="BUSCAR CONTENIDO..."
+        class="w-full bg-white text-black p-5 pr-14 rounded-full arc text-sm"
+        style="box-shadow:0 0 30px rgba(168,85,247,0.4)"
+      >
+
+      <button
+        onclick="toast('Buscando...','info')"
+        class="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-2 border-black rounded-full flex items-center justify-center hover:bg-purple-400 transition"
+        style="box-shadow:0 4px 12px rgba(0,0,0,0.4)"
+      >
         <i class="fa-solid fa-magnifying-glass text-black"></i>
       </button>
     </div>
-    <p class="text-center text-[10px] arc opacity-60">BUSCA CONTENIDO QUE GUSTES SIN CENSURA EN EL TEXTO</p>
-    <div class="grid grid-cols-2 border-t-2 border-b border-white mt-4" style="box-shadow:0 0 30px rgba(168,85,247,0.3)">
-      <button onclick="go('kurzclips')" class="arc text-3xl py-16 border-r-2 border-b-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105" style="text-shadow:0 2px 4px rgba(0,0,0,0.5)">KURZCLIPS</button>
-      <button onclick="go('footage')" class="arc text-3xl py-16 border-b-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105" style="text-shadow:0 2px 4px rgba(0,0,0,0.5)">FOOTAGE</button>
-      <button onclick="go('schnapps')" class="arc text-3xl py-16 border-r-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105" style="text-shadow:0 2px 4px rgba(0,0,0,0.5)">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="arc text-3xl py-16 text-center hover:bg-white hover:text-black transition transform hover:scale-105" style="text-shadow:0 2px 4px rgba(0,0,0,0.5)">SPIELFILM</button>
+
+    <p class="text-center text-[10px] arc opacity-60">
+      BUSCA CONTENIDO QUE GUSTES SIN CENSURA EN EL TEXTO
+    </p>
+
+    <div
+      class="grid grid-cols-2 border-t-2 border-b border-white mt-4"
+      style="box-shadow:0 0 30px rgba(168,85,247,0.3)"
+    >
+      <button
+        onclick="go('kurzclips')"
+        class="arc text-3xl py-16 border-r-2 border-b-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105"
+      >
+        KURZCLIPS
+      </button>
+
+      <button
+        onclick="go('footage')"
+        class="arc text-3xl py-16 border-b-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105"
+      >
+        FOOTAGE
+      </button>
+
+      <button
+        onclick="go('schnapps')"
+        class="arc text-3xl py-16 border-r-2 border-white text-center hover:bg-white hover:text-black transition transform hover:scale-105"
+      >
+        SCHNAPPS
+      </button>
+
+      <button
+        onclick="go('spielfilm')"
+        class="arc text-3xl py-16 text-center hover:bg-white hover:text-black transition transform hover:scale-105"
+      >
+        SPIELFILM
+      </button>
     </div>
   </div>`;
 
 views.navegador = () => `
-  <div class="text-center py-6 border-b border-white/20" style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent)">
-    <h1 class="arc text-3xl">CONTENIDO INTELIGENTE</h1>
+  <div
+    class="text-center py-6 border-b border-white/20"
+    style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent)"
+  >
+    <h1 class="arc text-3xl">
+      CONTENIDO INTELIGENTE
+    </h1>
   </div>
+
   <div class="p-5 max-w-md mx-auto space-y-4">
     <div class="grid grid-cols-2 gap-4">
-      <button onclick="go('kurzclips')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">KURZCLIPS</button>
-      <button onclick="go('kurzclips')" class="arc text-4xl py-10 bg-red-600 text-black hover:bg-red-500 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(185,28,28,0.9)">秘密</button>
-      <button onclick="go('footage')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">FOOTAGE</button>
-      <button onclick="go('aline')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">ALINE</button>
-      <button onclick="go('schnapps')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">SPIELFILM</button>
+      <button
+        onclick="go('kurzclips')"
+        class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105"
+      >
+        KURZCLIPS
+      </button>
+
+      <button
+        onclick="go('kurzclips')"
+        class="arc text-4xl py-10 bg-red-600 text-black hover:bg-red-500 transition transform hover:scale-105"
+      >
+        秘密
+      </button>
+
+      <button
+        onclick="go('footage')"
+        class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105"
+      >
+        FOOTAGE
+      </button>
+
+      <button
+        onclick="go('aline')"
+        class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105"
+      >
+        ALINE
+      </button>
+
+      <button
+        onclick="go('schnapps')"
+        class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105"
+      >
+        SCHNAPPS
+      </button>
+
+      <button
+        onclick="go('spielfilm')"
+        class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105"
+      >
+        SPIELFILM
+      </button>
     </div>
+
     <div class="text-center pt-10">
-      <i class="fa-solid fa-brain text-9xl brain-pulse" style="color:#dc2626;filter:drop-shadow(0 0 30px #dc2626)"></i>
-      <p class="text-[10px] mt-4 arc tracking-widest opacity-70">VIENDO TU HISTORIAL PARA ENCONTRAR COINCIDENCIAS</p>
+      <i
+        class="fa-solid fa-brain text-9xl brain-pulse"
+        style="color:#dc2626;filter:drop-shadow(0 0 30px #dc2626)"
+      ></i>
+
+      <p class="text-[10px] mt-4 arc tracking-widest opacity-70">
+        VIENDO TU HISTORIAL PARA ENCONTRAR COINCIDENCIAS
+      </p>
     </div>
   </div>`;
 
 const contentView = (title, coll, exclusive = false) => () => `
   ${contentHeader(title)}
-  ${exclusive ? `<div class="px-4 pt-3"><span class="flag-ex">EXCLUSIVE</span></div>` : ''}
+
+  ${
+    exclusive
+      ? `<div class="px-4 pt-3"><span class="flag-ex">EXCLUSIVE</span></div>`
+      : ''
+  }
+
   <div class="p-5 max-w-md mx-auto space-y-5">
-    <div class="box2 border-dashed p-5 flex flex-col items-center gap-3" style="background:rgba(168,85,247,0.05)">
-      <input id="up-title-${coll}" placeholder="TÍTULO DEL CONTENIDO" class="inp text-center" style="letter-spacing:0.05em">
-      <input id="up-file-${coll}" type="file" accept="image/*,video/*" class="text-[10px] w-full opacity-70">
-      <button onclick="uploadContent('${coll}')" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition"><i class="fa-solid fa-cloud-arrow-up"></i> SUBIR</button>
-      <p class="text-[9px] text-gray-500">Máx ${LIMITE_VIDEO_MB} MB · Videos y fotos</p>
+    <div
+      class="box2 border-dashed p-5 flex flex-col items-center gap-3"
+      style="background:rgba(168,85,247,0.05)"
+    >
+      <input
+        id="up-title-${coll}"
+        placeholder="TÍTULO DEL CONTENIDO"
+        class="inp text-center"
+      >
+
+      <input
+        id="up-file-${coll}"
+        type="file"
+        accept="image/*,video/*"
+        class="text-[10px] w-full opacity-70"
+      >
+
+      <button
+        onclick="uploadContent('${coll}')"
+        class="btn btn-w w-full py-3 text-sm hover:scale-105 transition"
+      >
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        SUBIR
+      </button>
+
+      <p class="text-[9px] text-gray-500">
+        Máx ${LIMITE_VIDEO_MB} MB · Videos y fotos
+      </p>
     </div>
+
     <div id="feed-${coll}" class="space-y-4">
-      <p class="text-center text-xs text-gray-500 opacity-70">Cargando contenido...</p>
+      <p class="text-center text-xs text-gray-500 opacity-70">
+        Cargando contenido...
+      </p>
     </div>
   </div>`;
 
-views.kurzclips = contentView('KURZCLIPS','kurzclips');
-views.footage   = contentView('FOOTAGE','footage');
-views.spielfilm = contentView('SPIELFILM','spielfilm');
-views.schnapps  = contentView('SCHNAPPS','schnapps');
-views.aline     = contentView('ALINE','spielfilm', true);
+views.kurzclips = contentView('KURZCLIPS', 'kurzclips');
+views.footage = contentView('FOOTAGE', 'footage');
+views.spielfilm = contentView('SPIELFILM', 'spielfilm');
+views.schnapps = contentView('SCHNAPPS', 'schnapps');
+views.aline = contentView('ALINE', 'spielfilm', true);
 
-const DBS = { kurzclips:dbKurz, footage:dbFoot, spielfilm:dbKurz, schnapps:dbSchn, aline:dbKurz };
-const STS = { kurzclips:stKurz, footage:stFoot, spielfilm:stKurz, schnapps:stSchn, aline:stKurz };
+const DBS = {
+  kurzclips: dbKurz,
+  footage: dbFoot,
+  spielfilm: dbKurz,
+  schnapps: dbSchn,
+  aline: dbKurz
+};
 
-async function loadContent(coll) {
-  const feed = document.getElementById('feed-'+coll);
+const STS = {
+  kurzclips: stKurz,
+  footage: stFoot,
+  spielfilm: stKurz,
+  schnapps: stSchn,
+  aline: stKurz
+};async function loadContent(coll) {
+  const feed = document.getElementById('feed-' + coll);
   if (!feed) return;
+
   try {
-    const snap = await getDocs(collection(DBS[coll], 'contenido'));
-    const items = snap.docs.map(d => d.data()).sort((a,b)=>(b.creado||0)-(a.creado||0));
-    if (!items.length) { 
-      feed.innerHTML = `<p class="text-center text-xs text-gray-500 opacity-70">Aún no hay contenido. ¡Sé el primero!</p>`; 
-      return; 
+    const snap = await getDocs(
+      collection(DBS[coll], 'contenido')
+    );
+
+    const items = snap.docs
+      .map(d => d.data())
+      .sort((a, b) => (b.creado || 0) - (a.creado || 0));
+
+    if (!items.length) {
+      feed.innerHTML =
+        '<p class="text-center text-xs text-gray-500 opacity-70">' +
+        'Aún no hay contenido. ¡Sé el primero!</p>';
+      return;
     }
+
     feed.innerHTML = items.map(c => {
-      let media;
+      let media = '';
+
       if (c.tipo === 'v') {
-        media = `<video src="${c.url}" controls playsinline preload="metadata" class="w-full bg-black border border-gray-800" style="box-shadow:0 4px 20px rgba(0,0,0,0.6)"></video>`;
+        media =
+          `<video src="${esc(c.url)}" controls playsinline ` +
+          `preload="metadata" class="w-full bg-black border border-gray-800"` +
+          ` style="box-shadow:0 4px 20px rgba(0,0,0,0.6)"></video>`;
       } else if (c.tipo === 'i') {
-        media = `<img src="${c.url}" class="w-full bg-black border border-gray-800" loading="lazy" style="box-shadow:0 4px 20px rgba(0,0,0,0.6)">`;
+        media =
+          `<img src="${esc(c.url)}" ` +
+          `class="w-full bg-black border border-gray-800" ` +
+          `loading="lazy" ` +
+          `style="box-shadow:0 4px 20px rgba(0,0,0,0.6)">`;
       } else if (c.tipo === 'link') {
-        media = `<a href="${esc(c.url)}" target="_blank" rel="noopener" class="block p-5 bg-zinc-900 text-center border border-purple-500 hover:bg-zinc-800 transition" style="box-shadow:0 0 20px rgba(168,85,247,0.3)">
-          <i class="fa-solid fa-link text-3xl text-purple-400 mb-2" style="filter:drop-shadow(0 0 10px rgba(168,85,247,0.6))"></i>
-          <p class="text-[10px] break-all">${esc(c.url)}</p>
-          <p class="text-[9px] text-purple-400 mt-2">ABRIR ENLACE</p>
-        </a>`;
+        media =
+          `<a href="${esc(c.url)}" target="_blank" rel="noopener" ` +
+          `class="block p-5 bg-zinc-900 text-center border border-purple-500 hover:bg-zinc-800 transition">` +
+          `<i class="fa-solid fa-link text-3xl text-purple-400 mb-2"></i>` +
+          `<p class="text-[10px] break-all">${esc(c.url)}</p>` +
+          `<p class="text-[9px] text-purple-400 mt-2">ABRIR ENLACE</p>` +
+          `</a>`;
       } else if (c.tipo === 'text') {
-        media = `<div class="p-5 bg-zinc-900 border border-purple-500 text-sm" style="box-shadow:0 0 15px rgba(168,85,247,0.2)">${esc(c.texto||'')}</div>`;
-      } else {
-        media = '';
+        media =
+          `<div class="p-5 bg-zinc-900 border border-purple-500 text-sm">` +
+          `${esc(c.texto || '')}</div>`;
       }
-      return `<div class="box2 p-3 space-y-3 bg-black hover:scale-[1.02] transition" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-        ${media}
-        <p class="arc text-xs opacity-90">${esc(c.titulo||'')}</p>
-        <p class="text-[10px]" style="color:#a855f7">@${esc(c.autor||'')}${c.compartido ? ' · compartido' : ''}</p>
-      </div>`;
+
+      return `
+        <div class="box2 p-3 space-y-3 bg-black hover:scale-[1.02] transition">
+          ${media}
+          <p class="arc text-xs opacity-90">
+            ${esc(c.titulo || '')}
+          </p>
+          <p class="text-[10px]" style="color:#a855f7">
+            @${esc(c.autor || '')}
+            ${c.compartido ? ' · compartido' : ''}
+          </p>
+        </div>`;
     }).join('');
-  } catch(e) { 
-    feed.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; 
+  } catch (e) {
+    feed.innerHTML =
+      `<p class="text-center text-xs text-red-400">` +
+      `Error: ${esc(e.code || e.message)}</p>`;
   }
 }
 
-window.uploadContent = async (coll) => {
-  const titleEl = document.getElementById('up-title-'+coll);
-  const fileEl = document.getElementById('up-file-'+coll);
+window.uploadContent = async coll => {
+  const titleEl =
+    document.getElementById('up-title-' + coll);
+
+  const fileEl =
+    document.getElementById('up-file-' + coll);
+
   const file = fileEl.files[0];
-  if (!file) return toast('Elige un archivo','error');
-  const sizeMB = file.size / (1024*1024);
+
+  if (!file) {
+    return toast('Elige un archivo', 'error');
+  }
+
+  const sizeMB = file.size / (1024 * 1024);
+
   if (sizeMB > LIMITE_VIDEO_MB) {
-    return toast(`Máx ${LIMITE_VIDEO_MB} MB (tu archivo: ${sizeMB.toFixed(1)} MB)`,'error');
+    return toast(
+      `Máx ${LIMITE_VIDEO_MB} MB ` +
+      `(tu archivo: ${sizeMB.toFixed(1)} MB)`,
+      'error'
+    );
   }
-  const titulo = titleEl.value.trim() || file.name;
+
+  const titulo =
+    titleEl.value.trim() || file.name;
+
   try {
-    toast('Subiendo '+sizeMB.toFixed(1)+' MB...','info');
-    const r = ref(STS[coll], `contenido/${state.user.uid}/${Date.now()}_${file.name.replace(/[^w.-]/g,'_')}`);
+    toast(
+      'Subiendo ' + sizeMB.toFixed(1) + ' MB...',
+      'info'
+    );
+
+    const safeName =
+      file.name.replace(/[^w.-]/g, '_');
+
+    const r = ref(
+      STS[coll],
+      `contenido/${state.user.uid}/${Date.now()}_${safeName}`
+    );
+
     await uploadBytes(r, file);
+
     const url = await getDownloadURL(r);
-    await addDoc(collection(DBS[coll], 'contenido'), { 
-      tab:coll, 
-      titulo, 
-      url, 
-      tipo:file.type.startsWith('video')?'v':'i', 
-      autor:state.user.name, 
-      uid:state.user.uid, 
-      creado:Date.now() 
-    });
-    titleEl.value=''; 
-    fileEl.value='';
-    toast('Subido correctamente','success'); 
+
+    await addDoc(
+      collection(DBS[coll], 'contenido'),
+      {
+        tab: coll,
+        titulo,
+        url,
+        tipo: file.type.startsWith('video') ? 'v' : 'i',
+        autor: state.user.name,
+        uid: state.user.uid,
+        creado: Date.now()
+      }
+    );
+
+    titleEl.value = '';
+    fileEl.value = '';
+
+    toast('Subido correctamente', 'success');
     loadContent(coll);
-  } catch(e) {
+  } catch (e) {
     console.error('[DAZER] Error subida:', e);
-    toast('Error: '+(e.code||e.message),'error');
+    toast(
+      'Error: ' + (e.code || e.message),
+      'error'
+    );
   }
-};/* ================= COMUNICACIÓN MEJORADA ================= */
+};
+
+/* ================= COMUNICACIÓN ================= */
 views.comunicacion = () => `
   ${contentHeader('COMUNICACIÓN')}
+
   <div class="p-5 max-w-md mx-auto space-y-5">
     <div class="grid grid-cols-2 gap-3">
-      <button onclick="go('sub-sus')" class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">SUSURROS</button>
-      <button onclick="go('sub-atico')" class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">ÁTICO</button>
-      <button onclick="go('sub-bodega')" class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">BODEGA</button>
-      <button onclick="go('sub-boveda')" class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">BÓVEDA</button>
+      <button
+        onclick="go('sub-sus')"
+        class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition"
+      >
+        SUSURROS
+      </button>
+
+      <button
+        onclick="go('sub-atico')"
+        class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition"
+      >
+        ÁTICO
+      </button>
+
+      <button
+        onclick="go('sub-bodega')"
+        class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition"
+      >
+        BODEGA
+      </button>
+
+      <button
+        onclick="go('sub-boveda')"
+        class="arc text-2xl py-10 bg-white text-black hover:bg-purple-400 transition"
+      >
+        BÓVEDA
+      </button>
     </div>
+
     <div class="box2 p-5 border-dashed">
-      <p class="text-[10px] arc mb-3 opacity-70">USUARIOS CONECTADOS</p>
+      <p class="text-[10px] arc mb-3 opacity-70">
+        USUARIOS CONECTADOS
+      </p>
+
       <div id="users-list" class="space-y-3">
-        <p class="text-center text-xs text-gray-500">Cargando usuarios...</p>
+        <p class="text-center text-xs text-gray-500">
+          Cargando usuarios...
+        </p>
       </div>
     </div>
   </div>`;
@@ -2188,919 +2301,791 @@ views.comunicacion = () => `
 async function loadUsers() {
   const list = document.getElementById('users-list');
   if (!list) return;
+
   try {
-    const snap = await getDocs(collection(dbCuentas, 'usuarios'));
-    const users = snap.docs.map(d => ({id:d.id,...d.data()})).filter(u=>u.estado==='conectado');
-    if (!users.length) { 
-      list.innerHTML = '<p class="text-center text-xs text-gray-500">No hay usuarios conectados</p>'; 
-      return; 
+    const snap = await getDocs(
+      collection(dbCuentas, 'usuarios')
+    );
+
+    const users = snap.docs
+      .map(d => ({ id: d.id, ...d.data() }))
+      .filter(u => u.estado === 'conectado');
+
+    if (!users.length) {
+      list.innerHTML =
+        '<p class="text-center text-xs text-gray-500">' +
+        'No hay usuarios conectados</p>';
+      return;
     }
+
     list.innerHTML = users.map(u => `
-      <div class="flex items-center justify-between p-3 bg-zinc-900 border border-purple-500/30 hover:border-purple-500 transition" style="box-shadow:0 0 15px rgba(168,85,247,0.2)">
+      <div class="flex items-center justify-between p-3 bg-zinc-900 border border-purple-500/30">
         <div class="flex items-center gap-3">
-          ${u.foto ? `<img src="${esc(u.foto)}" class="w-12 h-12 rounded-full border-2 border-purple-400" style="box-shadow:0 0 15px rgba(168,85,247,0.5)">` : `<div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center arc text-white" style="box-shadow:0 0 15px rgba(168,85,247,0.5)">${esc(u.nombre?.[0]||'U')}</div>`}
+          ${
+            u.foto
+              ? `<img src="${esc(u.foto)}" class="w-12 h-12 rounded-full border-2 border-purple-400">`
+              : `<div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center arc text-white">
+                  ${esc(u.nombre?.[0] || 'U')}
+                </div>`
+          }
+
           <div>
-            <p class="arc text-sm">${esc(u.nombre||'USER')}</p>
-            <p class="text-[9px] text-purple-400">${esc(u.rol||'GRATUITO')}</p>
+            <p class="arc text-sm">
+              ${esc(u.nombre || 'USER')}
+            </p>
+            <p class="text-[9px] text-purple-400">
+              ${esc(u.rol || 'GRATUITO')}
+            </p>
           </div>
         </div>
-        <button onclick="sendMessage('${esc(u.id)}')" class="btn btn-w text-xs px-4 py-2 hover:scale-105 transition">
-          <i class="fa-solid fa-paper-plane"></i> ENVIAR
+
+        <button
+          onclick="sendMessage('${esc(u.id)}')"
+          class="btn btn-w text-xs px-4 py-2"
+        >
+          <i class="fa-solid fa-paper-plane"></i>
+          ENVIAR
         </button>
       </div>
     `).join('');
-  } catch(e) { 
-    list.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; 
+  } catch (e) {
+    list.innerHTML =
+      `<p class="text-center text-xs text-red-400">` +
+      `Error: ${esc(e.code || e.message)}</p>`;
   }
 }
 
-window.sendMessage = (uid) => {
-  toast('Función en desarrollo','info');
+window.sendMessage = uid => {
+  toast('Función en desarrollo', 'info');
 };
 
-/* ================= PERFIL MEJORADO 3D ================= */
+/* ================= PERFIL ================= */
 views.perfil = () => `
   ${contentHeader('PERFIL')}
+
   <div class="p-5 max-w-md mx-auto space-y-6">
-    <div class="text-center" style="transform:translateZ(15px)">
+    <div class="text-center">
       <div class="relative inline-block">
-        ${state.user.photo ? `<img src="${esc(state.user.photo)}" class="w-32 h-32 rounded-full border-4 border-purple-400" style="box-shadow:0 0 40px rgba(168,85,247,0.6)">` : `<div class="w-32 h-32 rounded-full bg-purple-600 flex items-center justify-center arc text-5xl text-white border-4 border-purple-400" style="box-shadow:0 0 40px rgba(168,85,247,0.6)">${esc(state.user.name?.[0]||'U')}</div>`}
-        <button onclick="editProfilePhoto()" class="absolute bottom-0 right-0 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center border-2 border-white hover:bg-purple-400 transition" style="box-shadow:0 4px 12px rgba(168,85,247,0.6)">
+        ${
+          state.user.photo
+            ? `<img src="${esc(state.user.photo)}" class="w-32 h-32 rounded-full border-4 border-purple-400">`
+            : `<div class="w-32 h-32 rounded-full bg-purple-600 flex items-center justify-center arc text-5xl text-white border-4 border-purple-400">
+                ${esc(state.user.name?.[0] || 'U')}
+              </div>`
+        }
+
+        <button
+          onclick="editProfilePhoto()"
+          class="absolute bottom-0 right-0 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center border-2 border-white"
+        >
           <i class="fa-solid fa-pen text-white text-sm"></i>
         </button>
       </div>
-      <h2 class="arc text-4xl mt-4" style="text-shadow:0 0 20px rgba(168,85,247,0.5)">${esc(state.user.name)}</h2>
-      <p class="text-sm mt-2" style="color:#a855f7">${esc(state.user.role)}</p>
-      <p class="text-xs mt-1 opacity-60">${esc(state.user.email)}</p>
+
+      <h2 class="arc text-4xl mt-4">
+        ${esc(state.user.name)}
+      </h2>
+
+      <p class="text-sm mt-2" style="color:#a855f7">
+        ${esc(state.user.role)}
+      </p>
+
+      <p class="text-xs mt-1 opacity-60">
+        ${esc(state.user.email)}
+      </p>
     </div>
-    
-    <div class="space-y-4">
-      <div class="box2 p-4 space-y-3" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-        <p class="arc text-sm opacity-80">FOTOS DE PERFIL</p>
-        <div class="grid grid-cols-3 gap-3">
-          <div class="aspect-square bg-zinc-900 border border-purple-500/30 flex items-center justify-center cursor-pointer hover:border-purple-500 transition" onclick="editProfilePhoto(1)">
-            ${state.user.photo ? `<img src="${esc(state.user.photo)}" class="w-full h-full object-cover">` : '<i class="fa-solid fa-image text-3xl text-purple-400"></i>'}
-          </div>
-          <div class="aspect-square bg-zinc-900 border border-purple-500/30 flex items-center justify-center cursor-pointer hover:border-purple-500 transition" onclick="editProfilePhoto(2)">
-            ${state.user.photo2 ? `<img src="${esc(state.user.photo2)}" class="w-full h-full object-cover">` : '<i class="fa-solid fa-image text-3xl text-purple-400"></i>'}
-          </div>
-          <div class="aspect-square bg-zinc-900 border border-purple-500/30 flex items-center justify-center cursor-pointer hover:border-purple-500 transition" onclick="editProfilePhoto(3)">
-            ${state.user.photo3 ? `<img src="${esc(state.user.photo3)}" class="w-full h-full object-cover">` : '<i class="fa-solid fa-image text-3xl text-purple-400"></i>'}
-          </div>
-        </div>
-      </div>
-      
-      <div class="space-y-3">
-        <button onclick="logoutApp()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(220,38,38,0.9)">
-          <i class="fa-solid fa-right-from-bracket"></i> CERRAR SESIÓN
-        </button>
-        <button onclick="go('config')" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-          <i class="fa-solid fa-gear"></i> CONFIGURACIÓN
-        </button>
-      </div>
+
+    <div class="space-y-3">
+      <button
+        onclick="logoutApp()"
+        class="btn w-full py-4 text-sm"
+        style="box-shadow:0 6px 0 rgba(220,38,38,0.9)"
+      >
+        <i class="fa-solid fa-right-from-bracket"></i>
+        CERRAR SESIÓN
+      </button>
+
+      <button
+        onclick="go('config')"
+        class="btn btn-w w-full py-4 text-sm"
+      >
+        <i class="fa-solid fa-gear"></i>
+        CONFIGURACIÓN
+      </button>
     </div>
   </div>`;
 
 window.refreshProfileUI = () => {
-  document.getElementById('hdr-user').textContent = state.user.name;
-  document.getElementById('hdr-role').textContent = state.user.role;
-  document.getElementById('ftr-role').textContent = state.user.role;
+  document.getElementById('hdr-user').textContent =
+    state.user.name;
+
+  document.getElementById('hdr-role').textContent =
+    state.user.role;
+
+  document.getElementById('ftr-role').textContent =
+    state.user.role;
 };
 
-window.editProfilePhoto = async (slot = 1) => {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/*';
-  input.onchange = async e => {
-    const file = e.target.files[0];
-    if (!file) return;
-    if (file.size > 10*1024*1024) return toast('Máx 10 MB','error');
-    try {
-      toast('Subiendo foto...','info');
-      const r = ref(stCuentas, `fotos/${state.user.uid}/foto${slot}.jpg`);
-      await uploadBytes(r, file);
-      const url = await getDownloadURL(r);
-      if (slot === 1) {
-        state.user.photo = url;
-        await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { foto:url }, { merge:true });
-      } else if (slot === 2) {
-        state.user.photo2 = url;
-        await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { foto2:url }, { merge:true });
-      } else {
-        state.user.photo3 = url;
-        await setDoc(doc(dbCuentas,'usuarios',state.user.uid), { foto3:url }, { merge:true });
-      }
-      save();
-      refreshProfileUI();
-      go('perfil');
-      toast('Foto actualizada','success');
-    } catch(err) {
-      console.error('[DAZER] Error foto perfil:', err);
-      toast('Error: '+(err.code||err.message),'error');
-    }
-  };
-  input.click();
-};
-
-/* ================= CONFIGURACIÓN MEJORADA 3D ================= */
+/* ================= CONFIGURACIÓN ================= */
 views.config = () => {
   const s = state.settings;
   const v = state.vk;
+
   return `
-  ${contentHeader('CONFIGURACIÓN')}
-  <div class="p-5 max-w-md mx-auto space-y-6">
-    
-    <div class="box2 p-4 space-y-3" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">APARIENCIA</p>
-      <div class="space-y-3">
+    ${contentHeader('CONFIGURACIÓN')}
+
+    <div class="p-5 max-w-md mx-auto space-y-6">
+      <div class="box2 p-4 space-y-3">
+        <p class="arc text-sm opacity-80">APARIENCIA</p>
+
         <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">TRANSICIONES</p>
-            <p class="text-[9px] opacity-60">Animaciones al navegar</p>
-          </div>
-          <div id="set-trans" class="toggle ${s.transitions?'on':'off'}" onclick="toggleSetting('transitions')"></div>
+          <p class="text-sm arc">TRANSICIONES</p>
+          <div
+            id="set-trans"
+            class="toggle ${s.transitions ? 'on' : 'off'}"
+            onclick="toggleSetting('transitions')"
+          ></div>
         </div>
+
         <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">FUEGO</p>
-            <p class="text-[9px] opacity-60">Partículas al tocar</p>
-          </div>
-          <div id="set-fuego" class="toggle ${s.fuego?'on':'off'}" onclick="toggleSetting('fuego')"></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="box2 p-4 space-y-3" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">SONIDO</p>
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">SONIDO BOTONES</p>
-            <p class="text-[9px] opacity-60">Clicks táctiles</p>
-          </div>
-          <div id="set-sndBtn" class="toggle ${s.sndBtn?'on':'off'}" onclick="toggleSetting('sndBtn')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">SONIDO AMBIENTE</p>
-            <p class="text-[9px] opacity-60">Efectos de transición</p>
-          </div>
-          <div id="set-sndBg" class="toggle ${s.sndBg?'on':'off'}" onclick="toggleSetting('sndBg')"></div>
+          <p class="text-sm arc">FUEGO</p>
+          <div
+            id="set-fuego"
+            class="toggle ${s.fuego ? 'on' : 'off'}"
+            onclick="toggleSetting('fuego')"
+          ></div>
         </div>
       </div>
-    </div>
-    
-    <div class="box2 p-4 space-y-3" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">TEMAS</p>
-      <div class="grid grid-cols-2 gap-2">
-        ${['nocturno','dia','coquette','fuego','sexy','atodecedor','secreto','normal'].map(t => `
-          <button onclick="setTheme('${t}')" class="p-3 border-2 ${s.theme===t?'border-purple-400 bg-purple-500/20':'border-white/20'} hover:border-purple-400 transition text-xs arc" style="box-shadow:0 2px 8px rgba(0,0,0,0.4)">
-            ${t.toUpperCase()}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-    
-    <div class="box2 p-4 space-y-3" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">MODOS ESPECIALES</p>
-      <div class="space-y-3">
+
+      <div class="box2 p-4 space-y-3">
+        <p class="arc text-sm opacity-80">SONIDO</p>
+
         <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">VPN</p>
-            <p class="text-[9px] opacity-60">Protección adicional</p>
-          </div>
-          <div id="vk-VPN" class="toggle ${v.VPN?'on':'off'}" onclick="toggleVK('VPN')"></div>
+          <p class="text-sm arc">SONIDO BOTONES</p>
+          <div
+            id="set-sndBtn"
+            class="toggle ${s.sndBtn ? 'on' : 'off'}"
+            onclick="toggleSetting('sndBtn')"
+          ></div>
         </div>
+
         <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">REDES OCULTAS</p>
-            <p class="text-[9px] opacity-60">Contenido exclusivo</p>
-          </div>
-          <div id="vk-REDOCULTA" class="toggle ${v.REDOCULTA?'on':'off'}" onclick="toggleVK('REDOCULTA')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">ZUKURZALES</p>
-            <p class="text-[9px] opacity-60">Activar Zukurzalez</p>
-          </div>
-          <div id="vk-ZUKURZALES" class="toggle ${v.ZUKURZALES?'on':'off'}" onclick="toggleVK('ZUKURZALES')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">TOZO</p>
-            <p class="text-[9px] opacity-60">Minimalismo extremo</p>
-          </div>
-          <div id="vk-TOZO" class="toggle ${v.TOZO?'on':'off'}" onclick="toggleVK('TOZO')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">DEEZER PLAYER</p>
-            <p class="text-[9px] opacity-60">Música integrada</p>
-          </div>
-          <div id="vk-DEEZZEER" class="toggle ${v.DEEZZEER?'on':'off'}" onclick="toggleVK('DEEZZEER')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">VERKEHR</p>
-            <p class="text-[9px] opacity-60">Modo discreto</p>
-          </div>
-          <div id="vk-VERKEHR" class="toggle ${v.VERKEHR?'on':'off'}" onclick="toggleVK('VERKEHR')"></div>
+          <p class="text-sm arc">SONIDO AMBIENTE</p>
+          <div
+            id="set-sndBg"
+            class="toggle ${s.sndBg ? 'on' : 'off'}"
+            onclick="toggleSetting('sndBg')"
+          ></div>
         </div>
       </div>
-    </div>
-    
-    <div class="space-y-3 pt-4">
-      <button onclick="go('perfil')" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-arrow-left"></i> VOLVER AL PERFIL
-      </button>
-      <button onclick="resetSettings()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(239,68,68,0.9)">
-        <i class="fa-solid fa-rotate-right"></i> RESTAURAR AJUSTES
-      </button>
-    </div>
-  </div>`;
-};
 
-window.toggleSetting = (key) => {
-  state.settings[key] = !state.settings[key];
-  document.getElementById('set-'+key).className = 'toggle ' + (state.settings[key] ? 'on' : 'off');
-  save();
-  if (key === 'fuego') {
-    toast(state.settings.fuego ? 'Fuego activado' : 'Fuego desactivado', 'info');
-  } else if (key === 'transitions') {
-    toast(state.settings.transitions ? 'Transiciones activadas' : 'Transiciones desactivadas', 'info');
-  } else if (key === 'sndBtn') {
-    AudioEngine.click();
-    toast(state.settings.sndBtn ? 'Sonido activado' : 'Sonido desactivado', 'info');
-  }
-};
+      <div class="box2 p-4 space-y-3">
+        <p class="arc text-sm opacity-80">TEMAS</p>
 
-window.toggleVK = (key) => {
-  state.vk[key] = !state.vk[key];
-  document.getElementById('vk-'+key).className = 'toggle ' + (state.vk[key] ? 'on' : 'off');
-  save();
-  applyVKModes();
-  toast(`${key} ${state.vk[key] ? 'activado' : 'desactivado'}`, 'info');
-};
-
-window.setTheme = (t) => {
-  state.settings.theme = t;
-  save();
-  applyTheme(t);
-  go('config');
-};
-
-window.resetSettings = () => {
-  if (!confirm('¿Restaurar todos los ajustes?')) return;
-  state.settings = { transitions:true, theme:'nocturno', sndBg:true, sndBtn:true, sndKz:true, sndFt:true, sndSf:true, vib:true, fuego:true };
-  state.vk = { VPN:false, REDOCULTA:false, ZUKURZALES:false, TOZO:false, DEEZZEER:false, 'AL CANDADO':false, VERKEHR:false };
-  save();
-  applyTheme('nocturno');
-  applyVKModes();
-  go('config');
-  toast('Ajustes restaurados','success');
-};
-
-function applyVKModes() {
-  const v = state.vk;
-  document.body.classList.toggle('m-vpn', !!v.VPN);
-  document.body.classList.toggle('m-red', !!v.REDOCULTA);
-  document.body.classList.toggle('m-zk', !!v.ZUKURZALES);
-  document.body.classList.toggle('m-tozo', !!v.TOZO);
-  document.body.classList.toggle('m-vk', !!v.VERKEHR);
-  
-  const dzp = document.getElementById('dzp');
-  if (dzp) dzp.style.display = v.DEEZZEER ? 'block' : 'none';
-}
-
-/* ================= SUB-MENÚS MEJORADOS ================= */
-views['sub-sus'] = () => `
-  ${contentHeader('SUSURROS')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-4 border-dashed">
-      <input id="sus-msg" placeholder="ESCRIBE TU SUSURRO..." class="inp mb-3" style="min-height:80px">
-      <button onclick="sendSusurro()" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-paper-plane"></i> ENVIAR SUSURRO
-      </button>
-    </div>
-    <div id="sus-feed" class="space-y-3">
-      <p class="text-center text-xs text-gray-500">Cargando susurros...</p>
-    </div>
-  </div>`;
-
-views['sub-atico'] = () => `
-  ${contentHeader('ÁTICO')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-4 border-dashed">
-      <input id="atico-msg" placeholder="MENSAJE PARA EL ÁTICO..." class="inp mb-3" style="min-height:80px">
-      <button onclick="sendAtico()" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-paper-plane"></i> ENVIAR
-      </button>
-    </div>
-    <div id="atico-feed" class="space-y-3">
-      <p class="text-center text-xs text-gray-500">Cargando mensajes...</p>
-    </div>
-  </div>`;
-
-views['sub-bodega'] = () => `
-  ${contentHeader('BODEGA')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-4 border-dashed">
-      <input id="bodega-msg" placeholder="MENSAJE PARA LA BODEGA..." class="inp mb-3" style="min-height:80px">
-      <button onclick="sendBodega()" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-paper-plane"></i> ENVIAR
-      </button>
-    </div>
-    <div id="bodega-feed" class="space-y-3">
-      <p class="text-center text-xs text-gray-500">Cargando mensajes...</p>
-    </div>
-  </div>`;
-
-views['sub-boveda'] = () => `
-  ${contentHeader('BÓVEDA')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-4 border-dashed">
-      <input id="boveda-msg" placeholder="MENSAJE SECRETO PARA LA BÓVEDA..." class="inp mb-3" style="min-height:80px">
-      <button onclick="sendBoveda()" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-lock"></i> ENVIAR SECRETO
-      </button>
-    </div>
-    <div id="boveda-feed" class="space-y-3">
-      <p class="text-center text-xs text-gray-500">Cargando secretos...</p>
-    </div>
-  </div>`;
-
-window.sendSusurro = () => sendMessageTo('susurros', 'sus-msg', 'sus-feed');
-window.sendAtico = () => sendMessageTo('atico', 'atico-msg', 'atico-feed');
-window.sendBodega = () => sendMessageTo('bodega', 'bodega-msg', 'bodega-feed');
-window.sendBoveda = () => sendMessageTo('boveda', 'boveda-msg', 'boveda-feed');
-
-async function sendMessageTo(collection, inputId, feedId) {
-  const input = document.getElementById(inputId);
-  const msg = input.value.trim();
-  if (!msg) return toast('Escribe un mensaje','error');
-  try {
-    toast('Enviando...','info');
-    await addDoc(collection(dbMsg, collection), {
-      autor: state.user.name,
-      uid: state.user.uid,
-      mensaje: msg,
-      creado: Date.now()
-    });
-    input.value = '';
-    toast('Enviado','success');
-    loadMessages(collection, feedId);
-  } catch(e) {
-    toast('Error: '+(e.code||e.message),'error');
-  }
-}
-
-async function loadMessages(collection, feedId) {
-  const feed = document.getElementById(feedId);
-  if (!feed) return;
-  try {
-    const snap = await getDocs(collection(dbMsg, collection));
-    const msgs = snap.docs.map(d => d.data()).sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0, 50);
-    if (!msgs.length) { 
-      feed.innerHTML = '<p class="text-center text-xs text-gray-500">Sin mensajes aún</p>'; 
-      return; 
-    }
-    feed.innerHTML = msgs.map(m => `
-      <div class="box2 p-4" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-        <p class="text-sm">${esc(m.mensaje)}</p>
-        <p class="text-[9px] mt-2 opacity-60">@${esc(m.autor||'')}</p>
+        <div class="grid grid-cols-2 gap-2">
+          ${
+            [
+              'nocturno',
+              'dia',
+              'coquette',
+              'fuego',
+              'sexy',
+              'atodecedor',
+              'secreto',
+              'normal'
+            ].map(t => `
+              <button
+                onclick="setTheme('${t}')"
+                class="p-3 border-2 ${
+                  s.theme === t
+                    ? 'border-purple-400 bg-purple-500/20'
+                    : 'border-white/20'
+                }"
+              >
+                ${t.toUpperCase()}
+              </button>
+            `).join('')
+          }
+        </div>
       </div>
-    `).join('');
-  } catch(e) { 
-    feed.innerHTML = `<p class="text-center text-xs text-red-400">Error: ${e.code||e.message}</p>`; 
-  }
-}
 
-// Cargar mensajes al entrar
-const originalGo = window.go;
-window.go = (name) => {
-  originalGo(name);
-  setTimeout(() => {
-    if (name === 'sub-sus') loadMessages('susurros', 'sus-feed');
-    if (name === 'sub-atico') loadMessages('atico', 'atico-feed');
-    if (name === 'sub-bodega') loadMessages('bodega', 'bodega-feed');
-    if (name === 'sub-boveda') loadMessages('boveda', 'boveda-feed');
-  }, 700);
-};/* ================= REPORTAR MEJORADO 3D ================= */
-views.reportar = () => `
-  ${contentHeader('REPORTAR')}
-  <div class="p-5 max-w-md mx-auto space-y-6">
-    <div class="box2 p-5 border-dashed" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">SELECCIONA EL TIPO DE REPORTE</p>
-      <div class="space-y-3">
-        <button onclick="reportarTipo('contenido')" class="w-full p-4 bg-zinc-900 border border-purple-500/30 hover:border-purple-500 transition text-left" style="box-shadow:0 0 15px rgba(168,85,247,0.2)">
-          <p class="arc text-sm">CONTENIDO INAPROPIADO</p>
-          <p class="text-[9px] opacity-60">Videos, fotos o enlaces</p>
+      <div class="box2 p-4 space-y-3">
+        <p class="arc text-sm opacity-80">
+          MODOS ESPECIALES
+        </p>
+
+        <div class="flex items-center justify-between">
+          <p class="text-sm arc">VPN</p>
+          <div
+            id="vk-VPN"
+            class="toggle ${v.VPN ? 'on' : 'off'}"
+            onclick="toggleVK('VPN')"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <p class="text-sm arc">REDES OCULTAS</p>
+          <div
+            id="vk-REDOCULTA"
+            class="toggle ${v.REDOCULTA ? 'on' : 'off'}"
+            onclick="toggleVK('REDOCULTA')"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <p class="text-sm arc">ZUKURZALES</p>
+          <div
+            id="vk-ZUKURZALES"
+            class="toggle ${v.ZUKURZALES ? 'on' : 'off'}"
+            onclick="toggleVK('ZUKURZALES')"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <p class="text-sm arc">TOZO</p>
+          <div
+            id="vk-TOZO"
+            class="toggle ${v.TOZO ? 'on' : 'off'}"
+            onclick="toggleVK('TOZO')"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <p class="text-sm arc">VERKEHR</p>
+          <div
+            id="vk-VERKEHR"
+            class="toggle ${v.VERKEHR ? 'on' : 'off'}"
+            onclick="toggleVK('VERKEHR')"
+          ></div>
+        </div>
+      </div>
+
+      <div class="space-y-3 pt-4">
+        <button
+          onclick="go('perfil')"
+          class="btn btn-w w-full py-4 text-sm"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          VOLVER AL PERFIL
         </button>
-        <button onclick="reportarTipo('usuario')" class="w-full p-4 bg-zinc-900 border border-purple-500/30 hover:border-purple-500 transition text-left" style="box-shadow:0 0 15px rgba(168,85,247,0.2)">
-          <p class="arc text-sm">USUARIO</p>
-          <p class="text-[9px] opacity-60">Comportamiento indebido</p>
-        </button>
-        <button onclick="reportarTipo('tecnico')" class="w-full p-4 bg-zinc-900 border border-purple-500/30 hover:border-purple-500 transition text-left" style="box-shadow:0 0 15px rgba(168,85,247,0.2)">
-          <p class="arc text-sm">PROBLEMA TÉCNICO</p>
-          <p class="text-[9px] opacity-60">Errores o bugs</p>
+
+        <button
+          onclick="resetSettings()"
+          class="btn w-full py-4 text-sm"
+          style="box-shadow:0 6px 0 rgba(239,68,68,0.9)"
+        >
+          <i class="fa-solid fa-rotate-right"></i>
+          RESTAURAR AJUSTES
         </button>
       </div>
-    </div>
-    
-    <div class="box2 p-5" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">DETALLES DEL REPORTE</p>
-      <input id="rep-titulo" placeholder="TÍTULO DEL REPORTE" class="inp mb-3" style="letter-spacing:0.03em">
-      <textarea id="rep-desc" placeholder="DESCRIPCIÓN DETALLADA..." class="inp" style="min-height:120px;letter-spacing:0.03em"></textarea>
-      <button onclick="enviarReporte()" class="btn btn-w w-full py-4 mt-4 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-triangle-exclamation"></i> ENVIAR REPORTE
-      </button>
-    </div>
-    
-    <div class="text-center">
-      <p class="text-[10px] opacity-60">Todos los reportes son revisados por el equipo de DAZER</p>
-    </div>
-  </div>`;
-
-window.reportarTipo = (tipo) => {
-  const titulo = document.getElementById('rep-titulo');
-  const desc = document.getElementById('rep-desc');
-  if (tipo === 'contenido') {
-    titulo.value = 'CONTENIDO INAPROPIADO';
-    desc.value = 'He encontrado contenido que viola las normas de la comunidad:
-
-';
-  } else if (tipo === 'usuario') {
-    titulo.value = 'USUARIO PROBLEMÁTICO';
-    desc.value = 'Un usuario está teniendo un comportamiento indebido:
-
-';
-  } else if (tipo === 'tecnico') {
-    titulo.value = 'PROBLEMA TÉCNICO';
-    desc.value = 'He encontrado un error o bug en la aplicación:
-
-';
-  }
-  desc.focus();
-};
-
-window.enviarReporte = async () => {
-  const titulo = document.getElementById('rep-titulo').value.trim();
-  const desc = document.getElementById('rep-desc').value.trim();
-  if (!titulo || !desc) return toast('Completa todos los campos','error');
-  
-  try {
-    toast('Enviando reporte...','info');
-    await addDoc(collection(dbMsg, 'reportes'), {
-      autor: state.user.name,
-      uid: state.user.uid,
-      titulo,
-      descripcion: desc,
-      estado: 'pendiente',
-      creado: Date.now()
-    });
-    document.getElementById('rep-titulo').value = '';
-    document.getElementById('rep-desc').value = '';
-    toast('Reporte enviado, gracias','success');
-  } catch(e) {
-    toast('Error: '+(e.code||e.message),'error');
-  }
-};
-
-/* ================= GDZ - GHOST DAZER ================= */
-views.gdz = () => `
-  ${contentHeader('GDZ')}
-  <div class="p-5 max-w-md mx-auto space-y-6">
-    <div class="text-center" style="transform:translateZ(15px)">
-      <i class="fa-solid fa-ghost text-8xl mb-4" style="color:#a855f7;filter:drop-shadow(0 0 30px #a855f7);animation:dzF 2.5s ease-in-out infinite"></i>
-      <p class="arc text-sm opacity-70">GHOST MODE ACTIVADO</p>
-      <p class="text-[10px] mt-2 opacity-50">Navega sin dejar huella</p>
-    </div>
-    
-    <div class="box2 p-5 space-y-4" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">OPCIONES DE GHOST</p>
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">OCULTAR ACTIVIDAD</p>
-            <p class="text-[9px] opacity-60">No mostrar "en línea"</p>
-          </div>
-          <div class="toggle on" onclick="toast('Función premium','info')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">NAVEGACIÓN PRIVADA</p>
-            <p class="text-[9px] opacity-60">Sin historial local</p>
-          </div>
-          <div class="toggle on" onclick="toast('Función premium','info')"></div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm arc">FANTASMA TOTAL</p>
-            <p class="text-[9px] opacity-60">Invisible para todos</p>
-          </div>
-          <div class="toggle off" onclick="toast('Función premium','info')"></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="text-center pt-4">
-      <button onclick="go('config')" class="btn btn-w py-4 px-8 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-arrow-left"></i> VOLVER
-      </button>
-    </div>
-  </div>`;
-
-/* ================= UMIKAISER ================= */
-views.umikaiser = () => `
-  ${contentHeader('UMIKAISER')}
-  <div class="p-5 max-w-md mx-auto space-y-6">
-    <div class="text-center" style="transform:translateZ(15px)">
-      <i class="fa-solid fa-crown text-7xl mb-4" style="color:#fbbf24;filter:drop-shadow(0 0 30px #fbbf24)"></i>
-      <p class="arc text-xl">UMIKAISER MODE</p>
-      <p class="text-[10px] mt-2 opacity-50">Modo emperador activado</p>
-    </div>
-    
-    <div class="box2 p-5 space-y-4" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm opacity-80">PODERES DE UMIKAISER</p>
-      <div class="space-y-3">
-        <div class="p-4 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 border border-yellow-500/30">
-          <p class="arc text-xs text-yellow-400">VISIÓN NOCTURNA</p>
-          <p class="text-[9px] mt-1 opacity-70">Ver contenido oculto en la oscuridad</p>
-        </div>
-        <div class="p-4 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30">
-          <p class="arc text-xs text-purple-400">SUPER VELOCIDAD</p>
-          <p class="text-[9px] mt-1 opacity-70">Carga instantánea de contenido</p>
-        </div>
-        <div class="p-4 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30">
-          <p class="arc text-xs text-blue-400">ESCUDO REAL</p>
-          <p class="text-[9px] mt-1 opacity-70">Protección contra malware</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="text-center pt-4">
-      <button onclick="go('config')" class="btn btn-w py-4 px-8 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-arrow-left"></i> VOLVER
-      </button>
-    </div>
-  </div>`;
-
-/* ================= ZUKURZALEZ ================= */
-views.zukurzalez = () => `
-  ${contentHeader('ZUKURZALEZ')}
-  <div class="p-5 max-w-md mx-auto space-y-6">
-    <div class="text-center" style="transform:translateZ(15px)">
-      <div class="inline-block p-6 bg-gradient-to-br from-red-600 to-red-900 rounded-full mb-4" style="box-shadow:0 0 40px rgba(220,38,38,0.6)">
-        <i class="fa-solid fa-skull text-6xl" style="color:#fff;filter:drop-shadow(0 0 20px #dc2626)"></i>
-      </div>
-      <p class="arc text-xl">ZUKURZALEZ ACTIVADO</p>
-      <p class="text-[10px] mt-2 opacity-50">Contenido extremo desbloqueado</p>
-    </div>
-    
-    <div class="box2 p-5 border-dashed" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">ADVERTENCIA</p>
-      <p class="text-xs leading-relaxed">
-        Has activado el modo <strong class="text-red-400">ZUKURZALEZ</strong>. 
-        Este modo muestra contenido extremo sin censura.
-      </p>
-      <p class="text-xs mt-3 leading-relaxed">
-        Solo usuarios mayores de edad deberían acceder a este contenido.
-        DAZER no se responsabiliza por el uso indebido.
-      </p>
-    </div>
-    
-    <div class="space-y-3">
-      <button onclick="go('kurzclips')" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(220,38,38,0.9)">
-        <i class="fa-solid fa-fire"></i> VER CONTENIDO EXTREMO
-      </button>
-      <button onclick="go('config')" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-arrow-left"></i> VOLVER
-      </button>
-    </div>
-  </div>`;
-
-/* ================= SUB-MENÚS ADICIONALES ================= */
-views['sub-vk'] = () => `
-  ${contentHeader('VK')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="grid grid-cols-2 gap-3">
-      <button onclick="go('kurzclips')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">KURZCLIPS</button>
-      <button onclick="go('footage')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">FOOTAGE</button>
-      <button onclick="go('schnapps')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">SCHNAPPS</button>
-      <button onclick="go('spielfilm')" class="arc text-xl py-10 bg-white text-black hover:bg-purple-400 transition transform hover:scale-105" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">SPIELFILM</button>
-    </div>
-    <div class="text-center pt-6">
-      <i class="fa-solid fa-vr-cardboard text-7xl mb-3" style="color:#a855f7;filter:drop-shadow(0 0 20px #a855f7)"></i>
-      <p class="text-[10px] opacity-60">NAVEGADOR INTEGRADO</p>
-    </div>
-  </div>`;
-
-views['sub-atico'] = () => `
-  ${contentHeader('ÁTICO')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-5 border-dashed" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">MENSAJES DEL ÁTICO</p>
-      <div id="atico-feed" class="space-y-3">
-        <p class="text-center text-xs text-gray-500">Cargando...</p>
-      </div>
-    </div>
-  </div>`;
-
-views['sub-boveda'] = () => `
-  ${contentHeader('BÓVEDA')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-5 border-dashed" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">SECRETOS DE LA BÓVEDA</p>
-      <div id="boveda-feed" class="space-y-3">
-        <p class="text-center text-xs text-gray-500">Cargando...</p>
-      </div>
-    </div>
-  </div>`;
-
-views['sub-bodega'] = () => `
-  ${contentHeader('BODEGA')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="box2 p-5 border-dashed" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="arc text-sm mb-3 opacity-80">ARCHIVOS DE LA BODEGA</p>
-      <div id="bodega-feed" class="space-y-3">
-        <p class="text-center text-xs text-gray-500">Cargando...</p>
-      </div>
-    </div>
-  </div>`;
-
-views['sub-ci'] = () => `
-  ${contentHeader('CI')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="text-center">
-      <i class="fa-solid fa-fingerprint text-8xl mb-4" style="color:#a855f7;filter:drop-shadow(0 0 30px #a855f7)"></i>
-      <p class="arc text-sm opacity-70">INTELIGENCIA DE CONTENIDO</p>
-      <p class="text-[10px] mt-2 opacity-50">Análisis en tiempo real</p>
-    </div>
-    <div class="box2 p-5" style="box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p class="text-xs text-center opacity-60">Función en desarrollo</p>
-    </div>
-  </div>`;
-
-views['sub-moduz'] = () => `
-  ${contentHeader('MODUZ')}
-  <div class="p-5 max-w-md mx-auto space-y-4">
-    <div class="grid grid-cols-2 gap-3">
-      <button onclick="setTheme('nocturno')" class="arc text-lg py-8 bg-zinc-900 hover:bg-purple-600 transition border border-purple-500/30" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">NOCTURNO</button>
-      <button onclick="setTheme('dia')" class="arc text-lg py-8 bg-zinc-100 text-black hover:bg-green-400 transition border border-green-500/30" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">DÍA</button>
-      <button onclick="setTheme('coquette')" class="arc text-lg py-8 bg-gradient-to-br from-pink-600 to-pink-800 hover:from-pink-500 hover:to-pink-700 transition" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">COQUETTE</button>
-      <button onclick="setTheme('fuego')" class="arc text-lg py-8 bg-gradient-to-br from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 transition" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">FUEGO</button>
-      <button onclick="setTheme('sexy')" class="arc text-lg py-8 bg-gradient-to-br from-pink-600 to-purple-800 hover:from-pink-500 hover:to-purple-700 transition" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">SEXY</button>
-      <button onclick="setTheme('atodecedor')" class="arc text-lg py-8 bg-gradient-to-br from-purple-600 via-cyan-600 to-green-600 hover:opacity-90 transition" style="box-shadow:0 4px 12px rgba(0,0,0,0.5)">ATODECEDOR</button>
-    </div>
-  </div>`;
-
-/* ================= INICIALIZACIÓN ================= */
+    </div>`;
+};/* ================= INICIALIZACIÓN ================= */
 document.addEventListener('DOMContentLoaded', () => {
-  // Aplicar modo VK guardado
   applyVKModes();
-  
-  // Mostrar pantalla de auth
+
   show('scr-auth');
-  
-  // Pre-cargar contenido
+
   setTimeout(() => {
-    if (state.user.uid) {
+    if (state.user && state.user.uid) {
       enterApp();
     }
   }, 500);
 });
 
-// Prevenir zoom en double-tap
-document.addEventListener('dblclick', e => {
-  e.preventDefault();
+/* Prevenir zoom con doble toque */
+document.addEventListener('dblclick', event => {
+  event.preventDefault();
 }, { passive: false });
 
-// Manejar errores globales
-window.addEventListener('error', e => {
-  console.error('[DAZER ERROR]', e.error);
+/* Errores globales */
+window.addEventListener('error', event => {
+  console.error('[DAZER ERROR]', event.error);
 }, { capture: true });
 
-console.log('%c[DAZER EXTREMO / VOLUMEN 3]', 'color:#a855f7;font-size:16px;font-weight:bold');
-console.log('%cCreado con fuego y código', 'color:#dc2626;font-size:11px');
-</script></head>
+console.log(
+  '%c[DAZER EXTREMO / VOLUMEN 3]',
+  'color:#a855f7;font-size:16px;font-weight:bold'
+);
+
+console.log(
+  '%cCreado con fuego y código',
+  'color:#dc2626;font-size:11px'
+);
+</script>
+</head>
+
 <body class="select-none">
 
 <!-- ====== PANTALLA PWA ====== -->
-<div id="scr-pwa" class="hidden flex-col items-center justify-center min-h-screen p-6 text-center grain" style="background:#000">
+<div
+  id="scr-pwa"
+  class="hidden flex-col items-center justify-center min-h-screen p-6 text-center grain"
+  style="background:#000"
+>
   <div class="max-w-sm w-full space-y-6">
     <div id="pwa-icon-preview" class="w-32 h-32 mx-auto"></div>
+
     <h1 class="arc text-5xl">DAZER</h1>
-    <h2 class="arc text-3xl" style="color:#a855f7">EXTREMO</h2>
-    <p class="text-xs opacity-70">Red social sin límites</p>
-    
+
+    <h2 class="arc text-3xl" style="color:#a855f7">
+      EXTREMO
+    </h2>
+
+    <p class="text-xs opacity-70">
+      Red social sin límites
+    </p>
+
     <div class="space-y-4 pt-4">
-      <button id="btn-install" onclick="installApp()" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-download"></i> INSTALAR DAZER
+      <button
+        id="btn-install"
+        onclick="installApp()"
+        class="btn btn-w w-full py-4 text-sm hover:scale-105 transition"
+      >
+        <i class="fa-solid fa-download"></i>
+        INSTALAR DAZER
       </button>
-      
-      <button onclick="goLang()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">
-        <i class="fa-solid fa-language"></i> SELECCIONAR IDIOMA
+
+      <button
+        onclick="goLang()"
+        class="btn w-full py-4 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(126,34,206,0.9)"
+      >
+        <i class="fa-solid fa-language"></i>
+        SELECCIONAR IDIOMA
       </button>
-      
-      <button onclick="goAuth()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(34,197,94,0.9)">
-        <i class="fa-solid fa-arrow-right-to-bracket"></i> INICIAR SESIÓN
+
+      <button
+        onclick="goAuth()"
+        class="btn w-full py-4 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(34,197,94,0.9)"
+      >
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        INICIAR SESIÓN
       </button>
     </div>
-    
+
     <div id="pwa-status" class="text-[10px] opacity-60 pt-4"></div>
   </div>
 </div>
 
 <!-- ====== PANTALLA IDIOMAS ====== -->
-<div id="scr-lang" class="hidden flex-col items-center justify-center min-h-screen p-6 grain" style="background:#000">
+<div
+  id="scr-lang"
+  class="hidden flex-col items-center justify-center min-h-screen p-6 grain"
+  style="background:#000"
+>
   <div class="max-w-md w-full space-y-6">
     <h1 class="arc text-4xl text-center">IDIOMAS</h1>
+
     <div id="lang-list" class="space-y-3"></div>
-    <button onclick="goAuth()" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-      <i class="fa-solid fa-arrow-left"></i> VOLVER
+
+    <button
+      onclick="goAuth()"
+      class="btn btn-w w-full py-4 text-sm hover:scale-105 transition"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      VOLVER
     </button>
   </div>
 </div>
 
 <!-- ====== PANTALLA AUTH ====== -->
-<div id="scr-auth" class="hidden flex-col items-center justify-center min-h-screen p-6 grain" style="background:#000">
+<div
+  id="scr-auth"
+  class="hidden flex-col items-center justify-center min-h-screen p-6 grain"
+  style="background:#000"
+>
   <div class="max-w-sm w-full space-y-6">
     <div class="text-center">
       <h1 class="arc text-5xl">DAZER</h1>
-      <h2 class="arc text-3xl mt-2" style="color:#a855f7">EXTREMO</h2>
-      <p class="text-[10px] mt-4 opacity-60">INICIAR SESIÓN</p>
+
+      <h2 class="arc text-3xl mt-2" style="color:#a855f7">
+        EXTREMO
+      </h2>
+
+      <p class="text-[10px] mt-4 opacity-60">
+        INICIAR SESIÓN
+      </p>
     </div>
-    
+
     <div class="space-y-4">
-      <button onclick="loginGoogle()" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-        <i class="fa-brands fa-google"></i> CONTINUAR CON GOOGLE
+      <button
+        onclick="loginGoogle()"
+        class="btn btn-w w-full py-4 text-sm hover:scale-105 transition"
+      >
+        <i class="fa-brands fa-google"></i>
+        CONTINUAR CON GOOGLE
       </button>
-      
-      <button onclick="show('mod-email')" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(126,34,206,0.9)">
-        <i class="fa-solid fa-envelope"></i> CORREO ELECTRÓNICO
+
+      <button
+        onclick="show('mod-email')"
+        class="btn w-full py-4 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(126,34,206,0.9)"
+      >
+        <i class="fa-solid fa-envelope"></i>
+        CORREO ELECTRÓNICO
       </button>
-      
-      <button onclick="exitApp()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(239,68,68,0.9)">
-        <i class="fa-solid fa-arrow-left"></i> VOLVER
+
+      <button
+        onclick="exitApp()"
+        class="btn w-full py-4 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(239,68,68,0.9)"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        VOLVER
       </button>
     </div>
   </div>
 </div>
 
 <!-- ====== MODAL EMAIL ====== -->
-<div id="mod-email" class="hidden fixed inset-0 z-[10000] items-center justify-center p-6" style="background:rgba(0,0,0,0.95)">
-  <div class="max-w-sm w-full box2 p-6 space-y-4" style="background:#0a0a0a;box-shadow:0 0 50px rgba(168,85,247,0.4)">
+<div
+  id="mod-email"
+  class="hidden fixed inset-0 z-[10000] items-center justify-center p-6"
+  style="background:rgba(0,0,0,0.95)"
+>
+  <div
+    class="max-w-sm w-full box2 p-6 space-y-4"
+    style="background:#0a0a0a;box-shadow:0 0 50px rgba(168,85,247,0.4)"
+  >
     <h2 class="arc text-2xl text-center">CORREO</h2>
-    <input id="log-email" type="email" placeholder="tu@correo.com" class="inp" style="letter-spacing:0.03em">
-    <input id="log-pass" type="password" placeholder="CONTRASEÑA" class="inp" style="letter-spacing:0.05em">
+
+    <input
+      id="log-email"
+      type="email"
+      placeholder="tu@correo.com"
+      class="inp"
+    >
+
+    <input
+      id="log-pass"
+      type="password"
+      placeholder="CONTRASEÑA"
+      class="inp"
+    >
+
     <div class="space-y-3 pt-2">
-      <button onclick="loginEmail()" class="btn btn-w w-full py-3 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-arrow-right-to-bracket"></i> ENTRAR
+      <button
+        onclick="loginEmail()"
+        class="btn btn-w w-full py-3 text-sm hover:scale-105 transition"
+      >
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        ENTRAR
       </button>
-      <button onclick="hide('mod-email')" class="btn w-full py-3 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(239,68,68,0.9)">
-        <i class="fa-solid fa-xmark"></i> CANCELAR
+
+      <button
+        onclick="hide('mod-email')"
+        class="btn w-full py-3 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(239,68,68,0.9)"
+      >
+        <i class="fa-solid fa-xmark"></i>
+        CANCELAR
       </button>
     </div>
   </div>
 </div>
 
 <!-- ====== PANTALLA REGLAS ====== -->
-<div id="scr-rules" class="hidden flex-col items-center justify-center min-h-screen p-6 grain" style="background:#000">
+<div
+  id="scr-rules"
+  class="hidden flex-col items-center justify-center min-h-screen p-6 grain"
+  style="background:#000"
+>
   <div class="max-w-md w-full space-y-6">
     <div class="text-center">
       <h1 class="arc text-4xl">NORMAS</h1>
-      <p class="text-[10px] mt-2 opacity-60">LEE ANTES DE CONTINUAR</p>
+
+      <p class="text-[10px] mt-2 opacity-60">
+        LEE ANTES DE CONTINUAR
+      </p>
     </div>
-    
-    <div class="box2 p-5 text-xs leading-relaxed space-y-3" style="background:rgba(0,0,0,0.8);box-shadow:0 4px 16px rgba(0,0,0,0.5)">
-      <p><strong class="text-purple-400">1.</strong> DAZER es una red social sin censura. El contenido es responsabilidad de cada usuario.</p>
-      <p><strong class="text-purple-400">2.</strong> Prohibido contenido ilegal, pedofilia, o que viole derechos de autor.</p>
-      <p><strong class="text-purple-400">3.</strong> Respeta a otros usuarios. El acoso será sancionado.</p>
-      <p><strong class="text-purple-400">4.</strong> Usa los modos especiales (VPN, TOZO, etc.) responsablemente.</p>
-      <p><strong class="text-purple-400">5.</strong> DAZER no se hace responsable del mal uso de la plataforma.</p>
+
+    <div
+      class="box2 p-5 text-xs leading-relaxed space-y-3"
+      style="background:rgba(0,0,0,0.8)"
+    >
+      <p>
+        <strong class="text-purple-400">1.</strong>
+        DAZER es una red social sin censura.
+        El contenido es responsabilidad de cada usuario.
+      </p>
+
+      <p>
+        <strong class="text-purple-400">2.</strong>
+        Está prohibido el contenido ilegal, la explotación sexual
+        infantil y la violación de derechos de autor.
+      </p>
+
+      <p>
+        <strong class="text-purple-400">3.</strong>
+        Respeta a otros usuarios.
+        El acoso será sancionado.
+      </p>
+
+      <p>
+        <strong class="text-purple-400">4.</strong>
+        Usa los modos especiales responsablemente.
+      </p>
+
+      <p>
+        <strong class="text-purple-400">5.</strong>
+        DAZER no se hace responsable del mal uso de la plataforma.
+      </p>
     </div>
-    
+
     <div class="space-y-3">
-      <button onclick="acceptRules()" class="btn btn-w w-full py-4 text-sm hover:scale-105 transition">
-        <i class="fa-solid fa-check"></i> ACEPTO LAS NORMAS
+      <button
+        onclick="acceptRules()"
+        class="btn btn-w w-full py-4 text-sm hover:scale-105 transition"
+      >
+        <i class="fa-solid fa-check"></i>
+        ACEPTO LAS NORMAS
       </button>
-      <button onclick="rejectRules()" class="btn w-full py-4 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(239,68,68,0.9)">
-        <i class="fa-solid fa-xmark"></i> NO ACEPTO
+
+      <button
+        onclick="rejectRules()"
+        class="btn w-full py-4 text-sm hover:scale-105 transition"
+        style="box-shadow:0 6px 0 rgba(239,68,68,0.9)"
+      >
+        <i class="fa-solid fa-xmark"></i>
+        NO ACEPTO
       </button>
     </div>
   </div>
 </div>
 
 <!-- ====== MODAL SHARE ====== -->
-<div id="mod-share" class="hidden fixed inset-0 z-[10000] items-end sm:items-center justify-center p-4" style="background:rgba(0,0,0,0.95)">
-  <div class="max-w-md w-full box2 p-5 space-y-4" style="background:#0a0a0a;box-shadow:0 0 50px rgba(168,85,247,0.4)">
-    <h2 class="arc text-xl text-center">COMPARTIR A DAZER</h2>
-    <input id="share-title" type="text" placeholder="TÍTULO (opcional)" class="inp" style="letter-spacing:0.03em">
-    <div id="share-preview" class="p-4 bg-zinc-900 border border-purple-500/30 text-xs" style="box-shadow:inset 0 2px 8px rgba(0,0,0,0.5)"></div>
-    <div class="space-y-3 pt-2">
-      <p class="text-[9px] text-center opacity-60">Elige dónde guardar:</p>
-      <div class="grid grid-cols-2 gap-3">
-        <button onclick="saveShared('kurzclips')" class="btn btn-w py-3 text-xs hover:scale-105 transition">KURZCLIPS</button>
-        <button onclick="saveShared('footage')" class="btn btn-w py-3 text-xs hover:scale-105 transition">FOOTAGE</button>
-        <button onclick="saveShared('schnapps')" class="btn btn-w py-3 text-xs hover:scale-105 transition">SCHNAPPS</button>
-        <button onclick="saveShared('spielfilm')" class="btn btn-w py-3 text-xs hover:scale-105 transition">SPIELFILM</button>
-      </div>
-      <button onclick="closeModal('mod-share')" class="btn w-full py-3 text-sm hover:scale-105 transition" style="box-shadow:0 6px 0 rgba(239,68,68,0.9)">
-        <i class="fa-solid fa-xmark"></i> CANCELAR
+<div
+  id="mod-share"
+  class="hidden fixed inset-0 z-[10000] items-end sm:items-center justify-center p-4"
+  style="background:rgba(0,0,0,0.95)"
+>
+  <div
+    class="max-w-md w-full box2 p-5 space-y-4"
+    style="background:#0a0a0a;box-shadow:0 0 50px rgba(168,85,247,0.4)"
+  >
+    <h2 class="arc text-xl text-center">
+      COMPARTIR A DAZER
+    </h2>
+
+    <input
+      id="share-title"
+      type="text"
+      placeholder="TÍTULO (opcional)"
+      class="inp"
+    >
+
+    <div
+      id="share-preview"
+      class="p-4 bg-zinc-900 border border-purple-500/30 text-xs"
+    ></div>
+
+    <p class="text-[9px] text-center opacity-60">
+      Elige dónde guardar:
+    </p>
+
+    <div class="grid grid-cols-2 gap-3">
+      <button
+        onclick="saveShared('kurzclips')"
+        class="btn btn-w py-3 text-xs"
+      >
+        KURZCLIPS
+      </button>
+
+      <button
+        onclick="saveShared('footage')"
+        class="btn btn-w py-3 text-xs"
+      >
+        FOOTAGE
+      </button>
+
+      <button
+        onclick="saveShared('schnapps')"
+        class="btn btn-w py-3 text-xs"
+      >
+        SCHNAPPS
+      </button>
+
+      <button
+        onclick="saveShared('spielfilm')"
+        class="btn btn-w py-3 text-xs"
+      >
+        SPIELFILM
       </button>
     </div>
+
+    <button
+      onclick="closeModal('mod-share')"
+      class="btn w-full py-3 text-sm"
+      style="box-shadow:0 6px 0 rgba(239,68,68,0.9)"
+    >
+      <i class="fa-solid fa-xmark"></i>
+      CANCELAR
+    </button>
   </div>
 </div>
 
 <!-- ====== APP PRINCIPAL ====== -->
-<div id="app" class="hidden flex-col h-screen grain" style="background:#000">
-  
-  <!-- HEADER -->
-  <header class="flex items-center justify-between px-4 py-3 border-b border-white/20 flex-shrink-0" style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent);box-shadow:0 4px 20px rgba(0,0,0,0.6)">
+<div
+  id="app"
+  class="hidden flex-col h-screen grain"
+  style="background:#000"
+>
+  <header
+    class="flex items-center justify-between px-4 py-3 border-b border-white/20 flex-shrink-0"
+  >
     <div class="flex items-center gap-3">
-      ${brainIcon(32)}
+      <div id="hdr-icon"></div>
+
       <div>
         <p id="hdr-user" class="arc text-sm">USER</p>
-        <p id="hdr-role" class="text-[9px] opacity-60">GRATUITO</p>
+        <p id="hdr-role" class="text-[9px] opacity-60">
+          GRATUITO
+        </p>
       </div>
     </div>
+
     <div class="flex items-center gap-2">
-      <button onclick="copyLink()" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-500 transition" style="box-shadow:0 2px 8px rgba(0,0,0,0.4)">
+      <button
+        onclick="copyLink()"
+        class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center"
+      >
         <i class="fa-solid fa-link text-xs"></i>
       </button>
-      <button onclick="go('perfil')" class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center hover:bg-purple-500 transition" style="box-shadow:0 2px 8px rgba(168,85,247,0.5)">
+
+      <button
+        onclick="go('perfil')"
+        class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center"
+      >
         <i class="fa-solid fa-user text-xs"></i>
       </button>
     </div>
   </header>
-  
-  <!-- VIEWPORT -->
-  <main id="viewport" class="flex-1 overflow-y-auto" style="scrollbar-width:thin;scrollbar-color:#444 #0a0a0a"></main>
-  
-  <!-- SWEEP EFFECT -->
+
+  <main
+    id="viewport"
+    class="flex-1 overflow-y-auto"
+  ></main>
+
   <div id="sweep"></div>
-  
-  <!-- TOAST CONTAINER -->
   <div id="toast-wrap"></div>
-  
-  <!-- NAV CAROUSEL -->
+
   <div class="nav-carousel-wrap flex-shrink-0">
     <div class="nav-carousel">
-      <button id="tab-sala" onclick="go('sala')" class="active bg-white text-black"><i class="fa-solid fa-house"></i><span>SALA</span></button>
-      <button id="tab-navegador" onclick="go('navegador')"><i class="fa-solid fa-compass"></i><span>NAVEGADOR</span></button>
-      <span class="nav-sep">⚡</span>
-      <button id="tab-kurzclips" onclick="go('kurzclips')"><i class="fa-solid fa-clapperboard"></i><span>KURZCLIPS</span></button>
-      <button id="tab-footage" onclick="go('footage')"><i class="fa-solid fa-film"></i><span>FOOTAGE</span></button>
-      <button id="tab-spielfilm" onclick="go('spielfilm')"><i class="fa-solid fa-film"></i><span>SPIELFILM</span></button>
-      <button id="tab-schnapps" onclick="go('schnapps')"><i class="fa-solid fa-bottle-droplet"></i><span>SCHNAPPS</span></button>
-      <span class="nav-sep red">🔥</span>
-      <button id="tab-comunicacion" onclick="go('comunicacion')"><i class="fa-solid fa-comments"></i><span>COM</span></button>
-      <button id="tab-perfil" onclick="go('perfil')"><i class="fa-solid fa-user"></i><span>PERFIL</span></button>
-      <button id="tab-config" onclick="go('config')"><i class="fa-solid fa-gear"></i><span>CONFIG</span></button>
-      <button id="tab-reportar" onclick="go('reportar')"><i class="fa-solid fa-triangle-exclamation"></i><span>REPORTAR</span></button>
+      <button
+        id="tab-sala"
+        onclick="go('sala')"
+        class="active bg-white text-black"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>SALA</span>
+      </button>
+
+      <button
+        id="tab-navegador"
+        onclick="go('navegador')"
+      >
+        <i class="fa-solid fa-compass"></i>
+        <span>NAVEGADOR</span>
+      </button>
+
+      <button
+        id="tab-kurzclips"
+        onclick="go('kurzclips')"
+      >
+        <i class="fa-solid fa-clapperboard"></i>
+        <span>KURZCLIPS</span>
+      </button>
+
+      <button
+        id="tab-footage"
+        onclick="go('footage')"
+      >
+        <i class="fa-solid fa-film"></i>
+        <span>FOOTAGE</span>
+      </button>
+
+      <button
+        id="tab-spielfilm"
+        onclick="go('spielfilm')"
+      >
+        <i class="fa-solid fa-film"></i>
+        <span>SPIELFILM</span>
+      </button>
+
+      <button
+        id="tab-schnapps"
+        onclick="go('schnapps')"
+      >
+        <i class="fa-solid fa-bottle-droplet"></i>
+        <span>SCHNAPPS</span>
+      </button>
+
+      <button
+        id="tab-comunicacion"
+        onclick="go('comunicacion')"
+      >
+        <i class="fa-solid fa-comments"></i>
+        <span>COM</span>
+      </button>
+
+      <button
+        id="tab-perfil"
+        onclick="go('perfil')"
+      >
+        <i class="fa-solid fa-user"></i>
+        <span>PERFIL</span>
+      </button>
+
+      <button
+        id="tab-config"
+        onclick="go('config')"
+      >
+        <i class="fa-solid fa-gear"></i>
+        <span>CONFIG</span>
+      </button>
+
+      <button
+        id="tab-reportar"
+        onclick="go('reportar')"
+      >
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>REPORTAR</span>
+      </button>
     </div>
   </div>
-  
-  <!-- FOOTER -->
-  <footer class="flex items-center justify-between px-4 py-3 border-t border-white/20 flex-shrink-0 text-[10px]" style="background:linear-gradient(90deg,rgba(168,85,247,0.1),transparent);box-shadow:0 -4px 20px rgba(0,0,0,0.6)">
+
+  <footer
+    class="flex items-center justify-between px-4 py-3 border-t border-white/20 flex-shrink-0 text-[10px]"
+  >
     <div class="flex items-center gap-2">
-      <i class="fa-solid fa-bolt" style="color:#a855f7;filter:drop-shadow(0 0 8px #a855f7)"></i>
+      <i class="fa-solid fa-bolt text-purple-400"></i>
       <span id="ftr-role">GRATUITO</span>
     </div>
+
     <div class="flex items-center gap-2">
-      <button onclick="go('gdz')" class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-purple-600 transition" style="box-shadow:0 2px 8px rgba(0,0,0,0.4)">
+      <button
+        onclick="go('gdz')"
+        class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center"
+      >
         <i class="fa-solid fa-ghost text-xs"></i>
       </button>
-      <button onclick="go('umikaiser')" class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-yellow-600 transition" style="box-shadow:0 2px 8px rgba(0,0,0,0.4)">
+
+      <button
+        onclick="go('umikaiser')"
+        class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center"
+      >
         <i class="fa-solid fa-crown text-xs"></i>
       </button>
-      <button onclick="go('zukurzalez')" class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-red-600 transition" style="box-shadow:0 2px 8px rgba(0,0,0,0.4)">
+
+      <button
+        onclick="go('zukurzalez')"
+        class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center"
+      >
         <i class="fa-solid fa-skull text-xs"></i>
       </button>
     </div>
   </footer>
-  
-  <!-- DEEZER PLAYER (opcional) -->
-  <div id="dzp" style="display:none">
-    <div class="dzp-bar">
-      <input type="text" placeholder="BUSCA ARTISTA O CANCIÓN..." value="DAZER EXTREMO MIX">
-      <button><i class="fa-solid fa-play"></i></button>
-      <button onclick="document.getElementById('dzp').classList.toggle('min')"><i class="fa-solid fa-chevron-down"></i></button>
-    </div>
-    <iframe src="https://deezer.com" title="Deezer Player"></iframe>
-  </div>
-  
-</div>
-
-<!-- ====== CANDADO (opcional) ====== -->
-<div id="dzlock" class="hidden">
-  <i class="fa-solid fa-lock"></i>
-  <p class="arc text-sm">INTRODUCE EL CÓDIGO</p>
-  <input type="password" maxlength="6" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code">
-  <div class="flex gap-3">
-    <button class="btn btn-w">DESBLOQUEAR</button>
-    <button class="btn">CANCELAR</button>
-  </div>
 </div>
 
 </body>
