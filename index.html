@@ -1220,6 +1220,254 @@ body.m-vpn::before {
 </style>
 
 <script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js';
+
+/* ================= FIREBASE: CONFIGURACIÓN ================= */
+const cfgMain = {
+    apiKey: "AIzaSyDMkLB72tbVMAZEhyXMtZWWB_tSMMbf900",
+    authDomain: "dazer-extremo-icpme.firebaseapp.com",
+    projectId: "dazer-extremo-icpme",
+    storageBucket: "dazer-extremo-icpme.firebasestorage.app",
+    messagingSenderId: "512846233317",
+    appId: "1:512846233317:web:de5c9c45332532b3301e0c",
+    measurementId: "G-M655726V6N"
+  
+};
+const cfgCuentas = {
+    apiKey: "AIzaSyBthahS-zQDYLPb2nWgksDLEAybhWmKm_4",
+    authDomain: "dazer-extremo-cuentas.firebaseapp.com",
+    projectId: "dazer-extremo-cuentas",
+    storageBucket: "dazer-extremo-cuentas.firebasestorage.app",
+    messagingSenderId: "551686385854",
+    appId: "1:551686385854:web:6bb73a9b34e2471ca26eef",
+    measurementId: "G-CZHGTDW6K7"
+  
+};
+const cfgFoot = {
+    apiKey: "AIzaSyACwEKJDQsqCNeJAU_tc8RGTtz2vij4QcY",
+    authDomain: "dazer-extremo-footages.firebaseapp.com",
+    projectId: "dazer-extremo-footages",
+    storageBucket: "dazer-extremo-footages.firebasestorage.app",
+    messagingSenderId: "254207247947",
+    appId: "1:254207247947:web:82a5c5ff2a5a3297a12fce",
+    measurementId: "G-3MP1E7TJZB"
+  
+};
+const cfgMensajes = {
+    apiKey: "AIzaSyAQAnnJvKoGcyWlGL-xkriPii9DKvOI_pU",
+    authDomain: "dazer-extremo-mensajes.firebaseapp.com",
+    projectId: "dazer-extremo-mensajes",
+    storageBucket: "dazer-extremo-mensajes.firebasestorage.app",
+    messagingSenderId: "70744027643",
+    appId: "1:70744027643:web:1cf308aea8a5f87f1b5b5e",
+    measurementId: "G-9ZXWG422BZ"
+  
+};
+const cfgSchn = {
+    apiKey: "AIzaSyBexSA7OVi5sQaKyrH2RXJK7VfW79Q04_Q",
+    authDomain: "dazer-extremo-schannps.firebaseapp.com",
+    projectId: "dazer-extremo-schannps",
+    storageBucket: "dazer-extremo-schannps.firebasestorage.app",
+    messagingSenderId: "18311813658",
+    appId: "1:18311813658:web:b26bd0d9fed7bcedad0fa3",
+    measurementId: "G-Q70L259T74"
+  
+};
+const cfgKurz = {
+    apiKey: "AIzaSyBaWJTk6OzLVnyEnjjfntAX1PRc86I3EH0",
+    authDomain: "dazer-extremo-kurzclips.firebaseapp.com",
+    projectId: "dazer-extremo-kurzclips",
+    storageBucket: "dazer-extremo-kurzclips.firebasestorage.app",
+    messagingSenderId: "790098661692",
+    appId: "1:790098661692:web:becd1e7a3b04bc9e0b8e39",
+    measurementId: "G-QBRVZ3DX1E"
+  
+};
+
+const appMain = initializeApp(cfgMain, 'dazer-main');
+const appCuentas = initializeApp(cfgCuentas, 'dazer-cuentas');
+const appFoot = initializeApp(cfgFoot, 'dazer-footages');
+const appMensajes = initializeApp(cfgMensajes, 'dazer-mensajes');
+const appSchn = initializeApp(cfgSchn, 'dazer-schnapps');
+const appKurz = initializeApp(cfgKurz, 'dazer-kurzclips');
+
+const auth = getAuth(appCuentas);
+const dbCuentas = getFirestore(appCuentas);
+const dbFoot = getFirestore(appFoot);
+const dbKurz = getFirestore(appKurz);
+const dbSchn = getFirestore(appSchn);
+const stCuentas = getStorage(appCuentas);
+const stFoot = getStorage(appFoot);
+const stKurz = getStorage(appKurz);
+const stSchn = getStorage(appSchn);
+
+/* ================= ESTADO Y UTILIDADES DE INTERFAZ ================= */
+const DEFAULT_STATE = {
+  user: { uid: '', name: 'USER', role: 'GRATUITO', email: '', photo: '', photo2: '', photo3: '' },
+  settings: { theme: 'nocturno', transitions: true, fuego: true, sndBtn: false, sndBg: false },
+  vk: { VPN: false, REDOCULTA: false, ZUKURZALES: false, TOZO: false, VERKEHR: false }
+};
+
+function readSavedState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('dazer-state') || '{}');
+    return {
+      user: { ...DEFAULT_STATE.user, ...(saved.user || {}) },
+      settings: { ...DEFAULT_STATE.settings, ...(saved.settings || {}) },
+      vk: { ...DEFAULT_STATE.vk, ...(saved.vk || {}) }
+    };
+  } catch (error) {
+    console.warn('[DAZER] No se pudo leer el estado guardado:', error);
+    return structuredClone(DEFAULT_STATE);
+  }
+}
+const state = readSavedState();
+
+function save() {
+  try { localStorage.setItem('dazer-state', JSON.stringify(state)); }
+  catch (error) { console.warn('[DAZER] No se pudo guardar el estado:', error); }
+}
+function show(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('hidden');
+  if (!el.classList.contains('flex')) el.classList.add('flex');
+}
+function hide(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('hidden');
+  el.classList.remove('flex');
+}
+function toast(message, type = 'info') {
+  let wrap = document.getElementById('toast-wrap');
+  if (!wrap) {
+    wrap = document.createElement('div');
+    wrap.id = 'toast-wrap';
+    document.body.appendChild(wrap);
+  }
+  const colors = { success: '#16a34a', error: '#dc2626', info: '#7c3aed' };
+  const item = document.createElement('div');
+  item.textContent = String(message ?? '');
+  item.setAttribute('role', 'status');
+  Object.assign(item.style, {
+    position: 'relative', zIndex: '10001', margin: '8px auto', maxWidth: 'min(92vw, 460px)',
+    padding: '12px 16px', border: '1px solid rgba(255,255,255,.28)', borderRadius: '12px',
+    background: colors[type] || colors.info, color: '#fff', font: '600 13px Inter, sans-serif',
+    boxShadow: '0 8px 30px rgba(0,0,0,.55)', textAlign: 'center'
+  });
+  Object.assign(wrap.style, { position: 'fixed', left: '0', right: '0', top: '12px', zIndex: '10001', pointerEvents: 'none', padding: '0 10px' });
+  wrap.appendChild(item);
+  setTimeout(() => item.remove(), 3500);
+}
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+}
+function closeModal(id) { hide(id); }
+function applyVKModes() {
+  const map = { VPN: 'm-vpn', REDOCULTA: 'm-red', ZUKURZALES: 'm-zk', TOZO: 'm-tozo', VERKEHR: 'm-vk' };
+  for (const [key, className] of Object.entries(map)) document.body.classList.toggle(className, !!state.vk[key]);
+}
+function brainIcon(size = 36) {
+  return `<i class="fa-solid fa-brain" style="font-size:${Number(size) || 36}px;color:#dc2626;filter:drop-shadow(0 0 12px rgba(220,38,38,.65))" aria-hidden="true"></i>`;
+}
+function blackhole(size = 42) {
+  return `<span aria-hidden="true" style="display:inline-flex;width:${Number(size) || 42}px;height:${Number(size) || 42}px;border-radius:50%;align-items:center;justify-content:center;background:radial-gradient(circle,#000 35%,#7c3aed 55%,transparent 72%);box-shadow:0 0 18px #7c3aed"><i class="fa-solid fa-circle" style="font-size:12px;color:#000"></i></span>`;
+}
+
+window.show = show;
+window.hide = hide;
+window.toast = toast;
+window.closeModal = closeModal;
+
+window.goAuth = () => { hide('scr-pwa'); hide('scr-lang'); show('scr-auth'); };
+window.goLang = () => {
+  hide('scr-pwa'); hide('scr-auth');
+  const list = document.getElementById('lang-list');
+  if (list) list.innerHTML = '<p class="text-center text-sm opacity-70">La interfaz está disponible en español.</p>';
+  show('scr-lang');
+};
+window.exitApp = () => { hide('scr-auth'); hide('scr-lang'); show('scr-pwa'); };
+window.copyLink = async () => {
+  try { await navigator.clipboard.writeText(location.href); toast('Enlace copiado', 'success'); }
+  catch (_) { toast('No se pudo copiar el enlace en este navegador', 'error'); }
+};
+window.toggleSetting = key => {
+  if (!(key in state.settings)) return;
+  state.settings[key] = !state.settings[key]; save();
+  const id = ({ transitions: 'set-trans', fuego: 'set-fuego', sndBtn: 'set-sndBtn', sndBg: 'set-sndBg' })[key];
+  const el = id && document.getElementById(id);
+  if (el) el.classList.toggle('on', !!state.settings[key]), el.classList.toggle('off', !state.settings[key]);
+  if (key === 'fuego') document.querySelectorAll('.fuego,.fuego-spark').forEach(node => node.remove());
+};
+window.toggleVK = key => {
+  if (!(key in state.vk)) return;
+  state.vk[key] = !state.vk[key]; save(); applyVKModes();
+  const el = document.getElementById('vk-' + key);
+  if (el) el.classList.toggle('on', !!state.vk[key]), el.classList.toggle('off', !state.vk[key]);
+};
+window.setTheme = theme => {
+  const allowed = ['nocturno','dia','coquette','fuego','sexy','atodecedor','secreto','normal'];
+  state.settings.theme = allowed.includes(theme) ? theme : 'nocturno';
+  document.body.classList.remove(...allowed.map(t => 'theme-' + t));
+  document.body.classList.add('theme-' + state.settings.theme);
+  save();
+  if (document.getElementById('viewport')) window.go('config');
+};
+window.resetSettings = () => {
+  state.settings = { ...DEFAULT_STATE.settings };
+  state.vk = { ...DEFAULT_STATE.vk };
+  save(); applyVKModes(); window.go('config'); toast('Ajustes restaurados', 'success');
+};
+window.editProfilePhoto = () => {
+  const input = document.createElement('input'); input.type = 'file'; input.accept = 'image/*';
+  input.onchange = async () => {
+    const file = input.files && input.files[0];
+    if (!file || !state.user.uid) return;
+    if (file.size > 5 * 1024 * 1024) return toast('La foto debe pesar menos de 5 MB', 'error');
+    try {
+      const target = ref(stCuentas, `perfiles/${state.user.uid}/${Date.now()}_${file.name.replace(/[^\w.-]/g, '_')}`);
+      await uploadBytes(target, file);
+      const photo = await getDownloadURL(target);
+      await setDoc(doc(dbCuentas, 'usuarios', state.user.uid), { foto: photo }, { merge: true });
+      state.user.photo = photo; save(); window.go('perfil'); toast('Foto de perfil actualizada', 'success');
+    } catch (error) { toast('No se pudo subir la foto: ' + (error.code || error.message), 'error'); }
+  };
+  input.click();
+};
+
+async function completeLogin(user, emailFallback = '') {
+  const snap = await getDoc(doc(dbCuentas, 'usuarios', user.uid));
+  const data = snap.exists() ? snap.data() : {};
+  state.user = {
+    uid: user.uid,
+    name: String(data.nombre || user.displayName || emailFallback.split('@')[0] || 'USER').toUpperCase(),
+    role: data.rol || 'GRATUITO',
+    email: user.email || emailFallback || '',
+    photo: data.foto || user.photoURL || '', photo2: data.foto2 || '', photo3: data.foto3 || ''
+  };
+  save();
+  await setDoc(doc(dbCuentas, 'usuarios', user.uid), {
+    nombre: state.user.name, email: state.user.email, foto: state.user.photo, estado: 'conectado'
+  }, { merge: true });
+  hide('scr-auth'); hide('scr-rules');
+  if (data.normas) enterApp(); else show('scr-rules');
+}
+window.loginGoogle = async () => {
+  try {
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
+    await completeLogin(result.user, result.user.email || '');
+    toast('Conectado con Google', 'success');
+  } catch (error) {
+    console.error('[DAZER AUTH]', error);
+    toast('No se pudo iniciar sesión con Google: ' + (error.code || error.message), 'error');
+  }
+};
+
 /* ================= ICONO PWA ================= */
 const ICON_SVG =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
@@ -1480,42 +1728,9 @@ window.loginEmail = async () => {
 
   try {
     const res = await signInWithEmailAndPassword(auth, email, pass);
-    const u = res.user;
-
-    const d = await getDoc(
-      doc(dbCuentas, 'usuarios', u.uid)
-    );
-
-    const data = d.exists() ? d.data() : {};
-
-    state.user = {
-      uid: u.uid,
-      name: (data.nombre || email.split('@')[0]).toUpperCase(),
-      role: data.rol || 'GRATUITO',
-      email: u.email || email,
-      photo: data.foto || '',
-      photo2: data.foto2 || '',
-      photo3: data.foto3 || ''
-    };
-
-    save();
-
-    await setDoc(
-      doc(dbCuentas, 'usuarios', u.uid),
-      { estado: 'conectado' },
-      { merge: true }
-    );
-
+    await completeLogin(res.user, email);
     closeModal('mod-email');
     toast('Conectado', 'success');
-
-    if (data.normas) {
-      hide('scr-auth');
-      enterApp();
-    } else {
-      hide('scr-auth');
-      show('scr-rules');
-    }
   } catch (e) {
     const map = {
       'auth/user-not-found':
@@ -1601,8 +1816,7 @@ function enterApp() {
 }
 
 function applyTheme(t) {
-  document.body.className =
-    'select-none theme-' + t;
+  document.body.classList.add('theme-' + t);
 }
 
 window.logoutApp = async () => {
@@ -2212,7 +2426,7 @@ window.uploadContent = async coll => {
     );
 
     const safeName =
-      file.name.replace(/[^w.-]/g, '_');
+      file.name.replace(/[^\w.-]/g, '_');
 
     const r = ref(
       STS[coll],
@@ -2581,21 +2795,43 @@ views.config = () => {
     </div>`;
 };/* ================= INICIALIZACIÓN ================= */
 document.addEventListener('DOMContentLoaded', () => {
-  applyVKModes();
+  try { applyVKModes(); } catch (error) { console.error('[DAZER INIT]', error); }
 
   show('scr-auth');
-
-  setTimeout(() => {
-    if (state.user && state.user.uid) {
-      enterApp();
+  onAuthStateChanged(auth, async user => {
+    if (!user) {
+      state.user = { ...DEFAULT_STATE.user };
+      save();
+      const app = document.getElementById('app');
+      if (app) { app.classList.add('hidden'); app.classList.remove('flex'); }
+      show('scr-auth');
+      return;
     }
-  }, 500);
+
+    try {
+      if (state.user.uid === user.uid) {
+        hide('scr-auth');
+        enterApp();
+      } else {
+        await completeLogin(user, user.email || '');
+      }
+    } catch (error) {
+      console.error('[DAZER AUTH RESTORE]', error);
+      toast('No se pudo recuperar tu sesión. Inicia sesión de nuevo.', 'error');
+      show('scr-auth');
+    }
+  });
 });
 
 /* Prevenir zoom con doble toque */
 document.addEventListener('dblclick', event => {
   event.preventDefault();
 }, { passive: false });
+
+/* Fallback de inicio: muestra un mensaje legible si ocurre una excepción de módulo. */
+window.addEventListener('unhandledrejection', event => {
+  console.error('[DAZER PROMISE]', event.reason);
+});
 
 /* Errores globales */
 window.addEventListener('error', event => {
